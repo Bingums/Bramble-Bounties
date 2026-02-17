@@ -8,12 +8,12 @@ public class playerController : MonoBehaviour
 {
     [SerializeField] private float BASE_SPEED = 5f;
 
-    [Header("Dash Settings")]
+    [Header("Sprint Settings")]
     [SerializeField] private float maxStamina = 3f;
     [SerializeField] private float staminaDrainRate = 2f;  
     [SerializeField] private float staminaRegenRate = 1f; 
-    [SerializeField] private float dashMultiplier = 2f;
-    [SerializeField] private float dashCooldownTime = 3f;
+    [SerializeField] private float sprintMultiplier = 2f;
+    [SerializeField] private float sprintCooldownTime = 3f;
     [SerializeField] private Image staminaFill;
     private Rigidbody2D rb;
 
@@ -38,14 +38,14 @@ public class playerController : MonoBehaviour
 
         Vector2 dir = new Vector2(horizontal, vertical).normalized;
 
-        bool isDashing = Input.GetKey(KeyCode.LeftShift);
+        bool isSprinting = Input.GetKey(KeyCode.LeftShift);
 
         float speedToUse = BASE_SPEED;
 
         // DASH LOGIC
-        if (isDashing && currentStamina > 0 && !isOnCooldown)
+        if (isSprinting && currentStamina > 0 && !isOnCooldown)
         {
-            speedToUse *= dashMultiplier;
+            speedToUse *= sprintMultiplier;
 
             // Drain stamina over time
             currentStamina -= staminaDrainRate * Time.deltaTime;
@@ -53,7 +53,7 @@ public class playerController : MonoBehaviour
             if (currentStamina <= 0)
             {
                 currentStamina = 0;
-                StartCoroutine(DashCooldown());
+                StartCoroutine(SprintCooldown());
             }
         }
         else
@@ -90,11 +90,11 @@ public class playerController : MonoBehaviour
 
     }
 
-    IEnumerator DashCooldown()
+    IEnumerator SprintCooldown()
     {
         isOnCooldown = true;
 
-        yield return new WaitForSeconds(dashCooldownTime);
+        yield return new WaitForSeconds(sprintCooldownTime);
 
         isOnCooldown = false;
     }
