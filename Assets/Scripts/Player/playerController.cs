@@ -33,8 +33,8 @@ public class playerController : MonoBehaviour
 
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
 
         Vector2 dir = new Vector2(horizontal, vertical).normalized;
 
@@ -87,6 +87,7 @@ public class playerController : MonoBehaviour
         {
             transform.rotation = new Quaternion(0, 0, 0, 0);
         }
+
     }
 
     IEnumerator DashCooldown()
