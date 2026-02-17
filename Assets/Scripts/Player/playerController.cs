@@ -10,8 +10,8 @@ public class playerController : MonoBehaviour
 
     [Header("Dash Settings")]
     [SerializeField] private float maxStamina = 3f;
-    [SerializeField] private float staminaDrainRate = 2f;     // per second
-    [SerializeField] private float staminaRegenRate = 1f;     // per second
+    [SerializeField] private float staminaDrainRate = 2f;  
+    [SerializeField] private float staminaRegenRate = 1f; 
     [SerializeField] private float dashMultiplier = 2f;
     [SerializeField] private float dashCooldownTime = 3f;
     [SerializeField] private Image staminaFill;

@@ -664,7 +664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::playerController
   BASE_SPEED: 5
   maxStamina: 3
-  staminaDrainRate: 1
+  staminaDrainRate: 2
   staminaRegenRate: 1
   dashMultiplier: 2
   dashCooldownTime: 3
