@@ -43,7 +43,7 @@ public class playerController : MonoBehaviour
         float speedToUse = BASE_SPEED;
 
         // DASH LOGIC
-        if (isDashing && currentStamina > 0 && !isOnCooldown)
+        if (isDashing && currentStamina > 0 && !isOnCooldown && dir != Vector2.zero)
         {
             speedToUse *= dashMultiplier;
 
