@@ -1,0 +1,2 @@
+Bramble Bounties is a 2D top-down rogue-lite where the player must navigate the lair of an intergalactic criminal organization. Before each floor, the player gets to pick which minibosses they want to fight. Each miniboss has a bounty associated with them. The higher the bounty, the harder the miniboss, but the greater the reward. Can you successfully fight through 20 floors and save the Bramble Nebula?
+

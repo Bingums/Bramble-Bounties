@@ -666,8 +666,8 @@ MonoBehaviour:
   maxStamina: 3
   staminaDrainRate: 2
   staminaRegenRate: 1
-  dashMultiplier: 2
-  dashCooldownTime: 3
+  sprintMultiplier: 2
+  sprintCooldownTime: 3
   staminaFill: {fileID: 974391349}
   currentStamina: 0
   hp: 0
