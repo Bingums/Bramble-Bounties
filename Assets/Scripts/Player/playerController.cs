@@ -28,15 +28,10 @@ public class playerController : MonoBehaviour
 
     void Update()
     {
-<<<<<<< Updated upstream
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
 
-=======
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         
->>>>>>> Stashed changes
         Vector2 dir = new Vector2(horizontal, vertical).normalized;
 
         bool isDashing = Input.GetKey(KeyCode.LeftShift);
