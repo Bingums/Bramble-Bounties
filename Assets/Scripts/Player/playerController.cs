@@ -8,23 +8,18 @@ public class playerController : MonoBehaviour
 {
     [SerializeField] private float BASE_SPEED = 5f;
 
-    [Header("Sprint Settings")]
+    [Header("Dash Settings")]
     [SerializeField] private float maxStamina = 3f;
-    [SerializeField] private float staminaDrainRate = 2f;  
-    [SerializeField] private float staminaRegenRate = 1f; 
-    [SerializeField] private float sprintMultiplier = 2f;
-    [SerializeField] private float sprintCooldownTime = 3f;
+    [SerializeField] private float staminaDrainRate = 2f;     // per second
+    [SerializeField] private float staminaRegenRate = 1f;     // per second
+    [SerializeField] private float dashMultiplier = 2f;
+    [SerializeField] private float dashCooldownTime = 3f;
     [SerializeField] private Image staminaFill;
     private Rigidbody2D rb;
 
     [SerializeField] private float currentStamina;
     private bool isOnCooldown = false;
-
-    [Header("Player Stats")]
-    [SerializeField] private int hp;
-    [SerializeField] private int attack;
-    [SerializeField] private int defense;
-
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -33,19 +28,25 @@ public class playerController : MonoBehaviour
 
     void Update()
     {
+<<<<<<< Updated upstream
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+=======
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-
+        
+>>>>>>> Stashed changes
         Vector2 dir = new Vector2(horizontal, vertical).normalized;
 
-        bool isSprinting = Input.GetKey(KeyCode.LeftShift);
+        bool isDashing = Input.GetKey(KeyCode.LeftShift);
 
         float speedToUse = BASE_SPEED;
 
         // DASH LOGIC
-        if (isSprinting && currentStamina > 0 && !isOnCooldown && dir != Vector2.zero)
+        if (isDashing && currentStamina > 0 && !isOnCooldown)
         {
-            speedToUse *= sprintMultiplier;
+            speedToUse *= dashMultiplier;
 
             // Drain stamina over time
             currentStamina -= staminaDrainRate * Time.deltaTime;
@@ -53,7 +54,7 @@ public class playerController : MonoBehaviour
             if (currentStamina <= 0)
             {
                 currentStamina = 0;
-                StartCoroutine(SprintCooldown());
+                StartCoroutine(DashCooldown());
             }
         }
         else
@@ -87,14 +88,13 @@ public class playerController : MonoBehaviour
         {
             transform.rotation = new Quaternion(0, 0, 0, 0);
         }
-
     }
 
-    IEnumerator SprintCooldown()
+    IEnumerator DashCooldown()
     {
         isOnCooldown = true;
 
-        yield return new WaitForSeconds(sprintCooldownTime);
+        yield return new WaitForSeconds(dashCooldownTime);
 
         isOnCooldown = false;
     }
