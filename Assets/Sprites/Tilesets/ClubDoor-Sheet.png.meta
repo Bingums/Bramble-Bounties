@@ -1,25 +1,10 @@
 fileFormatVersion: 2
-guid: 78f087ae54c509e499b02767c0a66381
+guid: 6994e02979eb82c46b7751dbcf53ef62
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5749169304641835459
-    second: WeaponsIcons_0
-  - first:
-      213: -8340413889524006940
-    second: WeaponsIcons_1
-  - first:
-      213: 7652799950109008760
-    second: WeaponsIcons_2
-  - first:
-      213: -3180577023440991259
-    second: WeaponsIcons_3
-  - first:
-      213: -3656301783182984568
-    second: WeaponsIcons_4
-  - first:
-      213: -7521022569303309683
-    second: WeaponsIcons_5
+      213: 6046032003032931393
+    second: ClubDoor-Sheet_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -66,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 96
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -128,133 +113,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WeaponsIcons_0
+      name: ClubDoor-Sheet_0
       rect:
         serializedVersion: 2
-        x: 71
-        y: 104
-        width: 140
-        height: 80
+        x: 0
+        y: 0
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3c191cca50729cf40800000000000000
-      internalID: 5749169304641835459
+      spriteID: 14cdb61d212d7e350800000000000000
+      internalID: 6046032003032931393
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WeaponsIcons_1
+      name: ClubDoor-Sheet_1
       rect:
         serializedVersion: 2
-        x: 287
-        y: 119
-        width: 287
-        height: 53
+        x: 96
+        y: 0
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4efff23c1c5e04c80800000000000000
-      internalID: -8340413889524006940
+      spriteID: 6e9a7493b70363a4e955be8aa15d0839
+      internalID: 255571481
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WeaponsIcons_2
+      name: ClubDoor-Sheet_2
       rect:
         serializedVersion: 2
-        x: 575
-        y: 119
-        width: 287
-        height: 56
+        x: 192
+        y: 0
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 873ef532205343a60800000000000000
-      internalID: 7652799950109008760
+      spriteID: dbdd876becccb4f4f92db50f45341c86
+      internalID: 583522352
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WeaponsIcons_3
+      name: ClubDoor-Sheet_3
       rect:
         serializedVersion: 2
-        x: 905
-        y: 110
-        width: 215
-        height: 62
+        x: 288
+        y: 0
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5ebc7017c025cd3d0800000000000000
-      internalID: -3180577023440991259
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WeaponsIcons_4
-      rect:
-        serializedVersion: 2
-        x: 1247
-        y: 26
-        width: 71
-        height: 221
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 88a30cd66e4324dc0800000000000000
-      internalID: -3656301783182984568
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WeaponsIcons_5
-      rect:
-        serializedVersion: 2
-        x: 1544
-        y: 5
-        width: 77
-        height: 281
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d820bf042d5ff9790800000000000000
-      internalID: -7521022569303309683
+      spriteID: b8da7cbff1d4bbe469b1f09f1d85a006
+      internalID: -11054369
       vertices: []
       indices: 
       edges: []
@@ -263,7 +204,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1ca603a6c8ab4614ba983548ca7e942d
     internalID: 0
     vertices: []
     indices: 
@@ -271,14 +212,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":96.0,"y":96.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      WeaponsIcons_0: 5749169304641835459
-      WeaponsIcons_1: -8340413889524006940
-      WeaponsIcons_2: 7652799950109008760
-      WeaponsIcons_3: -3180577023440991259
-      WeaponsIcons_4: -3656301783182984568
-      WeaponsIcons_5: -7521022569303309683
+      ClubDoor-Sheet_0: 6046032003032931393
+      ClubDoor-Sheet_1: 255571481
+      ClubDoor-Sheet_2: 583522352
+      ClubDoor-Sheet_3: -11054369
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
