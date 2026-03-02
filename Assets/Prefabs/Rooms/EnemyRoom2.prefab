@@ -1746,6 +1746,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2965742698110882517}
   - component: {fileID: 6482510438667149388}
+  - component: {fileID: 7240640304088377160}
   m_Layer: 0
   m_Name: EnemyRoom2
   m_TagString: Untagged
@@ -1787,6 +1788,22 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!114 &7240640304088377160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144422401120402874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce5f9f0e9fe849c4ebdd3b4999d1296a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Room
+  rightDoor: {fileID: 0}
+  leftDoor: {fileID: 0}
+  topDoor: {fileID: 6173721030561633012}
+  bottomDoor: {fileID: 8652147918634134648}
 --- !u!1 &6173721030561633012
 GameObject:
   m_ObjectHideFlags: 0

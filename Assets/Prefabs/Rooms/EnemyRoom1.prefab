@@ -320,6 +320,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5920340190217138146}
   - component: {fileID: 9016559881554035849}
+  - component: {fileID: -2696684569836636401}
   m_Layer: 0
   m_Name: EnemyRoom1
   m_TagString: Untagged
@@ -363,6 +364,22 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!114 &-2696684569836636401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4209891415839552414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce5f9f0e9fe849c4ebdd3b4999d1296a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Room
+  rightDoor: {fileID: 3082378413548712051}
+  leftDoor: {fileID: 8652147918634134648}
+  topDoor: {fileID: 5790351103140688221}
+  bottomDoor: {fileID: 9076601834553131808}
 --- !u!1 &5349732956681552531
 GameObject:
   m_ObjectHideFlags: 0
