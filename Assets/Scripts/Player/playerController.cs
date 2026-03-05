@@ -62,7 +62,7 @@ public class playerController : MonoBehaviour
             }
         }
 
-        staminaFill.fillAmount = currentStamina / maxStamina;
+        //staminaFill.fillAmount = currentStamina / maxStamina;
 
         // Apply movement
         if (dir.magnitude < 0.1f)
