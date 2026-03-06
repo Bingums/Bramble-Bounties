@@ -14,10 +14,15 @@ public enum WeaponType
 
 public class playerCombat : MonoBehaviour
 {
-    public WeaponData currentWeapon;
-    
+    //DEBUG LINE, REMOVE SERIALIZE FIELD
+    [SerializeField] public WeaponData currentWeapon;
+    [SerializeField] private GameObject currentWeaponInstance;
+
     private playerStats stats;
     private float lastAttackTime;
+
+    [SerializeField] private Transform weaponContainer;
+
     private void Awake()
     {
         stats = GetComponent<playerStats>();
@@ -25,7 +30,17 @@ public class playerCombat : MonoBehaviour
 
     public void EquipWeapon(WeaponData newWeapon)
     {
+        if(currentWeaponInstance != null)
+        {
+            Destroy(currentWeaponInstance);
+        }
+        
         currentWeapon = newWeapon;
+
+        currentWeaponInstance = Instantiate(
+            newWeapon.weaponPrefab, 
+            weaponContainer);
+        
         Debug.Log("Equipped: " + newWeapon.weaponName);
     }
 
@@ -33,7 +48,7 @@ public class playerCombat : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -56,34 +71,22 @@ public class playerCombat : MonoBehaviour
         if (Time.time < lastAttackTime + currentWeapon.attackCooldown) return;
 
         Debug.Log("Attacked");
-        lastAttackTime = Time.time;
-        
-        MeleeAttack();
-    }
-
-    void MeleeAttack()
-    {
-        int damage = calculateDamage();
-
-        Collider2D[] hits = Physics2D.OverlapCircleAll(
-            transform.position,
-            currentWeapon.range);
-
-        foreach (Collider2D hit in hits)
+        lastAttackTime = Time.time; 
+        if(currentWeapon.isMelee && 
+           currentWeaponInstance.TryGetComponent<Melee>(out var meleeWeapon))
         {
-            if (hit.gameObject != gameObject &&
-                hit.TryGetComponent<IDamageable>(out var damageable))
-            {
-                damageable.TakeDamage(damage);
-            }
+            int damage = calculateDamage();
+            meleeWeapon.Initialize(damage);
+            meleeWeapon.Swing();
         }
+
     }
 
-    int calculateDamage()
+    private int calculateDamage()
     {
         float damage = currentWeapon.baseDamage;
         damage *= stats.damageMultiplier;
-        
+
         return Mathf.RoundToInt(damage);
     }
 

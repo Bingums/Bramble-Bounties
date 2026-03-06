@@ -17,3 +17,4 @@ MonoBehaviour:
   attackCooldown: 1.5
   range: 2
   isMelee: 1
+  weaponPrefab: {fileID: 4309655550504927745, guid: 2992f01da3e88c246830dfe6ea2830c4, type: 3}
