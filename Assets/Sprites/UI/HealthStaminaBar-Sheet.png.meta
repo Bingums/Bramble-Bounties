@@ -1,25 +1,16 @@
 fileFormatVersion: 2
-guid: 78f087ae54c509e499b02767c0a66381
+guid: 7c99133aefe01c541a2be2ad37753744
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5749169304641835459
-    second: WeaponsIcons_0
+      213: 854644019779022466
+    second: HealthStaminaBar-Sheet_0
   - first:
-      213: -8340413889524006940
-    second: WeaponsIcons_1
+      213: -3372943695503434212
+    second: HealthStaminaBar-Sheet_1
   - first:
-      213: 7652799950109008760
-    second: WeaponsIcons_2
-  - first:
-      213: -3180577023440991259
-    second: WeaponsIcons_3
-  - first:
-      213: -3656301783182984568
-    second: WeaponsIcons_4
-  - first:
-      213: -7521022569303309683
-    second: WeaponsIcons_5
+      213: 9190348086877911374
+    second: HealthStaminaBar-Sheet_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -128,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WeaponsIcons_0
+      name: HealthStaminaBar-Sheet_0
       rect:
         serializedVersion: 2
-        x: 71
-        y: 104
-        width: 140
-        height: 80
+        x: 0
+        y: 0
+        width: 513
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,20 +134,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3c191cca50729cf40800000000000000
-      internalID: 5749169304641835459
+      spriteID: 28e2758353e4cdb00800000000000000
+      internalID: 854644019779022466
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WeaponsIcons_1
+      name: HealthStaminaBar-Sheet_1
       rect:
         serializedVersion: 2
-        x: 287
-        y: 119
-        width: 287
-        height: 53
+        x: 618
+        y: 51
+        width: 403
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,20 +156,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4efff23c1c5e04c80800000000000000
-      internalID: -8340413889524006940
+      spriteID: c1edf1e5495e031d0800000000000000
+      internalID: -3372943695503434212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WeaponsIcons_2
+      name: HealthStaminaBar-Sheet_2
       rect:
         serializedVersion: 2
-        x: 575
-        y: 119
-        width: 287
-        height: 56
+        x: 1130
+        y: 3
+        width: 403
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,74 +178,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 873ef532205343a60800000000000000
-      internalID: 7652799950109008760
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WeaponsIcons_3
-      rect:
-        serializedVersion: 2
-        x: 905
-        y: 110
-        width: 215
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5ebc7017c025cd3d0800000000000000
-      internalID: -3180577023440991259
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WeaponsIcons_4
-      rect:
-        serializedVersion: 2
-        x: 1247
-        y: 26
-        width: 71
-        height: 221
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 88a30cd66e4324dc0800000000000000
-      internalID: -3656301783182984568
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WeaponsIcons_5
-      rect:
-        serializedVersion: 2
-        x: 1544
-        y: 5
-        width: 77
-        height: 281
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d820bf042d5ff9790800000000000000
-      internalID: -7521022569303309683
+      spriteID: e497c8874ecaa8f70800000000000000
+      internalID: 9190348086877911374
       vertices: []
       indices: 
       edges: []
@@ -273,12 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      WeaponsIcons_0: 5749169304641835459
-      WeaponsIcons_1: -8340413889524006940
-      WeaponsIcons_2: 7652799950109008760
-      WeaponsIcons_3: -3180577023440991259
-      WeaponsIcons_4: -3656301783182984568
-      WeaponsIcons_5: -7521022569303309683
+      HealthStaminaBar-Sheet_0: 854644019779022466
+      HealthStaminaBar-Sheet_1: -3372943695503434212
+      HealthStaminaBar-Sheet_2: 9190348086877911374
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
