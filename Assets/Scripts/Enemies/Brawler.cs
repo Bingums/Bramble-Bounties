@@ -21,8 +21,9 @@ public class Brawler : MonoBehaviour
     }
 
 
-    void OnTriggerEnter2D(Collider2D collision){
-        if(collision.tag == "Player"){
+    public void OnTriggerEnter2D(Collider2D collision){
+        if(collision.CompareTag("Player"))
+        {
             if(Random.Range(0, shitPantsChance) < 1){
                 brownPants.color = shitBrown;
                 Debug.Log("SHIT YOUR PaNTS");

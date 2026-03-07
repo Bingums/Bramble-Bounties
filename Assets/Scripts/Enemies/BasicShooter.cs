@@ -49,6 +49,6 @@ public class BasicShooter : MonoBehaviour
         bulletTime = timer;
 
         GameObject bulletObj = Instantiate(bullet, spawnPoint.transform.position, spawnPoint.transform.rotation) as GameObject;
-    
+        Destroy(bulletObj, 2);
     }
 }
