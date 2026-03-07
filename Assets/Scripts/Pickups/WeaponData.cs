@@ -8,4 +8,6 @@ public class WeaponData : ScriptableObject
     public float attackCooldown;
     public float range;
     public bool isMelee;
+
+    public GameObject weaponPrefab;
 }

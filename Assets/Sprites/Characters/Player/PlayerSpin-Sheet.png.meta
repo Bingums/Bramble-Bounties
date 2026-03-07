@@ -1,25 +1,31 @@
 fileFormatVersion: 2
-guid: 78f087ae54c509e499b02767c0a66381
+guid: 017acf229a4d1f241ae2ec898c103f4f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5749169304641835459
-    second: WeaponsIcons_0
+      213: 420981469172300113
+    second: PlayerSpin-Sheet_0
   - first:
-      213: -8340413889524006940
-    second: WeaponsIcons_1
+      213: 3522528172873704783
+    second: PlayerSpin-Sheet_1
   - first:
-      213: 7652799950109008760
-    second: WeaponsIcons_2
+      213: -6478344815087490214
+    second: PlayerSpin-Sheet_2
   - first:
-      213: -3180577023440991259
-    second: WeaponsIcons_3
+      213: -7397849719667051507
+    second: PlayerSpin-Sheet_3
   - first:
-      213: -3656301783182984568
-    second: WeaponsIcons_4
+      213: -3725897409917561056
+    second: PlayerSpin-Sheet_4
   - first:
-      213: -7521022569303309683
-    second: WeaponsIcons_5
+      213: 1340395309818862176
+    second: PlayerSpin-Sheet_5
+  - first:
+      213: -7905636364572380484
+    second: PlayerSpin-Sheet_6
+  - first:
+      213: 3055814628514175841
+    second: PlayerSpin-Sheet_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -90,7 +96,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -128,133 +134,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WeaponsIcons_0
+      name: PlayerSpin-Sheet_0
       rect:
         serializedVersion: 2
-        x: 71
-        y: 104
-        width: 140
-        height: 80
+        x: 369
+        y: 279
+        width: 212
+        height: 452
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3c191cca50729cf40800000000000000
-      internalID: 5749169304641835459
+      spriteID: 159790f6a60a7d500800000000000000
+      internalID: 420981469172300113
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WeaponsIcons_1
+      name: PlayerSpin-Sheet_1
       rect:
         serializedVersion: 2
-        x: 287
-        y: 119
-        width: 287
-        height: 53
+        x: 1329
+        y: 279
+        width: 212
+        height: 452
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4efff23c1c5e04c80800000000000000
-      internalID: -8340413889524006940
+      spriteID: f456177c5b882e030800000000000000
+      internalID: 3522528172873704783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WeaponsIcons_2
+      name: PlayerSpin-Sheet_2
       rect:
         serializedVersion: 2
-        x: 575
-        y: 119
-        width: 287
-        height: 56
+        x: 2289
+        y: 279
+        width: 212
+        height: 452
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 873ef532205343a60800000000000000
-      internalID: 7652799950109008760
+      spriteID: a5b6734e6bb4816a0800000000000000
+      internalID: -6478344815087490214
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WeaponsIcons_3
+      name: PlayerSpin-Sheet_3
       rect:
         serializedVersion: 2
-        x: 905
-        y: 110
-        width: 215
-        height: 62
+        x: 3249
+        y: 279
+        width: 212
+        height: 452
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5ebc7017c025cd3d0800000000000000
-      internalID: -3180577023440991259
+      spriteID: d04b58d10ee855990800000000000000
+      internalID: -7397849719667051507
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WeaponsIcons_4
+      name: PlayerSpin-Sheet_4
       rect:
         serializedVersion: 2
-        x: 1247
-        y: 26
-        width: 71
-        height: 221
-      alignment: 9
-      pivot: {x: 0.4978887, y: 0.013152593}
+        x: 4209
+        y: 279
+        width: 212
+        height: 452
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 88a30cd66e4324dc0800000000000000
-      internalID: -3656301783182984568
+      spriteID: 027d05cdb04fa4cc0800000000000000
+      internalID: -3725897409917561056
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WeaponsIcons_5
+      name: PlayerSpin-Sheet_5
       rect:
         serializedVersion: 2
-        x: 1544
-        y: 5
-        width: 77
-        height: 281
+        x: 5169
+        y: 279
+        width: 212
+        height: 452
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d820bf042d5ff9790800000000000000
-      internalID: -7521022569303309683
+      spriteID: 06a5a5cbe6a0a9210800000000000000
+      internalID: 1340395309818862176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpin-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 6129
+        y: 279
+        width: 212
+        height: 452
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb2b04ebc99894290800000000000000
+      internalID: -7905636364572380484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpin-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 7089
+        y: 279
+        width: 212
+        height: 452
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16b9708d63f686a20800000000000000
+      internalID: 3055814628514175841
       vertices: []
       indices: 
       edges: []
@@ -263,7 +313,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e15a195d782b8a54095c54df7f8671d7
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -273,12 +323,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      WeaponsIcons_0: 5749169304641835459
-      WeaponsIcons_1: -8340413889524006940
-      WeaponsIcons_2: 7652799950109008760
-      WeaponsIcons_3: -3180577023440991259
-      WeaponsIcons_4: -3656301783182984568
-      WeaponsIcons_5: -7521022569303309683
+      PlayerSpin-Sheet_0: 420981469172300113
+      PlayerSpin-Sheet_1: 3522528172873704783
+      PlayerSpin-Sheet_2: -6478344815087490214
+      PlayerSpin-Sheet_3: -7397849719667051507
+      PlayerSpin-Sheet_4: -3725897409917561056
+      PlayerSpin-Sheet_5: 1340395309818862176
+      PlayerSpin-Sheet_6: -7905636364572380484
+      PlayerSpin-Sheet_7: 3055814628514175841
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
