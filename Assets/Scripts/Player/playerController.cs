@@ -33,7 +33,6 @@ public class playerController : MonoBehaviour
 
     void Update()
     {
-
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         
@@ -83,18 +82,6 @@ public class playerController : MonoBehaviour
             animator.SetFloat("InputY", vertical);
             animator.SetFloat("LastInputX", horizontal);
             animator.SetFloat("LastInputY", vertical);
-        }
-
-        SpriteRenderer sr = GetComponent<SpriteRenderer>();
-        bool goingLeft = horizontal > 0;
-        // Flip sprite
-        if (goingLeft)
-        {
-            sr.flipX = true;
-        }
-        else 
-        {
-            sr.flipX = false;
         }
 
         if(interactables != null && Input.GetKeyDown(KeyCode.E)) {
