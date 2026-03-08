@@ -23,6 +23,7 @@ public class playerController : MonoBehaviour
     private Animator animator;
     
     private List<IInteractable> interactables = new List<IInteractable>();
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
