@@ -7,16 +7,16 @@ public class EnemySpawnManager : MonoBehaviour
 
     [SerializeField] private GameObject[] enemyPrefabs;
 
-    private int spawnRate = 2;
+    private int spawnRate = 5;
 
     private Room[] levelRooms;
 
     void Awake()
     {
-        //if(Instance == null)
+        if(Instance == null)
             Instance = this;
-        //else
-            //Destroy(gameObject);
+        else
+            Destroy(gameObject);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

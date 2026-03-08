@@ -22,6 +22,7 @@ public class playerController : MonoBehaviour
 
     private Animator animator;
     
+    private List<IInteractable> interactables = new List<IInteractable>();
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -82,6 +83,22 @@ public class playerController : MonoBehaviour
             animator.SetFloat("LastInputX", horizontal);
             animator.SetFloat("LastInputY", vertical);
         }
+
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        bool goingLeft = horizontal > 0;
+        // Flip sprite
+        if (goingLeft)
+        {
+            sr.flipX = true;
+        }
+        else 
+        {
+            sr.flipX = false;
+        }
+
+        if(interactables != null && Input.GetKeyDown(KeyCode.E)) {
+            GetClosestInteractable().Interact();
+        }
     }
 
     IEnumerator DashCooldown()
@@ -91,5 +108,34 @@ public class playerController : MonoBehaviour
         yield return new WaitForSeconds(dashCooldownTime);
 
         isOnCooldown = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        IInteractable nearbyInteractable = collision.GetComponent<IInteractable>();
+        interactables.Add(nearbyInteractable);
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        IInteractable nearbyInteractable = collision.GetComponent<IInteractable>();
+        interactables.Remove(nearbyInteractable);
+    }
+
+    private IInteractable GetClosestInteractable()
+    {
+        IInteractable closestInteractable = null;
+        float closestDistance = 10000000000;
+
+        foreach(IInteractable interactable in interactables)
+        {
+            float distance = Vector2.Distance(transform.position, interactable.transform.position);
+            if(distance < closestDistance) {
+                closestDistance = distance;
+                closestInteractable = interactable;
+            }
+        }
+
+        return closestInteractable;
     }
 }
