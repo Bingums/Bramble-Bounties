@@ -159,6 +159,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::playerCombat
   currentWeapon: {fileID: 11400000, guid: 5fda3e2891ed7a44e85a008072f6dfa6, type: 2}
+  currentWeaponInstance: {fileID: 0}
+  weaponContainer: {fileID: 0}
 --- !u!114 &2641500236593023333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,7 +230,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.88, y: 3.26}
+  m_Size: {x: 4.32, y: 4.89}
   m_EdgeRadius: 0
 --- !u!61 &8698204449529937912
 BoxCollider2D:

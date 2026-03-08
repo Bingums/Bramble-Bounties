@@ -1,14 +1,8 @@
+using JetBrains.Annotations;
 using UnityEngine;
-using System;
 
-public class Door : MonoBehaviour, IInteractable
+public class Soldier : MonoBehaviour, IInteractable
 {
-
-    public Sprite openDoor;
-    public Sprite closedDoor;
-
-    private bool closed = true;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,9 +18,6 @@ public class Door : MonoBehaviour, IInteractable
     public void Interact()
     {
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
-        if(closed)
-            sr.sprite = openDoor;
-        else
-            sr.sprite = closedDoor;
+        sr.color = Color.white;
     }
 }
