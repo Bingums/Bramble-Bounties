@@ -19,11 +19,14 @@ public class playerController : MonoBehaviour
 
     [SerializeField] private float currentStamina;
     private bool isOnCooldown = false;
+
+    private Animator animator;
     
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         currentStamina = maxStamina;
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -62,7 +65,7 @@ public class playerController : MonoBehaviour
             }
         }
 
-        staminaFill.fillAmount = currentStamina / maxStamina;
+        //staminaFill.fillAmount = currentStamina / maxStamina;
 
         // Apply movement
         if (dir.magnitude < 0.1f)
@@ -71,17 +74,11 @@ public class playerController : MonoBehaviour
         }
         else
         {
+            //animator.SetBool("isWalking", true);
             rb.linearVelocity = dir * speedToUse;
-        }
-
-        // Flip sprite
-        if (horizontal > 0)
-        {
-            transform.rotation = new Quaternion(0, -1, 0, 0);
-        }
-        else if (horizontal < 0)
-        {
-            transform.rotation = new Quaternion(0, 0, 0, 0);
+            
+            animator.SetFloat("InputX", horizontal);
+            animator.SetFloat("InputY", vertical);
         }
     }
 

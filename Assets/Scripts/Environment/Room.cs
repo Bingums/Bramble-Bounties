@@ -1,19 +1,63 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-    [Header("Door GameObjects")]
+    [SerializeField] private Transform[] spawnPoints;
+    private int enemyCap = 16;
+    private int curEnemyCount = 0;
+    private bool isCleared = false;
     public GameObject rightDoor;
     public GameObject leftDoor;
     public GameObject topDoor;
     public GameObject bottomDoor;
-    
-    [Header("Wall GameObjects")]
     public GameObject rightWall;
     public GameObject leftWall;
     public GameObject topWall;
     public GameObject bottomWall;
     
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public bool atCap()
+    {
+        if(curEnemyCount >= enemyCap) return true;
+        return false;
+    }
+
+    public bool isRoomCleared()
+    {
+        return isCleared;
+    }
+
+    public void IncreaseEnemyCount()
+    {
+        Debug.Log(curEnemyCount);
+        curEnemyCount++;
+    }
+
+    public void DecreaseEnemyCount()
+    {
+        curEnemyCount--;
+    }
+
+    public Transform[] GetSpawnPoints()
+    {
+        return spawnPoints;
+    }
+
+
+   
     // Enum for directions
     public enum Direction
     {
@@ -21,13 +65,6 @@ public class Room : MonoBehaviour
         Left,
         Top,
         Bottom
-    }
-    
-    void Start()
-    {
-        // Optional: Ensure all doors/walls start in a default state
-        // DisableAllDoors();
-        // EnableAllWalls();
     }
     
     // Enable a specific door and disable its corresponding wall
@@ -115,22 +152,4 @@ public void EnableWall(Direction direction)
         }
     }
     
-    // Optional: Visual debugging in the editor
-    void OnDrawGizmosSelected()
-    {
-        // Draw direction indicators
-        Gizmos.color = Color.blue;
-        
-        if (rightDoor != null && rightDoor.activeSelf)
-            Gizmos.DrawLine(transform.position, transform.position + Vector3.right * 2f);
-        
-        if (leftDoor != null && leftDoor.activeSelf)
-            Gizmos.DrawLine(transform.position, transform.position + Vector3.left * 2f);
-        
-        if (topDoor != null && topDoor.activeSelf)
-            Gizmos.DrawLine(transform.position, transform.position + Vector3.up * 2f);
-        
-        if (bottomDoor != null && bottomDoor.activeSelf)
-            Gizmos.DrawLine(transform.position, transform.position + Vector3.down * 2f);
-    }
 }
