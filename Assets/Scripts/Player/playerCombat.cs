@@ -20,12 +20,15 @@ public class playerCombat : MonoBehaviour
 
     private playerStats stats;
     private float lastAttackTime;
+    
+    private Animator animator;
 
     [SerializeField] private Transform weaponContainer;
 
     private void Awake()
     {
         stats = GetComponent<playerStats>();
+        animator = GetComponent<Animator>();
     }
 
     public void EquipWeapon(WeaponData newWeapon)
@@ -70,20 +73,21 @@ public class playerCombat : MonoBehaviour
 
         if (Time.time < lastAttackTime + currentWeapon.attackCooldown) return;
 
-        Debug.Log("Attacked");
+        //Debug.Log("Attacked");
         lastAttackTime = Time.time; 
         if(currentWeapon.isMelee && 
            currentWeaponInstance.TryGetComponent<Melee>(out var meleeWeapon))
         {
             int damage = calculateDamage();
             meleeWeapon.Initialize(damage);
-            meleeWeapon.Swing();
+            meleeWeapon.Swing(animator);
         }
-
     }
 
     private int calculateDamage()
     {
+        Debug.Log($"Stats: {stats.damageMultiplier}");
+        Debug.Log($"Damage: {currentWeapon.baseDamage}");
         float damage = currentWeapon.baseDamage;
         damage *= stats.damageMultiplier;
 

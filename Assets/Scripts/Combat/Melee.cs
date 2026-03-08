@@ -4,22 +4,27 @@ using Combat;
 public class Melee : MonoBehaviour
 {
     public WeaponData data;
-
+    
     private int damage;
+    
+    
 
     public void Initialize(int finalDamage)
     {
         damage = finalDamage;
     }
 
-    public void Swing()
+    public void Swing(Animator animator)
     {
         StopAllCoroutines();
-        StartCoroutine(SwingRoutine());
+        Debug.Log("Swing Animation");
+        StartCoroutine(SwingRoutine(animator));
+        //animator.SetBool("isSwinging", false);
     }
 
-    private System.Collections.IEnumerator SwingRoutine()
+    private System.Collections.IEnumerator SwingRoutine(Animator animator)
     {
+        /*
         float duration = 0.15f;
         float time = 0f;
         
@@ -32,14 +37,30 @@ public class Melee : MonoBehaviour
             time += Time.deltaTime;
             yield return null;
         }
+        */
         
-        transform.localRotation = startRotation;
+        
+        //transform.localRotation = startRotation;
+        float duration = 0.20f;
+        float time = 0f;
+        
+        animator.SetBool("isSwinging", true);
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            yield return null;
+        }
+        
+        animator.SetBool("isSwinging", false);
+        
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.TryGetComponent<IDamageable>(out var damageable))
         {
+            Debug.Log(damageable);
             damageable.TakeDamage(damage);
         }
     }
@@ -49,7 +70,7 @@ public class Melee : MonoBehaviour
     {
         
     }
-
+    
     // Update is called once per frame
     void Update()
     {

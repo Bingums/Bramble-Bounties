@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 8685640300679702138}
   - component: {fileID: 8698204449529937912}
   m_Layer: 0
-  m_Name: player
+  m_Name: temp player OUTDATED
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
