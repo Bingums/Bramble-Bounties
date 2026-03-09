@@ -2641,13 +2641,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 4729283960323317606}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce5f9f0e9fe849c4ebdd3b4999d1296a, type: 3}
+  m_Script: {fileID: 11500000, guid: b5be90bdb8e7cf540b5c01eb7690a09e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Room
+  spawnPoints: []
   rightDoor: {fileID: 0}
   leftDoor: {fileID: 0}
   topDoor: {fileID: 0}
-  bottomDoor: {fileID: 2485705781245288933}
+  bottomDoor: {fileID: 0}
+  rightWall: {fileID: 0}
+  leftWall: {fileID: 0}
+  topWall: {fileID: 0}
+  bottomWall: {fileID: 0}
 --- !u!1 &6529294123649799338
 GameObject:
   m_ObjectHideFlags: 0
@@ -2753,7 +2758,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8652147918634134648, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8813627777819791088, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2803,10 +2808,5 @@ PrefabInstance:
 --- !u!4 &2323243091947340653 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8813627777819791088, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
-  m_PrefabInstance: {fileID: 6516034162381557149}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2485705781245288933 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8652147918634134648, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
   m_PrefabInstance: {fileID: 6516034162381557149}
   m_PrefabAsset: {fileID: 0}
