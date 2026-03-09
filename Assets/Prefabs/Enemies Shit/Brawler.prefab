@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 6219609900816753815}
   - component: {fileID: 5889021698161850580}
   - component: {fileID: 3204007507210909983}
+  - component: {fileID: 3223384402217098031}
   - component: {fileID: 3266891807830674988}
   - component: {fileID: 5103306671240182501}
   - component: {fileID: -557704412205452254}
+  - component: {fileID: -5053667537704041767}
   m_Layer: 0
   m_Name: Brawler
   m_TagString: Enemy
@@ -107,7 +109,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abaaa538566896c479bb88417c1510a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Brawler
-  shitPantsChance: 0
+--- !u!114 &3223384402217098031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6561241342260376408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c197aa958f1a248b5dbf873e56a4a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyData
+  maxHealth: 20
+  currentHealth: 20
+  attack: 2
 --- !u!50 &3266891807830674988
 Rigidbody2D:
   serializedVersion: 5
@@ -227,3 +243,17 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-5053667537704041767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6561241342260376408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b73ba875bd673c248b7488bdd09b92d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
+  moveSpeed: 2
+  distance: 0

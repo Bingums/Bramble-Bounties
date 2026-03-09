@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4588298947031622877}
   - component: {fileID: 981130536754773280}
   - component: {fileID: 4122712057053209522}
-  - component: {fileID: 4032148648535002486}
+  - component: {fileID: 7779971203469819404}
   m_Layer: 0
   m_Name: Drunk
   m_TagString: Untagged
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   moveSpeed: 2
   distance: 0
---- !u!114 &4032148648535002486
+--- !u!114 &7779971203469819404
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,6 +129,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1510560240377340583}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d78e49a56d4a2594fa628bdec038e4ff, type: 3}
+  m_Script: {fileID: 11500000, guid: b5c197aa958f1a248b5dbf873e56a4a4, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyData
+  maxHealth: 50
+  currentHealth: 50
+  attack: 0

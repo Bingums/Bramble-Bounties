@@ -14,22 +14,26 @@ public class EnemyMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        target = GameObject.Find("player").transform;
-    
+        target = GameObject.Find("player Variant").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
         if(target){
-            Vector3 direction = (target.position - transform.position).normalized;
-            moveDirection = direction; 
+            float distance = Vector2.Distance(transform.position, target.position);
+            if(distance > 8f)
+            {
+                Vector3 direction = (target.position - transform.position).normalized;
+                moveDirection = direction; 
+            }
         }
         
     }
 
     private void FixedUpdate(){
-        if(target){
+        if(target)
+        {
             rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
         }
     }

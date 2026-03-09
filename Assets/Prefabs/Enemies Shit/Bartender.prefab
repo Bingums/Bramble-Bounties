@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 894463145507805608}
   - component: {fileID: 2432245773693912676}
   - component: {fileID: 4717777190943727173}
-  - component: {fileID: 6998248454774414450}
+  - component: {fileID: 5296877989780711091}
   - component: {fileID: 5969925574529226807}
   m_Layer: 0
   m_Name: Bartender
@@ -111,7 +111,7 @@ MonoBehaviour:
   bottle: {fileID: 479583595434965996, guid: 4e4ff88dd4a19ca42b8c22d0c2de0ba5, type: 3}
   maxShotBottleTimer: 0.75
   bullet: {fileID: 7098699050443019402, guid: 30adf0bd035c1374a87afbbc24c74c8c, type: 3}
---- !u!114 &6998248454774414450
+--- !u!114 &5296877989780711091
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,9 +120,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 461751865378642930}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d78e49a56d4a2594fa628bdec038e4ff, type: 3}
+  m_Script: {fileID: 11500000, guid: b5c197aa958f1a248b5dbf873e56a4a4, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyData
+  maxHealth: 150
+  currentHealth: 150
+  attack: 50
 --- !u!61 &5969925574529226807
 BoxCollider2D:
   m_ObjectHideFlags: 0

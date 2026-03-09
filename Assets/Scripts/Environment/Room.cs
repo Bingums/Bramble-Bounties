@@ -4,7 +4,7 @@ using UnityEngine;
 public class Room : MonoBehaviour
 {
     [SerializeField] private Transform[] spawnPoints;
-    private int enemyCap = 16;
+    private int enemyCap = 8;
     private int curEnemyCount = 0;
     private bool isCleared = false;
 

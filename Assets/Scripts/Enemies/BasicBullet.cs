@@ -31,7 +31,7 @@ public class BasicBullet : MonoBehaviour
         {
             Destroy(gameObject);
         } // damages player and enemies
-        else if(collision.CompareTag("Player") || collision.CompareTag("Enemy"))
+        else if(collision.CompareTag("Player")) //|| collision.CompareTag("Enemy"))
         {
             collision.GetComponent<IDamageable>().TakeDamage(1);
             Destroy(gameObject);
