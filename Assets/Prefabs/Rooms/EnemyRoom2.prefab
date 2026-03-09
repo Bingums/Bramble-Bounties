@@ -1956,14 +1956,14 @@ MonoBehaviour:
   - {fileID: 6068520326409527031}
   - {fileID: 2164756171103370193}
   - {fileID: 3889554050694724825}
-  rightDoor: {fileID: 0}
-  leftDoor: {fileID: 0}
-  topDoor: {fileID: 0}
-  bottomDoor: {fileID: 0}
-  rightWall: {fileID: 0}
-  leftWall: {fileID: 0}
-  topWall: {fileID: 0}
-  bottomWall: {fileID: 0}
+  rightDoor: {fileID: 217580632232536366}
+  leftDoor: {fileID: 1988034585117581079}
+  topDoor: {fileID: 6173721030561633012}
+  bottomDoor: {fileID: 8652147918634134648}
+  rightWall: {fileID: 2533137473769746124}
+  leftWall: {fileID: 6170889313135019515}
+  topWall: {fileID: 7130690838866217457}
+  bottomWall: {fileID: 5474134237119225374}
 --- !u!1839735485 &-6546641779699360001
 Tilemap:
   m_ObjectHideFlags: 0
@@ -2734,7 +2734,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1942207691459732076
 Transform:
   m_ObjectHideFlags: 0
@@ -2843,8 +2843,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f7ecad066c02c042b5ec6474b942e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Door
-  openDoor: {fileID: 0}
-  closedDoor: {fileID: 0}
 --- !u!1 &6382511552860819669
 GameObject:
   m_ObjectHideFlags: 0
@@ -3169,7 +3167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8813627777819791088
 Transform:
   m_ObjectHideFlags: 0
@@ -3278,8 +3276,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f7ecad066c02c042b5ec6474b942e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Door
-  openDoor: {fileID: 0}
-  closedDoor: {fileID: 0}
 --- !u!1001 &7170980051101250415
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3291,6 +3287,10 @@ PrefabInstance:
     - target: {fileID: 8652147918634134648, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
       propertyPath: m_Name
       value: LeftDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 8652147918634134648, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8813627777819791088, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3342,6 +3342,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8813627777819791088, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
   m_PrefabInstance: {fileID: 7170980051101250415}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1988034585117581079 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8652147918634134648, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
+  m_PrefabInstance: {fileID: 7170980051101250415}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8869728270550762838
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3353,6 +3358,10 @@ PrefabInstance:
     - target: {fileID: 8652147918634134648, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
       propertyPath: m_Name
       value: RightDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 8652147918634134648, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8813627777819791088, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3402,5 +3411,10 @@ PrefabInstance:
 --- !u!4 &92272227707112358 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8813627777819791088, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
+  m_PrefabInstance: {fileID: 8869728270550762838}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &217580632232536366 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8652147918634134648, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
   m_PrefabInstance: {fileID: 8869728270550762838}
   m_PrefabAsset: {fileID: 0}

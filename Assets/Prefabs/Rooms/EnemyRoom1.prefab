@@ -849,7 +849,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5890531336465501579
 Transform:
   m_ObjectHideFlags: 0
@@ -958,8 +958,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f7ecad066c02c042b5ec6474b942e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Door
-  openDoor: {fileID: 0}
-  closedDoor: {fileID: 0}
 --- !u!1 &3911224187705407660
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,14 +1066,14 @@ MonoBehaviour:
   - {fileID: 4756766788589171170}
   - {fileID: 1730739764437483972}
   - {fileID: 8789030732867473139}
-  rightDoor: {fileID: 0}
-  leftDoor: {fileID: 0}
-  topDoor: {fileID: 0}
-  bottomDoor: {fileID: 0}
-  rightWall: {fileID: 0}
-  leftWall: {fileID: 0}
-  topWall: {fileID: 0}
-  bottomWall: {fileID: 0}
+  rightDoor: {fileID: 3082378413548712051}
+  leftDoor: {fileID: 8652147918634134648}
+  topDoor: {fileID: 5790351103140688221}
+  bottomDoor: {fileID: 9076601834553131808}
+  rightWall: {fileID: 2931894674939731671}
+  leftWall: {fileID: 2722853797518903781}
+  topWall: {fileID: 6128700054934400865}
+  bottomWall: {fileID: 661160567670567294}
 --- !u!1839735485 &3680551745899524672
 Tilemap:
   m_ObjectHideFlags: 0
@@ -1223,7 +1221,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &750996945222449484
 Transform:
   m_ObjectHideFlags: 0
@@ -1332,8 +1330,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f7ecad066c02c042b5ec6474b942e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Door
-  openDoor: {fileID: 0}
-  closedDoor: {fileID: 0}
 --- !u!1 &6128700054934400865
 GameObject:
   m_ObjectHideFlags: 0
@@ -3492,7 +3488,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8813627777819791088
 Transform:
   m_ObjectHideFlags: 0
@@ -3601,8 +3597,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f7ecad066c02c042b5ec6474b942e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Door
-  openDoor: {fileID: 0}
-  closedDoor: {fileID: 0}
 --- !u!1 &9076601834553131808
 GameObject:
   m_ObjectHideFlags: 0
@@ -3621,7 +3615,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1093617741300161523
 Transform:
   m_ObjectHideFlags: 0
@@ -3730,5 +3724,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f7ecad066c02c042b5ec6474b942e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Door
-  openDoor: {fileID: 0}
-  closedDoor: {fileID: 0}
