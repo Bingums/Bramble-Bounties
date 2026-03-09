@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1371474286903834137}
   - component: {fileID: 6774348857136641429}
+  - component: {fileID: 4184198648788524843}
   - component: {fileID: 7948847292689925457}
   - component: {fileID: 3661190740181122309}
   - component: {fileID: 215171222229851477}
@@ -96,6 +97,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &4184198648788524843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4180373384447001821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c197aa958f1a248b5dbf873e56a4a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyData
+  maxHealth: 50
+  currentHealth: 50
+  attack: 5
 --- !u!70 &7948847292689925457
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -172,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38fd80af44219054187f5dd88a9fdb3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasicShooter
-  moveSpeed: 2
+  firingDistance: 5
   bullet: {fileID: 7098699050443019402, guid: 30adf0bd035c1374a87afbbc24c74c8c, type: 3}
   spawnPoint: {fileID: 2034897521078452580}
 --- !u!70 &8375573942579273692

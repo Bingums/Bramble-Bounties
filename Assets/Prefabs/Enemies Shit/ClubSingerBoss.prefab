@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4173866292093454672}
   - component: {fileID: 1649503950929758712}
   - component: {fileID: 5160748395871688568}
-  - component: {fileID: 6778259959744896624}
+  - component: {fileID: 7240911187281872694}
   - component: {fileID: 644854115373824457}
   - component: {fileID: 912193859629348609}
   m_Layer: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e15c835b720d86b48b11d8e3aa98b683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClubSinger
---- !u!114 &6778259959744896624
+--- !u!114 &7240911187281872694
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,9 +133,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3891135691327597449}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d78e49a56d4a2594fa628bdec038e4ff, type: 3}
+  m_Script: {fileID: 11500000, guid: b5c197aa958f1a248b5dbf873e56a4a4, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyData
+  maxHealth: 150
+  currentHealth: 150
+  attack: 10
 --- !u!70 &644854115373824457
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
