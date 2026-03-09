@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 8346442239062586888}
   - component: {fileID: 5499647943781848514}
   - component: {fileID: 5329871151663409874}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Engineer
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

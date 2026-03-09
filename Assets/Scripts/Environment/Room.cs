@@ -42,7 +42,6 @@ public class Room : MonoBehaviour
 
     public void IncreaseEnemyCount()
     {
-        Debug.Log(curEnemyCount);
         curEnemyCount++;
     }
 

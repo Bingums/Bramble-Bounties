@@ -1,17 +1,22 @@
+using System.Collections;
 using UnityEngine;
 
 public class Brawler : MonoBehaviour
 {
-    SpriteRenderer brownPants;
-    public int shitPantsChance;
-    Color shitBrown;
-    private float red = .4f, blue = .04f, green = .2f;
+    SpriteRenderer brawlerRenderer;
+    Color brawlerColor;
+    Color damageColor = new Color(0.85f, 0.24f, 0.24f);
+
+    void Awake()
+    {
+        brawlerRenderer = GetComponent<SpriteRenderer>();
+        brawlerColor = brawlerRenderer.color;
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        brownPants = GetComponent<SpriteRenderer>();
-        shitBrown = new Color(red, green, blue);
+        
     }
 
     // Update is called once per frame
@@ -21,14 +26,26 @@ public class Brawler : MonoBehaviour
     }
 
 
-    public void OnTriggerEnter2D(Collider2D collision){
-        if(collision.CompareTag("Player"))
+    private void OnTriggerEnter2D(Collider2D collision){
+        if(collision.CompareTag("Player") || collision.CompareTag("PlayerProjectile")
+            || collision.CompareTag("Melee") || collision.CompareTag("EnemyProjectile"))
         {
-            if(Random.Range(0, shitPantsChance) < 1){
-                brownPants.color = shitBrown;
-                Debug.Log("SHIT YOUR PaNTS");
-            }
+            brawlerRenderer.color = damageColor;
             
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision){
+        if(collision.CompareTag("Player") || collision.CompareTag("PlayerProjectile")
+            || collision.CompareTag("Melee") || collision.CompareTag("EnemyProjectile"))
+        {
+            StartCoroutine(Wait(0.5f));
+            brawlerRenderer.color = brawlerColor;
+        }
+    }
+
+    IEnumerator Wait(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
     }
 }

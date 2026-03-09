@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Combat;
 
-public class playerController : MonoBehaviour
+public class playerController : MonoBehaviour, IDamageable
 {
     [SerializeField] private float BASE_SPEED = 5f;
 
@@ -17,18 +18,22 @@ public class playerController : MonoBehaviour
     [SerializeField] private Image staminaFill;
     private Rigidbody2D rb;
 
-    [SerializeField] private float currentStamina;
+    [SerializeField] private float currentStamina = 3f;
     private bool isOnCooldown = false;
 
     private Animator animator;
     
     private List<IInteractable> interactables = new List<IInteractable>();
 
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        currentStamina = maxStamina;
         animator = GetComponent<Animator>();
+    }
+
+    void Start()
+    {
+        
     }
 
     void Update()
@@ -75,14 +80,11 @@ public class playerController : MonoBehaviour
         }
         else
         {
-            //animator.SetBool("isWalking", true);
             rb.linearVelocity = dir * speedToUse;
-            
-            animator.SetFloat("InputX", horizontal);
-            animator.SetFloat("InputY", vertical);
-            animator.SetFloat("LastInputX", horizontal);
-            animator.SetFloat("LastInputY", vertical);
         }
+        // animator uses blend tree, only needs 2 inputs
+        animator.SetFloat("InputX", horizontal);
+        animator.SetFloat("InputY", vertical);
 
         if(interactables != null && Input.GetKeyDown(KeyCode.E)) {
             GetClosestInteractable().Interact();
@@ -118,12 +120,17 @@ public class playerController : MonoBehaviour
         foreach(IInteractable interactable in interactables)
         {
             float distance = Vector2.Distance(transform.position, interactable.transform.position);
-            if(distance < closestDistance) {
+            if(distance <= closestDistance) { 
                 closestDistance = distance;
                 closestInteractable = interactable;
             }
         }
 
         return closestInteractable;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        
     }
 }

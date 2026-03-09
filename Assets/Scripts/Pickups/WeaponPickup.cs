@@ -6,7 +6,7 @@ using UnityEngine;
 //This should destroy the overworld version of the weapon when the player collides with it
 public class WeaponPickup : MonoBehaviour
 {
-    public WeaponData weaponData;
+    public MeleeWeaponData weaponData;
 
     private void OnTriggerEnter2D(Collider2D other)
     {

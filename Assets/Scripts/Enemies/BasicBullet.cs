@@ -1,3 +1,4 @@
+using Combat;
 using UnityEngine;
 
 public class BasicBullet : MonoBehaviour
@@ -11,7 +12,7 @@ public class BasicBullet : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
     
         direction = player.transform.position - transform.position;
@@ -22,5 +23,18 @@ public class BasicBullet : MonoBehaviour
     void Update()
     {
         rb.linearVelocity = new Vector2(direction.x, direction.y).normalized * force;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision){
+        // bullet disappears if hit with melee or your bullets
+        if(collision.CompareTag("Melee") || collision.CompareTag("PlayerProjectile")) 
+        {
+            Destroy(gameObject);
+        } // damages player and enemies
+        else if(collision.CompareTag("Player") || collision.CompareTag("Enemy"))
+        {
+            collision.GetComponent<IDamageable>().TakeDamage(1);
+            Destroy(gameObject);
+        }
     }
 }
