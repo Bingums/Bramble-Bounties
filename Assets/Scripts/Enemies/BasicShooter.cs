@@ -30,7 +30,7 @@ public class BasicShooter : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        target = GameObject.Find("player").transform;
+        target = GameObject.Find("player Variant").transform;
     
     }
 
