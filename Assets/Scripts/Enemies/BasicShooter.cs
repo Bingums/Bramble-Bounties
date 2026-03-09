@@ -71,7 +71,7 @@ public class BasicShooter : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision){
         if(collision.CompareTag("Player") || collision.CompareTag("PlayerProjectile")
-            || collision.CompareTag("Weapon") || collision.CompareTag("EnemyProjectile"))
+            || collision.CompareTag("Weapon")) //|| collision.CompareTag("EnemyProjectile"))
         {
             shooterRenderer.color = damageColor;
             StartCoroutine(Wait(0.5f));

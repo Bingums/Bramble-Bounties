@@ -109,9 +109,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c197aa958f1a248b5dbf873e56a4a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  maxHealth: 50
-  currentHealth: 50
-  attack: 5
+  maxHealth: 10
+  currentHealth: 10
+  attack: 4
 --- !u!70 &7948847292689925457
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
