@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public float moveSpeed = 2f;
+    public float distance;
     Rigidbody2D rb;
     Transform target;
     Vector2 moveDirection;
@@ -24,6 +25,7 @@ public class EnemyMovement : MonoBehaviour
             Vector3 direction = (target.position - transform.position).normalized;
             moveDirection = direction; 
         }
+        
     }
 
     private void FixedUpdate(){

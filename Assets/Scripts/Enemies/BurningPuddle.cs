@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class SingerAOE : MonoBehaviour
+public class BurningPuddle : MonoBehaviour
 {
-
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,11 +16,9 @@ public class SingerAOE : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D collision){
-        GameObject player = GameObject.Find("player");
         if(collision.tag == "Player"){
             //player.GetComponent<Health>.health -= 2;
-            
         }
+         
     }
-    
 }

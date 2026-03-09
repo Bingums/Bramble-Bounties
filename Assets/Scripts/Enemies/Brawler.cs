@@ -25,6 +25,7 @@ public class Brawler : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             if(Random.Range(0, shitPantsChance) < 1){
+                //player.GetComponent<Health>.health -= 2;
                 brownPants.color = shitBrown;
                 Debug.Log("SHIT YOUR PaNTS");
             }

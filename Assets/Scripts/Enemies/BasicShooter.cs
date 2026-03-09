@@ -3,13 +3,13 @@ using UnityEngine;
 public class BasicShooter : MonoBehaviour
 {
     //Movement Var
-    public float moveSpeed = 2f;
+    private float moveSpeed = 2f;
     Rigidbody2D rb;
     Transform target;
     Vector2 moveDirection;
 
     //Shooting Var
-    float firingDistance;
+    public float firingDistance;
     private float timer = 1;
     private float bulletTime;
     public GameObject bullet;
@@ -35,11 +35,20 @@ public class BasicShooter : MonoBehaviour
         }
         float distance = Vector2.Distance(transform.position, target.position);
         if(distance < firingDistance){
+           moveSpeed = 0;
+           ShootGun();
            
+        }else if(distance > firingDistance) {
+            moveSpeed = 2;
         }
-       ShootGun(); 
+        
 
  
+    }
+    private void FixedUpdate(){
+        if(target){
+            rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
+        }
     }
 
     
