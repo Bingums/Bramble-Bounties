@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Pimp : MonoBehaviour
 {
+    
+    /*
     public GameObject enemyShooter, enemyBrawler, enemyDrunk;
     private GameObject player;
 
@@ -40,4 +42,5 @@ public class Pimp : MonoBehaviour
     void OnTriggerEnter2D(){
         //SLAP A HOE
     }
+    */
 }
