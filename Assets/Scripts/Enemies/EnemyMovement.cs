@@ -15,7 +15,6 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         target = GameObject.Find("player Variant").transform;
-    
     }
 
     // Update is called once per frame

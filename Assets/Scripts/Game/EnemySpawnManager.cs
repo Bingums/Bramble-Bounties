@@ -7,7 +7,7 @@ public class EnemySpawnManager : MonoBehaviour
 
     [SerializeField] private GameObject[] enemyPrefabs;
 
-    private int spawnRate = 5;
+    private int spawnRate = 6;
 
     private Room[] levelRooms;
 
