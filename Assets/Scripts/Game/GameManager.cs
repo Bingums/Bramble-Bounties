@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameState
 {
@@ -25,5 +26,15 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+    
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+    public void LoadScene(string scene)
+    {
+        SceneManager.LoadScene(scene);
     }
 }
