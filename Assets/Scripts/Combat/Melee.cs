@@ -1,25 +1,16 @@
 using UnityEngine;
 using Combat;
+using System.Data.Common;
 
 public class Melee : MonoBehaviour
 {
-    public MeleeWeaponData data;
-    
-    private int damage;
-    
-    
-
-    public void Initialize(int finalDamage)
-    {
-        damage = finalDamage;
-    }
+    public WeaponData data;
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.TryGetComponent<IDamageable>(out var damageable))
+        if(other.CompareTag("Enemy"))
         {
-            Debug.Log(damageable);
-            damageable.TakeDamage(damage);
+            other.GetComponent<EnemyData>().TakeDamage(data.damage);
         }
     }
     

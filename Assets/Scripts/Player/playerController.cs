@@ -16,14 +16,22 @@ public class playerController : MonoBehaviour, IDamageable
     [SerializeField] private float dashMultiplier = 2f;
     [SerializeField] private float dashCooldownTime = 3f;
     [SerializeField] private Image staminaFill;
-    private Rigidbody2D rb;
-
     [SerializeField] private float currentStamina = 3f;
     private bool isOnCooldown = false;
+
+    private Rigidbody2D rb;
 
     private Animator animator;
     
     private List<IInteractable> interactables = new List<IInteractable>();
+
+    public WeaponData[] weapons = new WeaponData[3];
+    public int curSlot = 0;
+
+    [SerializeField] private float maxHealth;
+    [SerializeField] private float curHealth;
+
+    public GameObject displayedWeapon;
 
     void Awake()
     {
@@ -86,6 +94,19 @@ public class playerController : MonoBehaviour, IDamageable
         animator.SetFloat("InputX", horizontal);
         animator.SetFloat("InputY", vertical);
 
+        if(Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            curSlot = 0;
+        } else if(Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            curSlot = 1;
+        } else if(Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))
+        {
+            curSlot = 2;
+        }
+        displayedWeapon = Instantiate(weapons[curSlot].weaponPrefab, displayedWeapon.transform);
+        displayedWeapon.transform.localRotation = Quaternion.Euler(weapons[curSlot].rotation);
+
         if(interactables != null && Input.GetKeyDown(KeyCode.E)) {
             GetClosestInteractable().Interact();
         }
@@ -131,6 +152,6 @@ public class playerController : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damage)
     {
-        
+        curHealth -= damage;
     }
 }

@@ -514,13 +514,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 1631481473021520283, guid: ac4a1e2c695d8cc438c392dbe1004018, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 7609965367145566778, guid: cb4393c3f4399e04e8fcd17ea85a4000, type: 3}
+    - target: {fileID: 1631481473021520283, guid: ac4a1e2c695d8cc438c392dbe1004018, type: 3}
+      propertyPath: currentWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: ccab13f683f852b459d037d36ddeb4db, type: 2}
+    - target: {fileID: 1631481473021520283, guid: ac4a1e2c695d8cc438c392dbe1004018, type: 3}
+      propertyPath: currentWeaponInstance
+      value: 
+      objectReference: {fileID: 6252804510499272444, guid: 8139112139c5e3a49a1488c971a54874, type: 3}
+    - target: {fileID: 1799443903891569208, guid: ac4a1e2c695d8cc438c392dbe1004018, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 6794369459715041147, guid: ac4a1e2c695d8cc438c392dbe1004018, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6794369459715041147, guid: ac4a1e2c695d8cc438c392dbe1004018, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 8279565617853215356, guid: ac4a1e2c695d8cc438c392dbe1004018, type: 3}
       propertyPath: m_UsedByEffector
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7000489749086372953, guid: ac4a1e2c695d8cc438c392dbe1004018, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6558654364583754803, guid: ac4a1e2c695d8cc438c392dbe1004018, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1425778351957911026, guid: ac4a1e2c695d8cc438c392dbe1004018, type: 3}
       insertIndex: -1

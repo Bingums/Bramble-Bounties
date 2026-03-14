@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8193206790213825991}
   m_Layer: 0
   m_Name: Knife
-  m_TagString: Melee
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4309655550504927745}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.46104524, w: -0.8873766}
-  m_LocalPosition: {x: 1.745, y: -0.075, z: 0}
-  m_LocalScale: {x: 0.72, y: 0.72, z: 0.72}
+  m_LocalRotation: {x: 0, y: 0, z: -0.46174863, w: 0.8870109}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -54.909}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -55}
 --- !u!212 &4271843485807775078
 SpriteRenderer:
   serializedVersion: 2
@@ -127,7 +127,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.02724421, y: 1.6885418}
+  m_Offset: {x: -0.006887749, y: 0.18949208}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -137,7 +137,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.8139651, y: 2.118603}
+  m_Size: {x: 0.26209226, y: 0.6930365}
   m_EdgeRadius: 0
 --- !u!114 &8193206790213825991
 MonoBehaviour:

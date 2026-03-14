@@ -7,7 +7,7 @@ public enum WeaponType
 {
     Revolver,
     Shotgun,
-    Lever,
+    LeverRifle,
     AssaultRifle,
     Dagger,
     Sword
@@ -15,37 +15,20 @@ public enum WeaponType
 
 public class playerCombat : MonoBehaviour
 {
-    //DEBUG LINE, REMOVE SERIALIZE FIELD
-    [SerializeField] public MeleeWeaponData currentWeapon;
-    [SerializeField] private GameObject currentWeaponInstance;
-
+    private WeaponData weaponData;
+    private playerController pc;
     private playerStats stats;
+    public GameObject bullet;
     private float lastAttackTime;
     
     private Animator animator;
-
-    [SerializeField] private Transform weaponContainer;
 
     private void Awake()
     {
         stats = GetComponent<playerStats>();
         animator = GetComponent<Animator>();
-    }
-
-    public void EquipWeapon(MeleeWeaponData newWeapon)
-    {
-        if(currentWeaponInstance != null)
-        {
-            Destroy(currentWeaponInstance);
-        }
-        
-        currentWeapon = newWeapon;
-
-        currentWeaponInstance = Instantiate(
-            newWeapon.weaponPrefab, 
-            weaponContainer);
-        
-        Debug.Log("Equipped: " + newWeapon.weaponName);
+        pc = GetComponent<playerController>();
+        weaponData = pc.weapons[pc.curSlot];
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -59,26 +42,24 @@ public class playerCombat : MonoBehaviour
 
     void Update()
     {
+        weaponData = pc.weapons[pc.curSlot];
         if (Input.GetMouseButtonDown(0))
         {
             TryAttack();
-            StartCoroutine(Wait(0.5f));
         }
     }
 
     void TryAttack()
     {
-        if (currentWeapon == null)
+        if (weaponData == null)
         {
             return;
         }
 
-        if (Time.time < lastAttackTime + currentWeapon.attackCooldown) return;
+        if (Time.time < lastAttackTime + weaponData.attackCooldown) return;
 
-        //Debug.Log("Attacked");
         lastAttackTime = Time.time; 
-        if(currentWeapon.isMelee && 
-           currentWeaponInstance.TryGetComponent<Melee>(out var meleeWeapon))
+        if(weaponData.isMelee)
         {
             Debug.Log("swinging");
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -87,33 +68,34 @@ public class playerCombat : MonoBehaviour
             if(45f <= angle && angle <= 135f) // up
             {
                 animator.SetFloat("MouseDir", 0f);
-                Debug.Log("mouse dir: up");
             }
             else if(-45f <= angle && angle < 45f) //right
             {
                 animator.SetFloat("MouseDir", 1f);
-                Debug.Log("mouse dir: right");
             }
             else if(-135f <= angle && angle <= -45f) // down
             {
                 animator.SetFloat("MouseDir", 2f);
-                Debug.Log("mouse dir: down");
             }
             else //left
             {
                 animator.SetFloat("MouseDir", 3f);
-                Debug.Log("mouse dir: left");
             }
 
             animator.SetBool("isSwinging", true);
-            int damage = calculateDamage();
-            meleeWeapon.Initialize(damage);
+        } else
+        {
+            if(Input.GetMouseButtonDown(0))
+            {
+                Instantiate(bullet, gameObject.transform.position, Quaternion.identity);
+            }
         }
+        StartCoroutine(Wait(weaponData.attackCooldown));
     }
 
     private int calculateDamage()
     {
-        float damage = currentWeapon.baseDamage;
+        float damage = weaponData.damage;
         damage *= stats.damageMultiplier;
 
         return Mathf.RoundToInt(damage);
