@@ -281,7 +281,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "    She  Bramble \n on my  Bounties"
+  m_text: Bramble Bounties
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5349537e43d3e29408b131a6bda415c2, type: 2}
   m_sharedMaterial: {fileID: -2135281853290193706, guid: 5349537e43d3e29408b131a6bda415c2, type: 2}
