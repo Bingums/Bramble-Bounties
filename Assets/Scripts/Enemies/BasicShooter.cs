@@ -1,8 +1,12 @@
 using System.Collections;
 using UnityEngine;
+using Combat;
+using UnityEngine.Diagnostics;
 
 public class BasicShooter : MonoBehaviour
 {
+    public EnemyData shooterData;
+
     //Movement Var
     private float moveSpeed = 2f;
     Rigidbody2D rb;
@@ -30,23 +34,22 @@ public class BasicShooter : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        target = GameObject.Find("player Variant").transform;
-    
+        target = GameObject.FindWithTag("Player").transform;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         if(target){
-            Vector3 direction = (target.position - transform.position).normalized;
-            moveDirection = direction; 
+            moveDirection = (target.position - transform.position).normalized;
         }
+
         float distance = Vector2.Distance(transform.position, target.position);
-        if(distance < firingDistance){
+        if(distance < firingDistance) {
            moveSpeed = 0;
            ShootGun();
-           
-        }else if(distance > firingDistance) {
+        } else if(distance > firingDistance) {
             moveSpeed = 2;
         }
         
@@ -65,25 +68,25 @@ public class BasicShooter : MonoBehaviour
         if(bulletTime > 0) return;
         bulletTime = timer;
 
-        GameObject bulletObj = Instantiate(bullet, spawnPoint.transform.position, spawnPoint.transform.rotation) as GameObject;
-        Destroy(bulletObj, 2);
+        Instantiate(bullet, spawnPoint.transform.position, spawnPoint.transform.rotation);
     }
 
     private void OnTriggerEnter2D(Collider2D collision){
         if(collision.CompareTag("Player") || collision.CompareTag("PlayerProjectile")
             || collision.CompareTag("Weapon")) //|| collision.CompareTag("EnemyProjectile"))
         {
+            if(collision.CompareTag("Player"))
+            {
+                collision.GetComponent<playerController>().TakeDamage(5);
+            }
+            
             shooterRenderer.color = damageColor;
             StartCoroutine(Wait(0.5f));
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision){
-        if(collision.CompareTag("Player") || collision.CompareTag("PlayerProjectile")
-            || collision.CompareTag("Weapon") || collision.CompareTag("EnemyProjectile"))
-        {
-           shooterRenderer.color = shooterColor;
-        }
+        shooterRenderer.color = shooterColor;
     }
 
     IEnumerator Wait(float waitTime)

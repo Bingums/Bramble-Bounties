@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0bfe6cd4b8417224fafca602a7db158c, type: 3}
-  m_Name: Knife
+  m_Name: PlasmaRevovler
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
-  weaponName: Knife
-  damage: 10
-  attackCooldown: 0.35
-  isMelee: 1
-  range: 2
-  ammoCapacity: 0
-  ammoReserves: 0
-  shotSpeed: 0
-  reloadTime: 0
-  rotation: {x: 0, y: 0, z: -55}
-  weaponPrefab: {fileID: 4309655550504927745, guid: 2992f01da3e88c246830dfe6ea2830c4, type: 3}
-  weaponPickup: {fileID: 6677197274439118250, guid: 6b6c7e56af8e8d94cb8630e3efa04e27, type: 3}
+  weaponName: Plasma Revolver
+  damage: 6
+  attackCooldown: 0.33
+  isMelee: 0
+  range: 0
+  ammoCapacity: 6
+  ammoReserves: 60
+  shotSpeed: 3
+  reloadTime: 1
+  rotation: {x: 0, y: 0, z: 0}
+  weaponPrefab: {fileID: 6252804510499272444, guid: 8139112139c5e3a49a1488c971a54874, type: 3}
+  weaponPickup: {fileID: 6446376815810727832, guid: 90d3c9ca018e543459fddaebdd17d4cd, type: 3}

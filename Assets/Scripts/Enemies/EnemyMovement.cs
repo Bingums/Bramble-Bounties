@@ -14,7 +14,7 @@ public class EnemyMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        target = GameObject.Find("player Variant").transform;
+        target = GameObject.FindWithTag("Player").transform;
     }
 
     // Update is called once per frame
@@ -22,7 +22,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if(target){
             float distance = Vector2.Distance(transform.position, target.position);
-            if(distance > 8f)
+            if(distance < 8f)
             {
                 Vector3 direction = (target.position - transform.position).normalized;
                 moveDirection = direction; 

@@ -27,13 +27,13 @@ public class BasicBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision){
         // bullet disappears if hit with melee or your bullets
-        if(collision.CompareTag("Melee") || collision.CompareTag("PlayerProjectile")) 
+        if(collision.CompareTag("Weapon") || collision.CompareTag("PlayerProjectile")) 
         {
             Destroy(gameObject);
-        } // damages player and enemies
+        } // damages player and enemies (bullets spawns in shooter, need to change)
         else if(collision.CompareTag("Player")) //|| collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<IDamageable>().TakeDamage(1);
+            collision.GetComponent<playerController>().TakeDamage(4);
             Destroy(gameObject);
         }
     }
