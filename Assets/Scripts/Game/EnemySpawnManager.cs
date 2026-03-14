@@ -39,7 +39,7 @@ public class EnemySpawnManager : MonoBehaviour
             {
                 if(!room.atCap())
                 {
-                    Transform[] spawnPoints = room.GetSpawnPoints();
+                    Transform[] spawnPoints = room.GetEnemySpawns();
 
                     foreach(Transform spawnPoint in spawnPoints)
                     {

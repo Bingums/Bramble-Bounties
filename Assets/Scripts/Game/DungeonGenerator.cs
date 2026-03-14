@@ -4,156 +4,149 @@ using System.Collections.Generic;
 public class DungeonGenerator : MonoBehaviour
 {
     [Header("Dungeon Settings")]
-    public int gridSize = 10;
     public int roomsToCreate = 15;
+    public int gridSize = 8;
 
-    [Header("Room Prefabs")]
-    public RoomData[] roomPrefabs;
+    [Header("Room Pools")]
+    public RoomData startRoom;
+    public RoomData bossRoom;
+    public RoomData[] normalRooms;
 
-    [Header("Tilemap Room Size")]
+    [Header("Room Size")]
     public float roomWidth = 21f;
-    public float roomHeight = 16f;
+    public float roomHeight = 15f;
 
-    [Header("Seed Settings")]
-    public int seed = 0;
-    public bool useSeed = false;
+    [Header("Player")]
+    public GameObject player;
 
-    private bool[,] dungeonGrid;
-    private Dictionary<Vector2Int, Room> spawnedRooms = new Dictionary<Vector2Int, Room>();
+    // Tracks rooms by grid position
+    private Dictionary<Vector2Int, GameObject> spawnedRooms = new Dictionary<Vector2Int, GameObject>();
+    private List<Vector2Int> roomPositions = new List<Vector2Int>();
 
     void Start()
     {
-        dungeonGrid = new bool[gridSize, gridSize];
-
-        if (useSeed)
-            Random.InitState(seed);
-
         GenerateDungeon();
-        SpawnRooms();
-        ConfigureAllRooms();
     }
 
-    // -----------------------------
-    // Dungeon Generation
-    // -----------------------------
     void GenerateDungeon()
     {
-        Vector2Int start = new Vector2Int(gridSize / 2, gridSize / 2);
-        dungeonGrid[start.x, start.y] = true;
+        Vector2Int startPos = Vector2Int.zero;
 
-        List<Vector2Int> frontier = new List<Vector2Int> { start };
-        int createdRooms = 1;
-        int maxIterations = gridSize * gridSize * 20;
-        int safetyCounter = 0;
+        SpawnRoom(startRoom, startPos);
+        roomPositions.Add(startPos);
 
-        Vector2Int[] directions = new Vector2Int[] { Vector2Int.right, Vector2Int.left, Vector2Int.up, Vector2Int.down };
+        int attempts = 0;
+        int maxAttempts = 500; // prevents infinite loops
 
-        while (createdRooms < roomsToCreate && safetyCounter < maxIterations)
+        Vector2Int currentPos = startPos;
+
+        for (int i = 1; i < roomsToCreate; i++)
         {
-            safetyCounter++;
-            if (frontier.Count == 0) break;
-
-            Vector2Int baseRoom = frontier[Random.Range(0, frontier.Count)];
-            List<Vector2Int> possibleDirs = new List<Vector2Int>();
-
-            foreach (var dir in directions)
+            attempts++;
+            if (attempts > maxAttempts)
             {
-                Vector2Int neighbor = baseRoom + dir;
-                if (IsValidGridPosition(neighbor) && !dungeonGrid[neighbor.x, neighbor.y])
-                {
-                    possibleDirs.Add(dir);
-                }
+                Debug.LogWarning("Could not place all rooms without overlap!");
+                break;
             }
 
-            if (possibleDirs.Count == 0)
+            Vector2Int newPos = currentPos + GetRandomDirection();
+
+            // Check for overlap
+            if (spawnedRooms.ContainsKey(newPos))
             {
-                frontier.Remove(baseRoom);
+                i--; // retry this room
                 continue;
             }
 
-            Vector2Int chosenDir = possibleDirs[Random.Range(0, possibleDirs.Count)];
-            Vector2Int newPos = baseRoom + chosenDir;
+            RoomData randomRoom = normalRooms[Random.Range(0, normalRooms.Length)];
+            SpawnRoom(randomRoom, newPos);
+            roomPositions.Add(newPos);
 
-            dungeonGrid[newPos.x, newPos.y] = true;
-            frontier.Add(newPos);
-            createdRooms++;
+            currentPos = newPos;
         }
+
+        PlaceBossRoom(startPos);
+        UpdateAllDoors();
+        SpawnPlayer(startPos);
     }
 
-    // -----------------------------
-    // Room Spawning
-    // -----------------------------
-    void SpawnRooms()
+    Vector2Int GetRandomDirection()
     {
-        spawnedRooms.Clear();
+        int dir = Random.Range(0, 4);
+        if (dir == 0) return Vector2Int.up;
+        if (dir == 1) return Vector2Int.down;
+        if (dir == 2) return Vector2Int.left;
+        return Vector2Int.right;
+    }
 
-        for (int x = 0; x < gridSize; x++)
+    void PlaceBossRoom(Vector2Int startPos)
+    {
+        Vector2Int farthestRoom = startPos;
+        float maxDistance = 0;
+
+        foreach (Vector2Int pos in roomPositions)
         {
-            for (int y = 0; y < gridSize; y++)
+            float dist = Vector2Int.Distance(startPos, pos);
+            if (dist > maxDistance)
             {
-                if (!dungeonGrid[x, y]) continue;
-
-                Vector3 position = new Vector3((x - gridSize / 2) * roomWidth, (y - gridSize / 2) * roomHeight, 0f);
-                RoomData selectedRoom = roomPrefabs[Random.Range(0, roomPrefabs.Length)];
-
-                GameObject roomObj = Instantiate(selectedRoom.prefab, position, Quaternion.identity);
-                roomObj.name = $"Room_{x}_{y}";
-
-                Room room = roomObj.GetComponent<Room>();
-                if (room != null)
-                {
-                    room.DisableAllDoors(); // start clean
-                    spawnedRooms[new Vector2Int(x, y)] = room;
-                }
-                else
-                {
-                    Debug.LogError("Room prefab missing Room component!");
-                }
+                maxDistance = dist;
+                farthestRoom = pos;
             }
         }
+
+        // Replace farthest normal room with boss
+        Destroy(spawnedRooms[farthestRoom]);
+        SpawnRoom(bossRoom, farthestRoom);
     }
 
-    // -----------------------------
-    // Configure Doors & Walls
-    // -----------------------------
-    void ConfigureAllRooms()
+    void SpawnRoom(RoomData data, Vector2Int gridPos)
     {
-        foreach (var kvp in spawnedRooms)
-        {
-            Vector2Int pos = kvp.Key;
-            Room room = kvp.Value;
-
-            // Right
-            if (pos.x < gridSize - 1 && spawnedRooms.ContainsKey(pos + Vector2Int.right))
-                room.EnableDoor(Room.Direction.Right);
-            else
-                room.DisableDoor(Room.Direction.Right);
-
-            // Left
-            if (pos.x > 0 && spawnedRooms.ContainsKey(pos + Vector2Int.left))
-                room.EnableDoor(Room.Direction.Left);
-            else
-                room.DisableDoor(Room.Direction.Left);
-
-            // Top
-            if (pos.y < gridSize - 1 && spawnedRooms.ContainsKey(pos + Vector2Int.up))
-                room.EnableDoor(Room.Direction.Top);
-            else
-                room.DisableDoor(Room.Direction.Top);
-
-            // Bottom
-            if (pos.y > 0 && spawnedRooms.ContainsKey(pos + Vector2Int.down))
-                room.EnableDoor(Room.Direction.Bottom);
-            else
-                room.DisableDoor(Room.Direction.Bottom);
-        }
+        Vector3 worldPos = new Vector3(gridPos.x * roomWidth, gridPos.y * roomHeight, 0);
+        GameObject room = Instantiate(data.prefab, worldPos, Quaternion.identity, transform);
+        spawnedRooms[gridPos] = room;
     }
 
-    // -----------------------------
-    // Helpers
-    // -----------------------------
-    bool IsValidGridPosition(Vector2Int pos)
+  void UpdateAllDoors()
+{
+    // Step 1: record what doors each room should have
+    Dictionary<Room, (bool up, bool down, bool left, bool right)> doorMap = new Dictionary<Room, (bool, bool, bool, bool)>();
+
+    foreach (var roomPair in spawnedRooms)
     {
-        return pos.x >= 0 && pos.y >= 0 && pos.x < gridSize && pos.y < gridSize;
+        Vector2Int pos = roomPair.Key;
+        Room room = roomPair.Value.GetComponent<Room>();
+
+        bool hasUp = spawnedRooms.ContainsKey(pos + Vector2Int.up);
+        bool hasDown = spawnedRooms.ContainsKey(pos + Vector2Int.down);
+        bool hasLeft = spawnedRooms.ContainsKey(pos + Vector2Int.left);
+        bool hasRight = spawnedRooms.ContainsKey(pos + Vector2Int.right);
+
+        doorMap[room] = (hasUp, hasDown, hasLeft, hasRight);
     }
+
+    // Step 2: apply doors per room
+    foreach (var kvp in doorMap)
+    {
+        Room room = kvp.Key;
+        var doors = kvp.Value;
+
+        room.DisableAllDoors(); // start clean
+
+        // Only enable one door per connection
+        if (doors.up) room.EnableDoor(Room.Direction.Top);
+        if (doors.down) room.EnableDoor(Room.Direction.Bottom);
+        if (doors.left) room.EnableDoor(Room.Direction.Left);
+        if (doors.right) room.EnableDoor(Room.Direction.Right);
+    }
+}
+void SpawnPlayer(Vector2Int startPos)
+{
+    if (player == null) return;
+
+    GameObject startRoomObj = spawnedRooms[startPos];
+    Room room = startRoomObj.GetComponent<Room>();
+
+    Transform spawn = room.GetPlayerSpawn();
+
+}
 }

@@ -1035,6 +1035,7 @@ Transform:
   - {fileID: 6471683185374199134}
   - {fileID: 8100634107821777443}
   - {fileID: 8407994778854312426}
+  - {fileID: 3367933582253441658}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!156049354 &9016559881554035849
@@ -1061,11 +1062,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5be90bdb8e7cf540b5c01eb7690a09e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Room
-  spawnPoints:
+  enemySpawnPoints:
   - {fileID: 1023835665937177655}
   - {fileID: 4756766788589171170}
   - {fileID: 1730739764437483972}
   - {fileID: 8789030732867473139}
+  playerSpawnPoint: {fileID: 3367933582253441658}
   rightDoor: {fileID: 3082378413548712051}
   leftDoor: {fileID: 8652147918634134648}
   topDoor: {fileID: 5790351103140688221}
@@ -1203,6 +1205,37 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &5725420771313839496
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3367933582253441658}
+  m_Layer: 0
+  m_Name: PlayerSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3367933582253441658
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5725420771313839496}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.45, y: -1.14, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5920340190217138146}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5790351103140688221
 GameObject:
   m_ObjectHideFlags: 0
