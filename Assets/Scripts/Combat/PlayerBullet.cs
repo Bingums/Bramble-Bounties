@@ -25,7 +25,8 @@ public class PlayerBullet : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("EnemyProjectile"))
+        if(collision.CompareTag("EnemyProjectile") || collision.CompareTag("Terrain") 
+            || collision.CompareTag("NPC"))
         {
             Destroy(gameObject);
         } else if(collision.CompareTag("Enemy"))

@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
+using Random = UnityEngine.Random;
 
 public class DungeonGenerator : MonoBehaviour
 {
@@ -23,9 +25,14 @@ public class DungeonGenerator : MonoBehaviour
     private Dictionary<Vector2Int, GameObject> spawnedRooms = new Dictionary<Vector2Int, GameObject>();
     private List<Vector2Int> roomPositions = new List<Vector2Int>();
 
-    void Start()
+    private void Awake()
     {
         GenerateDungeon();
+    }
+
+    void Start()
+    {
+        
     }
 
     void GenerateDungeon()

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3874396967780076708}
   m_Layer: 0
   m_Name: TilemapClubhouse
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1691,7 +1691,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 8007096306970974424, guid: db7f2b26c9ca5ce4a8c9a1cf28ec2589, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1699,7 +1699,7 @@ SpriteRenderer:
   m_Size: {x: 1.92, y: 1.92}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1857915519086459209
 GameObject:
@@ -1782,7 +1782,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 8007096306970974424, guid: db7f2b26c9ca5ce4a8c9a1cf28ec2589, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1790,7 +1790,7 @@ SpriteRenderer:
   m_Size: {x: 1.92, y: 1.92}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1994506150007505418
 GameObject:
@@ -1873,7 +1873,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 8007096306970974424, guid: db7f2b26c9ca5ce4a8c9a1cf28ec2589, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1881,7 +1881,7 @@ SpriteRenderer:
   m_Size: {x: 1.92, y: 1.92}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1 &2144422401120402874
 GameObject:
@@ -1897,7 +1897,7 @@ GameObject:
   - component: {fileID: -6546641779699360001}
   m_Layer: 0
   m_Name: EnemyRoom2
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1951,11 +1951,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5be90bdb8e7cf540b5c01eb7690a09e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Room
-  spawnPoints:
+  enemySpawnPoints:
   - {fileID: 2148028340084577612}
   - {fileID: 6068520326409527031}
   - {fileID: 2164756171103370193}
   - {fileID: 3889554050694724825}
+  playerSpawnPoint: {fileID: 0}
   rightDoor: {fileID: 217580632232536366}
   leftDoor: {fileID: 1988034585117581079}
   topDoor: {fileID: 6173721030561633012}

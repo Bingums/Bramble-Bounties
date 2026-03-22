@@ -31,7 +31,7 @@ public class EnemySpawnManager : MonoBehaviour
     {
         
     }
-
+    
     private IEnumerator SpawnLoop()
     {
         while(true) {

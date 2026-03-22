@@ -13,6 +13,8 @@ TagManager:
   - Bartender
   - Puddle
   - Pickup
+  - Room
+  - Terrain
   layers:
   - Default
   - TransparentFX

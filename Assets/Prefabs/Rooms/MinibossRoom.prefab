@@ -2597,7 +2597,7 @@ GameObject:
   - component: {fileID: 3878100127710903435}
   m_Layer: 0
   m_Name: MinibossRoom
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2644,7 +2644,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5be90bdb8e7cf540b5c01eb7690a09e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Room
-  spawnPoints: []
+  enemySpawnPoints: []
+  playerSpawnPoint: {fileID: 0}
   rightDoor: {fileID: 0}
   leftDoor: {fileID: 0}
   topDoor: {fileID: 0}
