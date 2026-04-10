@@ -44,18 +44,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a974c0be5372d184696cbd1584734791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DungeonGenerator
-  gridSize: 10
   roomsToCreate: 15
-  roomPrefabs:
-  - prefab: {fileID: 4209891415839552414, guid: 036d87951abae704cb9493607d5c4c18, type: 3}
+  gridSize: 10
+  startRoom:
+    prefab: {fileID: 0}
     doorCount: 0
     allowsVerticalTwoDoor: 0
     doorMask: 0
-  - prefab: {fileID: 2144422401120402874, guid: 539613f1caedd7145badc5c8e313f8f1, type: 3}
+  bossRoom:
+    prefab: {fileID: 0}
     doorCount: 0
     allowsVerticalTwoDoor: 0
     doorMask: 0
-  roomWidth: 20
-  roomHeight: 20
-  seed: 0
-  useSeed: 0
+  normalRooms: []
+  roomWidth: 33
+  roomHeight: 33
+  player: {fileID: 0}

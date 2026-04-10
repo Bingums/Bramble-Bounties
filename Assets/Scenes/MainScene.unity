@@ -180,11 +180,11 @@ PrefabInstance:
       objectReference: {fileID: 1440011640863301603, guid: 0b52e054fb323654f91887d94acc14a8, type: 3}
     - target: {fileID: 735633528722614961, guid: a9273f75a7832c5488ec0f7aaad3dd04, type: 3}
       propertyPath: roomWidth
-      value: 21
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 735633528722614961, guid: a9273f75a7832c5488ec0f7aaad3dd04, type: 3}
       propertyPath: roomHeight
-      value: 16
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 735633528722614961, guid: a9273f75a7832c5488ec0f7aaad3dd04, type: 3}
       propertyPath: bossRoom.prefab
@@ -193,7 +193,7 @@ PrefabInstance:
     - target: {fileID: 735633528722614961, guid: a9273f75a7832c5488ec0f7aaad3dd04, type: 3}
       propertyPath: startRoom.prefab
       value: 
-      objectReference: {fileID: 4209891415839552414, guid: 036d87951abae704cb9493607d5c4c18, type: 3}
+      objectReference: {fileID: 7036800540068425026, guid: 65e27604ff2020041b817e3f9f863bdb, type: 3}
     - target: {fileID: 735633528722614961, guid: a9273f75a7832c5488ec0f7aaad3dd04, type: 3}
       propertyPath: bossRoom.doorMask
       value: 1
@@ -212,16 +212,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 735633528722614961, guid: a9273f75a7832c5488ec0f7aaad3dd04, type: 3}
       propertyPath: normalRooms.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 735633528722614961, guid: a9273f75a7832c5488ec0f7aaad3dd04, type: 3}
       propertyPath: normalRooms.Array.data[0].prefab
       value: 
-      objectReference: {fileID: 4209891415839552414, guid: 036d87951abae704cb9493607d5c4c18, type: 3}
+      objectReference: {fileID: 8718230970649884488, guid: 9cf3f5bf6399da447b36ccf7ad324d97, type: 3}
     - target: {fileID: 735633528722614961, guid: a9273f75a7832c5488ec0f7aaad3dd04, type: 3}
       propertyPath: normalRooms.Array.data[1].prefab
       value: 
-      objectReference: {fileID: 2144422401120402874, guid: 539613f1caedd7145badc5c8e313f8f1, type: 3}
+      objectReference: {fileID: 6697180024018016581, guid: 683f60ae78142fa48a870f84e9b294d3, type: 3}
+    - target: {fileID: 735633528722614961, guid: a9273f75a7832c5488ec0f7aaad3dd04, type: 3}
+      propertyPath: normalRooms.Array.data[2].prefab
+      value: 
+      objectReference: {fileID: 9043434517462538243, guid: f99f9f3de49c8d546ac2343ab2e45a2c, type: 3}
     - target: {fileID: 735633528722614961, guid: a9273f75a7832c5488ec0f7aaad3dd04, type: 3}
       propertyPath: normalRooms.Array.data[0].doorMask
       value: 15
@@ -231,11 +235,19 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 735633528722614961, guid: a9273f75a7832c5488ec0f7aaad3dd04, type: 3}
+      propertyPath: normalRooms.Array.data[2].doorMask
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 735633528722614961, guid: a9273f75a7832c5488ec0f7aaad3dd04, type: 3}
       propertyPath: normalRooms.Array.data[0].doorCount
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 735633528722614961, guid: a9273f75a7832c5488ec0f7aaad3dd04, type: 3}
       propertyPath: normalRooms.Array.data[1].doorCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 735633528722614961, guid: a9273f75a7832c5488ec0f7aaad3dd04, type: 3}
+      propertyPath: normalRooms.Array.data[2].doorCount
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4382856690538201836, guid: a9273f75a7832c5488ec0f7aaad3dd04, type: 3}
