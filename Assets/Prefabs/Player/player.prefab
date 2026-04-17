@@ -148,9 +148,8 @@ MonoBehaviour:
   staminaFill: {fileID: 0}
   currentStamina: 0
   weapons:
-  - {fileID: 11400000, guid: ccab13f683f852b459d037d36ddeb4db, type: 2}
-  - {fileID: 11400000, guid: ccab13f683f852b459d037d36ddeb4db, type: 2}
   - {fileID: 11400000, guid: 5fda3e2891ed7a44e85a008072f6dfa6, type: 2}
+  - {fileID: 11400000, guid: ccab13f683f852b459d037d36ddeb4db, type: 2}
   curSlot: 0
   maxHealth: 100
   curHealth: 100

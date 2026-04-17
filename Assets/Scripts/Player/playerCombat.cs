@@ -15,11 +15,18 @@ public enum WeaponType
 
 public class playerCombat : MonoBehaviour
 {
+    private static readonly int MouseDirHash = Animator.StringToHash("MouseDir");
+    private static readonly int MeleeStateHash = Animator.StringToHash("Melee");
+    private static readonly int ConditionStateHash = Animator.StringToHash("ConditionState");
+    private const string AttackLayerName = "Attack Layer";
+
     private WeaponData weaponData;
     private playerController pc;
     private playerStats stats;
     public GameObject bullet;
     private float lastAttackTime;
+    private int attackLayerIndex = -1;
+    private Coroutine resetMeleeRoutine;
     
     private Animator animator;
 
@@ -27,6 +34,7 @@ public class playerCombat : MonoBehaviour
     {
         stats = GetComponent<playerStats>();
         animator = GetComponent<Animator>();
+        attackLayerIndex = animator.GetLayerIndex(AttackLayerName);
         pc = GetComponent<playerController>();
         weaponData = pc.weapons[pc.curSlot];
     }
@@ -67,22 +75,33 @@ public class playerCombat : MonoBehaviour
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             if(45f <= angle && angle <= 135f) // up
             {
-                animator.SetFloat("MouseDir", 0f);
+                animator.SetFloat(MouseDirHash, 0f);
             }
             else if(-45f <= angle && angle < 45f) //right
             {
-                animator.SetFloat("MouseDir", 1f);
+                animator.SetFloat(MouseDirHash, 1f);
             }
             else if(-135f <= angle && angle <= -45f) // down
             {
-                animator.SetFloat("MouseDir", 2f);
+                animator.SetFloat(MouseDirHash, 2f);
             }
             else //left
             {
-                animator.SetFloat("MouseDir", 3f);
+                animator.SetFloat(MouseDirHash, 3f);
             }
 
-            animator.SetBool("isSwinging", true);
+            if (attackLayerIndex >= 0)
+            {
+                animator.Play(MeleeStateHash, attackLayerIndex, 0f);
+
+                if (resetMeleeRoutine != null)
+                {
+                    StopCoroutine(resetMeleeRoutine);
+                }
+
+                resetMeleeRoutine = StartCoroutine(ResetMeleeState(weaponData.attackCooldown));
+            }
+            
         } else
         {
             if(Input.GetMouseButtonDown(0))
@@ -90,7 +109,6 @@ public class playerCombat : MonoBehaviour
                 Instantiate(bullet, gameObject.transform.position, Quaternion.identity);
             }
         }
-        StartCoroutine(Wait(weaponData.attackCooldown));
     }
 
     private int calculateDamage()
@@ -101,9 +119,15 @@ public class playerCombat : MonoBehaviour
         return Mathf.RoundToInt(damage);
     }
 
-    IEnumerator Wait(float waitTime)
+    private IEnumerator ResetMeleeState(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
-        animator.SetBool("isSwinging", false);
+
+        if (attackLayerIndex >= 0)
+        {
+            animator.Play(ConditionStateHash, attackLayerIndex, 0f);
+        }
+
+        resetMeleeRoutine = null;
     }
 }

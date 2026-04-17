@@ -7,6 +7,10 @@ using Combat;
 
 public class playerController : MonoBehaviour, IDamageable
 {
+    private const int KnifeSlot = 0;
+    private const int GunSlot = 1;
+    private static readonly Vector3 GunHoldOffset = new Vector3(0.35f, 0.05f, 0f);
+
     [SerializeField] private float BASE_SPEED = 5f;
 
     [Header("Dash Settings")]
@@ -25,13 +29,15 @@ public class playerController : MonoBehaviour, IDamageable
     
     private List<IInteractable> interactables = new List<IInteractable>();
 
-    public WeaponData[] weapons = new WeaponData[3];
+    public WeaponData[] weapons = new WeaponData[2];
     public int curSlot = 0;
 
     [SerializeField] private float maxHealth;
     [SerializeField] private float curHealth;
 
     public GameObject displayedWeapon;
+    private GameObject equippedWeaponObject;
+    private int equippedSlot = -1;
 
     void Awake()
     {
@@ -41,7 +47,7 @@ public class playerController : MonoBehaviour, IDamageable
 
     void Start()
     {
-        
+        EquipWeapon(KnifeSlot);
     }
 
     void Update()
@@ -96,20 +102,69 @@ public class playerController : MonoBehaviour, IDamageable
 
         if(Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
         {
-            curSlot = 0;
+            EquipWeapon(KnifeSlot);
         } else if(Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
         {
-            curSlot = 1;
-        } else if(Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))
-        {
-            curSlot = 2;
+            EquipWeapon(GunSlot);
         }
-        displayedWeapon = Instantiate(weapons[curSlot].weaponPrefab, displayedWeapon.transform);
-        displayedWeapon.transform.localRotation = Quaternion.Euler(weapons[curSlot].rotation);
 
         if(interactables != null && Input.GetKeyDown(KeyCode.E)) {
             GetClosestInteractable().Interact();
         }
+    }
+
+    private void EquipWeapon(int slot)
+    {
+        if (slot == equippedSlot)
+        {
+            return;
+        }
+
+        if (slot < 0 || slot >= weapons.Length || weapons[slot] == null || weapons[slot].weaponPrefab == null)
+        {
+            Debug.LogWarning($"Cannot equip weapon slot {slot}. Check the player weapons array.");
+            return;
+        }
+
+        if (displayedWeapon == null)
+        {
+            Debug.LogWarning("Cannot display equipped weapon because displayedWeapon is not assigned.");
+            curSlot = slot;
+            equippedSlot = slot;
+            return;
+        }
+
+        if (equippedWeaponObject != null)
+        {
+            Destroy(equippedWeaponObject);
+        }
+
+        curSlot = slot;
+        equippedSlot = slot;
+
+        Transform weaponParent = weapons[slot].isMelee ? transform : displayedWeapon.transform;
+        equippedWeaponObject = Instantiate(weapons[slot].weaponPrefab, weaponParent);
+        equippedWeaponObject.name = weapons[slot].weaponPrefab.name;
+        equippedWeaponObject.transform.localPosition = weapons[slot].isMelee ? Vector3.zero : GunHoldOffset;
+        equippedWeaponObject.transform.localRotation = Quaternion.Euler(weapons[slot].rotation);
+        MatchWeaponSorting(equippedWeaponObject);
+
+        animator.Rebind();
+        animator.Update(0f);
+    }
+
+    private void MatchWeaponSorting(GameObject weaponObject)
+    {
+        SpriteRenderer playerRenderer = GetComponent<SpriteRenderer>();
+        SpriteRenderer weaponRenderer = weaponObject.GetComponent<SpriteRenderer>();
+
+        if (playerRenderer == null || weaponRenderer == null)
+        {
+            return;
+        }
+
+        weaponRenderer.sortingLayerID = playerRenderer.sortingLayerID;
+        weaponRenderer.sortingOrder = playerRenderer.sortingOrder + 1;
     }
 
     IEnumerator DashCooldown()
