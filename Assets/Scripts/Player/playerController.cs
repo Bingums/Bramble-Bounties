@@ -21,6 +21,14 @@ public class playerController : MonoBehaviour, IDamageable
     [SerializeField] private float dashCooldownTime = 3f;
     [SerializeField] private Image staminaFill;
     [SerializeField] private float currentStamina = 3f;
+
+    [Header("Combat Debug")] 
+    [SerializeField] private WeaponData sword;
+
+    [SerializeField] private WeaponData rifle;
+    [SerializeField] private WeaponData shotgun;
+    [SerializeField] private WeaponData lever;
+    
     private bool isOnCooldown = false;
 
     private Rigidbody2D rb;
@@ -106,6 +114,18 @@ public class playerController : MonoBehaviour, IDamageable
         } else if(Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
         {
             EquipWeapon(GunSlot);
+        } else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            UpgradeWeapon(0, sword);
+        } else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            UpgradeWeapon(1, rifle);
+        } else if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            UpgradeWeapon(1, lever);
+        } else if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            UpgradeWeapon(1, shotgun);
         }
 
         if(interactables != null && Input.GetKeyDown(KeyCode.E)) {
@@ -148,6 +168,11 @@ public class playerController : MonoBehaviour, IDamageable
         equippedWeaponObject.transform.localPosition = weapons[slot].isMelee ? Vector3.zero : GunHoldOffset;
         equippedWeaponObject.transform.localRotation = Quaternion.Euler(weapons[slot].rotation);
         MatchWeaponSorting(equippedWeaponObject);
+
+        if (equippedWeaponObject.name.Contains("word"))
+        {
+            equippedWeaponObject.name = "Knife";
+        }
 
         animator.Rebind();
         animator.Update(0f);
@@ -208,5 +233,12 @@ public class playerController : MonoBehaviour, IDamageable
     public void TakeDamage(int damage)
     {
         curHealth -= damage;
+    }
+
+    public void UpgradeWeapon(int slot, WeaponData toUpgrade)
+    {
+        weapons[slot] = toUpgrade;
+        equippedSlot = -1;
+        EquipWeapon(slot);
     }
 }

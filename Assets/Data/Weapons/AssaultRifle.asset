@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0bfe6cd4b8417224fafca602a7db158c, type: 3}
-  m_Name: EnergySword
+  m_Name: AssaultRifle
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   weaponName: 
-  damage: 20
-  attackCooldown: 0.35
-  isMelee: 1
-  range: 4
-  ammoCapacity: 0
+  damage: 0
+  attackCooldown: 0.12
+  isMelee: 0
+  range: 0
+  ammoCapacity: 30
   ammoReserves: 0
   shotSpeed: 0
-  reloadTime: 0
+  reloadTime: 1
   rotation: {x: 0, y: 0, z: 0}
-  weaponPrefab: {fileID: 5986603772766579419, guid: ffb33cab4994d244db12a804a41ef007, type: 3}
-  weaponPickup: {fileID: 0}
+  weaponPrefab: {fileID: 5125690275824816717, guid: 95e945ec38c116f4ea3754b405162659, type: 3}
+  weaponPickup: {fileID: 5520538869474499754, guid: 263344eb09a31994f82d32496dcf6b78, type: 3}

@@ -130,4 +130,9 @@ public class playerCombat : MonoBehaviour
 
         resetMeleeRoutine = null;
     }
+
+    private void UpgradeWeapon(int slot, int weaponVal)
+    {
+        
+    }
 }
