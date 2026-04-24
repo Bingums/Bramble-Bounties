@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Combat;
+using Unity.VisualScripting;
 
 public class playerController : MonoBehaviour, IDamageable
 {
@@ -14,17 +15,13 @@ public class playerController : MonoBehaviour, IDamageable
     [SerializeField] private float BASE_SPEED = 5f;
 
     [Header("Dash Settings")]
-    [SerializeField] private float maxStamina = 1000f;
-    [SerializeField] private float staminaDrainRate = 2f;     // per second
-    [SerializeField] private float staminaRegenRate = 1f;     // per second
+    [SerializeField] private float staminaDrainRate = 5f;     // per second
+    [SerializeField] private float staminaRegenRate = 3f;     // per second
     [SerializeField] private float dashMultiplier = 2f;
     [SerializeField] private float dashCooldownTime = 3f;
-    [SerializeField] private Image staminaFill;
-    [SerializeField] private float currentStamina = 3f;
 
     [Header("Combat Debug")] 
     [SerializeField] private WeaponData sword;
-
     [SerializeField] private WeaponData rifle;
     [SerializeField] private WeaponData shotgun;
     [SerializeField] private WeaponData lever;
@@ -32,20 +29,17 @@ public class playerController : MonoBehaviour, IDamageable
     private bool isOnCooldown = false;
 
     private Rigidbody2D rb;
-
     private Animator animator;
-    
     private List<IInteractable> interactables = new List<IInteractable>();
 
     public WeaponData[] weapons = new WeaponData[2];
     public int curSlot = 0;
 
-    [SerializeField] private float maxHealth;
-    [SerializeField] private float curHealth;
-
     public GameObject displayedWeapon;
     private GameObject equippedWeaponObject;
     private int equippedSlot = -1;
+
+    private PlayerState State => GameManager.Instance != null ? GameManager.Instance.PlayerState : null;
 
     void Awake()
     {
@@ -68,32 +62,32 @@ public class playerController : MonoBehaviour, IDamageable
         bool isDashing = Input.GetKey(KeyCode.LeftShift);
 
         float speedToUse = BASE_SPEED;
-
-        // DASH LOGIC
-        if (isDashing && currentStamina > 0 && !isOnCooldown)
+        PlayerState state = State;
+        
+        if(state != null)
         {
-            speedToUse *= dashMultiplier;
-
-            // Drain stamina over time
-            currentStamina -= staminaDrainRate * Time.deltaTime;
-
-            if (currentStamina <= 0)
+            //Dash Logic
+            if (isDashing && state.CurrentStamina > 0f && !isOnCooldown)
             {
-                currentStamina = 0;
-                StartCoroutine(DashCooldown());
+                speedToUse *= dashMultiplier;
+
+                float staminaCost = staminaDrainRate * Time.deltaTime;
+                bool spent = state.TrySpendStamina((staminaCost));
+
+                if (!spent || state.CurrentStamina <= 0f)
+                {
+                    state.SetStamina(0f);
+                    StartCoroutine(DashCooldown());
+                }
+            }
+            else
+            {
+                if (!isOnCooldown && state.CurrentStamina < state.MaxStamina)
+                {
+                    state.RestoreStamina(staminaRegenRate * Time.deltaTime);
+                }
             }
         }
-        else
-        {
-            // Regen stamina if not cooling down
-            if (!isOnCooldown && currentStamina < maxStamina)
-            {
-                currentStamina += staminaRegenRate * Time.deltaTime;
-                currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
-            }
-        }
-
-        //staminaFill.fillAmount = currentStamina / maxStamina;
 
         // Apply movement
         if (dir.magnitude < 0.1f)
@@ -232,7 +226,17 @@ public class playerController : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damage)
     {
-        curHealth -= damage;
+        if (State == null)
+        {
+            return;
+        }
+        
+        State.TakeDamage(damage);
+
+        if (State.IsDead())
+        {
+            Debug.Log("Player is dead");
+        }
     }
 
     public void UpgradeWeapon(int slot, WeaponData toUpgrade)
