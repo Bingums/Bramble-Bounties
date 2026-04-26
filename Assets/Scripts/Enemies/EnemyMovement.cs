@@ -5,7 +5,7 @@ public class EnemyMovement : MonoBehaviour
     public float moveSpeed = 2f;
     public float distance;
     Rigidbody2D rb;
-    Transform target;
+    private Transform target;
     Vector2 moveDirection;
 
     private void Awake(){
@@ -14,7 +14,7 @@ public class EnemyMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        target = GameObject.FindWithTag("Player").transform;
+        target = EnemySpawnManager.Instance.player;
     }
 
     // Update is called once per frame
@@ -22,11 +22,8 @@ public class EnemyMovement : MonoBehaviour
     {
         if(target){
             float distance = Vector2.Distance(transform.position, target.position);
-            if(distance < 8f)
-            {
-                Vector3 direction = (target.position - transform.position).normalized;
-                moveDirection = direction; 
-            }
+            Vector3 direction = (target.position - transform.position).normalized;
+            moveDirection = direction; 
         }
         
     }

@@ -125,7 +125,7 @@ public class HUDController : MonoBehaviour
             return;
         }
 
-        UpdateWeaponIcon(player.weapons[player.curSlot]);
+        UpdateWeaponIcon(player.weapons[player.curSlot].augmentedData);
     }
 
     private void UpdateWeaponIcon(WeaponData weapon)

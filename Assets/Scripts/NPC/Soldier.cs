@@ -15,7 +15,7 @@ public class Soldier : MonoBehaviour, IInteractable
         
     }
 
-    public void Interact()
+    public void Interact(GameObject interactor)
     {
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         sr.color = Color.white;

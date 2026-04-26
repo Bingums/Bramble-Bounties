@@ -13,20 +13,14 @@ public class PlayerBullet : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         direction = (mousePos - (Vector2)transform.position).normalized;
+        rb.linearVelocity = new Vector2(direction.x, direction.y).normalized * force;
         
         Destroy(gameObject, killBullet);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        rb.linearVelocity = new Vector2(direction.x, direction.y).normalized * force;
-    }
-
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("EnemyProjectile") || collision.CompareTag("Terrain") 
-            || collision.CompareTag("NPC"))
+        if(collision.CompareTag("Terrain") || collision.CompareTag("NPC"))
         {
             Destroy(gameObject);
         } else if(collision.CompareTag("Enemy"))

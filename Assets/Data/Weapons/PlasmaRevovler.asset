@@ -12,15 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bfe6cd4b8417224fafca602a7db158c, type: 3}
   m_Name: PlasmaRevovler
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
-  weaponName: Plasma Revolver
+  weaponName: 3
   damage: 6
+  numBullets: 1
   attackCooldown: 0.33
   isMelee: 0
+  shotSpeed: 3
   range: 0
   ammoCapacity: 6
   ammoReserves: 60
-  shotSpeed: 3
+  ammoUsage: 100
   reloadTime: 1
+  reloadUsage: 100
   rotation: {x: 0, y: 0, z: 0}
   weaponPrefab: {fileID: 6252804510499272444, guid: 8139112139c5e3a49a1488c971a54874, type: 3}
   weaponPickup: {fileID: 6446376815810727832, guid: 90d3c9ca018e543459fddaebdd17d4cd, type: 3}

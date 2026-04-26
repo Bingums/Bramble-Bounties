@@ -35,13 +35,13 @@ public class playerController : MonoBehaviour, IDamageable
     private Animator animator;
     private List<IInteractable> interactables = new List<IInteractable>();
 
-    public WeaponData[] weapons = new WeaponData[2];
+    public Weapon[] weapons = new Weapon[2];
     public int curSlot = 0;
 
     public GameObject displayedWeapon;
     private GameObject equippedWeaponObject;
     private int equippedSlot = -1;
-
+    
     private PlayerState State => GameManager.Instance != null ? GameManager.Instance.PlayerState : null;
 
     void Awake()
@@ -64,6 +64,7 @@ public class playerController : MonoBehaviour, IDamageable
         bool isDashing = Input.GetKey(KeyCode.LeftShift);
 
         float speedToUse = BASE_SPEED;
+        
         PlayerState state = State;
         
         if(state != null)
@@ -125,7 +126,7 @@ public class playerController : MonoBehaviour, IDamageable
         }
         
         if(interactables != null && Input.GetKeyDown(KeyCode.E)) {
-            GetClosestInteractable().Interact();
+            GetClosestInteractable().Interact(gameObject);
         }
     }
 
@@ -136,7 +137,8 @@ public class playerController : MonoBehaviour, IDamageable
             return;
         }
 
-        if (slot < 0 || slot >= weapons.Length || weapons[slot] == null || weapons[slot].weaponPrefab == null)
+        if (slot < 0 || slot >= weapons.Length || weapons[slot] == null 
+            || weapons[slot].baseData.weaponPrefab == null)
         {
             Debug.LogWarning($"Cannot equip weapon slot {slot}. Check the player weapons array.");
             return;
@@ -147,7 +149,7 @@ public class playerController : MonoBehaviour, IDamageable
             Debug.LogWarning("Cannot display equipped weapon because displayedWeapon is not assigned.");
             curSlot = slot;
             equippedSlot = slot;
-            OnEquippedWeaponChanged?.Invoke(weapons[curSlot]);
+            OnEquippedWeaponChanged?.Invoke(weapons[curSlot].augmentedData);
             return;
         }
 
@@ -159,11 +161,11 @@ public class playerController : MonoBehaviour, IDamageable
         curSlot = slot;
         equippedSlot = slot;
 
-        Transform weaponParent = weapons[slot].isMelee ? transform : displayedWeapon.transform;
-        equippedWeaponObject = Instantiate(weapons[slot].weaponPrefab, weaponParent);
-        equippedWeaponObject.name = weapons[slot].weaponPrefab.name;
-        equippedWeaponObject.transform.localPosition = weapons[slot].isMelee ? Vector3.zero : GunHoldOffset;
-        equippedWeaponObject.transform.localRotation = Quaternion.Euler(weapons[slot].rotation);
+        Transform weaponParent = weapons[slot].baseData.isMelee ? transform : displayedWeapon.transform;
+        equippedWeaponObject = Instantiate(weapons[slot].baseData.weaponPrefab, weaponParent);
+        equippedWeaponObject.name = weapons[slot].baseData.weaponPrefab.name;
+        equippedWeaponObject.transform.localPosition = weapons[slot].baseData.isMelee ? Vector3.zero : GunHoldOffset;
+        equippedWeaponObject.transform.localRotation = Quaternion.Euler(weapons[slot].baseData.rotation);
         MatchWeaponSorting(equippedWeaponObject);
 
         if (equippedWeaponObject.name.Contains("word"))
@@ -174,7 +176,7 @@ public class playerController : MonoBehaviour, IDamageable
         animator.Rebind();
         animator.Update(0f);
 
-        OnEquippedWeaponChanged?.Invoke(weapons[curSlot]);
+        OnEquippedWeaponChanged?.Invoke(weapons[curSlot].augmentedData);
     }
 
     private void MatchWeaponSorting(GameObject weaponObject)
@@ -246,7 +248,7 @@ public class playerController : MonoBehaviour, IDamageable
 
     public void UpgradeWeapon(int slot, WeaponData toUpgrade)
     {
-        weapons[slot] = toUpgrade;
+        weapons[slot].baseData = toUpgrade;
         equippedSlot = -1;
         EquipWeapon(slot);
     }

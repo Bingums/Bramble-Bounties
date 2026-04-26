@@ -121,8 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c197aa958f1a248b5dbf873e56a4a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  maxHealth: 12
-  currentHealth: 12
+  maxHealth: 18
+  currentHealth: 18
   attack: 2
 --- !u!50 &3266891807830674988
 Rigidbody2D:

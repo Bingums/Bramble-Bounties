@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BasicBullet : MonoBehaviour
 {
-    private GameObject player;
+    private Transform player;
     private Rigidbody2D rb;
     public float force;
     public float killBullet;
@@ -13,21 +13,17 @@ public class BasicBullet : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = EnemySpawnManager.Instance.player;
     
         direction = player.transform.position - transform.position;
+        rb.linearVelocity = new Vector2(direction.x, direction.y).normalized * force;
         
         Destroy(gameObject, killBullet);
     }
-    // Update is called once per frame
-    void Update()
-    {
-        rb.linearVelocity = new Vector2(direction.x, direction.y).normalized * force;
-    }
-
+    
     private void OnTriggerEnter2D(Collider2D collision){
         // bullet disappears if hit with melee or your bullets
-        if(collision.CompareTag("Weapon") || collision.CompareTag("PlayerProjectile")) 
+        if(collision.CompareTag("Weapon")) 
         {
             Destroy(gameObject);
         } // damages player and enemies (bullets spawns in shooter, need to change)

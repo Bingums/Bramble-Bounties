@@ -12,15 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bfe6cd4b8417224fafca602a7db158c, type: 3}
   m_Name: Shotgun
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
-  weaponName: 
+  weaponName: 4
   damage: 20
+  numBullets: 3
   attackCooldown: 2
   isMelee: 0
+  shotSpeed: 10
   range: 0
   ammoCapacity: 2
   ammoReserves: 10
-  shotSpeed: 10
+  ammoUsage: 100
   reloadTime: 3
+  reloadUsage: 100
   rotation: {x: 0, y: 0, z: 0}
   weaponPrefab: {fileID: 8680481852192739301, guid: ad4a45cb3f510f545a466d3f994c4851, type: 3}
   weaponPickup: {fileID: 3773455249087818365, guid: 46a4eeb4466c3b34ebca3dfc54ab5769, type: 3}

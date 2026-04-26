@@ -3,16 +3,6 @@ using System.Collections;
 using Combat;
 using UnityEngine;
 
-public enum WeaponType
-{
-    Revolver,
-    Shotgun,
-    LeverRifle,
-    AssaultRifle,
-    Dagger,
-    Sword
-}
-
 public class playerCombat : MonoBehaviour
 {
     private static readonly int MouseDirHash = Animator.StringToHash("MouseDir");
@@ -20,7 +10,7 @@ public class playerCombat : MonoBehaviour
     private static readonly int ConditionStateHash = Animator.StringToHash("ConditionState");
     private const string AttackLayerName = "Attack Layer";
 
-    private WeaponData weaponData;
+    private WeaponData weapon;
     private playerController pc;
     private playerStats stats;
     public GameObject bullet;
@@ -36,7 +26,7 @@ public class playerCombat : MonoBehaviour
         animator = GetComponent<Animator>();
         attackLayerIndex = animator.GetLayerIndex(AttackLayerName);
         pc = GetComponent<playerController>();
-        weaponData = pc.weapons[pc.curSlot];
+        weapon = pc.weapons[pc.curSlot].augmentedData;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -50,7 +40,7 @@ public class playerCombat : MonoBehaviour
 
     void Update()
     {
-        weaponData = pc.weapons[pc.curSlot];
+        weapon = pc.weapons[pc.curSlot].augmentedData;
         if (Input.GetMouseButtonDown(0))
         {
             TryAttack();
@@ -59,15 +49,15 @@ public class playerCombat : MonoBehaviour
 
     void TryAttack()
     {
-        if (weaponData == null)
+        if (weapon == null)
         {
             return;
         }
 
-        if (Time.time < lastAttackTime + weaponData.attackCooldown) return;
+        if (Time.time < lastAttackTime + weapon.attackCooldown) return;
 
         lastAttackTime = Time.time; 
-        if(weaponData.isMelee)
+        if(weapon.isMelee)
         {
             Debug.Log("swinging");
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -99,7 +89,7 @@ public class playerCombat : MonoBehaviour
                     StopCoroutine(resetMeleeRoutine);
                 }
 
-                resetMeleeRoutine = StartCoroutine(ResetMeleeState(weaponData.attackCooldown));
+                resetMeleeRoutine = StartCoroutine(ResetMeleeState(weapon.attackCooldown));
             }
             
         } else
@@ -113,8 +103,10 @@ public class playerCombat : MonoBehaviour
 
     private int calculateDamage()
     {
-        float damage = weaponData.damage;
+        float damage = weapon.damage;
         damage *= stats.damageMultiplier;
+        
+        // grab augmented data to perform calcs & rng
 
         return Mathf.RoundToInt(damage);
     }
