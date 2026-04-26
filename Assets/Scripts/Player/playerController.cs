@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,6 +26,8 @@ public class playerController : MonoBehaviour, IDamageable
     [SerializeField] private WeaponData rifle;
     [SerializeField] private WeaponData shotgun;
     [SerializeField] private WeaponData lever;
+
+    public event Action<WeaponData> OnEquippedWeaponChanged;
     
     private bool isOnCooldown = false;
 
@@ -58,7 +61,6 @@ public class playerController : MonoBehaviour, IDamageable
         float vertical = Input.GetAxisRaw("Vertical");
         
         Vector2 dir = new Vector2(horizontal, vertical).normalized;
-
         bool isDashing = Input.GetKey(KeyCode.LeftShift);
 
         float speedToUse = BASE_SPEED;
@@ -121,7 +123,7 @@ public class playerController : MonoBehaviour, IDamageable
         {
             UpgradeWeapon(1, shotgun);
         }
-
+        
         if(interactables != null && Input.GetKeyDown(KeyCode.E)) {
             GetClosestInteractable().Interact();
         }
@@ -145,6 +147,7 @@ public class playerController : MonoBehaviour, IDamageable
             Debug.LogWarning("Cannot display equipped weapon because displayedWeapon is not assigned.");
             curSlot = slot;
             equippedSlot = slot;
+            OnEquippedWeaponChanged?.Invoke(weapons[curSlot]);
             return;
         }
 
@@ -170,6 +173,8 @@ public class playerController : MonoBehaviour, IDamageable
 
         animator.Rebind();
         animator.Update(0f);
+
+        OnEquippedWeaponChanged?.Invoke(weapons[curSlot]);
     }
 
     private void MatchWeaponSorting(GameObject weaponObject)

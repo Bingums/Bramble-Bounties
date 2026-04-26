@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int currentFloor = 1;
 
     public PlayerState PlayerState { get; private set; }
-
     public int CurrentFloor => currentFloor;
 
     private void Awake()

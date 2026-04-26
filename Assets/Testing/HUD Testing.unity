@@ -217,6 +217,7 @@ RectTransform:
   - {fileID: 1094973073}
   - {fileID: 1181019887}
   - {fileID: 172578229}
+  - {fileID: 886690015}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -349,6 +350,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HUDController
   healthFill: {fileID: 1181019888}
   staminaFill: {fileID: 172578230}
+  weaponIcon: {fileID: 998948819}
+  player: {fileID: 1044734727}
 --- !u!1 &581218450
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,6 +481,168 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &886690014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 886690015}
+  - component: {fileID: 886690017}
+  - component: {fileID: 886690016}
+  m_Layer: 5
+  m_Name: WeaponIconContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &886690015
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886690014}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.878318, y: 1.878318, z: 1.878318}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 998948818}
+  m_Father: {fileID: 117059481}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -95.2, y: 95.1}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &886690016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886690014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &886690017
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886690014}
+  m_CullTransparentMesh: 1
+--- !u!1 &998948817
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 998948818}
+  - component: {fileID: 998948820}
+  - component: {fileID: 998948819}
+  m_Layer: 5
+  m_Name: WeaponIcon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &998948818
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998948817}
+  m_LocalRotation: {x: -0, y: -0, z: 0.3800659, w: 0.9249594}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.7919359, y: 0.77408606, z: 0.32825}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 886690015}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 44.675}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &998948819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998948817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -3656301783182984568, guid: 78f087ae54c509e499b02767c0a66381, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &998948820
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998948817}
+  m_CullTransparentMesh: 1
+--- !u!114 &1044734727 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3825267960694175184, guid: ac4a1e2c695d8cc438c392dbe1004018, type: 3}
+  m_PrefabInstance: {fileID: 1411077231}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccad8c589e0e034499c62f278c0d5dc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::playerController
 --- !u!1 &1094973072
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,6 +982,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 1631481473021520283, guid: ac4a1e2c695d8cc438c392dbe1004018, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 7609965367145566778, guid: cb4393c3f4399e04e8fcd17ea85a4000, type: 3}
+    - target: {fileID: 3825267960694175184, guid: ac4a1e2c695d8cc438c392dbe1004018, type: 3}
+      propertyPath: lever
+      value: 
+      objectReference: {fileID: 11400000, guid: dde52d77f35daad41baff5429fabac6c, type: 2}
+    - target: {fileID: 3825267960694175184, guid: ac4a1e2c695d8cc438c392dbe1004018, type: 3}
+      propertyPath: rifle
+      value: 
+      objectReference: {fileID: 11400000, guid: df045fc46f7f38e4da6eef8c06434fba, type: 2}
+    - target: {fileID: 3825267960694175184, guid: ac4a1e2c695d8cc438c392dbe1004018, type: 3}
+      propertyPath: sword
+      value: 
+      objectReference: {fileID: 11400000, guid: f30585753fd758e49af2ae464429f23a, type: 2}
+    - target: {fileID: 3825267960694175184, guid: ac4a1e2c695d8cc438c392dbe1004018, type: 3}
+      propertyPath: shotgun
+      value: 
+      objectReference: {fileID: 11400000, guid: a9d9c667790c260409e5b580ab9a64bd, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

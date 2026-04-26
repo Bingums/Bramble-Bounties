@@ -18,4 +18,6 @@ public class WeaponData : ScriptableObject
 
     public GameObject weaponPrefab;
     public GameObject weaponPickup;
+
+    public Sprite weaponSprite;
 }
