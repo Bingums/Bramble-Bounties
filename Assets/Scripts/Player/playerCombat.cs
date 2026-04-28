@@ -3,16 +3,6 @@ using System.Collections;
 using Combat;
 using UnityEngine;
 
-public enum WeaponType
-{
-    Revolver,
-    Shotgun,
-    LeverRifle,
-    AssaultRifle,
-    Dagger,
-    Sword
-}
-
 public class playerCombat : MonoBehaviour
 {
     private static readonly int MouseDirHash = Animator.StringToHash("MouseDir");
@@ -20,7 +10,7 @@ public class playerCombat : MonoBehaviour
     private static readonly int ConditionStateHash = Animator.StringToHash("ConditionState");
     private const string AttackLayerName = "Attack Layer";
 
-    private WeaponData weaponData;
+    private WeaponData weapon;
     private playerController pc;
     private playerStats stats;
     public GameObject bullet;
@@ -30,44 +20,32 @@ public class playerCombat : MonoBehaviour
     
     private Animator animator;
 
-    private void Awake()
+    void Start()
     {
         stats = GetComponent<playerStats>();
         animator = GetComponent<Animator>();
         attackLayerIndex = animator.GetLayerIndex(AttackLayerName);
         pc = GetComponent<playerController>();
-        weaponData = pc.weapons[pc.curSlot];
     }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
 
     void Update()
     {
-        weaponData = pc.weapons[pc.curSlot];
         if (Input.GetMouseButtonDown(0))
-        {
             TryAttack();
-        }
     }
 
     void TryAttack()
     {
-        if (weaponData == null)
+        weapon = pc.weapons[pc.curSlot].augmentedData;
+        if (weapon == null)
         {
             return;
         }
 
-        if (Time.time < lastAttackTime + weaponData.attackCooldown) return;
+        if (Time.time < lastAttackTime + weapon.attackCooldown) return;
 
         lastAttackTime = Time.time; 
-        if(weaponData.isMelee)
+        if(weapon.isMelee)
         {
             Debug.Log("swinging");
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -93,28 +71,46 @@ public class playerCombat : MonoBehaviour
             if (attackLayerIndex >= 0)
             {
                 animator.Play(MeleeStateHash, attackLayerIndex, 0f);
-
                 if (resetMeleeRoutine != null)
                 {
                     StopCoroutine(resetMeleeRoutine);
                 }
+                resetMeleeRoutine = StartCoroutine(ResetMeleeState(weapon.attackCooldown));
+            }
+        } 
+        else
+        {
+            switch (weapon.weaponName)
+            {
+                case(WeaponType.Revolver):
 
-                resetMeleeRoutine = StartCoroutine(ResetMeleeState(weaponData.attackCooldown));
+                    break;
+                case(WeaponType.Shotgun):
+
+                    break;
+                case(WeaponType.AssaultRifle):
+
+                    break;
+                case(WeaponType.LeverRifle):
+
+                    break;
             }
             
-        } else
-        {
             if(Input.GetMouseButtonDown(0))
             {
-                Instantiate(bullet, gameObject.transform.position, Quaternion.identity);
+                GameObject newBullet = Instantiate(bullet, gameObject.transform.position, Quaternion.identity);
+                PlayerBullet firedBullet = newBullet.GetComponent<PlayerBullet>();
+                firedBullet.InitializeBullet(weapon);
             }
         }
     }
 
     private int calculateDamage()
     {
-        float damage = weaponData.damage;
+        float damage = weapon.damage;
         damage *= stats.damageMultiplier;
+        
+        // grab augmented data to perform calcs & rng
 
         return Mathf.RoundToInt(damage);
     }
@@ -129,5 +125,10 @@ public class playerCombat : MonoBehaviour
         }
 
         resetMeleeRoutine = null;
+    }
+
+    private void UpgradeWeapon(int slot, int weaponVal)
+    {
+        
     }
 }

@@ -11,16 +11,17 @@ public class EnemyData : MonoBehaviour, IDamageable
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        Debug.Log(currentHealth);
         if (currentHealth <= 0)
         {
-            Debug.Log($"{gameObject.name } defeated");
             Defeat();
         }
     }
 
     public void Defeat()
     {
+        Room currentRoom = EnemySpawnManager.EnemySpawnManagerInstance.GetCurrentRoom();
+        if(currentRoom != null)
+            currentRoom.DecreaseEnemyCount();
         Destroy(gameObject);
     }
     

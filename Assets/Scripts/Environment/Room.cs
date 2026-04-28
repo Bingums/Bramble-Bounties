@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Room : MonoBehaviour
@@ -6,9 +7,16 @@ public class Room : MonoBehaviour
     [SerializeField] private Transform[] enemySpawnPoints; // first 4 points for enemies
     [SerializeField] private Transform playerSpawnPoint;   // dedicated player spawn
 
-    private int enemyCap = 8;
-    private int curEnemyCount = 0;
-    private bool isCleared = false;
+    [SerializeField] private BoxCollider2D[] doorColliders;
+    
+    public int numWaves = 3;
+    public int currentWave = 0;
+    public int[] enemiesPerWave = { 4, 6, 8 };
+    //private bool waveCleared = false;
+    private int spawnedEnemyCount = 0;
+    public int enemyCount = 0;
+    public bool isCleared = false;
+    
 
     // Door & Wall references
     public GameObject rightDoor, leftDoor, topDoor, bottomDoor;
@@ -19,10 +27,23 @@ public class Room : MonoBehaviour
     // -------------------------
     // Enemy / Room Methods
     // -------------------------
-    public bool atCap() => curEnemyCount >= enemyCap;
-    public bool isRoomCleared() => isCleared;
-    public void IncreaseEnemyCount() => curEnemyCount++;
-    public void DecreaseEnemyCount() => curEnemyCount--;
+    public bool AtCap()
+    {
+        if (currentWave >= enemiesPerWave.Length) return true;
+        return spawnedEnemyCount >= enemiesPerWave[currentWave];
+    }
+    public void IncreaseEnemyCounts()
+    {
+        spawnedEnemyCount++;
+        enemyCount++;
+    }
+
+    public void ResetEnemyCounts()
+    {
+        spawnedEnemyCount = 0;
+        enemyCount = 0;
+    }
+    public void DecreaseEnemyCount() => enemyCount--;
 
     public Transform[] GetEnemySpawns() => enemySpawnPoints;
 
@@ -80,5 +101,22 @@ public class Room : MonoBehaviour
         if (down) EnableDoor(Direction.Bottom); else DisableDoor(Direction.Bottom);
         if (left) EnableDoor(Direction.Left); else DisableDoor(Direction.Left);
         if (right) EnableDoor(Direction.Right); else DisableDoor(Direction.Right);
+    }
+    
+    public void LockDoors(bool locked)
+    {
+        for (int i = 0; i < doorColliders.Length; i++)
+            doorColliders[i].enabled = locked;
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("triggered");
+        if (!Application.isPlaying) return;
+        if (collision.CompareTag("Player"))
+        {
+            LockDoors(true);
+            EnemySpawnManager.EnemySpawnManagerInstance.StartSpawning(this);
+        }
     }
 }

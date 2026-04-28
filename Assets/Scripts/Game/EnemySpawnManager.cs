@@ -3,18 +3,20 @@ using UnityEngine;
 using System.Collections;
 public class EnemySpawnManager : MonoBehaviour
 {
-    public static EnemySpawnManager Instance;
+    public static EnemySpawnManager EnemySpawnManagerInstance;
 
     [SerializeField] private GameObject[] enemyPrefabs;
 
-    private int spawnRate = 6;
+    public Transform player;
+    private int spawnRate = 2; //seconds
+    private int newWaveSpawnRate = 1; //(2 + 1)
 
-    private Room[] levelRooms;
+    private Room currentRoom;
 
     void Awake()
     {
-        if(Instance == null)
-            Instance = this;
+        if(EnemySpawnManagerInstance == null)
+            EnemySpawnManagerInstance = this;
         else
             Destroy(gameObject);
     }
@@ -22,8 +24,7 @@ public class EnemySpawnManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        levelRooms = FindObjectsByType<Room>(FindObjectsSortMode.None);
-        StartSpawning();
+        player = GameObject.FindWithTag("Player").transform;
     }
 
     // Update is called once per frame
@@ -34,33 +35,63 @@ public class EnemySpawnManager : MonoBehaviour
     
     private IEnumerator SpawnLoop()
     {
-        while(true) {
-            foreach(Room room in levelRooms)
+        while(currentRoom.currentWave < currentRoom.numWaves)
+        {
+            while(!currentRoom.AtCap())
             {
-                if(!room.atCap())
+                yield return new WaitForSeconds(spawnRate);
+                
+                Transform[] spawnPoints = currentRoom.GetEnemySpawns();
+                
+                foreach (Transform spawnPoint in spawnPoints)
                 {
-                    Transform[] spawnPoints = room.GetEnemySpawns();
-
-                    foreach(Transform spawnPoint in spawnPoints)
+                    if (!currentRoom.AtCap())
                     {
                         GameObject enemy = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
-                        Instantiate(enemy, spawnPoint);
-                        room.IncreaseEnemyCount();
+                        Instantiate(enemy, spawnPoint.position, Quaternion.identity);
+                        currentRoom.IncreaseEnemyCounts();
                     }
                 }
             }
 
-            yield return new WaitForSeconds(spawnRate);
+            while(currentRoom.enemyCount != 0) 
+            {
+                yield return null;
+            }
+            
+            currentRoom.ResetEnemyCounts();
+            
+            currentRoom.currentWave++;
+            yield return new WaitForSeconds(newWaveSpawnRate);
         }
+        
+        currentRoom.isCleared = true;
+        currentRoom.LockDoors(false);
+        currentRoom = null;
+        Debug.Log("All waves complete");
+        StopSpawning();
+        yield break; // gets rid of extra iteration
     }
 
-    public void StartSpawning()
+    public void StartSpawning(Room room)
     {
+        if (!Application.isPlaying) return;
+        currentRoom = room;
         StartCoroutine(SpawnLoop());
     }
 
     public void StopSpawning()
     {
         StopAllCoroutines();
+    }
+
+    public void OnDestroy()
+    {
+        StopAllCoroutines();
+    }
+    
+    public Room GetCurrentRoom()
+    {
+        return currentRoom;
     }
 }

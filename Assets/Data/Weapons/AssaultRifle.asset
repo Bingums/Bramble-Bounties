@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bfe6cd4b8417224fafca602a7db158c, type: 3}
+  m_Name: AssaultRifle
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponData
+  weaponName: 6
+  damage: 0
+  numBullets: 1
+  attackCooldown: 0.12
+  isMelee: 0
+  shotSpeed: 0
+  range: 0
+  ammoCapacity: 30
+  ammoReserves: 120
+  ammoUsage: 100
+  reloadTime: 1
+  reloadUsage: 100
+  rotation: {x: 0, y: 0, z: 0}
+  weaponPrefab: {fileID: 5125690275824816717, guid: 95e945ec38c116f4ea3754b405162659, type: 3}
+  weaponPickup: {fileID: 5520538869474499754, guid: 263344eb09a31994f82d32496dcf6b78, type: 3}
+  weaponSprite: {fileID: -3180577023440991259, guid: 78f087ae54c509e499b02767c0a66381, type: 3}

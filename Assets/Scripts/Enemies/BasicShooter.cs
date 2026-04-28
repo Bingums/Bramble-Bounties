@@ -10,7 +10,7 @@ public class BasicShooter : MonoBehaviour
     //Movement Var
     private float moveSpeed = 2f;
     Rigidbody2D rb;
-    Transform target;
+    private Transform target;
     Vector2 moveDirection;
 
     //Shooting Var
@@ -34,8 +34,7 @@ public class BasicShooter : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        target = GameObject.FindWithTag("Player").transform;
-        
+        target = EnemySpawnManager.EnemySpawnManagerInstance.player;
     }
 
     // Update is called once per frame
@@ -43,18 +42,16 @@ public class BasicShooter : MonoBehaviour
     {
         if(target){
             moveDirection = (target.position - transform.position).normalized;
-        }
+            float distance = Vector2.Distance(transform.position, target.position);
+            
+            if(distance < firingDistance) {
+                moveSpeed = 0;
+                ShootGun();
+            } else if(distance > firingDistance) {
+                moveSpeed = 2;
+            }
 
-        float distance = Vector2.Distance(transform.position, target.position);
-        if(distance < firingDistance) {
-           moveSpeed = 0;
-           ShootGun();
-        } else if(distance > firingDistance) {
-            moveSpeed = 2;
         }
-        
-
- 
     }
     private void FixedUpdate(){
         if(target){
