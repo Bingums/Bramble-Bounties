@@ -1,25 +1,15 @@
 using UnityEngine;
-
 public class SingerAOE : MonoBehaviour
 {
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void OnTriggerEnter2D(Collider2D collision){
+            
         GameObject player = GameObject.Find("player");
         if(collision.tag == "Player"){
-            //player.GetComponent<Health>.health -= 2;
-            
+            playerController other = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
+            other.TakeDamage(10);
         }
     }
     

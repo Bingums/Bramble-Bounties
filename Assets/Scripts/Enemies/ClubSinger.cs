@@ -51,7 +51,7 @@ public class ClubSinger : MonoBehaviour
         GameObject Singer = GameObject.Find("ClubSingerBoss");
         //GameObject warning = GameObject.Find("Warning");
         if(collision.tag == "Player"){
-            if(Random.Range(0,7) < 1){
+            if(Random.Range(0,3) < 1){
                 Singer.GetComponent<EnemyMovement>().moveSpeed = 0;
                 speed = 0;
                 transform.Find("Warning").gameObject.SetActive(true);

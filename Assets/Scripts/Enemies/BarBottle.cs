@@ -9,7 +9,8 @@ public class BarBottle : MonoBehaviour
     private Rigidbody2D rb;
     public float force = 3;
     private Vector3 direction;
-    private float time = 3;
+    private float time = 3;//Until bottle breaks;
+    private float lifeSpan = 15;
 
     private bool flag = false;
     
@@ -28,16 +29,17 @@ public class BarBottle : MonoBehaviour
         rb.linearVelocity = new Vector2(direction.x, direction.y).normalized * force;
         
         time -= Time.deltaTime;
+        lifeSpan -= Time.deltaTime;
 
         if(time < 0){
             rb.linearVelocity = new Vector2(0, 0);
             if(!flag){
-            puddle.SetActive(true);
-            flag = true;
+                puddle.SetActive(true);
+                flag = true;
             }
         }
 
-        if(time < -10){
+        if(lifeSpan < 0){
             Destroy(gameObject);
         }
     }
@@ -50,7 +52,7 @@ public class BarBottle : MonoBehaviour
             time = -1;
             flag = true;
 
-        }else if(collision.tag == "EnemyProjectile"){
+        }else if(collision.tag == "BarProjectile"){
             puddle.SetActive(false);
             burningPuddle.SetActive(true);
         }

@@ -13,18 +13,7 @@ public class Brawler : MonoBehaviour
         brawlerColor = brawlerRenderer.color;
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    // Start is called once before the first execution of Update after the MonoBehaviour is created 
 
     private void OnTriggerEnter2D(Collider2D collision){
         if(collision.CompareTag("Player") || collision.CompareTag("PlayerProjectile")
@@ -32,6 +21,11 @@ public class Brawler : MonoBehaviour
         {
             brawlerRenderer.color = damageColor;
             
+        }
+        GameObject player = GameObject.Find("player");
+        if(collision.tag == "Player"){
+            playerController other = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
+            other.TakeDamage(5);
         }
     }
 
