@@ -123,7 +123,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -151,5 +151,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b30e0fa75f606d4b9e76296df7ba2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponPickup
-  weapon: {fileID: 11400000, guid: f30585753fd758e49af2ae464429f23a, type: 2}
-  location: {x: 0, y: 0, z: 0}
+  data: {fileID: 11400000, guid: f30585753fd758e49af2ae464429f23a, type: 2}

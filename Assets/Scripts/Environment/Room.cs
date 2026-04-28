@@ -116,7 +116,7 @@ public class Room : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             LockDoors(true);
-            EnemySpawnManager.Instance.StartSpawning(this);
+            EnemySpawnManager.EnemySpawnManagerInstance.StartSpawning(this);
         }
     }
 }

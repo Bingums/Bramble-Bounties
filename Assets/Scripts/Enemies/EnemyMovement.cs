@@ -14,7 +14,7 @@ public class EnemyMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        target = EnemySpawnManager.Instance.player;
+        target = EnemySpawnManager.EnemySpawnManagerInstance.player;
     }
 
     // Update is called once per frame

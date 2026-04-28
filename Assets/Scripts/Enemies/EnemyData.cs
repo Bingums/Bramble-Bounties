@@ -33,7 +33,7 @@ public class EnemyData : MonoBehaviour, IDamageable
 
     public void Defeat()
     {
-        Room currentRoom = EnemySpawnManager.Instance.GetCurrentRoom();
+        Room currentRoom = EnemySpawnManager.EnemySpawnManagerInstance.GetCurrentRoom();
         if(currentRoom != null)
             currentRoom.DecreaseEnemyCount();
         Destroy(gameObject);

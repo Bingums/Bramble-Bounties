@@ -1,25 +1,20 @@
 using System.Linq;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+public class Weapon
 {
     public WeaponData baseData;
     public WeaponData augmentedData;
-
-    void Awake()
-    {
-        augmentedData = baseData;
-    }
-
-    // rename to something since it would apply and get rid of augments
-    // add a boolean as parameter to use as a tertiary operator
-    // if true then apply (apply change) and if not remove (remove change)
     
-    // might need to change since some augments could change multiple stats
-    // would prob need an array of booleans as well then
-    public void ApplyAugment(AugmentData aug)
+    public void InitializeWeapon(WeaponData data)
     {
-        if (aug == null || aug.isActive)
+        baseData = data;
+        augmentedData = baseData.GetCopy();
+    }
+    
+    public void AugmentWeaponStats(AugmentData aug, bool apply)
+    {
+        if (aug == null)//|| aug.isActive)
         {
             augmentedData = baseData;
         }
@@ -38,88 +33,111 @@ public class Weapon : MonoBehaviour
         }
         else
         {
-            // put switch inside a for loop if i do use array
-            switch (aug.statType)
-            {
-                case StatType.AmmoCapacity:
-                    augmentedData.ammoCapacity = (int)ApplyChange(aug, augmentedData.ammoCapacity);
-                    break;
-                case StatType.AmmoReserve:
-                    augmentedData.ammoReserves = (int)ApplyChange(aug, augmentedData.ammoReserves);
-                    break;
-                case StatType.AmmoUsage:
-                    augmentedData.ammoUsage = ApplyChange(aug, augmentedData.ammoUsage);
-                    break;
-                // case StatType.CritChance:
-                //     augmentedData. = ApplyChange(aug, augmentedData.);
-                //     break;
-                // case StatType.CritDamage:
-                //     augmentedData. = ApplyChange(aug, augmentedData.);
-                //     break;
-                case StatType.Damage:
-                    augmentedData.damage = (int)ApplyChange(aug, augmentedData.damage);
-                    break;
-                // case StatType.StoppingPower:
-                //     augmentedData. = ApplyChange(aug, augmentedData.);
-                //     break;
-                case StatType.NumBullets:
-                    augmentedData.numBullets = (int)ApplyChange(aug, augmentedData.numBullets);
-                    break;
-                case StatType.ShotSpeed:
-                    augmentedData.shotSpeed = ApplyChange(aug, augmentedData.shotSpeed);
-                    break;
-                case StatType.Range:
-                    augmentedData.range = ApplyChange(aug, augmentedData.range);
-                    break;
-                case StatType.AttackCooldown:
-                    augmentedData.attackCooldown = ApplyChange(aug, augmentedData.attackCooldown);
-                    break;
-                case StatType.ReloadTime:
-                    augmentedData.reloadTime = ApplyChange(aug, augmentedData.reloadTime);
-                    break;
-                case StatType.ReloadUsage:
-                    augmentedData.reloadUsage = ApplyChange(aug, augmentedData.reloadUsage);
-                    break;
-                // case StatType.ExtraDamageChance:
-                //     augmentedData. = ApplyChange(aug, augmentedData.);
-                //     break;
-                // case StatType.ExtraDamageVal:
-                //     augmentedData. = ApplyChange(aug, augmentedData.);
-                //     break;
+            float rarityMultiplier = aug.possibleRarities[aug.rarity].valueMultiplier;
+            foreach(StatModifier statModifier in aug.statModifiers) {
+                StatType curStat = statModifier.statType;
+                
+                switch (curStat)
+                {
+                    case StatType.AmmoCapacity:
+                        augmentedData.ammoCapacity = (apply) ? (int)ApplyChange(statModifier, rarityMultiplier, augmentedData.ammoCapacity) :
+                                                                (int)RemoveChange(statModifier, rarityMultiplier, augmentedData.ammoCapacity);
+                        break;
+                    case StatType.AmmoReserve:
+                        augmentedData.ammoReserves = (apply) ? (int)ApplyChange(statModifier, rarityMultiplier, augmentedData.ammoReserves) :
+                                                                (int)RemoveChange(statModifier, rarityMultiplier, augmentedData.ammoReserves);
+                        break;
+                    case StatType.AmmoUsage:
+                        augmentedData.ammoUsage = (apply) ? ApplyChange(statModifier, rarityMultiplier, augmentedData.ammoUsage) :
+                                                            RemoveChange(statModifier, rarityMultiplier, augmentedData.ammoUsage);
+                        break;
+                    // case StatType.CritChance:
+                    //     augmentedData. = ApplyChange(statModifier, rarityMultiplier, augmentedData.);
+                    //     break;
+                    // case StatType.CritDamage:
+                    //     augmentedData. = ApplyChange(statModifier, rarityMultiplier, augmentedData.);
+                    //     break;
+                    case StatType.Damage:
+                        augmentedData.damage = (apply) ? (int)ApplyChange(statModifier, rarityMultiplier, augmentedData.damage) :
+                                                        (int)RemoveChange(statModifier, rarityMultiplier, augmentedData.damage);
+                        break;
+                    // case StatType.StoppingPower:
+                    //     augmentedData. = ApplyChange(statModifier, augmentedData.);
+                    //     break;
+                    case StatType.NumBullets:
+                        augmentedData.numBullets = (apply) ? (int)ApplyChange(statModifier, rarityMultiplier, augmentedData.numBullets) :
+                                                            (int)RemoveChange(statModifier, rarityMultiplier, augmentedData.numBullets);
+                        break;
+                    case StatType.ShotSpeed:
+                        augmentedData.shotSpeed = (apply) ? ApplyChange(statModifier, rarityMultiplier, augmentedData.shotSpeed) :
+                                                            RemoveChange(statModifier, rarityMultiplier, augmentedData.shotSpeed);
+                        break;
+                    case StatType.Range:
+                        augmentedData.range = (apply) ? ApplyChange(statModifier, rarityMultiplier, augmentedData.range) :
+                                                        RemoveChange(statModifier, rarityMultiplier, augmentedData.range);
+                        break;
+                    case StatType.AttackCooldown:
+                        augmentedData.attackCooldown = (apply) ? ApplyChange(statModifier, rarityMultiplier, augmentedData.attackCooldown) :
+                                                                RemoveChange(statModifier, rarityMultiplier, augmentedData.attackCooldown);
+                        break;
+                    case StatType.ReloadTime:
+                        augmentedData.reloadTime = (apply) ? ApplyChange(statModifier, rarityMultiplier, augmentedData.reloadTime) :
+                                                            RemoveChange(statModifier, rarityMultiplier, augmentedData.reloadTime);
+                        break;
+                    case StatType.ReloadUsage:
+                        augmentedData.reloadUsage = (apply) ? ApplyChange(statModifier, rarityMultiplier, augmentedData.reloadUsage) :
+                                                                RemoveChange(statModifier, rarityMultiplier, augmentedData.reloadUsage);
+                        break;
+                    // case StatType.ExtraDamageChance:
+                    //     augmentedData. = ApplyChange(aug, augmentedData.);
+                    //     break;
+                    // case StatType.ExtraDamageVal:
+                    //     augmentedData. = ApplyChange(aug, augmentedData.);
+                    //     break;
+                    default:
+                        Debug.Log("Unknown stat type: " + statModifier.statType);
+                        break;
+                }
             }
         }
     }
 
-    private float ApplyChange(AugmentData aug, float curValue)
+    private float ApplyChange(StatModifier modifier, float rarityMultiplier, float curValue)
     {
-        switch (aug.changeType)
+        ChangeType curChangeType = modifier.changeType;
+        float curChangeValue = rarityMultiplier * modifier.changeValue;
+        
+        switch (curChangeType)
         {
             case ChangeType.Flat:
-                curValue += aug.changeValue;
+                curValue += curChangeValue;
                 break;
             case ChangeType.Multiplier:
-                curValue *= aug.changeValue;
+                curValue *= curChangeValue;
                 break;
             case ChangeType.Percentage:
-                curValue *= (1 + aug.changeValue/100);
+                curValue *= (1 + curChangeValue/100);
                 break;
         }
         
         return curValue;
     }
     
-    private float RemoveChange(AugmentData aug, float curValue)
+    private float RemoveChange(StatModifier modifier, float rarityMultiplier, float curValue)
     {
-        switch (aug.changeType)
+        ChangeType curChangeType = modifier.changeType;
+        float curChangeValue = rarityMultiplier * modifier.changeValue;
+        
+        switch (curChangeType)
         {
             case ChangeType.Flat:
-                curValue -= aug.changeValue;
+                curValue -= curChangeValue;
                 break;
             case ChangeType.Multiplier:
-                curValue /= aug.changeValue;
+                curValue /= curChangeValue;
                 break;
             case ChangeType.Percentage:
-                curValue *= (aug.changeValue/(100 + aug.changeValue));
+                curValue *= (curChangeValue/(100 + curChangeValue));
                 break;
         }
         

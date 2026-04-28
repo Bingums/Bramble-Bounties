@@ -27,4 +27,24 @@ public class WeaponData : ScriptableObject
     public GameObject weaponPrefab;
     public GameObject weaponPickup;
     public Sprite weaponSprite;
+    
+    public WeaponData GetCopy()
+    {
+        WeaponData copy = CreateInstance<WeaponData>();
+        copy.weaponName = this.weaponName;
+        copy.damage = this.damage;
+        copy.numBullets = this.numBullets;
+        copy.attackCooldown = this.attackCooldown;
+        copy.isMelee = this.isMelee;
+        copy.shotSpeed = this.shotSpeed;
+        copy.range = this.range;
+        copy.ammoCapacity = this.ammoCapacity;
+        copy.ammoReserves = this.ammoReserves;
+        copy.ammoUsage = this.ammoUsage;
+        copy.reloadTime = this.reloadTime;
+        copy.reloadUsage = this.reloadUsage;
+        return copy;
+    }
 }
+
+

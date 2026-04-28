@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections;
 public class EnemySpawnManager : MonoBehaviour
 {
-    public static EnemySpawnManager Instance;
+    public static EnemySpawnManager EnemySpawnManagerInstance;
 
     [SerializeField] private GameObject[] enemyPrefabs;
 
@@ -15,8 +15,8 @@ public class EnemySpawnManager : MonoBehaviour
 
     void Awake()
     {
-        if(Instance == null)
-            Instance = this;
+        if(EnemySpawnManagerInstance == null)
+            EnemySpawnManagerInstance = this;
         else
             Destroy(gameObject);
     }

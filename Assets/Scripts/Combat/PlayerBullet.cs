@@ -4,6 +4,7 @@ public class PlayerBullet : MonoBehaviour
 {
     private Rigidbody2D rb;
     public float force;
+    private int damage;
     public float killBullet;
     private Vector2 direction;
 
@@ -18,6 +19,13 @@ public class PlayerBullet : MonoBehaviour
         Destroy(gameObject, killBullet);
     }
 
+    public void InitializeBullet(WeaponData data)
+    {
+        force = data.shotSpeed;
+        damage = data.damage;
+        killBullet = data.range / data.shotSpeed;
+    }
+    
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Terrain") || collision.CompareTag("NPC"))
@@ -25,7 +33,7 @@ public class PlayerBullet : MonoBehaviour
             Destroy(gameObject);
         } else if(collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<EnemyData>().TakeDamage(6);
+            collision.GetComponent<EnemyData>().TakeDamage(damage);
             Destroy(gameObject);
         }
     }

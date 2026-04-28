@@ -20,35 +20,23 @@ public class playerCombat : MonoBehaviour
     
     private Animator animator;
 
-    private void Awake()
+    void Start()
     {
         stats = GetComponent<playerStats>();
         animator = GetComponent<Animator>();
         attackLayerIndex = animator.GetLayerIndex(AttackLayerName);
         pc = GetComponent<playerController>();
-        weapon = pc.weapons[pc.curSlot].augmentedData;
     }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
 
     void Update()
     {
-        weapon = pc.weapons[pc.curSlot].augmentedData;
         if (Input.GetMouseButtonDown(0))
-        {
             TryAttack();
-        }
     }
 
     void TryAttack()
     {
+        weapon = pc.weapons[pc.curSlot].augmentedData;
         if (weapon == null)
         {
             return;
@@ -83,20 +71,36 @@ public class playerCombat : MonoBehaviour
             if (attackLayerIndex >= 0)
             {
                 animator.Play(MeleeStateHash, attackLayerIndex, 0f);
-
                 if (resetMeleeRoutine != null)
                 {
                     StopCoroutine(resetMeleeRoutine);
                 }
-
                 resetMeleeRoutine = StartCoroutine(ResetMeleeState(weapon.attackCooldown));
             }
-            
-        } else
+        } 
+        else
         {
+            switch (weapon.weaponName)
+            {
+                case(WeaponType.Revolver):
+
+                    break;
+                case(WeaponType.Shotgun):
+
+                    break;
+                case(WeaponType.AssaultRifle):
+
+                    break;
+                case(WeaponType.LeverRifle):
+
+                    break;
+            }
+            
             if(Input.GetMouseButtonDown(0))
             {
-                Instantiate(bullet, gameObject.transform.position, Quaternion.identity);
+                GameObject newBullet = Instantiate(bullet, gameObject.transform.position, Quaternion.identity);
+                PlayerBullet firedBullet = newBullet.GetComponent<PlayerBullet>();
+                firedBullet.InitializeBullet(weapon);
             }
         }
     }
