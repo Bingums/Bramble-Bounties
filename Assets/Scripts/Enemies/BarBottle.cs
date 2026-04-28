@@ -5,6 +5,8 @@ public class BarBottle : MonoBehaviour
     private GameObject player;
     public GameObject burningPuddle;
     public GameObject puddle;
+    public AudioClip bottleBreakingSFX;
+    private AudioSource audioSource;
 
     private Rigidbody2D rb;
     public float force = 3;
@@ -18,6 +20,7 @@ public class BarBottle : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
+        audioSource = GetComponent<AudioSource>();
     
         direction = player.transform.position - transform.position;
         
@@ -46,6 +49,7 @@ public class BarBottle : MonoBehaviour
         //player.GetComponent<Health>.health -= 2;
         if(collision.tag == "Player"){
             rb.linearVelocity = new Vector2(0, 0);
+            audioSource.PlayOneShot(bottleBreakingSFX);
             puddle.SetActive(true);
             time = -1;
             flag = true;
