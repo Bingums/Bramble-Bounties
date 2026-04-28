@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5726481669146550970}
   - component: {fileID: 2710704651762758333}
   - component: {fileID: 6397109316231475543}
-  - component: {fileID: 5207457779347414125}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -106,7 +105,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb1b82aea1807e54881ecf8af575b083, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Melee
-  data: {fileID: 0}
+  data: {fileID: 11400000, guid: f30585753fd758e49af2ae464429f23a, type: 2}
+  audioSource: {fileID: 0}
+  punchSfx: {fileID: 8300000, guid: f1c1c8cf52181404eb8e856fa552b04d, type: 3}
 --- !u!61 &6397109316231475543
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -153,16 +154,3 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.25, y: 0.93}
   m_EdgeRadius: 0
---- !u!114 &5207457779347414125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5986603772766579419}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb1b82aea1807e54881ecf8af575b083, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Melee
-  data: {fileID: 11400000, guid: f30585753fd758e49af2ae464429f23a, type: 2}

@@ -152,3 +152,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Melee
   data: {fileID: 11400000, guid: 5fda3e2891ed7a44e85a008072f6dfa6, type: 2}
+  audioSource: {fileID: 0}
+  punchSfx: {fileID: 8300000, guid: 6b4fdd2e8fd45074a9eb3aa961440454, type: 3}
