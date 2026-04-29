@@ -32,6 +32,7 @@ public class BountyData : ScriptableObject
     public float AttackMultiplier => attackMultiplier;
     public float MoveSpeedMultiplier => moveSpeedMultiplier;
     public int ExtraEnemiesPerWave => extraEnemiesPerWave;
+    public int ExtraWaves => extraWaves;
 
     private void OnValidate()
     {

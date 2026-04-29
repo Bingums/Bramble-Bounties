@@ -1,3 +1,5 @@
+using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,9 +12,18 @@ public class HUDController : MonoBehaviour
     [Header("Weapon UI")]
     [SerializeField] private Image weaponIcon;
     [SerializeField] private playerController player;
-
+    [SerializeField] private Slider reloadBar;
+    [SerializeField] private TMP_Text reloadText;
+    [SerializeField] private TMP_Text curAmmoText;
+    [SerializeField] private TMP_Text ammoReservesText;
+    
+    [Header("Alerts")]
+    [SerializeField] private TMP_Text noAmmoText;
+    // augment inventory full
+    
     private PlayerState boundState;
     private WeaponData displayedWeapon;
+    private playerCombat combatScript;
 
     private void OnEnable()
     {
@@ -26,6 +37,15 @@ public class HUDController : MonoBehaviour
         displayedWeapon = null;
     }
 
+    private void Start()
+    {
+        reloadBar.gameObject.SetActive(false);
+        reloadText.gameObject.SetActive(false);
+        curAmmoText.gameObject.SetActive(false);
+        ammoReservesText.gameObject.SetActive(false);
+        noAmmoText.gameObject.SetActive(false);
+    }
+
     private void Update()
     {
         // Retry setup until GameManager and player initialization are ready.
@@ -36,6 +56,21 @@ public class HUDController : MonoBehaviour
         }
 
         RefreshWeaponIcon();
+        
+        reloadBar.gameObject.SetActive(combatScript.isReloading);
+        reloadText.gameObject.SetActive(combatScript.isReloading);
+        if (combatScript.isReloading)
+            reloadBar.value = combatScript.reloadProgress;
+
+        WeaponData curWeapon = combatScript.weapon;
+        curAmmoText.gameObject.SetActive(!curWeapon.isMelee);
+        ammoReservesText.gameObject.SetActive(!curWeapon.isMelee);
+        if (!curWeapon.isMelee)
+        {
+            noAmmoText.gameObject.SetActive(curWeapon.ammoReserves == 0 && curWeapon.currentAmmo == 0);
+            curAmmoText.text = curWeapon.currentAmmo + " / " + curWeapon.ammoCapacity;
+            ammoReservesText.text = curWeapon.ammoReserves.ToString();
+        }
     }
 
     private void TryInitialize()
@@ -88,6 +123,7 @@ public class HUDController : MonoBehaviour
             return;
         }
 
+        combatScript = player.GetComponent<playerCombat>();
         player.OnEquippedWeaponChanged -= HandleWeaponChanged;
         player.OnEquippedWeaponChanged += HandleWeaponChanged;
     }

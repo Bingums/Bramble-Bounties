@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
         GenerateBountyOffers();
     }
 
-public void StartNewRun()
+    public void StartNewRun()
     {
         currentFloor = 1;
         CurrentState = GameState.Playing;

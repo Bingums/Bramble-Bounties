@@ -624,7 +624,7 @@ GameObject:
   - component: {fileID: 1273858965510482057}
   m_Layer: 0
   m_Name: Tilemap
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2967,6 +2967,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Room
   enemySpawnPoints: []
   playerSpawnPoint: {fileID: 0}
+  doorColliders: []
+  numWaves: 3
+  currentWave: 0
+  enemiesPerWave: 040000000600000008000000
+  enemyCount: 0
+  isCleared: 0
   rightDoor: {fileID: 4674516131934226355}
   leftDoor: {fileID: 3737641175041714488}
   topDoor: {fileID: 3666777153169835740}

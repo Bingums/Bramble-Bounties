@@ -184,6 +184,7 @@ public class BountySelectionUI : MonoBehaviour
             return;
         }
 
+        EnemySpawnManager.Instance.SetBounty(bounty);
         GameManager.Instance.SelectOpeningBounty(bounty);
     }
 

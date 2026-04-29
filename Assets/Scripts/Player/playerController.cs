@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Combat;
+using Unity.Collections;
 using Unity.VisualScripting;
 
 public class playerController : MonoBehaviour, IDamageable
@@ -32,7 +33,7 @@ public class playerController : MonoBehaviour, IDamageable
     [SerializeField] private WeaponData rifle;
     [SerializeField] private WeaponData shotgun;
     [SerializeField] private WeaponData lever;
-
+    
     public event Action<WeaponData> OnEquippedWeaponChanged;
     
     private bool isOnCooldown = false;
@@ -54,10 +55,13 @@ public class playerController : MonoBehaviour, IDamageable
     
     private PlayerState State => GameManager.Instance != null ? GameManager.Instance.PlayerState : null;
 
+    public playerCombat combatScript;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        combatScript = GetComponent<playerCombat>();
     }
 
     void Start()
@@ -72,10 +76,13 @@ public class playerController : MonoBehaviour, IDamageable
         weapons[4].InitializeWeapon(lever);
         weapons[5].InitializeWeapon(sword);
         EquipWeapon(KnifeSlot);
+        
+        
     }
 
     void Update()
     {
+        //Debug.Log(curSlot);
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         
@@ -143,16 +150,17 @@ public class playerController : MonoBehaviour, IDamageable
         {
             EquipWeapon(SwordSlot);
         }
-        
-        if(Input.GetKeyDown(KeyCode.E)) {
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
             // if (nearbyWeapon != null)
             // {
             //     //equip weapon
             // } else 
             if (nearbyAugment != null)
             {
-                if(equippedAugments.Length < 8)
-                    EquipAugment(nearbyAugment.data, equippedAugments.Length-1);
+                if (equippedAugments.Length < 8)
+                    EquipAugment(nearbyAugment.data, equippedAugments.Length - 1);
                 else
                     PickupAugment(nearbyAugment.data);
             }
@@ -202,6 +210,7 @@ public class playerController : MonoBehaviour, IDamageable
             Destroy(equippedWeaponObject);
         }
 
+        combatScript.CancelReload();
         curSlot = slot;
         equippedSlot = slot;
 
@@ -262,8 +271,7 @@ public class playerController : MonoBehaviour, IDamageable
                 return false;
         
         equippedAugments[slot] = aug;
-        foreach (Weapon weapon in weapons)
-            weapon.AugmentWeaponStats(aug, true);
+        RecalculateStats();
         return true;
     }
     
@@ -278,10 +286,9 @@ public class playerController : MonoBehaviour, IDamageable
         else
         {
             AugmentData augment = equippedAugments[slot];
-            foreach (Weapon weapon in weapons)
-                weapon.AugmentWeaponStats(augment, false);
             augmentInventory[numAugmentsInInventory-1] = augment;
             equippedAugments[slot] = null;
+            RecalculateStats();
             return true;
         }
     }
@@ -311,6 +318,34 @@ public class playerController : MonoBehaviour, IDamageable
                 if(augmentInventory[i+1] == null)
                     continue;
                 augmentInventory[i] = augmentInventory[i+1];
+            }
+        }
+    }
+    
+    public void RecalculateStats()
+    {
+        foreach (Weapon weapon in weapons)
+        {
+            weapon.InitializeWeapon(weapon.baseData);
+
+            foreach (AugmentData augment in equippedAugments)
+            {
+                if (augment == null)
+                    continue;
+                
+                foreach(StatModifier modifier in augment.statModifiers)
+                    if(modifier.changeType == ChangeType.Flat)
+                        weapon.AugmentWeaponStats(augment);
+            }
+            
+            foreach (AugmentData augment in equippedAugments)
+            {
+                if (augment == null)
+                    continue;
+                
+                foreach(StatModifier modifier in augment.statModifiers)
+                    if(modifier.changeType != ChangeType.Flat)
+                        weapon.AugmentWeaponStats(augment);
             }
         }
     }

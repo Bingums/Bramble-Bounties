@@ -13,7 +13,7 @@ public class BasicBullet : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        player = EnemySpawnManager.EnemySpawnManagerInstance.player;
+        player = EnemySpawnManager.Instance.player;
     
         direction = player.transform.position - transform.position;
         rb.linearVelocity = new Vector2(direction.x, direction.y).normalized * force;

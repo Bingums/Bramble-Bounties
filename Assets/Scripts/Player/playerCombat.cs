@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Combat;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class playerCombat : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class playerCombat : MonoBehaviour
     private static readonly int ConditionStateHash = Animator.StringToHash("ConditionState");
     private const string AttackLayerName = "Attack Layer";
 
-    private WeaponData weapon;
+    public WeaponData weapon;
     private playerController pc;
     private playerStats stats;
     public GameObject bullet;
@@ -19,6 +20,9 @@ public class playerCombat : MonoBehaviour
     private Coroutine resetMeleeRoutine;
     
     private Animator animator;
+    
+    public bool isReloading = false;
+    public float reloadProgress = 0f;
 
     void Start()
     {
@@ -30,26 +34,28 @@ public class playerCombat : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        weapon = pc.weapons[pc.curSlot].augmentedData;
+        if (((Input.GetKeyDown(KeyCode.R) && weapon.currentAmmo < weapon.ammoCapacity) || 
+            (Input.GetMouseButtonDown(0) && weapon.currentAmmo == 0)) && 
+            !weapon.isMelee && weapon.ammoReserves > 0)
+            Reload();
+        else if(Input.GetMouseButtonDown(0) || Input.GetMouseButton(0))
             TryAttack();
     }
 
     void TryAttack()
     {
-        weapon = pc.weapons[pc.curSlot].augmentedData;
-        if (weapon == null)
+        if (weapon == null || isReloading || Time.time < lastAttackTime + weapon.attackCooldown)
         {
             return;
         }
 
-        if (Time.time < lastAttackTime + weapon.attackCooldown) return;
-
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 direction = (mousePos - (Vector2)transform.position).normalized;
         lastAttackTime = Time.time; 
         if(weapon.isMelee)
         {
-            Debug.Log("swinging");
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 direction = (mousePos - (Vector2)transform.position).normalized;
+            //Debug.Log("swinging");
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             if(45f <= angle && angle <= 135f) // up
             {
@@ -80,28 +86,39 @@ public class playerCombat : MonoBehaviour
         } 
         else
         {
-            switch (weapon.weaponName)
+            //Debug.Log("firing");
+            if (weapon.weaponName == WeaponType.Shotgun)
             {
-                case(WeaponType.Revolver):
+                for (int i = 0; i < weapon.numBullets; i++)
+                {
+                    float bulletAngle = Random.Range(-weapon.bulletSpread/2f, weapon.bulletSpread/2f);
+                    float angleRadians = bulletAngle * Mathf.Deg2Rad;
+                    Vector2 bulletDirection = new Vector2(Mathf.Cos(angleRadians) * direction.x - Mathf.Sin(angleRadians) * direction.y, 
+                        Mathf.Sin(angleRadians) * direction.x + Mathf.Cos(angleRadians) * direction.y);
+                    
+                    GameObject newBullet = Instantiate(bullet, transform.position, Quaternion.identity);
+                    newBullet.GetComponent<PlayerBullet>().InitializeBullet(weapon, bulletDirection);
+                }
+            }
+            else
+            {
+                Vector2 perpendicular = new Vector2(-direction.y, direction.x);
+                float spacing = 0.3f;
+                float bulletSpread = spacing * (weapon.numBullets - 1);
+                float initialOffset = -bulletSpread / 2f;
 
-                    break;
-                case(WeaponType.Shotgun):
-
-                    break;
-                case(WeaponType.AssaultRifle):
-
-                    break;
-                case(WeaponType.LeverRifle):
-
-                    break;
+                for (int i = 0; i < weapon.numBullets; i++)
+                {
+                    float curOffset = initialOffset + (i * spacing);
+                    Vector2 bulletPos = (Vector2)transform.position + perpendicular * curOffset;
+                    GameObject newBullet = Instantiate(bullet, bulletPos, Quaternion.identity);
+                    newBullet.GetComponent<PlayerBullet>().InitializeBullet(weapon, direction);
+                }
             }
             
-            if(Input.GetMouseButtonDown(0))
-            {
-                GameObject newBullet = Instantiate(bullet, gameObject.transform.position, Quaternion.identity);
-                PlayerBullet firedBullet = newBullet.GetComponent<PlayerBullet>();
-                firedBullet.InitializeBullet(weapon);
-            }
+            float ammoRoll = Random.Range(0f, 1f);
+            if (ammoRoll <= weapon.ammoUsage)
+                weapon.currentAmmo--;
         }
     }
 
@@ -130,5 +147,42 @@ public class playerCombat : MonoBehaviour
     private void UpgradeWeapon(int slot, int weaponVal)
     {
         
+    }
+
+    public void Reload()
+    {
+        StartCoroutine(ReloadCoroutine());
+    }
+
+    public void CancelReload()
+    {
+        if (isReloading)
+        {
+            StopCoroutine(ReloadCoroutine());
+            isReloading = false;
+            reloadProgress = 0f;
+        }
+    }
+    
+    private IEnumerator ReloadCoroutine()
+    {
+        int usedAmmo = weapon.ammoCapacity - weapon.currentAmmo;
+        isReloading = true;
+        float elapsedTime = 0f;
+        float reloadTime = weapon.reloadTime;
+
+        while (elapsedTime < reloadTime)
+        {
+            elapsedTime += Time.deltaTime;
+            reloadProgress = elapsedTime / reloadTime;
+            yield return null;
+        }
+        
+        bool reduceAmmo = pc.weapons[pc.curSlot].Reload();
+        if (reduceAmmo)
+            weapon.ammoReserves -= usedAmmo;
+        
+        isReloading = false;
+        reloadProgress = 0f;
     }
 }

@@ -14,7 +14,7 @@ public class EnemyMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        target = EnemySpawnManager.EnemySpawnManagerInstance.player;
+        target = EnemySpawnManager.Instance.player;
     }
 
     // Update is called once per frame
@@ -33,6 +33,11 @@ public class EnemyMovement : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
         }
+    }
+    
+    public void ScaleStats(float moveSpeedMultiplier)
+    {
+        moveSpeed *= (1f + moveSpeedMultiplier);
     }
 
 }
