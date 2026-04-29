@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,17 +17,33 @@ public class GameManager : MonoBehaviour
 
     public GameState CurrentState { get; private set; }
 
-    [Header("Player Stats")]
-    [SerializeField] private float startingMaxHealth = 100f;
+    [Header("Bounties")] [SerializeField] private BountyData[] availableBounties;
+    [SerializeField] private int offeredBountyCount = 3;
+
+    [Header("Player Stats")] [SerializeField]
+    private float startingMaxHealth = 100f;
+
     [SerializeField] private float startingHealth = 100f;
     [SerializeField] private float startingMaxStamina = 10f;
     [SerializeField] private float startingStamina = 10f;
     [SerializeField] private int startingDamageMultiplier = 1;
 
-    [SerializeField] private int currentFloor = 1;
+    [Header("Run Progress")] [SerializeField]
+    private int currentFloor = 1;
 
+    [SerializeField] private int minibossFloor = 6;
+
+
+    public BountyRunState BountyRunState { get; private set; }
     public PlayerState PlayerState { get; private set; }
     public int CurrentFloor => currentFloor;
+    public int MinibossFloor => minibossFloor;
+
+    public event Action OnBountyOfferChanged;
+    public event Action<BountyData> OnOpeningBountySelected;
+    public event Action OnFinalBossUnlocked;
+    public event Action<BountyData> OnFinalBossSelected;
+
 
     private void Awake()
     {
@@ -48,6 +66,12 @@ public class GameManager : MonoBehaviour
 
     private void InitializeRunState()
     {
+        InitializePlayerState();
+        InitializeBountyRunState();
+    }
+
+    private void InitializePlayerState()
+    {
         if (PlayerState != null)
         {
             return;
@@ -62,7 +86,18 @@ public class GameManager : MonoBehaviour
         );
     }
 
-    public void StartNewRun()
+    private void InitializeBountyRunState()
+    {
+        if (BountyRunState != null)
+        {
+            return;
+        }
+
+        BountyRunState = new BountyRunState();
+        GenerateBountyOffers();
+    }
+
+public void StartNewRun()
     {
         currentFloor = 1;
         CurrentState = GameState.Playing;
@@ -74,7 +109,94 @@ public class GameManager : MonoBehaviour
             startingMaxStamina,
             startingDamageMultiplier
         );
+        
+        BountyRunState = new BountyRunState();
+        GenerateBountyOffers();
     }
+
+    public void GenerateBountyOffers()
+    {
+        if (availableBounties == null || availableBounties.Length == 0)
+        {
+            BountyRunState.SetOfferedBounties(Array.Empty<BountyData>());
+            OnBountyOfferChanged?.Invoke();
+            return;
+        }
+        
+        List<BountyData> pool = new List<BountyData>(availableBounties);
+        List<BountyData> selected = new List<BountyData>();
+        
+        int count = Mathf.Min(offeredBountyCount, pool.Count);
+
+        for (int i = 0; i < count; i++)
+        {
+            int randomIndex = UnityEngine.Random.Range(0, pool.Count);
+            selected.Add(pool[randomIndex]);
+            pool.RemoveAt(randomIndex);
+        }
+        
+        BountyRunState.SetOfferedBounties(selected.ToArray());
+        OnBountyOfferChanged?.Invoke();
+    }
+
+    public void SelectOpeningBounty(BountyData bounty)
+    {
+        if (BountyRunState == null)
+        {
+            return;
+        }
+        
+        BountyRunState.SelectOpeningBounty(bounty);
+        OnOpeningBountySelected?.Invoke(bounty);
+    }
+
+    public void MarkMinibossDefeated()
+    {
+        if (BountyRunState == null)
+        {
+            return;
+        }
+        
+        BountyRunState.MarkMinibossDefeated();
+        OnFinalBossUnlocked?.Invoke();
+    }
+
+    public void SelectFinalBoss(BountyData bounty)
+    {
+        if (BountyRunState == null)
+        {
+            return;
+        }
+        
+        BountyRunState.SelectFinalBoss(bounty);
+        OnFinalBossSelected?.Invoke(bounty);
+    }
+
+    public bool IsEarlyBountyFloor()
+    {
+        return currentFloor >= 1 && currentFloor < minibossFloor;
+    }
+
+    public bool IsMinibossFloor()
+    {
+        return currentFloor == minibossFloor;
+    }
+
+    public bool IsFinalBossUnlocked()
+    {
+        return BountyRunState != null && BountyRunState.FinalBossUnlocked;
+    }
+
+    public BountyData GetSelectedBounty()
+    {
+        return BountyRunState != null ? BountyRunState.SelectedBounty : null;
+    }
+
+    public BountyData[] GetOfferedBounties()
+    {
+        return BountyRunState != null ? BountyRunState.OfferedBounties : Array.Empty<BountyData>();
+    }
+
 
     public void AdvanceFloor()
     {

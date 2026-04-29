@@ -12,18 +12,37 @@ public class HUDController : MonoBehaviour
     [SerializeField] private playerController player;
 
     private PlayerState boundState;
+    private WeaponData displayedWeapon;
 
     private void OnEnable()
     {
-        BindState();
-        BindPlayer();
-        RefreshAll();
+        TryInitialize();
     }
 
     private void OnDisable()
     {
         UnbindState();
         UnbindPlayer();
+        displayedWeapon = null;
+    }
+
+    private void Update()
+    {
+        // Retry setup until GameManager and player initialization are ready.
+        if (boundState == null || player == null)
+        {
+            TryInitialize();
+            return;
+        }
+
+        RefreshWeaponIcon();
+    }
+
+    private void TryInitialize()
+    {
+        BindState();
+        BindPlayer();
+        RefreshAll();
     }
 
     private void BindState()
@@ -125,7 +144,20 @@ public class HUDController : MonoBehaviour
             return;
         }
 
-        UpdateWeaponIcon(player.weapons[player.curSlot].augmentedData);
+        Weapon currentWeapon = player.weapons[player.curSlot];
+        if (currentWeapon == null)
+        {
+            UpdateWeaponIcon(null);
+            return;
+        }
+
+        WeaponData iconSource = currentWeapon.augmentedData;
+        if (iconSource == null || iconSource.weaponSprite == null)
+        {
+            iconSource = currentWeapon.baseData;
+        }
+
+        UpdateWeaponIcon(iconSource);
     }
 
     private void UpdateWeaponIcon(WeaponData weapon)
@@ -134,6 +166,13 @@ public class HUDController : MonoBehaviour
         {
             return;
         }
+
+        if (weapon == displayedWeapon)
+        {
+            return;
+        }
+
+        displayedWeapon = weapon;
 
         if (weapon == null || weapon.weaponSprite == null)
         {

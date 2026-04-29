@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 635282f94d92aef49bebaeb7cd61c85d, type: 3}
+  m_Name: medusa
+  m_EditorClassIdentifier: Assembly-CSharp::BountyData
+  bountyId: hard
+  displayName: Medusa
+  description: 
+  posterSprite: {fileID: 1665053317, guid: b4557a7df77029842a48662ce3ee1430, type: 3}
+  minibossId: 2
+  minibossSceneName: medusaBossRoom
+  healthMultiplier: 1.6
+  attackMultiplier: 2
+  moveSpeedMultiplier: 1.4
+  extraEnemiesPerWave: 8
+  extraWaves: 2
