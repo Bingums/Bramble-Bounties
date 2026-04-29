@@ -254,12 +254,12 @@ TextureImporter:
       name: Singer-Sheet_0
       rect:
         serializedVersion: 2
-        x: 61
-        y: 59
-        width: 64
-        height: 90
+        x: 62
+        y: 1020
+        width: 62
+        height: 88
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -276,12 +276,12 @@ TextureImporter:
       name: Singer-Sheet_1
       rect:
         serializedVersion: 2
-        x: 265
-        y: 59
-        width: 44
-        height: 98
+        x: 266
+        y: 1020
+        width: 42
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -298,12 +298,12 @@ TextureImporter:
       name: Singer-Sheet_2
       rect:
         serializedVersion: 2
-        x: 455
-        y: 59
-        width: 44
-        height: 98
+        x: 456
+        y: 1020
+        width: 42
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -320,12 +320,12 @@ TextureImporter:
       name: Singer-Sheet_3
       rect:
         serializedVersion: 2
-        x: 659
-        y: 59
-        width: 28
-        height: 98
+        x: 660
+        y: 1020
+        width: 26
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -342,12 +342,12 @@ TextureImporter:
       name: Singer-Sheet_4
       rect:
         serializedVersion: 2
-        x: 837
-        y: 59
-        width: 46
-        height: 98
+        x: 838
+        y: 1020
+        width: 44
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -364,12 +364,12 @@ TextureImporter:
       name: Singer-Sheet_5
       rect:
         serializedVersion: 2
-        x: 1031
-        y: 59
-        width: 46
-        height: 98
+        x: 1032
+        y: 1020
+        width: 44
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -386,12 +386,12 @@ TextureImporter:
       name: Singer-Sheet_6
       rect:
         serializedVersion: 2
-        x: 1225
-        y: 59
-        width: 46
-        height: 98
+        x: 74
+        y: 828
+        width: 44
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -408,12 +408,12 @@ TextureImporter:
       name: Singer-Sheet_7
       rect:
         serializedVersion: 2
-        x: 1429
-        y: 59
-        width: 28
-        height: 98
+        x: 278
+        y: 828
+        width: 26
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -430,12 +430,12 @@ TextureImporter:
       name: Singer-Sheet_8
       rect:
         serializedVersion: 2
-        x: 1609
-        y: 59
-        width: 44
-        height: 98
+        x: 458
+        y: 828
+        width: 42
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -452,12 +452,12 @@ TextureImporter:
       name: Singer-Sheet_9
       rect:
         serializedVersion: 2
-        x: 1787
-        y: 59
-        width: 68
-        height: 98
+        x: 636
+        y: 828
+        width: 66
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -474,12 +474,12 @@ TextureImporter:
       name: Singer-Sheet_10
       rect:
         serializedVersion: 2
-        x: 1983
-        y: 59
-        width: 62
-        height: 98
+        x: 832
+        y: 828
+        width: 60
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -496,12 +496,12 @@ TextureImporter:
       name: Singer-Sheet_11
       rect:
         serializedVersion: 2
-        x: 2173
-        y: 59
-        width: 60
-        height: 98
+        x: 1022
+        y: 828
+        width: 58
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -518,12 +518,12 @@ TextureImporter:
       name: Singer-Sheet_12
       rect:
         serializedVersion: 2
-        x: 2367
-        y: 59
-        width: 58
-        height: 106
+        x: 64
+        y: 636
+        width: 56
+        height: 104
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -540,12 +540,12 @@ TextureImporter:
       name: Singer-Sheet_13
       rect:
         serializedVersion: 2
-        x: 2559
-        y: 59
-        width: 58
-        height: 122
+        x: 256
+        y: 636
+        width: 56
+        height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -562,12 +562,12 @@ TextureImporter:
       name: Singer-Sheet_14
       rect:
         serializedVersion: 2
-        x: 2759
-        y: 59
-        width: 44
-        height: 98
+        x: 456
+        y: 636
+        width: 42
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -584,12 +584,12 @@ TextureImporter:
       name: Singer-Sheet_15
       rect:
         serializedVersion: 2
-        x: 2951
-        y: 59
+        x: 648
+        y: 646
         width: 44
-        height: 98
+        height: 92
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -606,12 +606,12 @@ TextureImporter:
       name: Singer-Sheet_16
       rect:
         serializedVersion: 2
-        x: 3143
-        y: 69
-        width: 46
-        height: 94
+        x: 830
+        y: 636
+        width: 62
+        height: 98
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -628,12 +628,12 @@ TextureImporter:
       name: Singer-Sheet_17
       rect:
         serializedVersion: 2
-        x: 3325
-        y: 59
-        width: 64
-        height: 100
+        x: 1022
+        y: 636
+        width: 62
+        height: 98
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -650,12 +650,12 @@ TextureImporter:
       name: Singer-Sheet_18
       rect:
         serializedVersion: 2
-        x: 3517
-        y: 59
-        width: 64
-        height: 100
+        x: 62
+        y: 444
+        width: 62
+        height: 98
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -672,12 +672,12 @@ TextureImporter:
       name: Singer-Sheet_19
       rect:
         serializedVersion: 2
-        x: 3709
-        y: 59
-        width: 64
-        height: 100
+        x: 254
+        y: 444
+        width: 62
+        height: 98
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -694,12 +694,12 @@ TextureImporter:
       name: Singer-Sheet_20
       rect:
         serializedVersion: 2
-        x: 3901
-        y: 59
-        width: 64
-        height: 100
+        x: 446
+        y: 444
+        width: 62
+        height: 98
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -716,12 +716,12 @@ TextureImporter:
       name: Singer-Sheet_21
       rect:
         serializedVersion: 2
-        x: 4093
-        y: 59
-        width: 64
-        height: 100
+        x: 648
+        y: 444
+        width: 44
+        height: 104
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -738,12 +738,12 @@ TextureImporter:
       name: Singer-Sheet_22
       rect:
         serializedVersion: 2
-        x: 4295
-        y: 59
-        width: 46
-        height: 106
+        x: 844
+        y: 444
+        width: 34
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -760,12 +760,12 @@ TextureImporter:
       name: Singer-Sheet_23
       rect:
         serializedVersion: 2
-        x: 4491
-        y: 59
-        width: 36
-        height: 98
+        x: 1046
+        y: 444
+        width: 26
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -782,12 +782,12 @@ TextureImporter:
       name: Singer-Sheet_24
       rect:
         serializedVersion: 2
-        x: 4677
-        y: 59
-        width: 46
-        height: 98
+        x: 74
+        y: 252
+        width: 42
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -804,12 +804,12 @@ TextureImporter:
       name: Singer-Sheet_25
       rect:
         serializedVersion: 2
-        x: 4871
-        y: 59
-        width: 46
-        height: 98
+        x: 254
+        y: 252
+        width: 62
+        height: 88
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -826,12 +826,12 @@ TextureImporter:
       name: Singer-Sheet_26
       rect:
         serializedVersion: 2
-        x: 5065
-        y: 59
-        width: 46
-        height: 98
+        x: 434
+        y: 286
+        width: 10
+        height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -848,12 +848,12 @@ TextureImporter:
       name: Singer-Sheet_27
       rect:
         serializedVersion: 2
-        x: 5269
-        y: 59
-        width: 28
-        height: 98
+        x: 452
+        y: 262
+        width: 56
+        height: 88
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -870,12 +870,12 @@ TextureImporter:
       name: Singer-Sheet_28
       rect:
         serializedVersion: 2
-        x: 5449
-        y: 59
-        width: 44
-        height: 98
+        x: 624
+        y: 278
+        width: 10
+        height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -892,12 +892,12 @@ TextureImporter:
       name: Singer-Sheet_29
       rect:
         serializedVersion: 2
-        x: 5641
-        y: 59
-        width: 44
-        height: 98
+        x: 646
+        y: 280
+        width: 80
+        height: 78
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -914,12 +914,12 @@ TextureImporter:
       name: Singer-Sheet_30
       rect:
         serializedVersion: 2
-        x: 5821
-        y: 59
-        width: 64
-        height: 90
+        x: 812
+        y: 270
+        width: 10
+        height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -936,12 +936,12 @@ TextureImporter:
       name: Singer-Sheet_31
       rect:
         serializedVersion: 2
-        x: 6001
-        y: 93
-        width: 12
-        height: 32
+        x: 836
+        y: 292
+        width: 96
+        height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -958,12 +958,12 @@ TextureImporter:
       name: Singer-Sheet_32
       rect:
         serializedVersion: 2
-        x: 6019
-        y: 69
-        width: 58
-        height: 90
+        x: 1028
+        y: 276
+        width: 96
+        height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -980,12 +980,12 @@ TextureImporter:
       name: Singer-Sheet_33
       rect:
         serializedVersion: 2
-        x: 6191
-        y: 85
-        width: 12
-        height: 32
+        x: 1004
+        y: 258
+        width: 10
+        height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1002,20 +1002,20 @@ TextureImporter:
       name: Singer-Sheet_34
       rect:
         serializedVersion: 2
-        x: 6213
-        y: 87
-        width: 82
-        height: 80
+        x: 44
+        y: 60
+        width: 10
+        height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 851169f51b2824500800000000000000
-      internalID: 379009016977035608
+      spriteID: 9ebad0750c3959549a873678805f2d84
+      internalID: 630957648
       vertices: []
       indices: 
       edges: []
@@ -1024,20 +1024,20 @@ TextureImporter:
       name: Singer-Sheet_35
       rect:
         serializedVersion: 2
-        x: 6379
-        y: 77
-        width: 12
-        height: 32
+        x: 70
+        y: 70
+        width: 94
+        height: 42
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 947a673d3ff7a0eb0800000000000000
-      internalID: -4752845771534588087
+      spriteID: c5e53b529ff6ad14aa9fbf25f1fc3a52
+      internalID: -49401184
       vertices: []
       indices: 
       edges: []
@@ -1046,20 +1046,20 @@ TextureImporter:
       name: Singer-Sheet_36
       rect:
         serializedVersion: 2
-        x: 6403
-        y: 99
-        width: 98
-        height: 28
+        x: 222
+        y: 64
+        width: 24
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 04873b49455ce0960800000000000000
-      internalID: 7570204990719096896
+      spriteID: c1800140591cd2b4fac55f9a9eb11a0c
+      internalID: 255598059
       vertices: []
       indices: 
       edges: []
@@ -1068,20 +1068,20 @@ TextureImporter:
       name: Singer-Sheet_37
       rect:
         serializedVersion: 2
-        x: 6595
-        y: 83
-        width: 98
-        height: 28
+        x: 270
+        y: 58
+        width: 86
+        height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 02103f95e197e4170800000000000000
-      internalID: 8164596345734365472
+      spriteID: 04b13b60d1580ee4eaba2a875df7802b
+      internalID: -644934146
       vertices: []
       indices: 
       edges: []
@@ -1090,20 +1090,20 @@ TextureImporter:
       name: Singer-Sheet_38
       rect:
         serializedVersion: 2
-        x: 6789
-        y: 69
-        width: 96
-        height: 44
+        x: 408
+        y: 66
+        width: 30
+        height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2b8adf751bc29c1a0800000000000000
-      internalID: -6788845823087236942
+      spriteID: a955206c8474aae4baccbd6cff464b62
+      internalID: 938285402
       vertices: []
       indices: 
       edges: []
@@ -1112,20 +1112,20 @@ TextureImporter:
       name: Singer-Sheet_39
       rect:
         serializedVersion: 2
-        x: 6989
-        y: 57
-        width: 88
-        height: 42
+        x: 462
+        y: 60
+        width: 86
+        height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8666f26b114e1e750800000000000000
-      internalID: 6332593315781764712
+      spriteID: 5475f6ddbc06fa548ae4100880de1530
+      internalID: 729129706
       vertices: []
       indices: 
       edges: []
@@ -1134,20 +1134,20 @@ TextureImporter:
       name: Singer-Sheet_40
       rect:
         serializedVersion: 2
-        x: 7181
-        y: 59
-        width: 88
-        height: 42
+        x: 600
+        y: 60
+        width: 30
+        height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 9f79dd632ac73db50800000000000000
-      internalID: 6616769313684428793
+      spriteID: 0affb696d79873e44ad84241bc4a204a
+      internalID: 1709697714
       vertices: []
       indices: 
       edges: []
@@ -1156,130 +1156,20 @@ TextureImporter:
       name: Singer-Sheet_41
       rect:
         serializedVersion: 2
-        x: 6571
-        y: 65
-        width: 12
+        x: 654
+        y: 60
+        width: 86
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 296750c3a9e85b0c0800000000000000
-      internalID: -4560582254559660398
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Singer-Sheet_42
-      rect:
-        serializedVersion: 2
-        x: 6763
-        y: 59
-        width: 12
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dad0b4604dfa37fc0800000000000000
-      internalID: -3498259160363233875
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Singer-Sheet_43
-      rect:
-        serializedVersion: 2
-        x: 6941
-        y: 63
-        width: 26
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b61bc392b8673d2f0800000000000000
-      internalID: -949284756380667541
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Singer-Sheet_44
-      rect:
-        serializedVersion: 2
-        x: 7127
-        y: 65
-        width: 32
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a1873229bf1980f90800000000000000
-      internalID: -6987174312190707686
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Singer-Sheet_45
-      rect:
-        serializedVersion: 2
-        x: 7319
-        y: 59
-        width: 32
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ce73d402d99a43dc0800000000000000
-      internalID: -3660114104828479508
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Singer-Sheet_46
-      rect:
-        serializedVersion: 2
-        x: 7373
-        y: 59
-        width: 88
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ed1ffb39eba252880800000000000000
-      internalID: -8636449712402075170
+      spriteID: ded3dd3ca75a9b543b737d66b2d6ed9f
+      internalID: -1292995521
       vertices: []
       indices: 
       edges: []
@@ -1288,7 +1178,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b26328013d6d96542b2b85d290003623
     internalID: 0
     vertices: []
     indices: 
@@ -1296,7 +1186,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":192.0,"y":192.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Singer-Sheet_0: 5383973579668063029
       Singer-Sheet_1: 4013199354053937692
@@ -1326,20 +1218,15 @@ TextureImporter:
       Singer-Sheet_31: -2300681766854743159
       Singer-Sheet_32: -7448427123126037306
       Singer-Sheet_33: -7722214985251336018
-      Singer-Sheet_34: 379009016977035608
-      Singer-Sheet_35: -4752845771534588087
-      Singer-Sheet_36: 7570204990719096896
-      Singer-Sheet_37: 8164596345734365472
-      Singer-Sheet_38: -6788845823087236942
-      Singer-Sheet_39: 6332593315781764712
+      Singer-Sheet_34: 630957648
+      Singer-Sheet_35: -49401184
+      Singer-Sheet_36: 255598059
+      Singer-Sheet_37: -644934146
+      Singer-Sheet_38: 938285402
+      Singer-Sheet_39: 729129706
       Singer-Sheet_4: 4635487784975068775
-      Singer-Sheet_40: 6616769313684428793
-      Singer-Sheet_41: -4560582254559660398
-      Singer-Sheet_42: -3498259160363233875
-      Singer-Sheet_43: -949284756380667541
-      Singer-Sheet_44: -6987174312190707686
-      Singer-Sheet_45: -3660114104828479508
-      Singer-Sheet_46: -8636449712402075170
+      Singer-Sheet_40: 1709697714
+      Singer-Sheet_41: -1292995521
       Singer-Sheet_5: 1872372495881660785
       Singer-Sheet_6: -2645331195585427156
       Singer-Sheet_7: 5239023643107987876
