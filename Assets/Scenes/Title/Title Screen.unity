@@ -398,7 +398,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 88}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 160, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &345775673
 MonoBehaviour:
@@ -453,7 +453,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: MainScene
+          m_StringArgument: Bounty Testing
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &345775674
@@ -1297,6 +1297,7 @@ GameObject:
   - component: {fileID: 1673416312}
   - component: {fileID: 1673416311}
   - component: {fileID: 1673416314}
+  - component: {fileID: 1673416315}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1377,12 +1378,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddf261e71587f614a9eef24682ee6bb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  availableBounties:
+  - {fileID: 11400000, guid: 67a0fd99a165482448db41f56140b29d, type: 2}
+  - {fileID: 11400000, guid: 08975fa7265a1a447a235b746d47460f, type: 2}
+  - {fileID: 11400000, guid: 8243d8c848c0da94e96087896b93bc77, type: 2}
+  offeredBountyCount: 3
   startingMaxHealth: 100
   startingHealth: 100
   startingMaxStamina: 10
   startingStamina: 10
   startingDamageMultiplier: 1
   currentFloor: 1
+  minibossFloor: 6
+--- !u!114 &1673416315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673416310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 571d44a268c2efb4e89ebcfaf66acad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PersistentEventSystem
 --- !u!1 &1858696895
 GameObject:
   m_ObjectHideFlags: 0

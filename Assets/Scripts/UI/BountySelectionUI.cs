@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class BountySelectionUI : MonoBehaviour
 {
@@ -93,6 +94,9 @@ public class BountySelectionUI : MonoBehaviour
     [SerializeField] private TMP_Text headerText;
     [SerializeField] private Text legacyHeaderText;
     [SerializeField] private string openingHeader = "Choose Your Bounty";
+    [SerializeField] private SceneController sceneController;
+    [SerializeField] private string nextSceneName = "MainScene";
+    [SerializeField] private float selectionDelay = 0.2f;
 
     private bool isBound;
 
@@ -181,23 +185,25 @@ public class BountySelectionUI : MonoBehaviour
     {
         if (GameManager.Instance == null || bounty == null)
         {
+            Debug.Log("No game manager");
             return;
         }
 
-        EnemySpawnManager.Instance.SetBounty(bounty);
         GameManager.Instance.SelectOpeningBounty(bounty);
     }
 
     private void HandleOpeningBountySelected(BountyData bounty)
     {
         SetPanelVisible(false);
+        StartCoroutine(LoadNextSceneAfterDelay());
     }
 
     private void SetPanelVisible(bool isVisible)
     {
         if (panelRoot != null)
         {
-            panelRoot.SetActive(isVisible);
+            Debug.Log("Whoops");
+            panelRoot.SetActive(true);
         }
     }
 
@@ -211,6 +217,20 @@ public class BountySelectionUI : MonoBehaviour
         if (legacyHeaderText != null)
         {
             legacyHeaderText.text = value;
+        }
+    }
+
+    private IEnumerator LoadNextSceneAfterDelay()
+    {
+        yield return new WaitForSeconds(0f);
+
+        if (sceneController != null)
+        {
+            sceneController.LoadScene(nextSceneName);
+        }
+        else
+        {
+            GameManager.Instance.LoadScene(nextSceneName);
         }
     }
 }
