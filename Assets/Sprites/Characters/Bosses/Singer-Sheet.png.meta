@@ -1,0 +1,1352 @@
+fileFormatVersion: 2
+guid: ce01f667e802c594b836d95feebda1ee
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5383973579668063029
+    second: Singer-Sheet_0
+  - first:
+      213: 4013199354053937692
+    second: Singer-Sheet_1
+  - first:
+      213: 2228062041118174865
+    second: Singer-Sheet_2
+  - first:
+      213: -4662670804399408232
+    second: Singer-Sheet_3
+  - first:
+      213: 4635487784975068775
+    second: Singer-Sheet_4
+  - first:
+      213: 1872372495881660785
+    second: Singer-Sheet_5
+  - first:
+      213: -2645331195585427156
+    second: Singer-Sheet_6
+  - first:
+      213: 5239023643107987876
+    second: Singer-Sheet_7
+  - first:
+      213: -2660274358469795671
+    second: Singer-Sheet_8
+  - first:
+      213: -2771562393387584539
+    second: Singer-Sheet_9
+  - first:
+      213: 3799451478440224999
+    second: Singer-Sheet_10
+  - first:
+      213: 7933047460436826803
+    second: Singer-Sheet_11
+  - first:
+      213: 7111080160250982981
+    second: Singer-Sheet_12
+  - first:
+      213: 5082443042711459568
+    second: Singer-Sheet_13
+  - first:
+      213: 5383885190682225639
+    second: Singer-Sheet_14
+  - first:
+      213: -3955065882606275492
+    second: Singer-Sheet_15
+  - first:
+      213: -4177907503917791415
+    second: Singer-Sheet_16
+  - first:
+      213: -8093065831633275956
+    second: Singer-Sheet_17
+  - first:
+      213: 5718465506329706745
+    second: Singer-Sheet_18
+  - first:
+      213: -6903787329212931980
+    second: Singer-Sheet_19
+  - first:
+      213: 6723875055570419349
+    second: Singer-Sheet_20
+  - first:
+      213: -8213716329114141841
+    second: Singer-Sheet_21
+  - first:
+      213: 837607378613054094
+    second: Singer-Sheet_22
+  - first:
+      213: 692545564649768383
+    second: Singer-Sheet_23
+  - first:
+      213: 5585292509045298211
+    second: Singer-Sheet_24
+  - first:
+      213: 3786177484579451244
+    second: Singer-Sheet_25
+  - first:
+      213: 5436930057058973969
+    second: Singer-Sheet_26
+  - first:
+      213: -4439995800639159201
+    second: Singer-Sheet_27
+  - first:
+      213: 5261101029551446307
+    second: Singer-Sheet_28
+  - first:
+      213: -3276556862860018861
+    second: Singer-Sheet_29
+  - first:
+      213: -2385333645179831521
+    second: Singer-Sheet_30
+  - first:
+      213: -2300681766854743159
+    second: Singer-Sheet_31
+  - first:
+      213: -7448427123126037306
+    second: Singer-Sheet_32
+  - first:
+      213: -7722214985251336018
+    second: Singer-Sheet_33
+  - first:
+      213: 379009016977035608
+    second: Singer-Sheet_34
+  - first:
+      213: -4752845771534588087
+    second: Singer-Sheet_35
+  - first:
+      213: 7570204990719096896
+    second: Singer-Sheet_36
+  - first:
+      213: 8164596345734365472
+    second: Singer-Sheet_37
+  - first:
+      213: -6788845823087236942
+    second: Singer-Sheet_38
+  - first:
+      213: 6332593315781764712
+    second: Singer-Sheet_39
+  - first:
+      213: 6616769313684428793
+    second: Singer-Sheet_40
+  - first:
+      213: -4560582254559660398
+    second: Singer-Sheet_41
+  - first:
+      213: -3498259160363233875
+    second: Singer-Sheet_42
+  - first:
+      213: -949284756380667541
+    second: Singer-Sheet_43
+  - first:
+      213: -6987174312190707686
+    second: Singer-Sheet_44
+  - first:
+      213: -3660114104828479508
+    second: Singer-Sheet_45
+  - first:
+      213: -8636449712402075170
+    second: Singer-Sheet_46
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 96
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Singer-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 59
+        width: 64
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5330438f177b7ba40800000000000000
+      internalID: 5383973579668063029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 59
+        width: 44
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1a4637bc8fb1b730800000000000000
+      internalID: 4013199354053937692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 59
+        width: 44
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19e61622f9aabee10800000000000000
+      internalID: 2228062041118174865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 59
+        width: 28
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89b30377b9dda4fb0800000000000000
+      internalID: -4662670804399408232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 837
+        y: 59
+        width: 46
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76ee910a49f845040800000000000000
+      internalID: 4635487784975068775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 59
+        width: 46
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 179ec306dd00cf910800000000000000
+      internalID: 1872372495881660785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 59
+        width: 46
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c290fdd0b45e94bd0800000000000000
+      internalID: -2645331195585427156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 1429
+        y: 59
+        width: 28
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a11351fe30c4b840800000000000000
+      internalID: 5239023643107987876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 59
+        width: 44
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a0e352d09ec41bd0800000000000000
+      internalID: -2660274358469795671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 1787
+        y: 59
+        width: 68
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e33d4500be6989d0800000000000000
+      internalID: -2771562393387584539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 1983
+        y: 59
+        width: 62
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e823c14dfc5ab430800000000000000
+      internalID: 3799451478440224999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 2173
+        y: 59
+        width: 60
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bad6a952a8d71e60800000000000000
+      internalID: 7933047460436826803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 2367
+        y: 59
+        width: 58
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5427619cab1afa260800000000000000
+      internalID: 7111080160250982981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 2559
+        y: 59
+        width: 58
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f6d8f7f407788640800000000000000
+      internalID: 5082443042711459568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 2759
+        y: 59
+        width: 44
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7eba91e4e0767ba40800000000000000
+      internalID: 5383885190682225639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 2951
+        y: 59
+        width: 44
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c547cfbd888cc19c0800000000000000
+      internalID: -3955065882606275492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 3143
+        y: 69
+        width: 46
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9478a8cb2471506c0800000000000000
+      internalID: -4177907503917791415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 3325
+        y: 59
+        width: 64
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc3b5a94187afaf80800000000000000
+      internalID: -8093065831633275956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 3517
+        y: 59
+        width: 64
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f04b1d84121c5f40800000000000000
+      internalID: 5718465506329706745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 3709
+        y: 59
+        width: 64
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 470ab6d7002d030a0800000000000000
+      internalID: -6903787329212931980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 3901
+        y: 59
+        width: 64
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59e72690db0005d50800000000000000
+      internalID: 6723875055570419349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 4093
+        y: 59
+        width: 64
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6b735d4484030e80800000000000000
+      internalID: -8213716329114141841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 4295
+        y: 59
+        width: 46
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8a2a771977cf9b00800000000000000
+      internalID: 837607378613054094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 4491
+        y: 59
+        width: 36
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb5c8b3958a6c9900800000000000000
+      internalID: 692545564649768383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 4677
+        y: 59
+        width: 46
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3249b40e1f1f28d40800000000000000
+      internalID: 5585292509045298211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 4871
+        y: 59
+        width: 46
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c61b0f8bc543b8430800000000000000
+      internalID: 3786177484579451244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 5065
+        y: 59
+        width: 46
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 119f4afa41bd37b40800000000000000
+      internalID: 5436930057058973969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 5269
+        y: 59
+        width: 28
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f544daae757f162c0800000000000000
+      internalID: -4439995800639159201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 5449
+        y: 59
+        width: 44
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3291bd9038f230940800000000000000
+      internalID: 5261101029551446307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 5641
+        y: 59
+        width: 44
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35b3cd6a4e45782d0800000000000000
+      internalID: -3276556862860018861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 5821
+        y: 59
+        width: 64
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1bb44010b795eed0800000000000000
+      internalID: -2385333645179831521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 6001
+        y: 93
+        width: 12
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98ba7616f165210e0800000000000000
+      internalID: -2300681766854743159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 6019
+        y: 69
+        width: 58
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c410b6befed1a890800000000000000
+      internalID: -7448427123126037306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 6191
+        y: 85
+        width: 12
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea055ec826e25d490800000000000000
+      internalID: -7722214985251336018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 6213
+        y: 87
+        width: 82
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 851169f51b2824500800000000000000
+      internalID: 379009016977035608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 6379
+        y: 77
+        width: 12
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 947a673d3ff7a0eb0800000000000000
+      internalID: -4752845771534588087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 6403
+        y: 99
+        width: 98
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04873b49455ce0960800000000000000
+      internalID: 7570204990719096896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 6595
+        y: 83
+        width: 98
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02103f95e197e4170800000000000000
+      internalID: 8164596345734365472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 6789
+        y: 69
+        width: 96
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b8adf751bc29c1a0800000000000000
+      internalID: -6788845823087236942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 6989
+        y: 57
+        width: 88
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8666f26b114e1e750800000000000000
+      internalID: 6332593315781764712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 7181
+        y: 59
+        width: 88
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f79dd632ac73db50800000000000000
+      internalID: 6616769313684428793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_41
+      rect:
+        serializedVersion: 2
+        x: 6571
+        y: 65
+        width: 12
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 296750c3a9e85b0c0800000000000000
+      internalID: -4560582254559660398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_42
+      rect:
+        serializedVersion: 2
+        x: 6763
+        y: 59
+        width: 12
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dad0b4604dfa37fc0800000000000000
+      internalID: -3498259160363233875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_43
+      rect:
+        serializedVersion: 2
+        x: 6941
+        y: 63
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b61bc392b8673d2f0800000000000000
+      internalID: -949284756380667541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_44
+      rect:
+        serializedVersion: 2
+        x: 7127
+        y: 65
+        width: 32
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1873229bf1980f90800000000000000
+      internalID: -6987174312190707686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_45
+      rect:
+        serializedVersion: 2
+        x: 7319
+        y: 59
+        width: 32
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce73d402d99a43dc0800000000000000
+      internalID: -3660114104828479508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Singer-Sheet_46
+      rect:
+        serializedVersion: 2
+        x: 7373
+        y: 59
+        width: 88
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed1ffb39eba252880800000000000000
+      internalID: -8636449712402075170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Singer-Sheet_0: 5383973579668063029
+      Singer-Sheet_1: 4013199354053937692
+      Singer-Sheet_10: 3799451478440224999
+      Singer-Sheet_11: 7933047460436826803
+      Singer-Sheet_12: 7111080160250982981
+      Singer-Sheet_13: 5082443042711459568
+      Singer-Sheet_14: 5383885190682225639
+      Singer-Sheet_15: -3955065882606275492
+      Singer-Sheet_16: -4177907503917791415
+      Singer-Sheet_17: -8093065831633275956
+      Singer-Sheet_18: 5718465506329706745
+      Singer-Sheet_19: -6903787329212931980
+      Singer-Sheet_2: 2228062041118174865
+      Singer-Sheet_20: 6723875055570419349
+      Singer-Sheet_21: -8213716329114141841
+      Singer-Sheet_22: 837607378613054094
+      Singer-Sheet_23: 692545564649768383
+      Singer-Sheet_24: 5585292509045298211
+      Singer-Sheet_25: 3786177484579451244
+      Singer-Sheet_26: 5436930057058973969
+      Singer-Sheet_27: -4439995800639159201
+      Singer-Sheet_28: 5261101029551446307
+      Singer-Sheet_29: -3276556862860018861
+      Singer-Sheet_3: -4662670804399408232
+      Singer-Sheet_30: -2385333645179831521
+      Singer-Sheet_31: -2300681766854743159
+      Singer-Sheet_32: -7448427123126037306
+      Singer-Sheet_33: -7722214985251336018
+      Singer-Sheet_34: 379009016977035608
+      Singer-Sheet_35: -4752845771534588087
+      Singer-Sheet_36: 7570204990719096896
+      Singer-Sheet_37: 8164596345734365472
+      Singer-Sheet_38: -6788845823087236942
+      Singer-Sheet_39: 6332593315781764712
+      Singer-Sheet_4: 4635487784975068775
+      Singer-Sheet_40: 6616769313684428793
+      Singer-Sheet_41: -4560582254559660398
+      Singer-Sheet_42: -3498259160363233875
+      Singer-Sheet_43: -949284756380667541
+      Singer-Sheet_44: -6987174312190707686
+      Singer-Sheet_45: -3660114104828479508
+      Singer-Sheet_46: -8636449712402075170
+      Singer-Sheet_5: 1872372495881660785
+      Singer-Sheet_6: -2645331195585427156
+      Singer-Sheet_7: 5239023643107987876
+      Singer-Sheet_8: -2660274358469795671
+      Singer-Sheet_9: -2771562393387584539
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
