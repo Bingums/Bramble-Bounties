@@ -7,6 +7,26 @@ public class EnemyData : MonoBehaviour, IDamageable
     [SerializeField] private int currentHealth;
     [SerializeField] private int attack;
     
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+        
+        
+    }
+
+    public void ScaleStats(float healthMultiplier, float attackMultiplier)
+    {
+        maxHealth = Mathf.RoundToInt(maxHealth * (1f + healthMultiplier));
+        currentHealth = maxHealth;
+        attack = Mathf.RoundToInt(attack * (1f + attackMultiplier));
+    }
 
     public void TakeDamage(int damage)
     {
@@ -19,7 +39,7 @@ public class EnemyData : MonoBehaviour, IDamageable
 
     public void Defeat()
     {
-        Room currentRoom = EnemySpawnManager.EnemySpawnManagerInstance.GetCurrentRoom();
+        Room currentRoom = EnemySpawnManager.Instance.GetCurrentRoom();
         if(currentRoom != null)
             currentRoom.DecreaseEnemyCount();
         Destroy(gameObject);

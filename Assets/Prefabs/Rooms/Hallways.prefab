@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6336634580361351086}
   m_Layer: 0
   m_Name: ClubhouseGrid
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13766,7 +13766,7 @@ GameObject:
   - component: {fileID: 1180794028132566296}
   m_Layer: 0
   m_Name: Hallways
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13859,6 +13859,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Room
   enemySpawnPoints: []
   playerSpawnPoint: {fileID: 0}
+  doorColliders: []
+  numWaves: 3
+  currentWave: 0
+  enemiesPerWave: 040000000600000008000000
+  enemyCount: 0
+  isCleared: 0
   rightDoor: {fileID: 7263457198469355079}
   leftDoor: {fileID: 6207729483283412777}
   topDoor: {fileID: 5006967253823766009}

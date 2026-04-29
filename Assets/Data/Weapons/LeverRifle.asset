@@ -13,18 +13,19 @@ MonoBehaviour:
   m_Name: LeverRifle
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   weaponName: 5
-  damage: 15
+  damage: 10
   numBullets: 1
+  bulletSpread: 0
   attackCooldown: 0.4
   isMelee: 0
   shotSpeed: 5
-  range: 0
+  range: 20
+  currentAmmo: 10
   ammoCapacity: 10
-  ammoReserves: 120
-  ammoUsage: 100
+  ammoReserves: 80
+  ammoUsage: 1
   reloadTime: 1.5
-  reloadUsage: 100
+  reloadUsage: 1
   rotation: {x: 0, y: 0, z: 0}
   weaponPrefab: {fileID: 3039342957224457978, guid: 404516ff9af971544b139888ca4b1573, type: 3}
-  weaponPickup: {fileID: 9100668144952518930, guid: 7463f8687e3723549a4c5129b9ecd7d2, type: 3}
   weaponSprite: {fileID: 7652799950109008760, guid: 78f087ae54c509e499b02767c0a66381, type: 3}

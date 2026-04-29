@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections;
 public class EnemySpawnManager : MonoBehaviour
 {
-    public static EnemySpawnManager EnemySpawnManagerInstance;
+    public static EnemySpawnManager Instance;
 
     [SerializeField] private GameObject[] enemyPrefabs;
 
@@ -11,12 +11,13 @@ public class EnemySpawnManager : MonoBehaviour
     private int spawnRate = 2; //seconds
     private int newWaveSpawnRate = 1; //(2 + 1)
 
+    public BountyData currentBounty;
     private Room currentRoom;
 
     void Awake()
     {
-        if(EnemySpawnManagerInstance == null)
-            EnemySpawnManagerInstance = this;
+        if(Instance == null)
+            Instance = this;
         else
             Destroy(gameObject);
     }
@@ -33,8 +34,14 @@ public class EnemySpawnManager : MonoBehaviour
         
     }
     
+    public void SetBounty(BountyData data)
+    {
+        currentBounty = data;
+    }
+    
     private IEnumerator SpawnLoop()
     {
+        currentRoom.ScaleWaves(currentBounty.ExtraWaves, currentBounty.ExtraEnemiesPerWave);
         while(currentRoom.currentWave < currentRoom.numWaves)
         {
             while(!currentRoom.AtCap())
@@ -49,6 +56,8 @@ public class EnemySpawnManager : MonoBehaviour
                     {
                         GameObject enemy = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
                         Instantiate(enemy, spawnPoint.position, Quaternion.identity);
+                        enemy.GetComponent<EnemyData>().ScaleStats(currentBounty.HealthMultiplier, currentBounty.AttackMultiplier);
+                        enemy.GetComponent<EnemyMovement>().ScaleStats(currentBounty.MoveSpeedMultiplier);
                         currentRoom.IncreaseEnemyCounts();
                     }
                 }

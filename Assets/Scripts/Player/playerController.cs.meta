@@ -1,2 +1,19 @@
 fileFormatVersion: 2
 guid: ccad8c589e0e034499c62f278c0d5dc4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - pistol: {fileID: 11400000, guid: ccab13f683f852b459d037d36ddeb4db, type: 2}
+  - knife: {fileID: 11400000, guid: 5fda3e2891ed7a44e85a008072f6dfa6, type: 2}
+  - sword: {fileID: 11400000, guid: f30585753fd758e49af2ae464429f23a, type: 2}
+  - rifle: {fileID: 11400000, guid: df045fc46f7f38e4da6eef8c06434fba, type: 2}
+  - shotgun: {fileID: 11400000, guid: a9d9c667790c260409e5b580ab9a64bd, type: 2}
+  - lever: {fileID: 11400000, guid: dde52d77f35daad41baff5429fabac6c, type: 2}
+  - displayedWeapon: {instanceID: 0}
+  - combatScript: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

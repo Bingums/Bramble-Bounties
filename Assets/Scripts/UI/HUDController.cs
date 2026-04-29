@@ -1,3 +1,5 @@
+using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,20 +12,72 @@ public class HUDController : MonoBehaviour
     [Header("Weapon UI")]
     [SerializeField] private Image weaponIcon;
     [SerializeField] private playerController player;
-
+    [SerializeField] private Slider reloadBar;
+    [SerializeField] private TMP_Text reloadText;
+    [SerializeField] private TMP_Text curAmmoText;
+    [SerializeField] private TMP_Text ammoReservesText;
+    
+    [Header("Alerts")]
+    [SerializeField] private TMP_Text noAmmoText;
+    // augment inventory full
+    
     private PlayerState boundState;
+    private WeaponData displayedWeapon;
+    private playerCombat combatScript;
 
     private void OnEnable()
     {
-        BindState();
-        BindPlayer();
-        RefreshAll();
+        TryInitialize();
     }
 
     private void OnDisable()
     {
         UnbindState();
         UnbindPlayer();
+        displayedWeapon = null;
+    }
+
+    private void Start()
+    {
+        reloadBar.gameObject.SetActive(false);
+        reloadText.gameObject.SetActive(false);
+        curAmmoText.gameObject.SetActive(false);
+        ammoReservesText.gameObject.SetActive(false);
+        noAmmoText.gameObject.SetActive(false);
+    }
+
+    private void Update()
+    {
+        // Retry setup until GameManager and player initialization are ready.
+        if (boundState == null || player == null)
+        {
+            TryInitialize();
+            return;
+        }
+
+        RefreshWeaponIcon();
+        
+        reloadBar.gameObject.SetActive(combatScript.isReloading);
+        reloadText.gameObject.SetActive(combatScript.isReloading);
+        if (combatScript.isReloading)
+            reloadBar.value = combatScript.reloadProgress;
+
+        WeaponData curWeapon = combatScript.weapon;
+        curAmmoText.gameObject.SetActive(!curWeapon.isMelee);
+        ammoReservesText.gameObject.SetActive(!curWeapon.isMelee);
+        if (!curWeapon.isMelee)
+        {
+            noAmmoText.gameObject.SetActive(curWeapon.ammoReserves == 0 && curWeapon.currentAmmo == 0);
+            curAmmoText.text = curWeapon.currentAmmo + " / " + curWeapon.ammoCapacity;
+            ammoReservesText.text = curWeapon.ammoReserves.ToString();
+        }
+    }
+
+    private void TryInitialize()
+    {
+        BindState();
+        BindPlayer();
+        RefreshAll();
     }
 
     private void BindState()
@@ -69,6 +123,7 @@ public class HUDController : MonoBehaviour
             return;
         }
 
+        combatScript = player.GetComponent<playerCombat>();
         player.OnEquippedWeaponChanged -= HandleWeaponChanged;
         player.OnEquippedWeaponChanged += HandleWeaponChanged;
     }
@@ -125,7 +180,20 @@ public class HUDController : MonoBehaviour
             return;
         }
 
-        UpdateWeaponIcon(player.weapons[player.curSlot].augmentedData);
+        Weapon currentWeapon = player.weapons[player.curSlot];
+        if (currentWeapon == null)
+        {
+            UpdateWeaponIcon(null);
+            return;
+        }
+
+        WeaponData iconSource = currentWeapon.augmentedData;
+        if (iconSource == null || iconSource.weaponSprite == null)
+        {
+            iconSource = currentWeapon.baseData;
+        }
+
+        UpdateWeaponIcon(iconSource);
     }
 
     private void UpdateWeaponIcon(WeaponData weapon)
@@ -134,6 +202,13 @@ public class HUDController : MonoBehaviour
         {
             return;
         }
+
+        if (weapon == displayedWeapon)
+        {
+            return;
+        }
+
+        displayedWeapon = weapon;
 
         if (weapon == null || weapon.weaponSprite == null)
         {

@@ -8,10 +8,12 @@ public class WeaponData : ScriptableObject
     public int damage;
     // stopping power
     public int numBullets;
+    public float bulletSpread; // only for shotgun
     public float attackCooldown; // rate of fire for ranged
     public bool isMelee;
     public float shotSpeed;
     public float range;
+    public int currentAmmo;
     public int ammoCapacity;
     public int ammoReserves;
     public float ammoUsage; // if a bullet is consumed
@@ -25,7 +27,7 @@ public class WeaponData : ScriptableObject
     public Vector3 rotation;
 
     public GameObject weaponPrefab;
-    public GameObject weaponPickup;
+    // public GameObject weaponPickup;
     public Sprite weaponSprite;
     
     public WeaponData GetCopy()
@@ -34,10 +36,12 @@ public class WeaponData : ScriptableObject
         copy.weaponName = this.weaponName;
         copy.damage = this.damage;
         copy.numBullets = this.numBullets;
+        copy.bulletSpread = this.bulletSpread;
         copy.attackCooldown = this.attackCooldown;
         copy.isMelee = this.isMelee;
         copy.shotSpeed = this.shotSpeed;
         copy.range = this.range;
+        copy.currentAmmo = this.currentAmmo;
         copy.ammoCapacity = this.ammoCapacity;
         copy.ammoReserves = this.ammoReserves;
         copy.ammoUsage = this.ammoUsage;

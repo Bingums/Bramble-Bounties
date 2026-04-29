@@ -603,11 +603,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1425778351957911026, guid: ac4a1e2c695d8cc438c392dbe1004018, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 1425778351957911026, guid: ac4a1e2c695d8cc438c392dbe1004018, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: -11.5
       objectReference: {fileID: 0}
     - target: {fileID: 1425778351957911026, guid: ac4a1e2c695d8cc438c392dbe1004018, type: 3}
       propertyPath: m_LocalPosition.z
@@ -649,6 +649,30 @@ PrefabInstance:
       propertyPath: bullet
       value: 
       objectReference: {fileID: 7609965367145566778, guid: cb4393c3f4399e04e8fcd17ea85a4000, type: 3}
+    - target: {fileID: 3825267960694175184, guid: ac4a1e2c695d8cc438c392dbe1004018, type: 3}
+      propertyPath: knife
+      value: 
+      objectReference: {fileID: 11400000, guid: 5fda3e2891ed7a44e85a008072f6dfa6, type: 2}
+    - target: {fileID: 3825267960694175184, guid: ac4a1e2c695d8cc438c392dbe1004018, type: 3}
+      propertyPath: lever
+      value: 
+      objectReference: {fileID: 11400000, guid: dde52d77f35daad41baff5429fabac6c, type: 2}
+    - target: {fileID: 3825267960694175184, guid: ac4a1e2c695d8cc438c392dbe1004018, type: 3}
+      propertyPath: rifle
+      value: 
+      objectReference: {fileID: 11400000, guid: df045fc46f7f38e4da6eef8c06434fba, type: 2}
+    - target: {fileID: 3825267960694175184, guid: ac4a1e2c695d8cc438c392dbe1004018, type: 3}
+      propertyPath: sword
+      value: 
+      objectReference: {fileID: 11400000, guid: f30585753fd758e49af2ae464429f23a, type: 2}
+    - target: {fileID: 3825267960694175184, guid: ac4a1e2c695d8cc438c392dbe1004018, type: 3}
+      propertyPath: pistol
+      value: 
+      objectReference: {fileID: 11400000, guid: ccab13f683f852b459d037d36ddeb4db, type: 2}
+    - target: {fileID: 3825267960694175184, guid: ac4a1e2c695d8cc438c392dbe1004018, type: 3}
+      propertyPath: shotgun
+      value: 
+      objectReference: {fileID: 11400000, guid: a9d9c667790c260409e5b580ab9a64bd, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

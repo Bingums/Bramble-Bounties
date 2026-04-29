@@ -17,7 +17,6 @@ public class Room : MonoBehaviour
     public int enemyCount = 0;
     public bool isCleared = false;
     
-
     // Door & Wall references
     public GameObject rightDoor, leftDoor, topDoor, bottomDoor;
     public GameObject rightWall, leftWall, topWall, bottomWall;
@@ -109,6 +108,23 @@ public class Room : MonoBehaviour
             doorColliders[i].enabled = locked;
     }
 
+    public void ScaleWaves(int extraWaves, int extraEnemiesPerWave)
+    {
+        numWaves += extraWaves;
+        
+        int[] newEnemiesPerWave = new int[numWaves];
+
+        for (int i = 0; i < enemiesPerWave.Length; i++)
+        {
+            newEnemiesPerWave[i] = enemiesPerWave[i] + extraEnemiesPerWave;
+        }
+
+        for (int i = enemiesPerWave.Length; i < numWaves; i++)
+        {
+            newEnemiesPerWave[i] = newEnemiesPerWave[i-1] + newEnemiesPerWave[i-3];
+        }
+    }
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("triggered");
@@ -116,7 +132,7 @@ public class Room : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             LockDoors(true);
-            EnemySpawnManager.EnemySpawnManagerInstance.StartSpawning(this);
+            EnemySpawnManager.Instance.StartSpawning(this);
         }
     }
 }
