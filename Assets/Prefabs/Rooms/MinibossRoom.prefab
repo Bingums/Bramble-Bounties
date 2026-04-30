@@ -3371,6 +3371,7 @@ GameObject:
   - component: {fileID: 2462439132270795215}
   - component: {fileID: 8015847759899970751}
   - component: {fileID: 3878100127710903435}
+  - component: {fileID: 8780340991613055121}
   m_Layer: 0
   m_Name: MinibossRoom
   m_TagString: Room
@@ -3444,6 +3445,52 @@ MonoBehaviour:
   leftWall: {fileID: 2835063361411624245}
   topWall: {fileID: 3236803994369428373}
   bottomWall: {fileID: 8029354145066620790}
+--- !u!61 &8780340991613055121
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4729283960323317606}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 1.4831486, y: -7.459366}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 21.15337, y: 20.978886}
+  m_EdgeRadius: 0
 --- !u!1 &4942452094107253112
 GameObject:
   m_ObjectHideFlags: 0
