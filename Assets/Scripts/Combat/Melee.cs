@@ -12,7 +12,7 @@ public AudioClip punchSfx;
     {
         if(other.CompareTag("Enemy"))
         {
-            other.GetComponent<EnemyData>().TakeDamage(data.damage);
+            other.GetComponent<EnemyController>().TakeDamage(data.damage);
             audioSource.PlayOneShot(punchSfx);
         }
     }

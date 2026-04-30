@@ -55,9 +55,11 @@ public class EnemySpawnManager : MonoBehaviour
                     if (!currentRoom.AtCap())
                     {
                         GameObject enemy = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
-                        Instantiate(enemy, spawnPoint.position, Quaternion.identity);
-                        enemy.GetComponent<EnemyData>().ScaleStats(currentBounty.HealthMultiplier, currentBounty.AttackMultiplier);
-                        enemy.GetComponent<EnemyMovement>().ScaleStats(currentBounty.MoveSpeedMultiplier);
+                        GameObject spawnedEnemy = Instantiate(enemy, spawnPoint.position, Quaternion.identity);
+                        EnemyController ec = spawnedEnemy.GetComponent<EnemyController>();
+                        ec.ScaleStats(currentBounty.HealthMultiplier, 
+                                                                    currentBounty.AttackMultiplier,
+                                                                    currentBounty.MoveSpeedMultiplier);
                         currentRoom.IncreaseEnemyCounts();
                     }
                 }
