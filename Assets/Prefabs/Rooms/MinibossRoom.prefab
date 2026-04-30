@@ -3427,7 +3427,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5be90bdb8e7cf540b5c01eb7690a09e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Room
-  enemySpawnPoints: []
+  enemySpawnPoints:
+  - {fileID: 8488940065940142823}
   playerSpawnPoint: {fileID: 0}
   doorColliders: []
   numWaves: 3
