@@ -787,7 +787,7 @@ MonoBehaviour:
   - {fileID: 6561241342260376408, guid: 064b5e5ca62fa3b4d92866479bcda790, type: 3}
   - {fileID: 4180373384447001821, guid: fbef9a0542c4dc24ca0c354ac0cdad01, type: 3}
   player: {fileID: 0}
-  currentBounty: {fileID: 0}
+  currentBounty: {fileID: 11400000, guid: 7f9555ef87e6bad4bb1e436b8266501f, type: 2}
 --- !u!4 &1384730327
 Transform:
   m_ObjectHideFlags: 0
