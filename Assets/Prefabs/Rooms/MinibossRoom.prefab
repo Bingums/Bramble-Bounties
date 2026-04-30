@@ -3427,7 +3427,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5be90bdb8e7cf540b5c01eb7690a09e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Room
-  enemySpawnPoints: []
+  enemySpawnPoints:
+  - {fileID: 8488940065940142823}
   playerSpawnPoint: {fileID: 0}
   doorColliders: []
   numWaves: 3
@@ -3454,6 +3455,7 @@ GameObject:
   - component: {fileID: 8488940065940142823}
   - component: {fileID: 5306285290728841937}
   - component: {fileID: 860911802589819026}
+  - component: {fileID: 6104701807078940683}
   m_Layer: 0
   m_Name: BossSpawn
   m_TagString: Untagged
@@ -3556,6 +3558,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.92, y: 1.92, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6104701807078940683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4942452094107253112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46b525a7a984a6842a37e008092fdaf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NextFloor
+  room: {fileID: 3878100127710903435}
 --- !u!1 &8029354145066620790
 GameObject:
   m_ObjectHideFlags: 0
