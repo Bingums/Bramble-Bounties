@@ -18,6 +18,7 @@ public class playerCombat : MonoBehaviour
     private float lastAttackTime;
     private int attackLayerIndex = -1;
     private Coroutine resetMeleeRoutine;
+    private Coroutine reloadRoutine;
     
     private Animator animator;
     
@@ -39,9 +40,9 @@ public class playerCombat : MonoBehaviour
     void Update()
     {
         weapon = pc.weapons[pc.curSlot].augmentedData;
-        if (((Input.GetKeyDown(KeyCode.R) && weapon.currentAmmo < weapon.ammoCapacity) || 
+        if (!isReloading && (((Input.GetKeyDown(KeyCode.R) && weapon.currentAmmo < weapon.ammoCapacity) || 
             (Input.GetMouseButtonDown(0) && weapon.currentAmmo == 0)) && 
-            !weapon.isMelee && weapon.ammoReserves > 0)
+            !weapon.isMelee && weapon.ammoReserves > 0))
             Reload();
         else if(Input.GetMouseButtonDown(0) || Input.GetMouseButton(0))
             TryAttack();
@@ -52,6 +53,11 @@ public class playerCombat : MonoBehaviour
         if (weapon == null || isReloading || Time.time < lastAttackTime + weapon.attackCooldown)
         {
             return;
+        }
+
+        if (!weapon.isMelee && weapon.currentAmmo <= 0)
+        {           
+            return; 
         }
 
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -158,12 +164,15 @@ public class playerCombat : MonoBehaviour
 
     public void Reload()
     {
-        StartCoroutine(ReloadCoroutine());
+       if (isReloading)
+        return;
+
+        reloadRoutine = StartCoroutine(ReloadCoroutine());
     }
 
     public void CancelReload()
     {
-        if (isReloading)
+        if (isReloading&& reloadRoutine != null)
         {
             StopCoroutine(ReloadCoroutine());
             isReloading = false;
