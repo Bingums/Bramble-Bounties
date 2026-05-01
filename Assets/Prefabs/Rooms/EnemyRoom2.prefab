@@ -1963,6 +1963,11 @@ MonoBehaviour:
   - {fileID: 6666613187751254264}
   - {fileID: 6486860440715907727}
   - {fileID: 1413823411670588070}
+  doorOpen:
+  - {fileID: 3822181213916612919}
+  - {fileID: 5055446622543141313}
+  - {fileID: 7490341324902659611}
+  - {fileID: 9178585893666422818}
   numWaves: 3
   currentWave: 0
   enemiesPerWave: 040000000600000008000000
@@ -3798,6 +3803,11 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 2223482266908476493, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
   m_PrefabInstance: {fileID: 3565835450099092547}
   m_PrefabAsset: {fileID: 0}
+--- !u!58 &3822181213916612919 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 321859915050976628, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
+  m_PrefabInstance: {fileID: 3565835450099092547}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5291446729453101115 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8652147918634134648, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
@@ -3885,6 +3895,11 @@ Transform:
 --- !u!1 &4201135767314919629 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8652147918634134648, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
+  m_PrefabInstance: {fileID: 4782809645119757493}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &5055446622543141313 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 321859915050976628, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
   m_PrefabInstance: {fileID: 4782809645119757493}
   m_PrefabAsset: {fileID: 0}
 --- !u!61 &6666613187751254264 stripped
@@ -4012,6 +4027,11 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!58 &7490341324902659611 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 321859915050976628, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
+  m_PrefabInstance: {fileID: 7170980051101250415}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8869728270550762838
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4132,3 +4152,8 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!58 &9178585893666422818 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 321859915050976628, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
+  m_PrefabInstance: {fileID: 8869728270550762838}
+  m_PrefabAsset: {fileID: 0}
