@@ -29,7 +29,7 @@ public class EnemyBullet : MonoBehaviour
         else if(collision.CompareTag("Player")) //|| collision.CompareTag("Enemy"))
         {
             
-            collision.GetComponent<playerController>().TakeDamage(damage);
+            collision.GetComponentInParent<playerController>().TakeDamage(damage);
             Destroy(gameObject);
         }
     }
