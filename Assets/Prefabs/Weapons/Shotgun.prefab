@@ -107,6 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ranged
   data: {fileID: 11400000, guid: a9d9c667790c260409e5b580ab9a64bd, type: 2}
   bullet: {fileID: 7609965367145566778, guid: cb4393c3f4399e04e8fcd17ea85a4000, type: 3}
+  attackSFX: {fileID: 8300000, guid: 6f927b063af012e4a908c1ae57d25bb6, type: 3}
 --- !u!82 &-1672848349042279986
 AudioSource:
   m_ObjectHideFlags: 0

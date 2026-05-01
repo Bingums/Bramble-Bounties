@@ -6,12 +6,14 @@ public class Brawler : EnemyController
     SpriteRenderer brawlerRenderer;
     Color brawlerColor;
     Color damageColor = new Color(0.85f, 0.24f, 0.24f);
-
+    private AudioSource audioSource;
+    public AudioClip punchSFX;
     protected override void Awake()
     {
         base.Awake();
         brawlerRenderer = GetComponent<SpriteRenderer>();
         brawlerColor = brawlerRenderer.color;
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision){
@@ -24,6 +26,7 @@ public class Brawler : EnemyController
         if(collision.CompareTag("Player")){
             playerController other = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
             other.TakeDamage(5);
+            audioSource.PlayOneShot(punchSFX);
         }
     }
 

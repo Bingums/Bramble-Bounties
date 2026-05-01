@@ -131,6 +131,7 @@ MonoBehaviour:
   firingDistance: 5
   bullet: {fileID: 7098699050443019402, guid: 30adf0bd035c1374a87afbbc24c74c8c, type: 3}
   spawnPoint: {fileID: 2034897521078452580}
+  plasmaGunSFX: {fileID: 8300000, guid: 63afd0c5294c4a24ea8639e0e5402c5b, type: 3}
 --- !u!70 &7948847292689925457
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

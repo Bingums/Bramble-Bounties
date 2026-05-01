@@ -127,6 +127,7 @@ MonoBehaviour:
   baseMaxHealth: 18
   baseAttack: 3
   baseMoveSpeed: 2
+  punchSFX: {fileID: 8300000, guid: 2587f5a6eae03584ca6ed35a93eb8213, type: 3}
 --- !u!50 &3266891807830674988
 Rigidbody2D:
   serializedVersion: 5
@@ -166,7 +167,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 2587f5a6eae03584ca6ed35a93eb8213, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

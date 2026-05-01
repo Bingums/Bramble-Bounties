@@ -108,6 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ranged
   data: {fileID: 11400000, guid: df045fc46f7f38e4da6eef8c06434fba, type: 2}
   bullet: {fileID: 7609965367145566778, guid: cb4393c3f4399e04e8fcd17ea85a4000, type: 3}
+  attackSFX: {fileID: 8300000, guid: 8d4e68f10416432408671d9884fe2488, type: 3}
 --- !u!61 &9006981388329857134
 BoxCollider2D:
   m_ObjectHideFlags: 0

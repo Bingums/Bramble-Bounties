@@ -24,10 +24,14 @@ public class playerCombat : MonoBehaviour
     public bool isReloading = false;
     public float reloadProgress = 0f;
 
+    private AudioSource audioSource;
+public AudioClip shootSFX;
+
     void Start()
     {
         stats = GetComponent<playerStats>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         attackLayerIndex = animator.GetLayerIndex(AttackLayerName);
         pc = GetComponent<playerController>();
     }
@@ -55,6 +59,7 @@ public class playerCombat : MonoBehaviour
         lastAttackTime = Time.time; 
         if(weapon.isMelee)
         {
+        audioSource.PlayOneShot(weapon.attackSFX); 
             //Debug.Log("swinging");
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             if(45f <= angle && angle <= 135f) // up
@@ -86,6 +91,7 @@ public class playerCombat : MonoBehaviour
         } 
         else
         {
+          audioSource.PlayOneShot(weapon.attackSFX);
             //Debug.Log("firing");
             if (weapon.weaponName == WeaponType.Shotgun)
             {

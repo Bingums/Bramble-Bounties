@@ -2,6 +2,12 @@ using UnityEngine;
 
 public class ClubSinger : MonoBehaviour
 {
+public AudioClip warningSFX;
+public AudioClip aoeStartSFX;
+public AudioClip idleSFX;
+
+private AudioSource audioSource;
+
     float aoeWarningTime = 2;
     float aoeTimer = 2;
 
@@ -13,7 +19,7 @@ public class ClubSinger : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -27,6 +33,7 @@ public class ClubSinger : MonoBehaviour
             aoeWarningTime -= Time.deltaTime;
             if(aoeWarningTime < 0){
                 transform.Find("AOE Attack").gameObject.SetActive(true);
+                audioSource.PlayOneShot(aoeStartSFX);
                 transform.Find("Warning").gameObject.SetActive(false);
                 Debug.Log("Diabled");
                 aoeAttackFlag = true;
@@ -38,6 +45,7 @@ public class ClubSinger : MonoBehaviour
             }
             if(aoeAttackFlag && attackTime < 0){
                 transform.Find("AOE Attack").gameObject.SetActive(false);
+                audioSource.PlayOneShot(idleSFX);
                 Singer.GetComponent<EnemyMovement>().moveSpeed = 2;
                 speed = 2;
                 aoeAttackFlag = false;
@@ -55,6 +63,7 @@ public class ClubSinger : MonoBehaviour
                 Singer.GetComponent<EnemyMovement>().moveSpeed = 0;
                 speed = 0;
                 transform.Find("Warning").gameObject.SetActive(true);
+                audioSource.PlayOneShot(warningSFX);
                 return;
             }
             if(Random.Range(0,5) < 1){
