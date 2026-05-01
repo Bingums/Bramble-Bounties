@@ -87,8 +87,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.6301887, g: 0.35227796, b: 0, a: 1}
+  m_Sprite: {fileID: 4145100776150910970, guid: c62f30a1f5a262a42b3f551c0dce00d0, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -111,7 +111,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BarBottle
   burningPuddle: {fileID: 1304847910875677883}
   puddle: {fileID: 2541508765780303129}
+  bottleBreakingSFX: {fileID: 0}
   force: 3
+  bountyScaler: 0
 --- !u!58 &6009077188383241846
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -146,8 +148,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Offset: {x: 0.018690228, y: 0}
+  m_Radius: 0.3411311
 --- !u!50 &3408438220913405950
 Rigidbody2D:
   serializedVersion: 5
