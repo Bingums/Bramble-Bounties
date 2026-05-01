@@ -108,6 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ranged
   data: {fileID: 11400000, guid: dde52d77f35daad41baff5429fabac6c, type: 2}
   bullet: {fileID: 7609965367145566778, guid: cb4393c3f4399e04e8fcd17ea85a4000, type: 3}
+  attackSFX: {fileID: 8300000, guid: 63afd0c5294c4a24ea8639e0e5402c5b, type: 3}
 --- !u!61 &1602778999870479555
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -166,7 +167,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 63afd0c5294c4a24ea8639e0e5402c5b, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

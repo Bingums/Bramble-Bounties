@@ -23,6 +23,7 @@ public class WeaponData : ScriptableObject
     // crit damage
     // extra damage chance
     // extra damage val
+    public AudioClip attackSFX;
 
     public Vector3 rotation;
 
@@ -47,6 +48,7 @@ public class WeaponData : ScriptableObject
         copy.ammoUsage = this.ammoUsage;
         copy.reloadTime = this.reloadTime;
         copy.reloadUsage = this.reloadUsage;
+        copy.attackSFX = this.attackSFX;
         return copy;
     }
 }

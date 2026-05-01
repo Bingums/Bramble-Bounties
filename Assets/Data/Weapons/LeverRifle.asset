@@ -26,6 +26,7 @@ MonoBehaviour:
   ammoUsage: 1
   reloadTime: 1.5
   reloadUsage: 1
+  attackSFX: {fileID: 8300000, guid: 63afd0c5294c4a24ea8639e0e5402c5b, type: 3}
   rotation: {x: 0, y: 0, z: 0}
   weaponPrefab: {fileID: 3039342957224457978, guid: 404516ff9af971544b139888ca4b1573, type: 3}
   weaponSprite: {fileID: 7652799950109008760, guid: 78f087ae54c509e499b02767c0a66381, type: 3}

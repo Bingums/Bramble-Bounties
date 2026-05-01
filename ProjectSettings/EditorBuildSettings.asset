@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Title/Title Screen.unity
     guid: f1dfdb46fab8be84b8680b4cbe101d2a
   - enabled: 1
+    path: Assets/Testing/Bounty Testing.unity
+    guid: b7205b3c06b209d4ea418d66ccb0996d
+  - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 66009dd316d943d4a8648564ad956785
   m_configObjects:

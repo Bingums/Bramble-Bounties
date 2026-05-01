@@ -123,15 +123,16 @@ public class Room : MonoBehaviour
         {
             newEnemiesPerWave[i] = newEnemiesPerWave[i-1] + newEnemiesPerWave[i-3];
         }
+        
+        enemiesPerWave = newEnemiesPerWave;
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("triggered");
         if (!Application.isPlaying) return;
         if (collision.CompareTag("Player"))
         {
-            LockDoors(true);
+            // LockDoors(true);
             EnemySpawnManager.Instance.StartSpawning(this);
         }
     }

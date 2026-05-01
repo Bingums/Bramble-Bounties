@@ -5,15 +5,16 @@ using System.Data.Common;
 public class Melee : MonoBehaviour
 {
     public WeaponData data;
+    public AudioClip attackSfx;
     public AudioSource audioSource;
-public AudioClip punchSfx;
+
     
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Enemy"))
         {
-            other.GetComponent<EnemyData>().TakeDamage(data.damage);
-            audioSource.PlayOneShot(punchSfx);
+            other.GetComponent<EnemyController>().TakeDamage(data.damage);
+            audioSource.PlayOneShot(data.attackSFX);
         }
     }
     

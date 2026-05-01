@@ -7,21 +7,16 @@ public class EnemyMovement : MonoBehaviour
     Rigidbody2D rb;
     private Transform target;
     Vector2 moveDirection;
-
-    private void Awake(){
-         rb = GetComponent<Rigidbody2D>();
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {
         target = EnemySpawnManager.Instance.player;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if(target){
-            float distance = Vector2.Distance(transform.position, target.position);
+            distance = Vector2.Distance(transform.position, target.position);
             Vector3 direction = (target.position - transform.position).normalized;
             moveDirection = direction; 
         }
@@ -33,11 +28,6 @@ public class EnemyMovement : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
         }
-    }
-    
-    public void ScaleStats(float moveSpeedMultiplier)
-    {
-        moveSpeed *= (1f + moveSpeedMultiplier);
     }
 
 }

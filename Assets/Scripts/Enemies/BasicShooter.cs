@@ -3,16 +3,8 @@ using UnityEngine;
 using Combat;
 using UnityEngine.Diagnostics;
 
-public class BasicShooter : MonoBehaviour
+public class BasicShooter : EnemyController
 {
-    public EnemyData shooterData;
-
-    //Movement Var
-    private float moveSpeed = 2f;
-    Rigidbody2D rb;
-    private Transform target;
-    Vector2 moveDirection;
-
     //Shooting Var
     public float firingDistance;
     private float timer = 1;
@@ -23,42 +15,29 @@ public class BasicShooter : MonoBehaviour
     SpriteRenderer shooterRenderer;
     Color shooterColor;
     Color damageColor = new Color(0.85f, 0.24f, 0.24f);
+    
+    private AudioSource audioSource;
+public AudioClip plasmaGunSFX;
 
-    private void Awake(){
-         rb = GetComponent<Rigidbody2D>();
-
-         shooterRenderer = GetComponent<SpriteRenderer>();
-         shooterColor = shooterRenderer.color;
+    protected override void Awake(){
+        base.Awake();
+        shooterRenderer = GetComponent<SpriteRenderer>();
+        shooterColor = shooterRenderer.color;
+        audioSource = GetComponent<AudioSource>();
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected override void Update()
     {
-        target = EnemySpawnManager.Instance.player;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        base.Update();
         if(target){
-            moveDirection = (target.position - transform.position).normalized;
-            float distance = Vector2.Distance(transform.position, target.position);
-            
             if(distance < firingDistance) {
                 moveSpeed = 0;
                 ShootGun();
             } else if(distance > firingDistance) {
                 moveSpeed = 2;
             }
-
         }
     }
-    private void FixedUpdate(){
-        if(target){
-            rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
-        }
-    }
-
     
     private void ShootGun(){
         bulletTime -= Time.deltaTime;
@@ -66,11 +45,12 @@ public class BasicShooter : MonoBehaviour
         bulletTime = timer;
 
         Instantiate(bullet, spawnPoint.transform.position, spawnPoint.transform.rotation);
+        audioSource.PlayOneShot(plasmaGunSFX);
     }
 
     private void OnTriggerEnter2D(Collider2D collision){
         if(collision.CompareTag("Player") || collision.CompareTag("PlayerProjectile")
-            || collision.CompareTag("Weapon")) //|| collision.CompareTag("EnemyProjectile"))
+            || collision.CompareTag("Weapon"))
         {
             if(collision.CompareTag("Player"))
             {
@@ -78,16 +58,16 @@ public class BasicShooter : MonoBehaviour
             }
             
             shooterRenderer.color = damageColor;
-            StartCoroutine(Wait(0.5f));
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision){
-        shooterRenderer.color = shooterColor;
+        StartCoroutine(Recolor(0.2f));
     }
 
-    IEnumerator Wait(float waitTime)
+    IEnumerator Recolor(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
+        shooterRenderer.color = shooterColor;
     }
 }
