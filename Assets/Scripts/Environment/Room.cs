@@ -132,7 +132,7 @@ public class Room : MonoBehaviour
         if (!Application.isPlaying) return;
         if (collision.CompareTag("Player"))
         {
-            LockDoors(true);
+            // LockDoors(true);
             EnemySpawnManager.Instance.StartSpawning(this);
         }
     }
