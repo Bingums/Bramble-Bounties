@@ -15,6 +15,7 @@ TagManager:
   - Pickup
   - Room
   - Terrain
+  - BarProjectile
   layers:
   - Default
   - TransparentFX

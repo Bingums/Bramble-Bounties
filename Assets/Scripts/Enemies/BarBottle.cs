@@ -13,6 +13,7 @@ public class BarBottle : MonoBehaviour
     private Vector3 direction;
     private float time = 3;//Until bottle breaks;
     private float lifeSpan = 15;
+    public int bountyScaler;
 
     private bool flag = false;
     
@@ -48,7 +49,10 @@ public class BarBottle : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D collision){
-        //player.GetComponent<Health>.health -= 2;
+        if(!flag){
+            collision.GetComponent<playerController>().TakeDamage(6);
+        }
+        
         if(collision.tag == "Player"){
             rb.linearVelocity = new Vector2(0, 0);
             audioSource.PlayOneShot(bottleBreakingSFX);

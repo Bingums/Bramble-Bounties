@@ -14,12 +14,12 @@ public class PimpManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
         if(enemyCount == 0 && !slapping){
             slap.Invoke();
 
             slapping = true;
         }
-    }
+    }*/
 }
