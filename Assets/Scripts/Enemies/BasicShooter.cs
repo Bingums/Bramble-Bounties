@@ -17,7 +17,7 @@ public class BasicShooter : EnemyController
     Color damageColor = new Color(0.85f, 0.24f, 0.24f);
     
     private AudioSource audioSource;
-public AudioClip plasmaGunSFX;
+    public AudioClip plasmaGunSFX;
 
     protected override void Awake(){
         base.Awake();
@@ -44,7 +44,8 @@ public AudioClip plasmaGunSFX;
         if(bulletTime > 0) return;
         bulletTime = timer;
 
-        Instantiate(bullet, spawnPoint.transform.position, spawnPoint.transform.rotation);
+        GameObject shotBullet = Instantiate(bullet, spawnPoint.transform.position, spawnPoint.transform.rotation);
+        shotBullet.GetComponent<EnemyBullet>().InitializeEnemyBullet(attack, bulletSpeed, range, moveDirection);
         audioSource.PlayOneShot(plasmaGunSFX);
     }
 
@@ -54,7 +55,7 @@ public AudioClip plasmaGunSFX;
         {
             if(collision.CompareTag("Player"))
             {
-                collision.GetComponent<playerController>().TakeDamage(5);
+                collision.GetComponent<playerController>().TakeDamage(attack);
             }
             
             shooterRenderer.color = damageColor;

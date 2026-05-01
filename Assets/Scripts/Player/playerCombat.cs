@@ -25,7 +25,7 @@ public class playerCombat : MonoBehaviour
     public float reloadProgress = 0f;
 
     private AudioSource audioSource;
-public AudioClip shootSFX;
+    public AudioClip shootSFX;
 
     void Start()
     {
@@ -57,6 +57,7 @@ public AudioClip shootSFX;
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = (mousePos - (Vector2)transform.position).normalized;
         lastAttackTime = Time.time; 
+        
         if(weapon.isMelee)
         {
         audioSource.PlayOneShot(weapon.attackSFX); 
@@ -103,7 +104,7 @@ public AudioClip shootSFX;
                         Mathf.Sin(angleRadians) * direction.x + Mathf.Cos(angleRadians) * direction.y);
                     
                     GameObject newBullet = Instantiate(bullet, transform.position, Quaternion.identity);
-                    newBullet.GetComponent<PlayerBullet>().InitializeBullet(weapon, bulletDirection);
+                    newBullet.GetComponent<PlayerBullet>().InitializePlayerBullet(weapon, bulletDirection);
                 }
             }
             else
@@ -118,7 +119,7 @@ public AudioClip shootSFX;
                     float curOffset = initialOffset + (i * spacing);
                     Vector2 bulletPos = (Vector2)transform.position + perpendicular * curOffset;
                     GameObject newBullet = Instantiate(bullet, bulletPos, Quaternion.identity);
-                    newBullet.GetComponent<PlayerBullet>().InitializeBullet(weapon, direction);
+                    newBullet.GetComponent<PlayerBullet>().InitializePlayerBullet(weapon, direction);
                 }
             }
             

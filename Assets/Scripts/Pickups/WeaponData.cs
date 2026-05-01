@@ -19,10 +19,13 @@ public class WeaponData : ScriptableObject
     public float ammoUsage; // if a bullet is consumed
     public float reloadTime;
     public float reloadUsage; // if a reload uses ammo
+    // bullet pen
     // crit chance
     // crit damage
-    // extra damage chance
-    // extra damage val
+    // extra damage chance 
+    // extra damage val 
+    // both extra damage ones prob have to be arrays
+    // may need a type if i want additive extra damage as well
     public AudioClip attackSFX;
 
     public Vector3 rotation;

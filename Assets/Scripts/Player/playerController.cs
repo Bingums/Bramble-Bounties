@@ -40,14 +40,12 @@ public class playerController : MonoBehaviour, IDamageable
 
     private Rigidbody2D rb;
     private Animator animator;
-    // private List<IInteractable> interactables = new List<IInteractable>();
 
     public Weapon[] weapons = new Weapon[6];
     public int curSlot = 0;
     public GameObject displayedWeapon;
     private GameObject equippedWeaponObject;
     private int equippedSlot = -1;
-    // private WeaponPickup nearbyWeapon;
     
     private AugmentData[] equippedAugments = new AugmentData[8];
     private AugmentData[] augmentInventory = new AugmentData[16];
@@ -76,13 +74,10 @@ public class playerController : MonoBehaviour, IDamageable
         weapons[4].InitializeWeapon(lever);
         weapons[5].InitializeWeapon(sword);
         EquipWeapon(KnifeSlot);
-        
-        
     }
 
     void Update()
     {
-        //Debug.Log(curSlot);
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         
@@ -153,10 +148,6 @@ public class playerController : MonoBehaviour, IDamageable
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            // if (nearbyWeapon != null)
-            // {
-            //     //equip weapon
-            // } else 
             if (nearbyAugment != null)
             {
                 if (equippedAugments.Length < 8)
@@ -169,6 +160,7 @@ public class playerController : MonoBehaviour, IDamageable
     
     public void TakeDamage(int damage)
     {
+        Debug.Log("player " + damage);
         if (State == null)
         {
             return;
@@ -322,7 +314,7 @@ public class playerController : MonoBehaviour, IDamageable
         }
     }
     
-    public void RecalculateStats()
+    private void RecalculateStats()
     {
         foreach (Weapon weapon in weapons)
         {
@@ -360,22 +352,13 @@ public class playerController : MonoBehaviour, IDamageable
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {
-        // if (collision.TryGetComponent(out WeaponPickup weapon))
-        //     nearbyWeapon = weapon;
-        // else 
+    { 
         if(collision.TryGetComponent(out AugmentPickup augment))
             nearbyAugment = augment;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        // if (collision.TryGetComponent(out WeaponPickup weapon))
-        // {
-        //     if(weapon == nearbyWeapon)
-        //         nearbyWeapon = null;
-        // }
-        // else 
         if (collision.TryGetComponent(out AugmentPickup augment))
         {
             if(augment == nearbyAugment)

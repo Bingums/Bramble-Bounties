@@ -17,13 +17,20 @@ public class HUDController : MonoBehaviour
     [SerializeField] private TMP_Text curAmmoText;
     [SerializeField] private TMP_Text ammoReservesText;
     
+    [Header("Wave UI")]
+    // cur wave and num waves
+    // enemies left
+    
     [Header("Alerts")]
+    // incoming wave
+    // room cleared
     [SerializeField] private TMP_Text noAmmoText;
     // augment inventory full
     
     private PlayerState boundState;
     private WeaponData displayedWeapon;
     private playerCombat combatScript;
+    // use EnemySpawnManager.Instance.currentRoom
 
     private void OnEnable()
     {
