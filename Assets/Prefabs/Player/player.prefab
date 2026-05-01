@@ -140,20 +140,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::playerController
   BASE_SPEED: 5
-  maxStamina: 3
   staminaDrainRate: 1
   staminaRegenRate: 1
   dashMultiplier: 2
   dashCooldownTime: 3
-  staminaFill: {fileID: 0}
-  currentStamina: 0
-  weapons:
-  - {fileID: 11400000, guid: 5fda3e2891ed7a44e85a008072f6dfa6, type: 2}
-  - {fileID: 11400000, guid: ccab13f683f852b459d037d36ddeb4db, type: 2}
+  pistol: {fileID: 0}
+  knife: {fileID: 0}
+  sword: {fileID: 0}
+  rifle: {fileID: 0}
+  shotgun: {fileID: 0}
+  lever: {fileID: 0}
   curSlot: 0
-  maxHealth: 100
-  curHealth: 100
   displayedWeapon: {fileID: 8384075524707426629}
+  combatScript: {fileID: 0}
 --- !u!114 &1631481473021520283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,7 +165,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ac65a942271924d82b345f34594676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::playerCombat
+  weapon: {fileID: 0}
   bullet: {fileID: 0}
+  isReloading: 0
+  reloadProgress: 0
+  shootSFX: {fileID: 0}
 --- !u!114 &8980190665566913765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b275250219b7fc49b7f1169ed6281df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::playerHealth
+  health: 100
 --- !u!95 &636095090653944532
 Animator:
   serializedVersion: 7

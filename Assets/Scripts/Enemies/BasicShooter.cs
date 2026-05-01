@@ -17,7 +17,7 @@ public class BasicShooter : EnemyController
     Color damageColor = new Color(0.85f, 0.24f, 0.24f);
     
     private AudioSource audioSource;
-public AudioClip plasmaGunSFX;
+    public AudioClip plasmaGunSFX;
 
     protected override void Awake(){
         base.Awake();

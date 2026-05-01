@@ -1,11 +1,11 @@
 using Combat;
 using UnityEngine;
 
-public class BasicBullet : MonoBehaviour
+public class PimpBullet : MonoBehaviour
 {
     private Transform player;
     private Rigidbody2D rb;
-    public int force;
+    public float force;
     public float killBullet;
     private Vector3 direction;
     
@@ -30,7 +30,7 @@ public class BasicBullet : MonoBehaviour
         else if(collision.CompareTag("Player")) //|| collision.CompareTag("Enemy"))
         {
             
-            collision.GetComponent<playerController>().TakeDamage(2 * (force/2));
+            collision.GetComponent<playerController>().TakeDamage(10);
             Destroy(gameObject);
         }
     }
