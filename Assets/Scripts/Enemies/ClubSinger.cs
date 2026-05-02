@@ -69,4 +69,8 @@ public int scoreValue = 5000;
             }
         }
     }
+
+    public int getAttack(){
+        return attack;
+    }
 }

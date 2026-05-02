@@ -106,7 +106,7 @@ public class EnemyController : MonoBehaviour, IDamageable
         
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.AddScore(scoreValue);
+            //GameManager.Instance.AddScore(scoreValue);
         }
 
         if (EnemySpawnManager.Instance != null)

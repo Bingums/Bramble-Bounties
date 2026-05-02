@@ -140,11 +140,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c197aa958f1a248b5dbf873e56a4a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
-  baseMaxHealth: 100
-  baseAttack: 10
+  baseMaxHealth: 80
+  baseAttack: 6
   baseMoveSpeed: 3
   baseBulletSpeed: 0
   baseRange: 0
+  scoreValue: 5000
+  enemyType: 1
 --- !u!114 &4372097746081816739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,11 +159,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ace7685c45f3843ad07646fce727f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pimp
-  baseMaxHealth: 100
-  baseAttack: 10
+  baseMaxHealth: 80
+  baseAttack: 6
   baseMoveSpeed: 3
   baseBulletSpeed: 0
   baseRange: 0
+  scoreValue: 5000
+  enemyType: 1
   firingDistance: 5
   bullet: {fileID: 1826858624649344573, guid: ad5430a36f7353046b0b05cd8ef682ad, type: 3}
   spawnPoint: {fileID: 183589325381871372}

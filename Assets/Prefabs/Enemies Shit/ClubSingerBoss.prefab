@@ -129,9 +129,12 @@ MonoBehaviour:
   baseMoveSpeed: 3
   baseBulletSpeed: 0
   baseRange: 0
+  scoreValue: 5000
+  enemyType: 1
   warningSFX: {fileID: 8300000, guid: aa8aed665217d4b4a8416c0a4570c19f, type: 3}
   aoeStartSFX: {fileID: 8300000, guid: 3bd40b8ce980af142b1677734c5fa91b, type: 3}
   idleSFX: {fileID: 8300000, guid: 249fd1008d393eb45a6befa7eeeda3a9, type: 3}
+  scoreValue: 5000
 --- !u!114 &7240911187281872694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +152,8 @@ MonoBehaviour:
   baseMoveSpeed: 3
   baseBulletSpeed: 0
   baseRange: 3
+  scoreValue: 5000
+  enemyType: 1
 --- !u!70 &644854115373824457
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

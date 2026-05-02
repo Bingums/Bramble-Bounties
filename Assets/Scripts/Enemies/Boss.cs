@@ -105,7 +105,7 @@ public class Boss : EnemyController
             
         GameObject player = GameObject.Find("player");
         if(collision.tag == "Player"){
-            collision.GetComponent<playerHealth>().playerDamage(8);
+            collision.GetComponent<playerHealth>().playerDamage(attack);
             audioSource.PlayOneShot(SlamSFX);
         }
     }
