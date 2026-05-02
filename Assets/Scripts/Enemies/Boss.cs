@@ -1,24 +1,18 @@
 using UnityEngine;
 
-public class Boss : MonoBehaviour
+public class Boss : EnemyController
 {
+    public AudioClip gunfireSFX;
+    public AudioClip SlamSFX;
 
-public AudioClip gunfireSFX;
-public AudioClip SlamSFX;
-public int scoreValue = 10000;
-
-private AudioSource audioSource;
-    public int moveSpeed = 2;
-    Rigidbody2D rb;
-    Transform target;
-    Vector2 moveDirection;
+    private AudioSource audioSource;
     private Vector2 playerLocation;
-
+    
     private int randAttack = 0;
     private bool playerContactFlag = false;
-
+    
     private float timer = 0;
-
+    
     Vector2 chargeVect;
 
     //Shooting Var
@@ -30,16 +24,19 @@ private AudioSource audioSource;
     private int bulletCount = 10;
 
    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         target = EnemySpawnManager.Instance.player;
         rb = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
+        scoreValue = 10000;
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         playerLocation = new Vector2(target.position.x, target.position.y);
 
         if(playerLocation.x < 25 && playerLocation.y < 25 && !playerContactFlag){
@@ -95,7 +92,8 @@ private AudioSource audioSource;
         if(bulletTime > 0) return;
         bulletTime = timerbullets;
 
-        Instantiate(bullet, spawnPoint.transform.position, spawnPoint.transform.rotation);
+        GameObject shotBullet = Instantiate(bullet, spawnPoint.transform.position, spawnPoint.transform.rotation);
+        shotBullet.GetComponent<EnemyBullet>().InitializeEnemyBullet(attack, bulletSpeed, range, moveDirection);
         bulletCount --;
         audioSource.PlayOneShot(gunfireSFX);
     }
@@ -105,7 +103,7 @@ private AudioSource audioSource;
         GameObject player = GameObject.Find("player");
         if(collision.tag == "Player"){
             playerController other = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
-            other.TakeDamage(2 * moveSpeed);
+            other.TakeDamage(Mathf.RoundToInt(2f * moveSpeed));
             audioSource.PlayOneShot(SlamSFX);
         }
     }

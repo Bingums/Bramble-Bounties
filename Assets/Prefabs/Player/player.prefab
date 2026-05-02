@@ -396,7 +396,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8782677107826696365}
   - component: {fileID: 5445991569592553288}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CollisionCollide
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -465,7 +465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7612169148411128390}
   - component: {fileID: 6183647042068439388}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: InteractCollider
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -531,7 +531,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.8, y: 1.25}
+  m_Size: {x: 1, y: 1.5}
   m_EdgeRadius: 0
 --- !u!1 &8384075524707426629
 GameObject:

@@ -16,6 +16,7 @@ public class WeaponData : ScriptableObject
     public int currentAmmo;
     public int ammoCapacity;
     public int ammoReserves;
+    public int maxAmmoReserves;
     public float ammoUsage; // if a bullet is consumed
     public float reloadTime;
     public float reloadUsage; // if a reload uses ammo
@@ -48,6 +49,7 @@ public class WeaponData : ScriptableObject
         copy.currentAmmo = this.currentAmmo;
         copy.ammoCapacity = this.ammoCapacity;
         copy.ammoReserves = this.ammoReserves;
+        copy.maxAmmoReserves = this.maxAmmoReserves;
         copy.ammoUsage = this.ammoUsage;
         copy.reloadTime = this.reloadTime;
         copy.reloadUsage = this.reloadUsage;

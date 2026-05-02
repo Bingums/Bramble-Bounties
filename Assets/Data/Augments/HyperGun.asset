@@ -12,12 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da1e40cf7704b747ac84f3a32756a1a, type: 3}
   m_Name: HyperGun
   m_EditorClassIdentifier: Assembly-CSharp::AugmentData
+  augmentSprite: {fileID: 0}
   augmentName: Hypercharged Rifle
   description: AR ONLY - Extremely powerful, but takes forever to reload
   rarity: 4
-  possibleRarities:
-  - rarity: 3
-    valueMultiplier: 1
   statModifiers:
   - statType: 4
     changeType: 1
@@ -35,3 +33,4 @@ MonoBehaviour:
     changeType: 1
     changeValue: 5
   weaponType: 6
+  pickupPrefab: {fileID: 7114126928779656943, guid: b013061247cc123498b2d7fd3ff8f051, type: 3}

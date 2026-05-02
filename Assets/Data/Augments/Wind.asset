@@ -12,16 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da1e40cf7704b747ac84f3a32756a1a, type: 3}
   m_Name: Wind
   m_EditorClassIdentifier: Assembly-CSharp::AugmentData
+  augmentSprite: {fileID: 0}
   augmentName: 'Wind-Blessed Bullets '
   description: Bullets travel much faster
   rarity: 2
-  possibleRarities:
-  - rarity: 1
-    valueMultiplier: 1
-  - rarity: 2
-    valueMultiplier: 2
   statModifiers:
   - statType: 6
     changeType: 1
     changeValue: 3
   weaponType: 1
+  pickupPrefab: {fileID: 4578678263464429094, guid: 0492e9f1616a25540b149c4cf70fd20e, type: 3}

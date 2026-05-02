@@ -108,12 +108,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c202b4828c4de3f479f3099d8a29b01d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bartender
+  ammoPickup: {fileID: 0}
+  healthPickup: {fileID: 0}
   baseMaxHealth: 100
   baseAttack: 0
   baseMoveSpeed: 0
   baseBulletSpeed: 0
   baseRange: 0
-  scoreValue: 10
   spawnPoint: {fileID: 5895591539706226537}
   bottle: {fileID: 479583595434965996, guid: 4e4ff88dd4a19ca42b8c22d0c2de0ba5, type: 3}
   maxShotBottleTimer: 0.75
@@ -131,12 +132,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c197aa958f1a248b5dbf873e56a4a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
+  ammoPickup: {fileID: 0}
+  healthPickup: {fileID: 0}
   baseMaxHealth: 100
   baseAttack: 0
   baseMoveSpeed: 0
   baseBulletSpeed: 0
   baseRange: 0
-  scoreValue: 10
 --- !u!61 &5969925574529226807
 BoxCollider2D:
   m_ObjectHideFlags: 0

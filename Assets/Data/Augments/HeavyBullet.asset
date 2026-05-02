@@ -12,20 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da1e40cf7704b747ac84f3a32756a1a, type: 3}
   m_Name: HeavyBullet
   m_EditorClassIdentifier: Assembly-CSharp::AugmentData
+  augmentSprite: {fileID: 0}
   augmentName: Heavy Bullet
   description: Bullets deal more damage
   rarity: 1
-  possibleRarities:
-  - rarity: 0
-    valueMultiplier: 1
-  - rarity: 1
-    valueMultiplier: 1.5
-  - rarity: 2
-    valueMultiplier: 2
-  - rarity: 3
-    valueMultiplier: 3
   statModifiers:
   - statType: 4
     changeType: 1
     changeValue: 2
   weaponType: 0
+  pickupPrefab: {fileID: 4983850745099007417, guid: 97ab876b744900b4ca1696b6c1512f87, type: 3}

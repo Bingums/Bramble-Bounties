@@ -12,14 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da1e40cf7704b747ac84f3a32756a1a, type: 3}
   m_Name: Hunger
   m_EditorClassIdentifier: Assembly-CSharp::AugmentData
+  augmentSprite: {fileID: 0}
   augmentName: Hungry Bullets
   description: Bullets deal much more damage, but cost more ammo.
   rarity: 2
-  possibleRarities:
-  - rarity: 2
-    valueMultiplier: 1
-  - rarity: 3
-    valueMultiplier: 2
   statModifiers:
   - statType: 4
     changeType: 1
@@ -28,3 +24,4 @@ MonoBehaviour:
     changeType: 1
     changeValue: 2
   weaponType: 1
+  pickupPrefab: {fileID: 4934507992099786863, guid: 1f48aca22fec583448503a26ee251491, type: 3}

@@ -17,6 +17,9 @@ TagManager:
   - Terrain
   - BarProjectile
   - Collision
+  - Augment
+  - Health
+  - Ammo
   layers:
   - Default
   - TransparentFX

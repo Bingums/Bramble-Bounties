@@ -14,7 +14,7 @@ public class Weapon
     
     public void AugmentWeaponStats(AugmentData aug)
     {
-        if (aug == null)//|| aug.isActive)
+        if (aug == null)
         {
             augmentedData = baseData;
         }
@@ -31,60 +31,50 @@ public class Weapon
         {
             return;
         }
-        else
+        else if (baseData.isMelee && baseData.weaponName != aug.weaponType && 
+                  !(new[] { WeaponType.Any, WeaponType.Melee}.Contains(aug.weaponType)))
         {
-            float rarityMultiplier = aug.possibleRarities[aug.rarity].valueMultiplier;
-            foreach(StatModifier modifier in aug.statModifiers) {
-                StatType curStat = modifier.statType;
-                
-                switch (curStat)
+            return;
+        } 
+        else if (!baseData.isMelee && baseData.weaponName != aug.weaponType && 
+                 !(new[] { WeaponType.Any, WeaponType.Ranged}.Contains(aug.weaponType)))
+        {
+            return;
+        } else {
+            foreach (StatModifier modifier in aug.statModifiers)
+            {
+                switch (modifier.statType)
                 {
                     case StatType.AmmoCapacity:
-                        augmentedData.ammoCapacity =
-                            (int)ApplyChange(modifier, rarityMultiplier, augmentedData.ammoCapacity);
+                        augmentedData.ammoCapacity = (int)ApplyChange(modifier, augmentedData.ammoCapacity);
                         break;
-                    case StatType.AmmoReserve:
-                        augmentedData.ammoReserves = (int)ApplyChange(modifier, rarityMultiplier, augmentedData.ammoReserves);
+                    case StatType.MaxAmmoReserve:
+                        augmentedData.maxAmmoReserves = (int)ApplyChange(modifier, augmentedData.maxAmmoReserves);
                         break;
                     case StatType.AmmoUsage:
-                        augmentedData.ammoUsage = ApplyChange(modifier, rarityMultiplier, augmentedData.ammoUsage);
+                        augmentedData.ammoUsage = ApplyChange(modifier, augmentedData.ammoUsage);
                         break;
-                    // case StatType.CritChance:
-                    //     augmentedData. = ApplyChange(statModifier, rarityMultiplier, augmentedData.);
-                    //     break;
-                    // case StatType.CritDamage:
-                    //     augmentedData. = ApplyChange(statModifier, rarityMultiplier, augmentedData.);
-                    //     break;
                     case StatType.Damage:
-                        augmentedData.damage = (int)ApplyChange(modifier, rarityMultiplier, augmentedData.damage);
+                        augmentedData.damage = (int)ApplyChange(modifier, augmentedData.damage);
                         break;
-                    // case StatType.StoppingPower:
-                    //     augmentedData. = ApplyChange(statModifier, augmentedData.);
-                    //     break;
                     case StatType.NumBullets:
-                        augmentedData.numBullets = (int)ApplyChange(modifier, rarityMultiplier, augmentedData.numBullets);
+                        augmentedData.numBullets = (int)ApplyChange(modifier, augmentedData.numBullets);
                         break;
                     case StatType.ShotSpeed:
-                        augmentedData.shotSpeed = ApplyChange(modifier, rarityMultiplier, augmentedData.shotSpeed);
+                        augmentedData.shotSpeed = ApplyChange(modifier, augmentedData.shotSpeed);
                         break;
                     case StatType.Range:
-                        augmentedData.range = ApplyChange(modifier, rarityMultiplier, augmentedData.range);
+                        augmentedData.range = ApplyChange(modifier, augmentedData.range);
                         break;
                     case StatType.AttackCooldown:
-                        augmentedData.attackCooldown = ApplyChange(modifier, rarityMultiplier, augmentedData.attackCooldown);
+                        augmentedData.attackCooldown = ApplyChange(modifier, augmentedData.attackCooldown);
                         break;
                     case StatType.ReloadTime:
-                        augmentedData.reloadTime = ApplyChange(modifier, rarityMultiplier, augmentedData.reloadTime);
+                        augmentedData.reloadTime = ApplyChange(modifier, augmentedData.reloadTime);
                         break;
                     case StatType.ReloadUsage:
-                        augmentedData.reloadUsage = ApplyChange(modifier, rarityMultiplier, augmentedData.reloadUsage);
+                        augmentedData.reloadUsage = ApplyChange(modifier, augmentedData.reloadUsage);
                         break;
-                    // case StatType.ExtraDamageChance:
-                    //     augmentedData. = ApplyChange(aug, augmentedData.);
-                    //     break;
-                    // case StatType.ExtraDamageVal:
-                    //     augmentedData. = ApplyChange(aug, augmentedData.);
-                    //     break;
                     default:
                         Debug.Log("Unknown stat type: " + modifier.statType);
                         break;
@@ -93,30 +83,30 @@ public class Weapon
         }
     }
 
-    private float ApplyChange(StatModifier modifier, float rarityMultiplier, float curValue)
+    private float ApplyChange(StatModifier modifier, float curValue)
     {
-        ChangeType curChangeType = modifier.changeType;
-        float curChangeValue = rarityMultiplier * modifier.changeValue;
-        
-        switch (curChangeType)
+        switch (modifier.changeType)
         {
             case ChangeType.Flat:
-                curValue += curChangeValue;
+                curValue += modifier.changeValue;
                 break;
             case ChangeType.Multiplier:
-                curValue *= curChangeValue;
+                curValue *= modifier.changeValue;
                 break;
             case ChangeType.Percentage:
-                curValue *= (1 + curChangeValue);
+                curValue *= (1 + modifier.changeValue);
                 break;
         }
-        
+
         return curValue;
     }
-    
+        
     public bool Reload()
     {
-        augmentedData.currentAmmo = augmentedData.ammoCapacity;
+        if(augmentedData.ammoReserves >= augmentedData.ammoCapacity)
+            augmentedData.currentAmmo = augmentedData.ammoCapacity;
+        else 
+            augmentedData.currentAmmo = augmentedData.ammoReserves;
         float reloadRoll = Random.Range(0f, 1f);
         if (reloadRoll <= augmentedData.reloadUsage)
             return true;

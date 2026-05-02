@@ -18,13 +18,13 @@ public class Pimp : EnemyController
     
     private AudioSource audioSource;
     public AudioClip plasmaGunSFX;
-    public int scoreValue = 2000;
 
     protected override void Awake(){
         base.Awake();
         shooterRenderer = GetComponent<SpriteRenderer>();
         shooterColor = shooterRenderer.color;
         audioSource = GetComponent<AudioSource>();
+        scoreValue = 2000;
     }
 
     protected override void Update()

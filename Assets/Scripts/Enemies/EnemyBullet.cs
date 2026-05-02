@@ -4,7 +4,6 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public int force;
     public float speed;
     public int damage;
     public float killBullet;
@@ -17,7 +16,7 @@ public class EnemyBullet : MonoBehaviour
         
         rb = GetComponent<Rigidbody2D>();
         rb.linearVelocity = new Vector2(direction.x, direction.y).normalized * speed;
-        Debug.Log(speed);
+        
         Destroy(gameObject, killBullet);
     }
     
@@ -29,7 +28,6 @@ public class EnemyBullet : MonoBehaviour
         } // damages player and enemies (bullets spawns in shooter, need to change)
         else if(collision.CompareTag("Player")) //|| collision.CompareTag("Enemy"))
         {
-            
             collision.GetComponentInParent<playerController>().TakeDamage(damage);
             Destroy(gameObject);
         }

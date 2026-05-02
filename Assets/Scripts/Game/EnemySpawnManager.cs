@@ -7,13 +7,17 @@ public class EnemySpawnManager : MonoBehaviour
 
     [SerializeField] private GameObject[] enemyPrefabs;
     [SerializeField] private GameObject[] bossPrefabs;
+    
+    [SerializeField] private AugmentData[] augments;
+    [SerializeField] public GameObject ammoPickup;
+    [SerializeField] public GameObject healthPickup;
 
     public Transform player;
-    private int spawnRate = 2; //seconds
-    private int newWaveSpawnRate = 1; //(2 + 1)
+    private int spawnRate = 3; //seconds
 
     public BountyData currentBounty;
     private Room currentRoom;
+    public HUDController hc;
 
     void Awake()
     {
@@ -21,6 +25,8 @@ public class EnemySpawnManager : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
+        
+        StartCoroutine(WaitForHUD());
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -28,25 +34,17 @@ public class EnemySpawnManager : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player").transform;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
-    public void SetBounty(BountyData data)
-    {
-        currentBounty = data;
-    }
     
     private IEnumerator SpawnLoop()
     {
+        if(GameManager.Instance.GetSelectedBounty() != null)
+            currentBounty = GameManager.Instance.GetSelectedBounty();
         currentRoom.ScaleWaves(currentBounty.ExtraWaves, currentBounty.ExtraEnemiesPerWave);
         while(currentRoom.currentWave < currentRoom.numWaves)
         {
             while(!currentRoom.AtCap())
             {
+                hc.ShowIncomingWave(spawnRate);
                 yield return new WaitForSeconds(spawnRate);
                 
                 Transform[] spawnPoints = currentRoom.GetEnemySpawns();
@@ -56,26 +54,21 @@ public class EnemySpawnManager : MonoBehaviour
                     if (!currentRoom.AtCap())
                     {
                         GameObject enemy = null;
-                        if (!currentRoom.isBossRoom) enemy = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
+                        if (!currentRoom.isBossRoom) 
+                            enemy = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
                         else
                         {
-                            BountyData bounty = GameManager.Instance.GetSelectedBounty();
-
-                            if (bounty == null)
-                            {
+                            if (currentBounty == null)
                                 continue;
-                            }
 
-                            switch (bounty.MinibossId)
+                            switch (currentBounty.MinibossId)
                             {
                                 case "Cyclops":
                                     enemy = bossPrefabs[1];
                                     break;
-
                                 case "Medusa":
                                     enemy = bossPrefabs[2];
                                     break;
-
                                 case "Wimp":
                                     enemy = bossPrefabs[0];
                                     break;
@@ -87,25 +80,24 @@ public class EnemySpawnManager : MonoBehaviour
                         GameObject spawnedEnemy = Instantiate(enemy, spawnPoint.position, Quaternion.identity);
                         EnemyController ec = spawnedEnemy.GetComponent<EnemyController>();
                         ec.ScaleStats(currentBounty.HealthMultiplier, 
-                                                                    currentBounty.AttackMultiplier,
-                                                                    currentBounty.MoveSpeedMultiplier);
+                                       currentBounty.AttackMultiplier,
+                                       currentBounty.MoveSpeedMultiplier);
                         currentRoom.IncreaseEnemyCounts();
                     }
                 }
             }
 
             while(currentRoom.enemyCount != 0) 
-            {
                 yield return null;
-            }
             
             currentRoom.ResetEnemyCounts();
             
             currentRoom.currentWave++;
-            yield return new WaitForSeconds(newWaveSpawnRate);
         }
         
         currentRoom.isCleared = true;
+        hc.ShowRoomCleared();
+        SpawnAugment();
         currentRoom.LockDoors(false);
         currentRoom = null;
         Debug.Log("All waves complete");
@@ -124,6 +116,15 @@ public class EnemySpawnManager : MonoBehaviour
     {
         StopAllCoroutines();
     }
+    
+    private void SpawnAugment()
+    {
+        if (augments == null || augments.Length == 0) return;
+    
+        AugmentData augment = augments[Random.Range(0, augments.Length)];
+        GameObject pickup = Instantiate(augment.pickupPrefab, currentRoom.transform.position, Quaternion.identity);
+        pickup.GetComponent<AugmentPickup>().data = augment;
+    }
 
     public void OnDestroy()
     {
@@ -133,5 +134,14 @@ public class EnemySpawnManager : MonoBehaviour
     public Room GetCurrentRoom()
     {
         return currentRoom;
+    }
+    
+    IEnumerator WaitForHUD()
+    {
+        while (hc == null)
+        {
+            hc = GameObject.Find("HUD Container").GetComponentInChildren<HUDController>();
+            yield return null;
+        }
     }
 }

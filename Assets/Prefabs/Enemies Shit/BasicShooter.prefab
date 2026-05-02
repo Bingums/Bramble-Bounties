@@ -110,6 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c197aa958f1a248b5dbf873e56a4a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
+  ammoPickup: {fileID: 0}
+  healthPickup: {fileID: 0}
   baseMaxHealth: 10
   baseAttack: 4
   baseMoveSpeed: 2
@@ -127,6 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38fd80af44219054187f5dd88a9fdb3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasicShooter
+  ammoPickup: {fileID: 0}
+  healthPickup: {fileID: 0}
   baseMaxHealth: 10
   baseAttack: 4
   baseMoveSpeed: 2

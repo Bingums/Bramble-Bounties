@@ -23,6 +23,7 @@ MonoBehaviour:
   currentAmmo: 10
   ammoCapacity: 10
   ammoReserves: 80
+  maxAmmoReserves: 80
   ammoUsage: 1
   reloadTime: 1.5
   reloadUsage: 1

@@ -12,14 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da1e40cf7704b747ac84f3a32756a1a, type: 3}
   m_Name: FastReload
   m_EditorClassIdentifier: Assembly-CSharp::AugmentData
+  augmentSprite: {fileID: 0}
   augmentName: Sleight of Hand
   description: Increase reload speed
   rarity: 1
-  possibleRarities:
-  - rarity: 0
-    valueMultiplier: 1
   statModifiers:
   - statType: 9
     changeType: 1
     changeValue: 0.5
   weaponType: 1
+  pickupPrefab: {fileID: 1597259678720493321, guid: e5f7aeaef4f5d124699a2ca203480579, type: 3}

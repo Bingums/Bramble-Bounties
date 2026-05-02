@@ -1,8 +1,7 @@
-public enum Rarity { Common, Rare, Epic, Legendary }
 public enum StatType 
 { 
     AmmoCapacity, 
-    AmmoReserve, 
+    MaxAmmoReserve, 
     AmmoUsage,
     ReloadUsage,
     //CritChance,

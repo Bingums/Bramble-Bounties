@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da1e40cf7704b747ac84f3a32756a1a, type: 3}
   m_Name: ExtraPouch
   m_EditorClassIdentifier: Assembly-CSharp::AugmentData
+  augmentSprite: {fileID: 0}
   augmentName: Extra Pouch
   description: Increases Ammo Reserve
   rarity: 0
-  possibleRarities: []
   statModifiers:
   - statType: 1
     changeType: 0
     changeValue: 50
   weaponType: 0
+  pickupPrefab: {fileID: 3582398815724647640, guid: 2c22c33e98818fc4cbd9abee09930e3e, type: 3}

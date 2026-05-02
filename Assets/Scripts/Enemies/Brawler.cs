@@ -8,13 +8,13 @@ public class Brawler : EnemyController
     Color damageColor = new Color(0.85f, 0.24f, 0.24f);
     private AudioSource audioSource;
     public AudioClip punchSFX;
-    public int scoreValue = 50;
     protected override void Awake()
     {
         base.Awake();
         brawlerRenderer = GetComponent<SpriteRenderer>();
         brawlerColor = brawlerRenderer.color;
         audioSource = GetComponent<AudioSource>();
+        scoreValue = 50;
     }
 
     private void OnTriggerEnter2D(Collider2D collision){

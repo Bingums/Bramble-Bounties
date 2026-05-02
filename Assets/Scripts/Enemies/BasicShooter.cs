@@ -19,13 +19,12 @@ public class BasicShooter : EnemyController
     private AudioSource audioSource;
     public AudioClip plasmaGunSFX;
 
-    public int scoreValue = 50;
-
     protected override void Awake(){
         base.Awake();
         shooterRenderer = GetComponent<SpriteRenderer>();
         shooterColor = shooterRenderer.color;
         audioSource = GetComponent<AudioSource>();
+        scoreValue = 50;
     }
 
     protected override void Update()
@@ -46,7 +45,8 @@ public class BasicShooter : EnemyController
         if(bulletTime > 0) return;
         bulletTime = timer;
 
-        Instantiate(bullet, spawnPoint.transform.position, spawnPoint.transform.rotation);
+        GameObject shotBullet = Instantiate(bullet, spawnPoint.transform.position, spawnPoint.transform.rotation);
+        shotBullet.GetComponent<EnemyBullet>().InitializeEnemyBullet(attack, bulletSpeed, range, moveDirection);
         audioSource.PlayOneShot(plasmaGunSFX);
     }
 

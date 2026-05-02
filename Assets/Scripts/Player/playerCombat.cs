@@ -128,10 +128,16 @@ public class playerCombat : MonoBehaviour
                     newBullet.GetComponent<PlayerBullet>().InitializePlayerBullet(weapon, direction);
                 }
             }
-            
+
+            float ammoUsage = weapon.ammoUsage;
             float ammoRoll = Random.Range(0f, 1f);
-            if (ammoRoll <= weapon.ammoUsage)
-                weapon.currentAmmo--;
+            while (ammoUsage > 0f)
+            {
+                if (ammoRoll <= ammoUsage)
+                    weapon.currentAmmo--;
+                ammoUsage -= 1f;
+            }
+            
         }
     }
 
@@ -157,17 +163,12 @@ public class playerCombat : MonoBehaviour
         resetMeleeRoutine = null;
     }
 
-    private void UpgradeWeapon(int slot, int weaponVal)
-    {
-        
-    }
-
     public void Reload()
     {
        if (isReloading)
         return;
 
-        reloadRoutine = StartCoroutine(ReloadCoroutine());
+       reloadRoutine = StartCoroutine(ReloadCoroutine());
     }
 
     public void CancelReload()
@@ -197,6 +198,7 @@ public class playerCombat : MonoBehaviour
         bool reduceAmmo = pc.weapons[pc.curSlot].Reload();
         if (reduceAmmo)
             weapon.ammoReserves -= usedAmmo;
+        weapon.ammoReserves = Mathf.Clamp(weapon.ammoReserves, 0, weapon.maxAmmoReserves);
         
         isReloading = false;
         reloadProgress = 0f;

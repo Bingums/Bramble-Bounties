@@ -10,6 +10,8 @@ using Unity.VisualScripting;
 
 public class playerController : MonoBehaviour, IDamageable
 {
+    public static playerController Instance;
+
     private const int KnifeSlot = 0;
     private const int GunSlot = 1;
     private const int ShotgunSlot = 2;
@@ -20,22 +22,24 @@ public class playerController : MonoBehaviour, IDamageable
 
     [SerializeField] private float BASE_SPEED = 5f;
 
-    [Header("Dash Settings")]
-    [SerializeField] private float staminaDrainRate = 5f;     // per second
-    [SerializeField] private float staminaRegenRate = 3f;     // per second
+    [Header("Dash Settings")] [SerializeField]
+    private float staminaDrainRate = 5f; // per second
+
+    [SerializeField] private float staminaRegenRate = 3f; // per second
     [SerializeField] private float dashMultiplier = 2f;
     [SerializeField] private float dashCooldownTime = 3f;
 
-    [Header("Combat Debug")] 
-    [SerializeField] private WeaponData pistol;
+    [Header("Combat Debug")] [SerializeField]
+    private WeaponData pistol;
+
     [SerializeField] private WeaponData knife;
     [SerializeField] private WeaponData sword;
     [SerializeField] private WeaponData rifle;
     [SerializeField] private WeaponData shotgun;
     [SerializeField] private WeaponData lever;
-    
+
     public event Action<WeaponData> OnEquippedWeaponChanged;
-    
+
     private bool isOnCooldown = false;
 
     private Rigidbody2D rb;
@@ -46,17 +50,21 @@ public class playerController : MonoBehaviour, IDamageable
     public GameObject displayedWeapon;
     private GameObject equippedWeaponObject;
     private int equippedSlot = -1;
-    
+
     private AugmentData[] equippedAugments = new AugmentData[8];
+    public int openEquipSlot = 0;
     private AugmentData[] augmentInventory = new AugmentData[16];
+    private int openInventorySlot = 0;
     private AugmentPickup nearbyAugment;
-    
+    private HUDController hc;
+
     private PlayerState State => GameManager.Instance != null ? GameManager.Instance.PlayerState : null;
 
     public playerCombat combatScript;
 
     void Awake()
     {
+        Instance = this;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         combatScript = GetComponent<playerCombat>();
@@ -66,7 +74,7 @@ public class playerController : MonoBehaviour, IDamageable
     {
         for (int i = 0; i < weapons.Length; i++)
             weapons[i] = new Weapon();
-        
+
         weapons[0].InitializeWeapon(knife);
         weapons[1].InitializeWeapon(pistol);
         weapons[2].InitializeWeapon(shotgun);
@@ -74,21 +82,23 @@ public class playerController : MonoBehaviour, IDamageable
         weapons[4].InitializeWeapon(lever);
         weapons[5].InitializeWeapon(sword);
         EquipWeapon(KnifeSlot);
+
+        StartCoroutine(WaitForHUD());
     }
 
     void Update()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-        
+
         Vector2 dir = new Vector2(horizontal, vertical).normalized;
         bool isDashing = Input.GetKey(KeyCode.LeftShift);
 
         float speedToUse = BASE_SPEED;
-        
+
         PlayerState state = State;
-        
-        if(state != null)
+
+        if (state != null)
         {
             //Dash Logic
             if (isDashing && state.CurrentStamina > 0f && !isOnCooldown)
@@ -122,50 +132,55 @@ public class playerController : MonoBehaviour, IDamageable
         {
             rb.linearVelocity = dir * speedToUse;
         }
+
         // animator uses blend tree, only needs 2 inputs
         animator.SetFloat("InputX", horizontal);
         animator.SetFloat("InputY", vertical);
 
-        if(Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
+        if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
         {
             EquipWeapon(KnifeSlot);
-        } else if(Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
         {
             EquipWeapon(GunSlot);
-        } else if (Input.GetKeyDown(KeyCode.Alpha3))
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             EquipWeapon(ShotgunSlot);
-        } else if (Input.GetKeyDown(KeyCode.Alpha4))
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             EquipWeapon(AssaultSlot);
-        } else if (Input.GetKeyDown(KeyCode.Alpha5))
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             EquipWeapon(LeverSlot);
-        } else if (Input.GetKeyDown(KeyCode.Alpha6))
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha6))
         {
             EquipWeapon(SwordSlot);
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && nearbyAugment != null)
         {
-            if (nearbyAugment != null)
-            {
-                if (equippedAugments.Length < 8)
-                    EquipAugment(nearbyAugment.data, equippedAugments.Length - 1);
-                else
-                    PickupAugment(nearbyAugment.data);
-            }
+            if (openEquipSlot < 8)
+                EquipAugment(nearbyAugment.data, openEquipSlot);
+            else
+                PickupAugment(nearbyAugment.data);
+
+            Destroy(nearbyAugment.gameObject);
+            nearbyAugment = null;
         }
     }
-    
+
     public void TakeDamage(int damage)
     {
-        Debug.Log("player " + damage);
         if (State == null)
         {
             return;
         }
-        
+
         State.TakeDamage(damage);
 
         if (State.IsDead())
@@ -181,7 +196,7 @@ public class playerController : MonoBehaviour, IDamageable
             return;
         }
 
-        if (slot < 0 || slot >= weapons.Length || weapons[slot] == null 
+        if (slot < 0 || slot >= weapons.Length || weapons[slot] == null
             || weapons[slot].baseData.weaponPrefab == null)
         {
             Debug.LogWarning("Cannot equip weapon slot {slot}. Check the player weapons array.");
@@ -237,83 +252,87 @@ public class playerController : MonoBehaviour, IDamageable
         weaponRenderer.sortingLayerID = playerRenderer.sortingLayerID;
         weaponRenderer.sortingOrder = playerRenderer.sortingOrder + 1;
     }
-    
+
     private void UpgradeWeapon(int slot, WeaponData toUpgrade)
     {
         weapons[slot].baseData = toUpgrade;
         equippedSlot = -1;
         EquipWeapon(slot);
     }
-    
-    private bool IsAugmentEquipped(AugmentData aug)
-    {
-        foreach(AugmentData augment in equippedAugments)
-        {
-            if (augment.augmentName == aug.augmentName && augment.rarity == aug.rarity)
-                return true;
-        }
 
-        return false;
-    }
-    
-    private bool EquipAugment(AugmentData aug, int slot)
+    private void EquipAugment(AugmentData aug, int slot)
     {
-        if (equippedAugments[slot] != null)
-            if (!RemoveEquippedAugment(slot))
-                return false;
-        
         equippedAugments[slot] = aug;
+        openEquipSlot++;
+        hc.EquipAugment(aug);
         RecalculateStats();
-        return true;
-    }
-    
-    private bool RemoveEquippedAugment(int slot)
-    {
-        int numAugmentsInInventory = augmentInventory.Length;
-        if (numAugmentsInInventory == 16)
-        {
-            // make a popup window
-            return false;
-        }
-        else
-        {
-            AugmentData augment = equippedAugments[slot];
-            augmentInventory[numAugmentsInInventory-1] = augment;
-            equippedAugments[slot] = null;
-            RecalculateStats();
-            return true;
-        }
-    }
-    
-    private void PickupAugment(AugmentData aug)
-    {
-        int numAugmentsInInventory = augmentInventory.Length;
-        if (numAugmentsInInventory == 16)
-        {
-            // make a popup window
-        }
-        else
-        {
-            // get rid of augment on floor
-            augmentInventory[numAugmentsInInventory-1] = aug;
-        }
     }
 
-    private void DropAugment(int slot)
+    public void RemoveEquippedAugment(int slot)
     {
-        // place on floor
-        augmentInventory[slot] = null;
-        if (slot != augmentInventory.Length - 1)
+        AugmentData augment = equippedAugments[slot];
+        equippedAugments[slot] = null;
+        if (slot != openEquipSlot - 1)
         {
-            for (int i = slot; i <= augmentInventory.Length - 1; i++)
+            for (int i = slot; i < openEquipSlot; i++)
             {
-                if(augmentInventory[i+1] == null)
+                if (equippedAugments[i + 1] == null)
                     continue;
-                augmentInventory[i] = augmentInventory[i+1];
+                equippedAugments[i] = equippedAugments[i + 1];
             }
         }
+
+        openEquipSlot--;
+
+        if (openInventorySlot < 16)
+        {
+            augmentInventory[openInventorySlot] = augment;
+            openInventorySlot++;
+            hc.AddInventoryAugment(augment);
+        }
+        else
+            Instantiate(augment.pickupPrefab, transform.position, Quaternion.identity);
+
+        hc.RefreshEquippedSlots(equippedAugments, openEquipSlot);
+        RecalculateStats();
     }
-    
+
+    private void PickupAugment(AugmentData aug)
+    {
+        if (openInventorySlot == 16)
+            StartCoroutine(FullInventory());
+        else
+        {
+            augmentInventory[openInventorySlot] = aug;
+            openInventorySlot++;
+            hc.AddInventoryAugment(aug);
+        }
+    }
+
+    public void RemoveAugment(int slot)
+    {
+        AugmentData augment = augmentInventory[slot];
+
+        augmentInventory[slot] = null;
+        if (slot != openInventorySlot - 1)
+        {
+            for (int i = slot; i < openInventorySlot; i++)
+            {
+                if (augmentInventory[i + 1] == null)
+                    continue;
+                augmentInventory[i] = augmentInventory[i + 1];
+            }
+        }
+
+        openInventorySlot--;
+        hc.RefreshInventorySlots(augmentInventory, openInventorySlot);
+
+        if (openEquipSlot < 8)
+            EquipAugment(augment, openEquipSlot);
+        else
+            Instantiate(augment.pickupPrefab, transform.position, Quaternion.identity);
+    }
+
     private void RecalculateStats()
     {
         foreach (Weapon weapon in weapons)
@@ -324,21 +343,50 @@ public class playerController : MonoBehaviour, IDamageable
             {
                 if (augment == null)
                     continue;
-                
-                foreach(StatModifier modifier in augment.statModifiers)
-                    if(modifier.changeType == ChangeType.Flat)
+
+                foreach (StatModifier modifier in augment.statModifiers)
+                    if (modifier.changeType == ChangeType.Flat)
                         weapon.AugmentWeaponStats(augment);
             }
-            
+
             foreach (AugmentData augment in equippedAugments)
             {
                 if (augment == null)
                     continue;
-                
-                foreach(StatModifier modifier in augment.statModifiers)
-                    if(modifier.changeType != ChangeType.Flat)
+
+                foreach (StatModifier modifier in augment.statModifiers)
+                    if (modifier.changeType != ChangeType.Flat)
                         weapon.AugmentWeaponStats(augment);
             }
+        }
+    }
+
+    private void RefillAmmo()
+    {
+        foreach (Weapon weapon in weapons)
+        {
+            int maxAmmo = weapon.augmentedData.maxAmmoReserves;
+            int refillAmount = Mathf.FloorToInt(0.1f * maxAmmo);
+            weapon.augmentedData.ammoReserves += refillAmount;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent(out AugmentPickup augment))
+            nearbyAugment = augment;
+        else if (collision.CompareTag("Ammo"))
+            RefillAmmo();
+        else if (collision.CompareTag("Health"))
+            State.Heal(State.MaxHealth * 0.15f);
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent(out AugmentPickup augment))
+        {
+            if (augment == nearbyAugment)
+                nearbyAugment = null;
         }
     }
 
@@ -351,18 +399,20 @@ public class playerController : MonoBehaviour, IDamageable
         isOnCooldown = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    { 
-        if(collision.TryGetComponent(out AugmentPickup augment))
-            nearbyAugment = augment;
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
+    IEnumerator WaitForHUD()
     {
-        if (collision.TryGetComponent(out AugmentPickup augment))
+        while (hc == null)
         {
-            if(augment == nearbyAugment)
-                nearbyAugment = null;
+            hc = GameObject.Find("HUD Container").GetComponentInChildren<HUDController>();
+            yield return null;
         }
     }
+
+    IEnumerator FullInventory()
+    {
+        hc.fullInventoryText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.8f);
+        hc.fullInventoryText.gameObject.SetActive(false);
+    }
+
 }

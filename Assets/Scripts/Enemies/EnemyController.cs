@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour, IDamageable
     [SerializeField] protected float baseMoveSpeed;
     [SerializeField] protected float baseBulletSpeed;
     [SerializeField] protected float baseRange;
+    //[SerializeField] protected int baseScoreValue;
     
     protected int maxHealth;
     protected int currentHealth;
@@ -15,13 +16,14 @@ public class EnemyController : MonoBehaviour, IDamageable
     protected float moveSpeed;
     protected float bulletSpeed;
     protected float range;
+    //protected int scoreValue;
     
     protected float distance;
     protected Rigidbody2D rb;
     protected Transform target;
     protected Vector2 moveDirection;
 
-    public int scoreValue = 10;
+    protected int scoreValue = 10;
 
     protected virtual void Awake()
     {
@@ -53,8 +55,6 @@ public class EnemyController : MonoBehaviour, IDamageable
             rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
     }
     
-    //protected virtual void Attack() { }
-    
     public void ScaleStats(float healthMultiplier, float attackMultiplier, float moveSpeedMultiplier)
     {
         maxHealth = Mathf.RoundToInt(baseMaxHealth * healthMultiplier);
@@ -80,6 +80,12 @@ public class EnemyController : MonoBehaviour, IDamageable
             currentRoom.DecreaseEnemyCount();
         }
         ScoreManager.instance.AddScore(scoreValue);
+        float ammoSpawn = Random.Range(0f, 1f);
+        if(ammoSpawn <= 0.1f)
+            Instantiate(EnemySpawnManager.Instance.ammoPickup, transform.position + new Vector3(0.15f, 0, 0), Quaternion.identity);
+        float healthSpawn = Random.Range(0f, 1f);
+        if (healthSpawn <= 0.1f)
+            Instantiate(EnemySpawnManager.Instance.healthPickup, transform.position + new Vector3(0.15f, 0, 0), Quaternion.identity);
         Destroy(gameObject);
     }
     

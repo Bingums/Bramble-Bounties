@@ -12,14 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da1e40cf7704b747ac84f3a32756a1a, type: 3}
   m_Name: OverBullet
   m_EditorClassIdentifier: Assembly-CSharp::AugmentData
+  augmentSprite: {fileID: 0}
   augmentName: Overstuffed Magazine
   description: Increases ammo count
   rarity: 1
-  possibleRarities:
-  - rarity: 0
-    valueMultiplier: 1
-  - rarity: 1
-    valueMultiplier: 1.5
   statModifiers:
   - statType: 0
     changeType: 0
@@ -28,3 +24,4 @@ MonoBehaviour:
     changeType: 0
     changeValue: 40
   weaponType: 1
+  pickupPrefab: {fileID: 3347921285524978711, guid: 2307c7df346eb2f47b480ff917a58355, type: 3}

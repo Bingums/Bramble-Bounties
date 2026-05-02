@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,21 +19,34 @@ public class HUDController : MonoBehaviour
     [SerializeField] private TMP_Text curAmmoText;
     [SerializeField] private TMP_Text ammoReservesText;
     
+    [Header("Augment UI")]
+    [SerializeField] private GameObject augmentMenu;
+    [SerializeField] public Image infoImage;
+    [SerializeField] public TMP_Text infoName;
+    [SerializeField] public TMP_Text infoText;
+    
     [Header("Wave UI")]
-    // cur wave and num waves
-    // enemies left
+    [SerializeField] public TMP_Text numWaveText;
+    [SerializeField] public TMP_Text numEnemiesText;
+    
+    [Header("Score UI")]
+    [SerializeField] public TMP_Text scoreText;
     
     [Header("Alerts")]
-    // incoming wave
-    // room cleared
+    [SerializeField] public TMP_Text incomingWaveText;
+    [SerializeField] public TMP_Text waveCountdownText;
+    [SerializeField] public TMP_Text roomClearedText;
     [SerializeField] private TMP_Text noAmmoText;
-    // augment inventory full
+    [SerializeField] public TMP_Text fullInventoryText;
     
     private PlayerState boundState;
     private WeaponData displayedWeapon;
     private playerCombat combatScript;
-    // use EnemySpawnManager.Instance.currentRoom
+    public EquipSlot[] equippedSlots;
+    public AugmentSlot[] inventorySlots;
 
+    private bool menuOpen = false;
+    
     private void OnEnable()
     {
         TryInitialize();
@@ -43,7 +58,7 @@ public class HUDController : MonoBehaviour
         UnbindPlayer();
         displayedWeapon = null;
     }
-
+    
     private void Start()
     {
         reloadBar.gameObject.SetActive(false);
@@ -51,6 +66,25 @@ public class HUDController : MonoBehaviour
         curAmmoText.gameObject.SetActive(false);
         ammoReservesText.gameObject.SetActive(false);
         noAmmoText.gameObject.SetActive(false);
+        fullInventoryText.gameObject.SetActive(false);
+        augmentMenu.gameObject.SetActive(false);
+        numWaveText.gameObject.SetActive(false);
+        numEnemiesText.gameObject.SetActive(false);
+        incomingWaveText.gameObject.SetActive(false);
+        waveCountdownText.gameObject.SetActive(false);
+        roomClearedText.gameObject.SetActive(false);
+
+        for (int i = 0; i < equippedSlots.Length; i++)
+        {
+            equippedSlots[i].hc = this;
+            equippedSlots[i].index = i;
+        }
+    
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            inventorySlots[i].hc = this;
+            inventorySlots[i].index = i;
+        }
     }
 
     private void Update()
@@ -64,19 +98,56 @@ public class HUDController : MonoBehaviour
 
         RefreshWeaponIcon();
         
+        if (Input.GetKeyDown(KeyCode.Tab) && menuOpen)
+        {
+            menuOpen = !menuOpen;
+            augmentMenu.SetActive(menuOpen);
+            DeselectAllSlots();
+            Time.timeScale = 1;
+        } else if (Input.GetKeyDown(KeyCode.Tab) && !menuOpen)
+        {
+            Time.timeScale = 0; // pauses game while in menu
+            menuOpen = !menuOpen;
+            augmentMenu.SetActive(menuOpen);
+        }
+        
         reloadBar.gameObject.SetActive(combatScript.isReloading);
         reloadText.gameObject.SetActive(combatScript.isReloading);
         if (combatScript.isReloading)
             reloadBar.value = combatScript.reloadProgress;
 
-        WeaponData curWeapon = combatScript.weapon;
-        curAmmoText.gameObject.SetActive(!curWeapon.isMelee);
-        ammoReservesText.gameObject.SetActive(!curWeapon.isMelee);
-        if (!curWeapon.isMelee)
+        if (combatScript.weapon != null)
         {
-            noAmmoText.gameObject.SetActive(curWeapon.ammoReserves == 0 && curWeapon.currentAmmo == 0);
-            curAmmoText.text = curWeapon.currentAmmo + " / " + curWeapon.ammoCapacity;
-            ammoReservesText.text = curWeapon.ammoReserves.ToString();
+            WeaponData curWeapon = combatScript.weapon;
+            curAmmoText.gameObject.SetActive(!curWeapon.isMelee);
+            ammoReservesText.gameObject.SetActive(!curWeapon.isMelee);
+            if (!curWeapon.isMelee)
+            {
+                noAmmoText.gameObject.SetActive(curWeapon.ammoReserves == 0 && curWeapon.currentAmmo == 0);
+                curAmmoText.text = curWeapon.currentAmmo + " / " + curWeapon.ammoCapacity;
+                ammoReservesText.text = curWeapon.ammoReserves.ToString();
+            }
+        }
+        
+        Room currentRoom = EnemySpawnManager.Instance.GetCurrentRoom();
+        if (currentRoom != null)
+        {
+            numWaveText.gameObject.SetActive(true);
+            if (currentRoom.isBossRoom)
+            {
+                numWaveText.text = "Boss Room";
+            }
+            else
+            {
+                numEnemiesText.gameObject.SetActive(true);
+                numWaveText.text = currentRoom.currentWave + " / " + currentRoom.numWaves + " Waves";
+                numEnemiesText.text = currentRoom.enemyCount + " Enemies";
+            }
+        }
+        else
+        {
+            numWaveText.text = "";
+            numEnemiesText.text = "";
         }
     }
 
@@ -238,6 +309,119 @@ public class HUDController : MonoBehaviour
 
         float fillAmount = maxValue <= 0f ? 0f : Mathf.Clamp01(currentValue / maxValue);
         fillImage.fillAmount = fillAmount;
+    }
+
+    public void AddInventoryAugment(AugmentData augment)
+    {
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            if (inventorySlots[i].augment == null)
+            {
+                inventorySlots[i].AddItem(augment);
+                return;
+            }
+        }
+    }
+    
+    public void EquipAugment(AugmentData augment)
+    {
+        for (int i = 0; i < equippedSlots.Length; i++)
+        {
+            if (equippedSlots[i].augment == null)
+            {
+                equippedSlots[i].AddItem(augment);
+                return;
+            }
+        }
+    }
+    
+    public void DeselectAllSlots()
+    {
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            inventorySlots[i].selectedIndicator.SetActive(false);
+            inventorySlots[i].selected = false;
+        }
+        
+        for (int i = 0; i < equippedSlots.Length; i++)
+        {
+            equippedSlots[i].selectedIndicator.SetActive(false);
+            equippedSlots[i].selected = false;
+        }
+
+        infoImage.enabled = false;
+        infoName.text = "";
+        infoText.text = "";
+    }
+    
+    public void RefreshEquippedSlots(AugmentData[] augments, int count)
+    {
+        for (int i = 0; i < equippedSlots.Length; i++)
+        {
+            if (i < count && augments[i] != null)
+                equippedSlots[i].AddItem(augments[i]);
+            else
+                equippedSlots[i].ClearItem();
+        }
+    }
+
+    public void RefreshInventorySlots(AugmentData[] augments, int count)
+    {
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            if (i < count && augments[i] != null)
+                inventorySlots[i].AddItem(augments[i]);
+            else
+                inventorySlots[i].ClearItem();
+        }
+    }
+    
+    public void ShowRoomCleared()
+    {
+        StartCoroutine(RoomClearedAlert());
+    }
+    
+    IEnumerator RoomClearedAlert()
+    {
+        roomClearedText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.8f);
+        roomClearedText.gameObject.SetActive(false);
+    }
+    
+    public void ShowIncomingWave(int countdown)
+    {
+        StartCoroutine(IncomingWaveAlert(countdown));
+    }
+    
+    private IEnumerator IncomingWaveAlert(int countdown)
+    {
+        incomingWaveText.gameObject.SetActive(true);
+        waveCountdownText.gameObject.SetActive(true);
+    
+        while (countdown > 0)
+        {
+            waveCountdownText.text = countdown.ToString();
+        
+            float elapsed = 0f;
+            while (elapsed < 1f)
+            {
+                incomingWaveText.gameObject.SetActive(true);
+                yield return new WaitForSeconds(0.8f);
+                incomingWaveText.gameObject.SetActive(false);
+                yield return new WaitForSeconds(0.3f);
+                elapsed += 1.1f;
+            }
+        
+            countdown--;
+        }
+    
+        incomingWaveText.gameObject.SetActive(false);
+        waveCountdownText.gameObject.SetActive(false);
+    }
+
+    public void ChangeScore(int score)
+    {
+        scoreText.text = "Score: " + score;
     }
 }
 

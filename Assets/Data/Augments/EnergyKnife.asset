@@ -12,12 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da1e40cf7704b747ac84f3a32756a1a, type: 3}
   m_Name: EnergyKnife
   m_EditorClassIdentifier: Assembly-CSharp::AugmentData
+  augmentSprite: {fileID: 0}
   augmentName: Energized Knife
   description: DAGGER ONLY - Hit harder and faster!
   rarity: 2
-  possibleRarities:
-  - rarity: 1
-    valueMultiplier: 1
   statModifiers:
   - statType: 4
     changeType: 1
@@ -26,3 +24,4 @@ MonoBehaviour:
     changeType: 1
     changeValue: 0.5
   weaponType: 7
+  pickupPrefab: {fileID: 3453346437852174729, guid: 05a921865acb57146ae69b966b6a68db, type: 3}

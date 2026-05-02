@@ -12,14 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da1e40cf7704b747ac84f3a32756a1a, type: 3}
   m_Name: Sharpshooter
   m_EditorClassIdentifier: Assembly-CSharp::AugmentData
+  augmentSprite: {fileID: 0}
   augmentName: Sharpshooter
   description: Longer range, faster bullets
   rarity: 2
-  possibleRarities:
-  - rarity: 0
-    valueMultiplier: 1
-  - rarity: 1
-    valueMultiplier: 1.5
   statModifiers:
   - statType: 6
     changeType: 1
@@ -28,3 +24,4 @@ MonoBehaviour:
     changeType: 1
     changeValue: 3
   weaponType: 1
+  pickupPrefab: {fileID: 6262518655122802760, guid: e9b4e65a1d7e10d4e82e9fe985a8edb6, type: 3}
