@@ -11,10 +11,7 @@ public class PauseMenu : MonoBehaviour
         // Make sure the pause menu starts hidden
         if (pauseUI != null)
             pauseUI.SetActive(false);
-        
         // Lock cursor at start (typical for first-person games)
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
     }
 
     void Update()
@@ -46,13 +43,13 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void QuitToTitle()
     {
-        Time.timeScale = 1f; // Very important: reset time before loading
-        SceneManager.LoadScene("Title Scene"); // Make sure the scene name matches exactly
+        Time.timeScale = 1f; 
+        SceneManager.LoadScene("Title Screen"); 
     }
 }
