@@ -108,7 +108,7 @@ public class Boss : EnemyController
             collision.GetComponent<playerHealth>().playerDamage(attack);
             audioSource.PlayOneShot(SlamSFX);
         }
-    }
+    }      
 
 
 }
