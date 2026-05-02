@@ -66,7 +66,7 @@ public class playerCombat : MonoBehaviour
         
         if(weapon.isMelee)
         {
-        audioSource.PlayOneShot(weapon.attackSFX); 
+            audioSource.PlayOneShot(weapon.attackSFX); 
             //Debug.Log("swinging");
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             if(45f <= angle && angle <= 135f) // up
@@ -88,7 +88,10 @@ public class playerCombat : MonoBehaviour
 
             if (attackLayerIndex >= 0)
             {
+                pc.SetEquippedWeaponVisible(true);
+                
                 animator.Play(MeleeStateHash, attackLayerIndex, 0f);
+                animator.Update(0f);
                 if (resetMeleeRoutine != null)
                 {
                     StopCoroutine(resetMeleeRoutine);
@@ -159,6 +162,8 @@ public class playerCombat : MonoBehaviour
         {
             animator.Play(ConditionStateHash, attackLayerIndex, 0f);
         }
+        
+        pc.SetEquippedWeaponVisible(false);
 
         resetMeleeRoutine = null;
     }
@@ -178,6 +183,15 @@ public class playerCombat : MonoBehaviour
             StopCoroutine(ReloadCoroutine());
             isReloading = false;
             reloadProgress = 0f;
+        }
+    }
+
+    public void CancelMeleeReset()
+    {
+        if (resetMeleeRoutine != null)
+        {
+            StopCoroutine(resetMeleeRoutine);
+            resetMeleeRoutine = null;
         }
     }
     
