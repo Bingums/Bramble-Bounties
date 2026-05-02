@@ -6,6 +6,7 @@ public class EnemySpawnManager : MonoBehaviour
     public static EnemySpawnManager Instance;
 
     [SerializeField] private GameObject[] enemyPrefabs;
+    [SerializeField] private GameObject[] bossPrefabs;
 
     public Transform player;
     private int spawnRate = 2; //seconds

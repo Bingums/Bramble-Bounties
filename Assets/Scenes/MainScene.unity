@@ -369,6 +369,11 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 6561241342260376408, guid: 064b5e5ca62fa3b4d92866479bcda790, type: 3}
   - {fileID: 4180373384447001821, guid: fbef9a0542c4dc24ca0c354ac0cdad01, type: 3}
+  bossPrefabs:
+  - {fileID: 5845403384556277927, guid: be8e2a4af5707794fa2a42c277b0f638, type: 3}
+  - {fileID: 461751865378642930, guid: 7c885de895cddaa4e8ec19c0f044408a, type: 3}
+  - {fileID: 3891135691327597449, guid: 84f64f6e01546c3458d91a53d764cefb, type: 3}
+  - {fileID: 3602795139601454188, guid: ef73339b7fbed4341889afa98b687b54, type: 3}
   player: {fileID: 0}
   currentBounty: {fileID: 11400000, guid: 7f9555ef87e6bad4bb1e436b8266501f, type: 2}
 --- !u!4 &174981033

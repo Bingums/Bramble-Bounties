@@ -12,7 +12,6 @@ public class Room : MonoBehaviour
 
     [SerializeField] private bool isBossRoom;
     [SerializeField] private BoxCollider2D teleporter;
-    [SerializeField] private NextFloor next;
     
     public int numWaves = 3;
     public int currentWave = 0;
@@ -114,7 +113,7 @@ public class Room : MonoBehaviour
             doorColliders[i].enabled = locked;
             doorOpen[i].enabled = !locked;
 
-            if (isBossRoom)
+            if (isBossRoom && !locked)
             {
                 teleporter.enabled = true;
             }
