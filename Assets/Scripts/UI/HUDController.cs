@@ -24,6 +24,7 @@ public class HUDController : MonoBehaviour
     [SerializeField] public Image infoImage;
     [SerializeField] public TMP_Text infoName;
     [SerializeField] public TMP_Text infoText;
+    [SerializeField] public TMP_Text pickupPrompt;
     
     [Header("Wave UI")]
     [SerializeField] public TMP_Text numWaveText;
@@ -73,6 +74,7 @@ public class HUDController : MonoBehaviour
         incomingWaveText.gameObject.SetActive(false);
         waveCountdownText.gameObject.SetActive(false);
         roomClearedText.gameObject.SetActive(false);
+        pickupPrompt.gameObject.SetActive(false);
 
         for (int i = 0; i < equippedSlots.Length; i++)
         {
@@ -320,6 +322,14 @@ public class HUDController : MonoBehaviour
                 inventorySlots[i].AddItem(augment);
                 return;
             }
+        }
+    }
+    
+    public void SetAugmentPromptVisible(bool visible)
+    {
+        if (pickupPrompt != null)
+        {
+            pickupPrompt.gameObject.SetActive(visible);
         }
     }
     
