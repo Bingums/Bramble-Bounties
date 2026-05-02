@@ -126,7 +126,7 @@ public class Room : MonoBehaviour
             {
                 teleporter.enabled = true;
             }
-            else
+            else if(isBossRoom && locked)
             {
                 teleporter.enabled = false;
             }
