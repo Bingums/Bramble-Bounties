@@ -1708,6 +1708,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scene Controller
       objectReference: {fileID: 0}
+    - target: {fileID: 4183844332458524788, guid: b2854998c75410b4483d89c72f9d863a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1414
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183844332458524788, guid: b2854998c75410b4483d89c72f9d863a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1414
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183844332458524788, guid: b2854998c75410b4483d89c72f9d863a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1414
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

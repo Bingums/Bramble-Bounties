@@ -18,7 +18,7 @@ public class playerController : MonoBehaviour, IDamageable
     private const int AssaultSlot = 3;
     private const int LeverSlot = 4;
     private const int SwordSlot = 5;
-    private static readonly Vector3 GunHoldOffset = new Vector3(0.35f, 0.05f, 0f);
+    private static readonly Vector3 GunHoldOffset = new Vector3(0.19f, -0.1f, 0f);
 
     [SerializeField] private float BASE_SPEED = 5f;
 
@@ -101,7 +101,7 @@ public class playerController : MonoBehaviour, IDamageable
         if (state != null)
         {
             //Dash Logic
-            if (isDashing && state.CurrentStamina > 0f && !isOnCooldown)
+            if (isDashing && state.CurrentStamina > 0f && !isOnCooldown && (horizontal != 0f || vertical != 0f))
             {
                 speedToUse *= dashMultiplier;
 
@@ -172,6 +172,8 @@ public class playerController : MonoBehaviour, IDamageable
             Destroy(nearbyAugment.gameObject);
             nearbyAugment = null;
         }
+        
+        AimEquippedGunAtMouse();
     }
 
     public void TakeDamage(int damage)
@@ -212,26 +214,33 @@ public class playerController : MonoBehaviour, IDamageable
             return;
         }
 
+        combatScript.CancelReload();
+        combatScript.CancelMeleeReset();
+
         if (equippedWeaponObject != null)
         {
+            equippedWeaponObject.name = "UnequippedWeapon";
+            equippedWeaponObject.transform.SetParent(null);
+            equippedWeaponObject.SetActive(false);
             Destroy(equippedWeaponObject);
         }
 
-        combatScript.CancelReload();
         curSlot = slot;
         equippedSlot = slot;
 
         Transform weaponParent = weapons[slot].baseData.isMelee ? transform : displayedWeapon.transform;
         equippedWeaponObject = Instantiate(weapons[slot].baseData.weaponPrefab, weaponParent);
         equippedWeaponObject.name = weapons[slot].baseData.weaponPrefab.name;
-        equippedWeaponObject.transform.localPosition = weapons[slot].baseData.isMelee ? Vector3.zero : GunHoldOffset;
-        equippedWeaponObject.transform.localRotation = Quaternion.Euler(weapons[slot].baseData.rotation);
-        MatchWeaponSorting(equippedWeaponObject);
-
-        if (equippedWeaponObject.name.Contains("word"))
+        if (weapons[slot].baseData.isMelee)
         {
             equippedWeaponObject.name = "Knife";
         }
+
+        equippedWeaponObject.transform.localPosition = Vector3.zero;
+        equippedWeaponObject.transform.localRotation = Quaternion.Euler(weapons[slot].baseData.rotation);
+        MatchWeaponSorting(equippedWeaponObject);
+        
+        SetEquippedWeaponVisible(!weapons[slot].baseData.isMelee);
 
         animator.Rebind();
         animator.Update(0f);
@@ -252,6 +261,41 @@ public class playerController : MonoBehaviour, IDamageable
         weaponRenderer.sortingLayerID = playerRenderer.sortingLayerID;
         weaponRenderer.sortingOrder = playerRenderer.sortingOrder + 1;
     }
+    
+    private void AimEquippedGunAtMouse()
+    {
+        if (weapons[curSlot].baseData.isMelee || displayedWeapon == null || equippedWeaponObject == null)
+            return;
+
+        Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 aimDirection = mouseWorld - transform.position;
+
+        bool aimingRight = aimDirection.x >= 0f;
+
+        displayedWeapon.transform.localPosition = aimingRight
+            ? GunHoldOffset
+            : new Vector3(-GunHoldOffset.x, GunHoldOffset.y, GunHoldOffset.z);
+
+        float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
+
+        equippedWeaponObject.transform.rotation = Quaternion.Euler(0f, 0f, angle);
+
+        SpriteRenderer weaponRenderer = equippedWeaponObject.GetComponent<SpriteRenderer>();
+        SpriteRenderer playerRenderer = GetComponent<SpriteRenderer>();
+
+        if (weaponRenderer != null)
+        {
+            weaponRenderer.flipY = !aimingRight;
+        }
+
+        if (playerRenderer != null && weaponRenderer != null)
+        {
+            weaponRenderer.sortingOrder = aimingRight
+                ? playerRenderer.sortingOrder + 1
+                : playerRenderer.sortingOrder - 1;
+        }
+    }
+
 
     private void UpgradeWeapon(int slot, WeaponData toUpgrade)
     {
@@ -403,6 +447,19 @@ public class playerController : MonoBehaviour, IDamageable
         yield return new WaitForSeconds(dashCooldownTime);
 
         isOnCooldown = false;
+    }
+    
+    public void SetEquippedWeaponVisible(bool visible)
+    {
+        if (equippedWeaponObject == null)
+            return;
+
+        SpriteRenderer[] renderers = equippedWeaponObject.GetComponentsInChildren<SpriteRenderer>(true);
+        foreach (SpriteRenderer renderer in renderers)
+        {
+            renderer.enabled = visible;
+        }
+
     }
 
     IEnumerator WaitForHUD()
