@@ -38,7 +38,10 @@ public class GameManager : MonoBehaviour
     public PlayerState PlayerState { get; private set; }
     public int CurrentFloor => currentFloor;
     public int MinibossFloor => minibossFloor;
-
+    public int Score { get; private set; }
+    
+    
+    public event Action<int> OnScoreChanged;
     public event Action OnBountyOfferChanged;
     public event Action<BountyData> OnOpeningBountySelected;
     public event Action OnFinalBossUnlocked;
@@ -196,6 +199,7 @@ public class GameManager : MonoBehaviour
     {
         return BountyRunState != null ? BountyRunState.OfferedBounties : Array.Empty<BountyData>();
     }
+
 
 
     public void AdvanceFloor()

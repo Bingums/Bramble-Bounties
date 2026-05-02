@@ -126,6 +126,10 @@ public class Room : MonoBehaviour
             {
                 teleporter.enabled = true;
             }
+            else
+            {
+                teleporter.enabled = false;
+            }
         }
     }
     public void ScaleWaves(int extraWaves, int extraEnemiesPerWave)

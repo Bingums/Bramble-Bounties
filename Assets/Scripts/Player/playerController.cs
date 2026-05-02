@@ -171,6 +171,11 @@ public class playerController : MonoBehaviour, IDamageable
 
             Destroy(nearbyAugment.gameObject);
             nearbyAugment = null;
+
+            if (hc != null)
+            {
+                hc.SetAugmentPromptVisible(false);
+            }
         }
         
         AimEquippedGunAtMouse();
@@ -418,7 +423,14 @@ public class playerController : MonoBehaviour, IDamageable
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out AugmentPickup augment))
+        {
             nearbyAugment = augment;
+
+            if (hc != null)
+            {
+                hc.SetAugmentPromptVisible(true);
+            }
+        }
         else if (collision.CompareTag("Ammo"))
         {
             RefillAmmo();
@@ -436,7 +448,14 @@ public class playerController : MonoBehaviour, IDamageable
         if (collision.TryGetComponent(out AugmentPickup augment))
         {
             if (augment == nearbyAugment)
+            {
                 nearbyAugment = null;
+                
+                if (hc != null)
+                {
+                    hc.SetAugmentPromptVisible(false);
+                }
+            }
         }
     }
 
