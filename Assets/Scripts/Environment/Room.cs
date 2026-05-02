@@ -113,7 +113,7 @@ public class Room : MonoBehaviour
             doorColliders[i].enabled = locked;
             doorOpen[i].enabled = !locked;
 
-            if (isBossRoom)
+            if (isBossRoom && !locked)
             {
                 teleporter.enabled = true;
             }
