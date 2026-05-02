@@ -3,6 +3,10 @@ using UnityEngine;
 public class Boss : MonoBehaviour
 {
 
+public AudioClip gunfireSFX;
+public AudioClip SlamSFX;
+
+private AudioSource audioSource;
     public int moveSpeed = 2;
     Rigidbody2D rb;
     Transform target;
@@ -29,6 +33,7 @@ public class Boss : MonoBehaviour
     {
         target = EnemySpawnManager.Instance.player;
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -91,6 +96,7 @@ public class Boss : MonoBehaviour
 
         Instantiate(bullet, spawnPoint.transform.position, spawnPoint.transform.rotation);
         bulletCount --;
+        audioSource.PlayOneShot(gunfireSFX);
     }
 
     void OnTriggerEnter2D(Collider2D collision){
@@ -99,6 +105,7 @@ public class Boss : MonoBehaviour
         if(collision.tag == "Player"){
             playerController other = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
             other.TakeDamage(2 * moveSpeed);
+            audioSource.PlayOneShot(SlamSFX);
         }
     }
 

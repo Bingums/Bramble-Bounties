@@ -16,14 +16,14 @@ public class Pimp : EnemyController
     Color shooterColor;
     Color damageColor = new Color(0.85f, 0.24f, 0.24f);
     
-    //private AudioSource audioSource;
-    //public AudioClip plasmaGunSFX;
+    private AudioSource audioSource;
+    public AudioClip plasmaGunSFX;
 
     protected override void Awake(){
         base.Awake();
         shooterRenderer = GetComponent<SpriteRenderer>();
         shooterColor = shooterRenderer.color;
-        //audioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     protected override void Update()
@@ -45,7 +45,7 @@ public class Pimp : EnemyController
         bulletTime = timer;
 
         Instantiate(bullet, spawnPoint.transform.position, spawnPoint.transform.rotation);
-        //audioSource.PlayOneShot(plasmaGunSFX);
+        audioSource.PlayOneShot(plasmaGunSFX);
     }
 
     private void OnTriggerEnter2D(Collider2D collision){
