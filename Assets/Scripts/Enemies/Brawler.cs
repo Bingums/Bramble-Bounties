@@ -8,6 +8,7 @@ public class Brawler : EnemyController
     Color damageColor = new Color(0.85f, 0.24f, 0.24f);
     private AudioSource audioSource;
     public AudioClip punchSFX;
+    public int scoreValue = 50;
     protected override void Awake()
     {
         base.Awake();
