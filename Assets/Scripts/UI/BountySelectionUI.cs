@@ -20,7 +20,7 @@ public class BountySelectionUI : MonoBehaviour
         {
             if (posterButton != null)
             {
-                posterButton.onClick.RemoveAllListeners();
+                posterButton.onClick = new Button.ButtonClickedEvent();
                 posterButton.interactable = false;
             }
 
@@ -44,7 +44,7 @@ public class BountySelectionUI : MonoBehaviour
         {
             if (posterButton != null)
             {
-                posterButton.onClick.RemoveAllListeners();
+                posterButton.onClick = new Button.ButtonClickedEvent();
                 posterButton.interactable = bounty != null;
 
                 if (bounty != null && onSelected != null)
@@ -62,6 +62,7 @@ public class BountySelectionUI : MonoBehaviour
 
             if (bountyAmount != null)
             {
+                bountyAmount.raycastTarget = false;
                 bountyAmount.gameObject.SetActive(bounty != null);
                 SetBountyText(bounty != null ? bounty.Bounty.ToString() : string.Empty);
             }
@@ -120,6 +121,7 @@ public class BountySelectionUI : MonoBehaviour
     [SerializeField] private float selectionDelay = 0.2f;
 
     private bool isBound;
+    private bool selectionInProgress;
 
     private void OnEnable()
     {
@@ -204,18 +206,30 @@ public class BountySelectionUI : MonoBehaviour
 
     private void SelectBounty(BountyData bounty)
     {
+        if (selectionInProgress)
+        {
+            return;
+        }
+
         if (GameManager.Instance == null || bounty == null)
         {
             Debug.Log("No game manager");
             return;
         }
 
+        selectionInProgress = true;
         GameManager.Instance.SelectOpeningBounty(bounty);
+        StartCoroutine(LoadNextSceneAfterDelay());
     }
 
     private void HandleOpeningBountySelected(BountyData bounty)
     {
-        SetPanelVisible(false);
+        if (selectionInProgress)
+        {
+            return;
+        }
+
+        selectionInProgress = true;
         StartCoroutine(LoadNextSceneAfterDelay());
     }
 
@@ -223,8 +237,7 @@ public class BountySelectionUI : MonoBehaviour
     {
         if (panelRoot != null)
         {
-            Debug.Log("Whoops");
-            panelRoot.SetActive(true);
+            panelRoot.SetActive(isVisible);
         }
     }
 
@@ -243,7 +256,10 @@ public class BountySelectionUI : MonoBehaviour
 
     private IEnumerator LoadNextSceneAfterDelay()
     {
-        yield return new WaitForSeconds(0f);
+        if (selectionDelay > 0f)
+        {
+            yield return new WaitForSeconds(selectionDelay);
+        }
 
         if (sceneController != null)
         {
@@ -253,5 +269,7 @@ public class BountySelectionUI : MonoBehaviour
         {
             GameManager.Instance.LoadScene(nextSceneName);
         }
+
+        SetPanelVisible(false);
     }
 }
