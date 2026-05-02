@@ -130,9 +130,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
   baseMaxHealth: 150
   baseAttack: 12
-  baseMoveSpeed: 0
-  baseBulletSpeed: 0
-  baseRange: 0
+  baseMoveSpeed: 2
+  baseBulletSpeed: 8
+  baseRange: 15
 --- !u!50 &4006940035938781656
 Rigidbody2D:
   serializedVersion: 5

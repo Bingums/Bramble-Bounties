@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Bartender : MonoBehaviour
+public class Bartender : EnemyController
 {
     Transform target;
     public Transform spawnPoint;
