@@ -104,9 +104,9 @@ public class EnemyController : MonoBehaviour, IDamageable
             currentRoom.DecreaseEnemyCount();
         }
         
-        if (ScoreManager.instance != null)
+        if (GameManager.Instance != null)
         {
-            ScoreManager.instance.AddScore(scoreValue);
+            GameManager.Instance.AddScore(scoreValue);
         }
 
         if (EnemySpawnManager.Instance != null)
