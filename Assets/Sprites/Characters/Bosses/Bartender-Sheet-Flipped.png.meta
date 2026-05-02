@@ -1,0 +1,891 @@
+fileFormatVersion: 2
+guid: 4888b9218751fd74698d1a81cb5573ee
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3058239589236580472
+    second: Bartender-Sheet-Flipped_0
+  - first:
+      213: -5354689395131979066
+    second: Bartender-Sheet-Flipped_1
+  - first:
+      213: -4336828432198064452
+    second: Bartender-Sheet-Flipped_2
+  - first:
+      213: 5574218487346024422
+    second: Bartender-Sheet-Flipped_3
+  - first:
+      213: -2314381376164658298
+    second: Bartender-Sheet-Flipped_4
+  - first:
+      213: 9106302930276682672
+    second: Bartender-Sheet-Flipped_5
+  - first:
+      213: 1678656446260413196
+    second: Bartender-Sheet-Flipped_6
+  - first:
+      213: 7679534169787602228
+    second: Bartender-Sheet-Flipped_7
+  - first:
+      213: -3472444861448964907
+    second: Bartender-Sheet-Flipped_8
+  - first:
+      213: -1640235348243893263
+    second: Bartender-Sheet-Flipped_9
+  - first:
+      213: 2617240581876447118
+    second: Bartender-Sheet-Flipped_10
+  - first:
+      213: 3612511576116885925
+    second: Bartender-Sheet-Flipped_11
+  - first:
+      213: -788300382471150248
+    second: Bartender-Sheet-Flipped_12
+  - first:
+      213: 7529235735808089632
+    second: Bartender-Sheet-Flipped_13
+  - first:
+      213: 91964333031285491
+    second: Bartender-Sheet-Flipped_14
+  - first:
+      213: 5763591127187540474
+    second: Bartender-Sheet-Flipped_15
+  - first:
+      213: -5586854752262006143
+    second: Bartender-Sheet-Flipped_16
+  - first:
+      213: -4352500372676370108
+    second: Bartender-Sheet-Flipped_17
+  - first:
+      213: 3751107436675536032
+    second: Bartender-Sheet-Flipped_18
+  - first:
+      213: -4849243364347454341
+    second: Bartender-Sheet-Flipped_19
+  - first:
+      213: 9105970036705673605
+    second: Bartender-Sheet-Flipped_20
+  - first:
+      213: -8366946714339979458
+    second: Bartender-Sheet-Flipped_21
+  - first:
+      213: -1094525562090019530
+    second: Bartender-Sheet-Flipped_22
+  - first:
+      213: -8451823005400321209
+    second: Bartender-Sheet-Flipped_23
+  - first:
+      213: 6605458488709280209
+    second: Bartender-Sheet-Flipped_24
+  - first:
+      213: -9176623316703461193
+    second: Bartender-Sheet-Flipped_25
+  - first:
+      213: -1021591727620757418
+    second: Bartender-Sheet-Flipped_26
+  - first:
+      213: 4869301508481589967
+    second: Bartender-Sheet-Flipped_27
+  - first:
+      213: 4812459108335390562
+    second: Bartender-Sheet-Flipped_28
+  - first:
+      213: -1227684454456780729
+    second: Bartender-Sheet-Flipped_29
+  - first:
+      213: 7667836226122255623
+    second: Bartender-Sheet-Flipped_30
+  - first:
+      213: 7418280278293794944
+    second: Bartender-Sheet-Flipped_31
+  - first:
+      213: -5388270794498068259
+    second: Bartender-Sheet-Flipped_32
+  - first:
+      213: 4172661036602339746
+    second: Bartender-Sheet-Flipped_33
+  - first:
+      213: -4138019101132931544
+    second: Bartender-Sheet-Flipped_34
+  - first:
+      213: 7390610234516256757
+    second: Bartender-Sheet-Flipped_35
+  - first:
+      213: -6716881837389809427
+    second: Bartender-Sheet-Flipped_36
+  - first:
+      213: -2435570122373238727
+    second: Bartender-Sheet-Flipped_37
+  - first:
+      213: 4025765197452962175
+    second: Bartender-Sheet-Flipped_38
+  - first:
+      213: -2660106474264448928
+    second: Bartender-Sheet-Flipped_39
+  - first:
+      213: -9083822317214440817
+    second: Bartender-Sheet-Flipped_40
+  - first:
+      213: -6745591682628001119
+    second: Bartender-Sheet-Flipped_41
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Bartender-Sheet-Flipped_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 870ab7204bc017a20800000000000000
+      internalID: 3058239589236580472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bartender-Sheet-Flipped_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ca6b909d5250b5b0800000000000000
+      internalID: -5354689395131979066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bartender-Sheet-Flipped_3
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb62507b48d70d3c0800000000000000
+      internalID: -4336828432198064452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bartender-Sheet-Flipped_2
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6efcca64e2a9b5d40800000000000000
+      internalID: 5574218487346024422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bartender-Sheet-Flipped_1
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6830de6866aa1efd0800000000000000
+      internalID: -2314381376164658298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bartender-Sheet-Flipped_0
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bb8d309446106e70800000000000000
+      internalID: 9106302930276682672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bartender-Sheet-Flipped_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c03854bd429cb4710800000000000000
+      internalID: 1678656446260413196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bartender-Sheet-Flipped_10
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4351aa6b3af239a60800000000000000
+      internalID: 7679534169787602228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bartender-Sheet-Flipped_9
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d4343bdbc56fcfc0800000000000000
+      internalID: -3472444861448964907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bartender-Sheet-Flipped_8
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f332ef14a6bc39e0800000000000000
+      internalID: -1640235348243893263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bartender-Sheet-Flipped_7
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 578
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e877b76417e425420800000000000000
+      internalID: 2617240581876447118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bartender-Sheet-Flipped_6
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 578
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a9fe697328322230800000000000000
+      internalID: 3612511576116885925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bartender-Sheet-Flipped_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 855a08e8af46f05f0800000000000000
+      internalID: -788300382471150248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bartender-Sheet-Flipped_16
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02e940792083d7860800000000000000
+      internalID: 7529235735808089632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bartender-Sheet-Flipped_15
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f2e55ad219b64100800000000000000
+      internalID: 91964333031285491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bartender-Sheet-Flipped_14
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af94b96e7936cff40800000000000000
+      internalID: 5763591127187540474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bartender-Sheet-Flipped_13
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18a58b704318772b0800000000000000
+      internalID: -5586854752262006143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bartender-Sheet-Flipped_12
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 441aed9b8ffc893c0800000000000000
+      internalID: -4352500372676370108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bartender-Sheet-Flipped_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a41f55e65c9e0430800000000000000
+      internalID: 3751107436675536032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bartender-Sheet-Flipped_22
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7c56ae3ad604bcb0800000000000000
+      internalID: -4849243364347454341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bartender-Sheet-Flipped_21
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 194
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 581413db087ee5e70800000000000000
+      internalID: 9105970036705673605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bartender-Sheet-Flipped_20
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3fc4251b42a2eb80800000000000000
+      internalID: -8366946714339979458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bartender-Sheet-Flipped_19
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6352a02ecc67fc0f0800000000000000
+      internalID: -1094525562090019530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bartender-Sheet-Flipped_18
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 743b3aa91c715ba80800000000000000
+      internalID: -8451823005400321209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bartender-Sheet-Flipped_27
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d1fa1e8f7d4bab50800000000000000
+      internalID: 6605458488709280209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bartender-Sheet-Flipped_26
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b0c25a96b516a080800000000000000
+      internalID: -9176623316703461193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bartender-Sheet-Flipped_25
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 658efa18cb392d1f0800000000000000
+      internalID: -1021591727620757418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bartender-Sheet-Flipped_24
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc2a15d5ceb339340800000000000000
+      internalID: 4869301508481589967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: efd20e03cac6c4a4f863bef40df77ddc
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":192.0,"y":192.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Bartender-Sheet-: 9105970036705673605
+      Bartender-Sheet-Flipped4: 91964333031285491
+      Bartender-Sheet-Flipped_0: 9106302930276682672
+      Bartender-Sheet-Flipped_1: -2314381376164658298
+      Bartender-Sheet-Flipped_10: 7679534169787602228
+      Bartender-Sheet-Flipped_11: 1678656446260413196
+      Bartender-Sheet-Flipped_12: -4352500372676370108
+      Bartender-Sheet-Flipped_13: -5586854752262006143
+      Bartender-Sheet-Flipped_14: 5763591127187540474
+      Bartender-Sheet-Flipped_15: 91964333031285491
+      Bartender-Sheet-Flipped_16: 7529235735808089632
+      Bartender-Sheet-Flipped_17: -788300382471150248
+      Bartender-Sheet-Flipped_18: -8451823005400321209
+      Bartender-Sheet-Flipped_19: -1094525562090019530
+      Bartender-Sheet-Flipped_2: 5574218487346024422
+      Bartender-Sheet-Flipped_20: -8366946714339979458
+      Bartender-Sheet-Flipped_21: 9105970036705673605
+      Bartender-Sheet-Flipped_22: -4849243364347454341
+      Bartender-Sheet-Flipped_23: 3751107436675536032
+      Bartender-Sheet-Flipped_24: 4869301508481589967
+      Bartender-Sheet-Flipped_25: -1021591727620757418
+      Bartender-Sheet-Flipped_26: -9176623316703461193
+      Bartender-Sheet-Flipped_27: 6605458488709280209
+      Bartender-Sheet-Flipped_3: -4336828432198064452
+      Bartender-Sheet-Flipped_4: -5354689395131979066
+      Bartender-Sheet-Flipped_5: 3058239589236580472
+      Bartender-Sheet-Flipped_6: 3612511576116885925
+      Bartender-Sheet-Flipped_7: 2617240581876447118
+      Bartender-Sheet-Flipped_8: -1640235348243893263
+      Bartender-Sheet-Flipped_9: -3472444861448964907
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -97,6 +97,8 @@ public class HUDController : MonoBehaviour
             TryInitialize();
             return;
         }
+        
+        scoreText.text = "Score: " + GameManager.Instance.Score;
 
         RefreshWeaponIcon();
         
@@ -427,11 +429,6 @@ public class HUDController : MonoBehaviour
     
         incomingWaveText.gameObject.SetActive(false);
         waveCountdownText.gameObject.SetActive(false);
-    }
-
-    public void ChangeScore(int score)
-    {
-        scoreText.text = "Score: " + score;
     }
 }
 

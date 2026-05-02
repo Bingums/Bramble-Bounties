@@ -179,10 +179,10 @@ TextureImporter:
       name: Gunner-Sheet_0
       rect:
         serializedVersion: 2
-        x: 62
-        y: 630
-        width: 52
-        height: 78
+        x: 0
+        y: 576
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -201,10 +201,10 @@ TextureImporter:
       name: Gunner-Sheet_1
       rect:
         serializedVersion: 2
-        x: 252
-        y: 642
-        width: 70
-        height: 70
+        x: 192
+        y: 576
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,10 +223,10 @@ TextureImporter:
       name: Gunner-Sheet_2
       rect:
         serializedVersion: 2
-        x: 446
-        y: 636
-        width: 54
-        height: 74
+        x: 384
+        y: 576
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,10 +245,10 @@ TextureImporter:
       name: Gunner-Sheet_3
       rect:
         serializedVersion: 2
-        x: 638
-        y: 632
-        width: 52
-        height: 76
+        x: 576
+        y: 576
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -267,10 +267,10 @@ TextureImporter:
       name: Gunner-Sheet_4
       rect:
         serializedVersion: 2
-        x: 62
-        y: 444
-        width: 52
-        height: 74
+        x: 0
+        y: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -289,10 +289,10 @@ TextureImporter:
       name: Gunner-Sheet_5
       rect:
         serializedVersion: 2
-        x: 254
-        y: 450
-        width: 56
-        height: 70
+        x: 192
+        y: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -311,10 +311,10 @@ TextureImporter:
       name: Gunner-Sheet_6
       rect:
         serializedVersion: 2
-        x: 446
-        y: 438
-        width: 52
-        height: 78
+        x: 384
+        y: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -333,10 +333,10 @@ TextureImporter:
       name: Gunner-Sheet_7
       rect:
         serializedVersion: 2
-        x: 628
-        y: 438
-        width: 62
-        height: 78
+        x: 576
+        y: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -355,10 +355,10 @@ TextureImporter:
       name: Gunner-Sheet_8
       rect:
         serializedVersion: 2
-        x: 58
-        y: 252
-        width: 56
-        height: 78
+        x: 0
+        y: 192
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -374,35 +374,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gunner-Sheet_9
-      rect:
-        serializedVersion: 2
-        x: 238
-        y: 274
-        width: 24
-        height: 36
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 429e54b2d33f844e0800000000000000
-      internalID: -1997078990694258396
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Gunner-Sheet_10
       rect:
         serializedVersion: 2
-        x: 276
-        y: 266
-        width: 70
-        height: 62
+        x: 384
+        y: 192
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -421,32 +399,10 @@ TextureImporter:
       name: Gunner-Sheet_11
       rect:
         serializedVersion: 2
-        x: 416
-        y: 270
-        width: 40
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 82962d0deb675a5c0800000000000000
-      internalID: -4204824115161175768
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gunner-Sheet_12
-      rect:
-        serializedVersion: 2
-        x: 464
-        y: 276
-        width: 78
-        height: 48
+        x: 576
+        y: 192
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -462,13 +418,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gunner-Sheet_13
+      name: Gunner-Sheet_12
       rect:
         serializedVersion: 2
-        x: 656
-        y: 266
-        width: 78
-        height: 48
+        x: 0
+        y: 0
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -484,57 +440,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gunner-Sheet_14
+      name: Gunner-Sheet_13
       rect:
         serializedVersion: 2
-        x: 608
-        y: 258
-        width: 40
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0198458d4598a84a0800000000000000
-      internalID: -6590304107203622640
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gunner-Sheet_15
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 58
-        width: 40
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 62fbfba8ab8ad0010800000000000000
-      internalID: 1156766198449291046
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gunner-Sheet_16
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 68
-        width: 78
-        height: 32
+        x: 192
+        y: 0
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -550,13 +462,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gunner-Sheet_17
+      name: Gunner-Sheet_14
       rect:
         serializedVersion: 2
-        x: 272
-        y: 60
-        width: 78
-        height: 32
+        x: 384
+        y: 0
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -572,67 +484,23 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gunner-Sheet_18
+      name: Gunner-Sheet_9
       rect:
         serializedVersion: 2
-        x: 458
-        y: 50
-        width: 78
-        height: 30
+        x: 192
+        y: 192
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8a29456ef9dfe3700800000000000000
-      internalID: 522133470027485864
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gunner-Sheet_19
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 54
-        width: 40
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5ba3663de01759db0800000000000000
-      internalID: -4785794720521110859
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gunner-Sheet_20
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 54
-        width: 40
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: add6ba9e5215f97d0800000000000000
-      internalID: -2909517610982085158
+      spriteID: 165c0b442d0b97248a636e934df43186
+      internalID: -1997078990694258396
       vertices: []
       indices: 
       edges: []
@@ -651,22 +519,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":192.0,"y":192.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Gunner-Sheet_0: -4283723933788012885
       Gunner-Sheet_1: 6020872379861772303
       Gunner-Sheet_10: 8536660689377304666
-      Gunner-Sheet_11: -4204824115161175768
-      Gunner-Sheet_12: 3707189776955755464
-      Gunner-Sheet_13: -958884090988557323
-      Gunner-Sheet_14: -6590304107203622640
-      Gunner-Sheet_15: 1156766198449291046
-      Gunner-Sheet_16: -6769148936372805675
-      Gunner-Sheet_17: -5868069238290524596
-      Gunner-Sheet_18: 522133470027485864
-      Gunner-Sheet_19: -4785794720521110859
+      Gunner-Sheet_11: 3707189776955755464
+      Gunner-Sheet_12: -958884090988557323
+      Gunner-Sheet_13: -6769148936372805675
+      Gunner-Sheet_14: -5868069238290524596
       Gunner-Sheet_2: -8927509666715800671
-      Gunner-Sheet_20: -2909517610982085158
       Gunner-Sheet_3: 2322176122553743731
       Gunner-Sheet_4: -4067493872583245940
       Gunner-Sheet_5: -6918719519310650770
