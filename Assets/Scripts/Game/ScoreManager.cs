@@ -16,15 +16,26 @@ public class ScoreManager : MonoBehaviour
 
     public void AddScore(int points)
     {
+        Debug.Log("Method started");
         score += points;
-        hc.ChangeScore(score);
+
+        if (hc != null)
+        {
+            hc.ChangeScore(score);
+        }
+        Debug.Log("Score Changed");
     }
     
     IEnumerator WaitForHUD()
     {
         while (hc == null)
         {
-            hc = GameObject.Find("HUD Container").GetComponentInChildren<HUDController>();
+            GameObject hudContainer = GameObject.Find("HUD Container");
+            if (hudContainer != null)
+            {
+                hc = hudContainer.GetComponentInChildren<HUDController>();
+            }
+
             yield return null;
         }
     }

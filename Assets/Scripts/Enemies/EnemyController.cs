@@ -22,6 +22,7 @@ public class EnemyController : MonoBehaviour, IDamageable
     protected Rigidbody2D rb;
     protected Transform target;
     protected Vector2 moveDirection;
+    private bool isDefeated;
 
     protected int scoreValue = 10;
 
@@ -65,7 +66,13 @@ public class EnemyController : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damage)
     {
+        if (isDefeated)
+        {
+            return;
+        }
+
         currentHealth -= damage;
+        Debug.Log($"{name} took {damage} damage. HP: {currentHealth}");
         if (currentHealth <= 0)
         {
             Defeat();
@@ -74,18 +81,33 @@ public class EnemyController : MonoBehaviour, IDamageable
 
     private void Defeat()
     {
-        Room currentRoom = EnemySpawnManager.Instance.GetCurrentRoom();
+        if (isDefeated)
+        {
+            return;
+        }
+
+        isDefeated = true;
+
+        Room currentRoom = EnemySpawnManager.Instance != null ? EnemySpawnManager.Instance.GetCurrentRoom() : null;
         if (currentRoom != null)
         {
             currentRoom.DecreaseEnemyCount();
         }
-        ScoreManager.instance.AddScore(scoreValue);
-        float ammoSpawn = Random.Range(0f, 1f);
-        if(ammoSpawn <= 0.1f)
-            Instantiate(EnemySpawnManager.Instance.ammoPickup, transform.position + new Vector3(0.15f, 0, 0), Quaternion.identity);
-        float healthSpawn = Random.Range(0f, 1f);
-        if (healthSpawn <= 0.1f)
-            Instantiate(EnemySpawnManager.Instance.healthPickup, transform.position + new Vector3(0.15f, 0, 0), Quaternion.identity);
+        
+        if (ScoreManager.instance != null)
+        {
+            ScoreManager.instance.AddScore(scoreValue);
+        }
+
+        if (EnemySpawnManager.Instance != null)
+        {
+            float ammoSpawn = Random.Range(0f, 1f);
+            if(ammoSpawn <= 0.1f && EnemySpawnManager.Instance.ammoPickup != null)
+                Instantiate(EnemySpawnManager.Instance.ammoPickup, transform.position + new Vector3(0.15f, 0, 0), Quaternion.identity);
+            float healthSpawn = Random.Range(0f, 1f);
+            if (healthSpawn <= 0.1f && EnemySpawnManager.Instance.healthPickup != null)
+                Instantiate(EnemySpawnManager.Instance.healthPickup, transform.position + new Vector3(0.15f, 0, 0), Quaternion.identity);
+        }
         Destroy(gameObject);
     }
     

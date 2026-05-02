@@ -58,25 +58,29 @@ public class EnemySpawnManager : MonoBehaviour
                             enemy = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
                         else
                         {
+                            Debug.Log("Boss Spawn: " + currentBounty.MinibossId);
                             if (currentBounty == null)
+                            {
                                 continue;
+                            }
 
                             switch (currentBounty.MinibossId)
                             {
-                                case "Cyclops":
-                                    enemy = bossPrefabs[1];
-                                    break;
-                                case "Medusa":
-                                    enemy = bossPrefabs[2];
-                                    break;
-                                case "Wimp":
+                                case "0":
                                     enemy = bossPrefabs[0];
                                     break;
-                                case "Kingpin":
-                                    enemy = bossPrefabs[4];
+                                case "1":
+                                    enemy = bossPrefabs[1];
+                                    break;
+                                case "2":
+                                    enemy = bossPrefabs[2];
+                                    break;
+                                case "3":
+                                    enemy = bossPrefabs[3];
                                     break;
                             }
                         }
+                        Debug.Log("Enemy: " + enemy.name);
                         GameObject spawnedEnemy = Instantiate(enemy, spawnPoint.position, Quaternion.identity);
                         EnemyController ec = spawnedEnemy.GetComponent<EnemyController>();
                         ec.ScaleStats(currentBounty.HealthMultiplier, 
@@ -140,7 +144,12 @@ public class EnemySpawnManager : MonoBehaviour
     {
         while (hc == null)
         {
-            hc = GameObject.Find("HUD Container").GetComponentInChildren<HUDController>();
+            GameObject hudContainer = GameObject.Find("HUD Container");
+            if (hudContainer != null)
+            {
+                hc = hudContainer.GetComponentInChildren<HUDController>();
+            }
+
             yield return null;
         }
     }

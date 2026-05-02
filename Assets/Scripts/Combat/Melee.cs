@@ -1,6 +1,5 @@
 using UnityEngine;
 using Combat;
-using System.Data.Common;
 
 public class Melee : MonoBehaviour
 {
@@ -13,8 +12,12 @@ public class Melee : MonoBehaviour
     {
         if(other.CompareTag("Enemy"))
         {
-            other.GetComponent<EnemyController>().TakeDamage(data.damage);
-            audioSource.PlayOneShot(data.attackSFX);
+            EnemyController enemy = other.GetComponentInParent<EnemyController>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(data.damage);
+                audioSource.PlayOneShot(data.attackSFX);
+            }
         }
     }
     

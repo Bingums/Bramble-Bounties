@@ -376,9 +376,15 @@ public class playerController : MonoBehaviour, IDamageable
         if (collision.TryGetComponent(out AugmentPickup augment))
             nearbyAugment = augment;
         else if (collision.CompareTag("Ammo"))
+        {
             RefillAmmo();
+            Destroy(collision.gameObject);
+        }
         else if (collision.CompareTag("Health"))
+        {
             State.Heal(State.MaxHealth * 0.15f);
+            Destroy(collision.gameObject);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
