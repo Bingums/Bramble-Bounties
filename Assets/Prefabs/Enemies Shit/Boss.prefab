@@ -110,9 +110,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dc23cf9dd69475469ebb21d8dd0c0e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss
+  baseMaxHealth: 100
+  baseAttack: 10
+  baseMoveSpeed: 0
+  baseBulletSpeed: 8
+  baseRange: 10
+  scoreValue: 10
+  enemyType: 1
   gunfireSFX: {fileID: 8300000, guid: 8d4e68f10416432408671d9884fe2488, type: 3}
   SlamSFX: {fileID: 8300000, guid: 7ba33b683c83bef499ea50f71bd1e0b0, type: 3}
-  moveSpeed: 2
   firingDistance: 8
   bullet: {fileID: 4735197869551930334, guid: d55086c5dcd48d44fb194c2feca6529b, type: 3}
   spawnPoint: {fileID: 4491118491250572283}
@@ -133,6 +139,8 @@ MonoBehaviour:
   baseMoveSpeed: 2
   baseBulletSpeed: 8
   baseRange: 15
+  scoreValue: 10
+  enemyType: 0
 --- !u!50 &4006940035938781656
 Rigidbody2D:
   serializedVersion: 5

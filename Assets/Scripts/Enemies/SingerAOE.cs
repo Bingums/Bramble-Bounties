@@ -8,8 +8,8 @@ public class SingerAOE : MonoBehaviour
             
         GameObject player = GameObject.Find("player");
         if(collision.tag == "Player"){
-            playerController other = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
-            other.TakeDamage(10);
+            playerHealth other = GameObject.FindGameObjectWithTag("Player").GetComponent<playerHealth>();
+            other.playerDamage(10);
         }
     }
     

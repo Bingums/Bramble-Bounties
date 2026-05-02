@@ -56,7 +56,7 @@ public class BasicShooter : EnemyController
         {
             if(collision.CompareTag("Player"))
             {
-                collision.GetComponent<playerController>().TakeDamage(5);
+                collision.GetComponent<playerHealth>().playerDamage(attack);
             }
             
             shooterRenderer.color = damageColor;

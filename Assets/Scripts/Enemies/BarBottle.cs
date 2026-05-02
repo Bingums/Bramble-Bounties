@@ -50,7 +50,7 @@ public class BarBottle : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision){
         if(!flag){
-            collision.GetComponent<playerController>().TakeDamage(6);
+            collision.GetComponent<playerHealth>().playerDamage(6);
         }
         
         if(collision.tag == "Player"){

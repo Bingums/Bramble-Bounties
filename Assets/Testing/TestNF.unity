@@ -119,6 +119,62 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &28826270 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1615836025715716351, guid: ac4a1e2c695d8cc438c392dbe1004018, type: 3}
+  m_PrefabInstance: {fileID: 1003947817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &28826279 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1425778351957911026, guid: ac4a1e2c695d8cc438c392dbe1004018, type: 3}
+  m_PrefabInstance: {fileID: 1003947817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &28826280
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28826270}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.35416666, y: 0.8333333}
+    newSize: {x: 0.4375, y: 0.9375}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.35416666, y: 0.8333333}
+  m_EdgeRadius: 0
 --- !u!1 &392442617
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,6 +320,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1830385031510143833, guid: ef73339b7fbed4341889afa98b687b54, type: 3}
+      propertyPath: baseAttack
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830385031510143833, guid: ef73339b7fbed4341889afa98b687b54, type: 3}
+      propertyPath: baseMoveSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3074485682828413094, guid: ef73339b7fbed4341889afa98b687b54, type: 3}
+      propertyPath: baseAttack
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3602795139601454188, guid: ef73339b7fbed4341889afa98b687b54, type: 3}
       propertyPath: m_Name
       value: Boss
@@ -311,10 +379,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3602795139601454188, guid: ef73339b7fbed4341889afa98b687b54, type: 3}
-      insertIndex: 3
-      addedObject: {fileID: 1980579957}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef73339b7fbed4341889afa98b687b54, type: 3}
 --- !u!1001 &1003947817
 PrefabInstance:
@@ -379,28 +444,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1615836025715716351, guid: ac4a1e2c695d8cc438c392dbe1004018, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 28826280}
   m_SourcePrefab: {fileID: 100100000, guid: ac4a1e2c695d8cc438c392dbe1004018, type: 3}
---- !u!1 &1980579952 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3602795139601454188, guid: ef73339b7fbed4341889afa98b687b54, type: 3}
-  m_PrefabInstance: {fileID: 760988672}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1980579957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1980579952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5c197aa958f1a248b5dbf873e56a4a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyController
-  baseMaxHealth: 150
-  baseAttack: 50
-  baseMoveSpeed: 0
 --- !u!1 &2017743801
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,8 +479,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawnManager
   enemyPrefabs: []
-  player: {fileID: 0}
+  bossPrefabs: []
+  augments: []
+  ammoPickup: {fileID: 0}
+  healthPickup: {fileID: 0}
+  player: {fileID: 28826279}
   currentBounty: {fileID: 0}
+  hc: {fileID: 0}
 --- !u!4 &2017743803
 Transform:
   m_ObjectHideFlags: 0

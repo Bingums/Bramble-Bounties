@@ -106,9 +106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a3a14e9e99ee34e99517bc63d30ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasicBullet
-  force: 7
   speed: 8
-  damage: 12
+  damage: 6
   killBullet: 2
 --- !u!50 &2245272610539335549
 Rigidbody2D:

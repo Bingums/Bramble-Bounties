@@ -7,7 +7,7 @@ public class BurningPuddle : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision){
         if(collision.tag == "Player"){
-            collision.GetComponent<playerController>().TakeDamage(12);
+            collision.GetComponent<playerHealth>().playerDamage(12);
         }
          
     }

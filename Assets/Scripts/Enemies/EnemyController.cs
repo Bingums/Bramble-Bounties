@@ -8,8 +8,8 @@ public class EnemyController : MonoBehaviour, IDamageable
     [SerializeField] protected float baseMoveSpeed;
     [SerializeField] protected float baseBulletSpeed;
     [SerializeField] protected float baseRange;
-    //[SerializeField] protected int baseScoreValue;
-    
+     //[SerializeField] protected int baseScoreValue;
+
     protected int maxHealth;
     protected int currentHealth;
     protected int attack;
@@ -17,14 +17,16 @@ public class EnemyController : MonoBehaviour, IDamageable
     protected float bulletSpeed;
     protected float range;
     //protected int scoreValue;
-    
+
     protected float distance;
     protected Rigidbody2D rb;
     protected Transform target;
     protected Vector2 moveDirection;
     private bool isDefeated;
 
-    protected int scoreValue = 10;
+    public int scoreValue = 10;
+    public int enemyType;
+    
 
     protected virtual void Awake()
     {
@@ -44,7 +46,10 @@ public class EnemyController : MonoBehaviour, IDamageable
     
     protected virtual void Update()
     {
-        if(target){
+        if(enemyType == 1){
+
+        }
+        else if(target){
             distance = Vector2.Distance(transform.position, target.position);
             moveDirection = (target.position - transform.position).normalized;
         }
@@ -52,9 +57,14 @@ public class EnemyController : MonoBehaviour, IDamageable
     
     protected virtual void FixedUpdate()
     {
-        if(target)
+        if(enemyType == 1){
+
+        }
+        else if(target)
             rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
     }
+    
+    //protected virtual void Attack() { }
     
     public void ScaleStats(float healthMultiplier, float attackMultiplier, float moveSpeedMultiplier)
     {

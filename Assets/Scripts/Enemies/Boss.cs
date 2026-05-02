@@ -57,6 +57,7 @@ public class Boss : EnemyController
                     rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
                 }else if(timer > -2){
                     moveSpeed = 10;
+                    Debug.Log("CHARGE");
                     rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed ;
 
                 }else{
@@ -70,6 +71,7 @@ public class Boss : EnemyController
             
             }else if(randAttack == 2){//Rapid  bullets
                 if(bulletCount > 0){
+                    
                     ShootGun();
                 }else{
                     bulletCount = 10;
@@ -91,7 +93,8 @@ public class Boss : EnemyController
         bulletTime -= Time.deltaTime;
         if(bulletTime > 0) return;
         bulletTime = timerbullets;
-
+        moveDirection = (target.position - transform.position).normalized;
+        Debug.Log("LOG");
         GameObject shotBullet = Instantiate(bullet, spawnPoint.transform.position, spawnPoint.transform.rotation);
         shotBullet.GetComponent<EnemyBullet>().InitializeEnemyBullet(attack, bulletSpeed, range, moveDirection);
         bulletCount --;
@@ -102,8 +105,7 @@ public class Boss : EnemyController
             
         GameObject player = GameObject.Find("player");
         if(collision.tag == "Player"){
-            playerController other = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
-            other.TakeDamage(Mathf.RoundToInt(2f * moveSpeed));
+            collision.GetComponent<playerHealth>().playerDamage(8);
             audioSource.PlayOneShot(SlamSFX);
         }
     }
