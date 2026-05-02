@@ -8,6 +8,7 @@ public class Room : MonoBehaviour
     [SerializeField] private Transform playerSpawnPoint;   // dedicated player spawn
 
     [SerializeField] private BoxCollider2D[] doorColliders;
+    [SerializeField] private CircleCollider2D[] doorOpen;
     
     public int numWaves = 3;
     public int currentWave = 0;
@@ -105,7 +106,10 @@ public class Room : MonoBehaviour
     public void LockDoors(bool locked)
     {
         for (int i = 0; i < doorColliders.Length; i++)
+        {
             doorColliders[i].enabled = locked;
+            doorOpen[i].enabled = !locked;
+        }
     }
 
     public void ScaleWaves(int extraWaves, int extraEnemiesPerWave)
@@ -132,7 +136,7 @@ public class Room : MonoBehaviour
         if (!Application.isPlaying) return;
         if (collision.CompareTag("Player"))
         {
-            // LockDoors(true);
+            LockDoors(true);
             EnemySpawnManager.Instance.StartSpawning(this);
         }
     }

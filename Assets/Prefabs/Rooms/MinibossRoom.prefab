@@ -3436,9 +3436,14 @@ MonoBehaviour:
   - {fileID: 5552438781432995630}
   - {fileID: 831158600010127095}
   - {fileID: 3307399676226490175}
-  numWaves: 3
+  doorOpen:
+  - {fileID: 246312425096364116}
+  - {fileID: 6314650392119631383}
+  - {fileID: 1235326481155332046}
+  - {fileID: 3984035092895895046}
+  numWaves: 1
   currentWave: 0
-  enemiesPerWave: 040000000600000008000000
+  enemiesPerWave: 01000000
   enemyCount: 0
   isCleared: 0
   rightDoor: {fileID: 5417761756109842186}
@@ -3462,7 +3467,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -4231,6 +4236,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
+--- !u!58 &246312425096364116 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 321859915050976628, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
+  m_PrefabInstance: {fileID: 512401260485231904}
+  m_PrefabAsset: {fileID: 0}
 --- !u!61 &1857470328160813421 stripped
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 2223482266908476493, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
@@ -4312,6 +4322,11 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 2223482266908476493, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
   m_PrefabInstance: {fileID: 1536777508868362938}
   m_PrefabAsset: {fileID: 0}
+--- !u!58 &1235326481155332046 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 321859915050976628, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
+  m_PrefabInstance: {fileID: 1536777508868362938}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7872610665175334594 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8652147918634134648, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
@@ -4386,6 +4401,11 @@ PrefabInstance:
 --- !u!61 &3307399676226490175 stripped
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 2223482266908476493, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
+  m_PrefabInstance: {fileID: 3692207514936216434}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &3984035092895895046 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 321859915050976628, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
   m_PrefabInstance: {fileID: 3692207514936216434}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &5290903727387690370 stripped
@@ -4472,5 +4492,10 @@ GameObject:
 --- !u!61 &5552438781432995630 stripped
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 2223482266908476493, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
+  m_PrefabInstance: {fileID: 6040836661303008099}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &6314650392119631383 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 321859915050976628, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
   m_PrefabInstance: {fileID: 6040836661303008099}
   m_PrefabAsset: {fileID: 0}

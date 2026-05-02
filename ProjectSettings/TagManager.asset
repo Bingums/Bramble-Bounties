@@ -16,6 +16,7 @@ TagManager:
   - Room
   - Terrain
   - BarProjectile
+  - Collision
   layers:
   - Default
   - TransparentFX
@@ -23,9 +24,9 @@ TagManager:
   - 
   - Water
   - UI
-  - InteractLayer
-  - 
-  - 
+  - Interact
+  - Collision
+  - Combat
   - 
   - 
   - 

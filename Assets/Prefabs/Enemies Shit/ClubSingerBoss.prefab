@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.01, y: 4.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7205718321990135331}
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ClubSinger
   warningSFX: {fileID: 8300000, guid: aa8aed665217d4b4a8416c0a4570c19f, type: 3}
   aoeStartSFX: {fileID: 8300000, guid: 3bd40b8ce980af142b1677734c5fa91b, type: 3}
-  aoeEndSFX: {fileID: 8300000, guid: 249fd1008d393eb45a6befa7eeeda3a9, type: 3}
+  idleSFX: {fileID: 0}
 --- !u!114 &7240911187281872694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,8 +176,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.99999994, y: 2}
+  m_Offset: {x: -0.016526604, y: -0.049579334}
+  m_Size: {x: 0.32241556, y: 0.843149}
   m_Direction: 0
 --- !u!50 &912193859629348609
 Rigidbody2D:

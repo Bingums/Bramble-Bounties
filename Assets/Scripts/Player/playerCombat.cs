@@ -18,6 +18,7 @@ public class playerCombat : MonoBehaviour
     private float lastAttackTime;
     private int attackLayerIndex = -1;
     private Coroutine resetMeleeRoutine;
+    private Coroutine reloadRoutine;
     
     private Animator animator;
     
@@ -25,7 +26,7 @@ public class playerCombat : MonoBehaviour
     public float reloadProgress = 0f;
 
     private AudioSource audioSource;
-public AudioClip shootSFX;
+    public AudioClip shootSFX;
 
     void Start()
     {
@@ -39,9 +40,9 @@ public AudioClip shootSFX;
     void Update()
     {
         weapon = pc.weapons[pc.curSlot].augmentedData;
-        if (((Input.GetKeyDown(KeyCode.R) && weapon.currentAmmo < weapon.ammoCapacity) || 
+        if (!isReloading && (((Input.GetKeyDown(KeyCode.R) && weapon.currentAmmo < weapon.ammoCapacity) || 
             (Input.GetMouseButtonDown(0) && weapon.currentAmmo == 0)) && 
-            !weapon.isMelee && weapon.ammoReserves > 0)
+            !weapon.isMelee && weapon.ammoReserves > 0))
             Reload();
         else if(Input.GetMouseButtonDown(0) || Input.GetMouseButton(0))
             TryAttack();
@@ -54,9 +55,15 @@ public AudioClip shootSFX;
             return;
         }
 
+        if (!weapon.isMelee && weapon.currentAmmo <= 0)
+        {           
+            return; 
+        }
+
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = (mousePos - (Vector2)transform.position).normalized;
         lastAttackTime = Time.time; 
+        
         if(weapon.isMelee)
         {
         audioSource.PlayOneShot(weapon.attackSFX); 
@@ -103,7 +110,7 @@ public AudioClip shootSFX;
                         Mathf.Sin(angleRadians) * direction.x + Mathf.Cos(angleRadians) * direction.y);
                     
                     GameObject newBullet = Instantiate(bullet, transform.position, Quaternion.identity);
-                    newBullet.GetComponent<PlayerBullet>().InitializeBullet(weapon, bulletDirection);
+                    newBullet.GetComponent<PlayerBullet>().InitializePlayerBullet(weapon, bulletDirection);
                 }
             }
             else
@@ -118,7 +125,7 @@ public AudioClip shootSFX;
                     float curOffset = initialOffset + (i * spacing);
                     Vector2 bulletPos = (Vector2)transform.position + perpendicular * curOffset;
                     GameObject newBullet = Instantiate(bullet, bulletPos, Quaternion.identity);
-                    newBullet.GetComponent<PlayerBullet>().InitializeBullet(weapon, direction);
+                    newBullet.GetComponent<PlayerBullet>().InitializePlayerBullet(weapon, direction);
                 }
             }
             
@@ -157,12 +164,15 @@ public AudioClip shootSFX;
 
     public void Reload()
     {
-        StartCoroutine(ReloadCoroutine());
+       if (isReloading)
+        return;
+
+        reloadRoutine = StartCoroutine(ReloadCoroutine());
     }
 
     public void CancelReload()
     {
-        if (isReloading)
+        if (isReloading&& reloadRoutine != null)
         {
             StopCoroutine(ReloadCoroutine());
             isReloading = false;

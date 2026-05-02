@@ -6,9 +6,8 @@ public class PlayerBullet : MonoBehaviour
     public float speed;
     private int damage;
     public float killBullet;
-    private bool hitSomething = false;
 
-    public void InitializeBullet(WeaponData data, Vector2 direction)
+    public void InitializePlayerBullet(WeaponData data, Vector2 direction)
     {
         speed = data.shotSpeed;
         damage = data.damage;
@@ -22,16 +21,12 @@ public class PlayerBullet : MonoBehaviour
     
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (hitSomething) return;
-        
-        if(collision.CompareTag("Terrain") || collision.CompareTag("NPC"))
+        if(collision.CompareTag("Terrain"))
         {
-            hitSomething = true;
             Destroy(gameObject);
         } else if(collision.CompareTag("Enemy") || collision.CompareTag("Bartender"))
         {
-            hitSomething = true;
-            collision.GetComponent<EnemyController>().TakeDamage(damage);
+            collision.GetComponentInParent<EnemyController>().TakeDamage(damage);
             Destroy(gameObject);
         }
     }

@@ -44,7 +44,8 @@ public class BasicShooter : EnemyController
         if(bulletTime > 0) return;
         bulletTime = timer;
 
-        Instantiate(bullet, spawnPoint.transform.position, spawnPoint.transform.rotation);
+        GameObject shotBullet = Instantiate(bullet, spawnPoint.transform.position, spawnPoint.transform.rotation);
+        shotBullet.GetComponent<EnemyBullet>().InitializeEnemyBullet(attack, bulletSpeed, range, moveDirection);
         audioSource.PlayOneShot(plasmaGunSFX);
     }
 
@@ -54,7 +55,7 @@ public class BasicShooter : EnemyController
         {
             if(collision.CompareTag("Player"))
             {
-                collision.GetComponent<playerController>().TakeDamage(5);
+                collision.GetComponentInParent<playerController>().TakeDamage(attack);
             }
             
             shooterRenderer.color = damageColor;

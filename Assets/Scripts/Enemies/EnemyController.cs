@@ -6,11 +6,15 @@ public class EnemyController : MonoBehaviour, IDamageable
     [SerializeField] protected int baseMaxHealth;
     [SerializeField] protected int baseAttack;
     [SerializeField] protected float baseMoveSpeed;
+    [SerializeField] protected float baseBulletSpeed;
+    [SerializeField] protected float baseRange;
     
     protected int maxHealth;
     protected int currentHealth;
     protected int attack;
     protected float moveSpeed;
+    protected float bulletSpeed;
+    protected float range;
     
     protected float distance;
     protected Rigidbody2D rb;
@@ -24,6 +28,8 @@ public class EnemyController : MonoBehaviour, IDamageable
         currentHealth = maxHealth;
         attack = baseAttack;
         moveSpeed = baseMoveSpeed;
+        bulletSpeed = baseBulletSpeed;
+        range = baseRange;
     }
     
     protected virtual void Start()
@@ -46,7 +52,6 @@ public class EnemyController : MonoBehaviour, IDamageable
     }
     
     //protected virtual void Attack() { }
-    
     
     public void ScaleStats(float healthMultiplier, float attackMultiplier, float moveSpeedMultiplier)
     {

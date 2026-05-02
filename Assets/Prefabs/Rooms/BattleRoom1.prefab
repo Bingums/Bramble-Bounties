@@ -4048,6 +4048,11 @@ MonoBehaviour:
   - {fileID: 6807942513400815949}
   - {fileID: 3509297790195339824}
   - {fileID: 138276234577425215}
+  doorOpen:
+  - {fileID: 2681460176282444349}
+  - {fileID: 4960353324075442292}
+  - {fileID: 3035315146102723337}
+  - {fileID: 1965642243941691910}
   numWaves: 3
   currentWave: 0
   enemiesPerWave: 040000000600000008000000
@@ -4074,7 +4079,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -4264,6 +4269,11 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 2223482266908476493, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
   m_PrefabInstance: {fileID: 2247336723814578034}
   m_PrefabAsset: {fileID: 0}
+--- !u!58 &1965642243941691910 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 321859915050976628, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
+  m_PrefabInstance: {fileID: 2247336723814578034}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7304960725252749698 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8813627777819791088, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
@@ -4335,6 +4345,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
+--- !u!58 &2681460176282444349 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 321859915050976628, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
+  m_PrefabInstance: {fileID: 2396209885468878665}
+  m_PrefabAsset: {fileID: 0}
 --- !u!61 &4583091460526777092 stripped
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 2223482266908476493, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
@@ -4411,6 +4426,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
+--- !u!58 &3035315146102723337 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 321859915050976628, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
+  m_PrefabInstance: {fileID: 3344172209800074877}
+  m_PrefabAsset: {fileID: 0}
 --- !u!61 &3509297790195339824 stripped
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 2223482266908476493, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
@@ -4495,6 +4515,11 @@ GameObject:
 --- !u!4 &4247322392416365552 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8813627777819791088, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
+  m_PrefabInstance: {fileID: 4657231028488561920}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &4960353324075442292 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 321859915050976628, guid: f8dc6dec31aef9d4799f15679c6fa649, type: 3}
   m_PrefabInstance: {fileID: 4657231028488561920}
   m_PrefabAsset: {fileID: 0}
 --- !u!61 &6807942513400815949 stripped
