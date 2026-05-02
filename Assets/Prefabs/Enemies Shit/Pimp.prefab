@@ -145,6 +145,7 @@ MonoBehaviour:
   baseMoveSpeed: 3
   baseBulletSpeed: 0
   baseRange: 0
+  scoreValue: 10
 --- !u!114 &4372097746081816739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,10 +163,12 @@ MonoBehaviour:
   baseMoveSpeed: 3
   baseBulletSpeed: 0
   baseRange: 0
+  scoreValue: 10
   firingDistance: 5
   bullet: {fileID: 1826858624649344573, guid: ad5430a36f7353046b0b05cd8ef682ad, type: 3}
   spawnPoint: {fileID: 183589325381871372}
   plasmaGunSFX: {fileID: 8300000, guid: 63afd0c5294c4a24ea8639e0e5402c5b, type: 3}
+  scoreValue: 2000
 --- !u!50 &3029671176371166008
 Rigidbody2D:
   serializedVersion: 5
@@ -223,7 +226,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
