@@ -1,46 +1,73 @@
+using System.Collections;
 using UnityEngine;
+using Combat;
+using UnityEngine.Diagnostics;
 
-public class Pimp : MonoBehaviour
+public class Pimp : EnemyController
 {
-    
-    /*
-    public GameObject enemyShooter, enemyBrawler, enemyDrunk;
-    private GameObject player;
+    //Shooting Var
+    public float firingDistance;
+    private float timer = .5f;
+    private float bulletTime;
+    public GameObject bullet;
+    public Transform spawnPoint;
 
-    private float vect1, vect2, vect3;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake(){
-        PimpManager.slap += RunToPlayer;
-    }
+    SpriteRenderer shooterRenderer;
+    Color shooterColor;
+    Color damageColor = new Color(0.85f, 0.24f, 0.24f);
     
-    
-    void Start()
-    {
-        
+    //private AudioSource audioSource;
+    //public AudioClip plasmaGunSFX;
+
+    protected override void Awake(){
+        base.Awake();
+        shooterRenderer = GetComponent<SpriteRenderer>();
+        shooterColor = shooterRenderer.color;
+        //audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         if(target){
-            Vector3 direction = (target.position - transform.position).normalized;
-            moveDirection = direction; 
+            if(distance < firingDistance) {
+                moveSpeed = 0;
+                ShootGun();
+            } else if(distance > firingDistance) {
+                moveSpeed = 2;
+            }
         }
     }
-    void RunToPlayer(){
-        target = GameObject.Find("player").transform;
-    }
-    void RunsAway(){
+    
+    private void ShootGun(){
+        bulletTime -= Time.deltaTime;
+        if(bulletTime > 0) return;
+        bulletTime = timer;
 
-        vect1 = Random.Range(-6.0f,6.0f);
-        vect2 = Random.Range(-3.5f,3.5f);
-        vect3 = 0;
+        Instantiate(bullet, spawnPoint.transform.position, spawnPoint.transform.rotation);
+        //audioSource.PlayOneShot(plasmaGunSFX);
     }
-    void EnemySpawner(){
 
+    private void OnTriggerEnter2D(Collider2D collision){
+        if(collision.CompareTag("Player") || collision.CompareTag("PlayerProjectile")
+            || collision.CompareTag("Weapon"))
+        {
+            if(collision.CompareTag("Player"))
+            {
+                collision.GetComponent<playerController>().TakeDamage(5);
+            }
+            
+            shooterRenderer.color = damageColor;
+        }
     }
-    void OnTriggerEnter2D(){
-        //SLAP A HOE
+
+    private void OnTriggerExit2D(Collider2D collision){
+        StartCoroutine(Recolor(0.2f));
     }
-    */
+
+    IEnumerator Recolor(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        shooterRenderer.color = shooterColor;
+    }
 }
