@@ -13,7 +13,7 @@ public class HelpDesc : MonoBehaviour
     [SerializeField] private string[] text;
     [SerializeField] private TextMeshProUGUI target;
 
-    public void changeText(int i)
+    public void ChangeText(int i)
     {
         Debug.Log("CLICK!");
 
@@ -29,7 +29,7 @@ public class HelpDesc : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        changeText(0);
+        ChangeText(0);
     }
 
     // Update is called once per frame

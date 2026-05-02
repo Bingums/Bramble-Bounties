@@ -204,7 +204,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1060070596}
         m_TargetAssemblyTypeName: HelpDesc, Assembly-CSharp
-        m_MethodName: changeText
+        m_MethodName: ChangeText
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -216,7 +216,7 @@ MonoBehaviour:
         m_CallState: 1
       - m_Target: {fileID: 894183806}
         m_TargetAssemblyTypeName: HelpDesc, Assembly-CSharp
-        m_MethodName: changeText
+        m_MethodName: ChangeText
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -602,7 +602,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1060070596}
         m_TargetAssemblyTypeName: HelpDesc, Assembly-CSharp
-        m_MethodName: changeText
+        m_MethodName: ChangeText
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -614,7 +614,7 @@ MonoBehaviour:
         m_CallState: 1
       - m_Target: {fileID: 894183806}
         m_TargetAssemblyTypeName: HelpDesc, Assembly-CSharp
-        m_MethodName: changeText
+        m_MethodName: ChangeText
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
