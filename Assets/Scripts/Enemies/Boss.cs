@@ -5,6 +5,7 @@ public class Boss : MonoBehaviour
 
 public AudioClip gunfireSFX;
 public AudioClip SlamSFX;
+public int scoreValue = 10000;
 
 private AudioSource audioSource;
     public int moveSpeed = 2;

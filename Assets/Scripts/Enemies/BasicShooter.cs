@@ -19,6 +19,8 @@ public class BasicShooter : EnemyController
     private AudioSource audioSource;
     public AudioClip plasmaGunSFX;
 
+    public int scoreValue = 50;
+
     protected override void Awake(){
         base.Awake();
         shooterRenderer = GetComponent<SpriteRenderer>();
