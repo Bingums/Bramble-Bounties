@@ -15,11 +15,26 @@ EditorBuildSettings:
     path: Assets/Scenes/Title/Title Screen.unity
     guid: f1dfdb46fab8be84b8680b4cbe101d2a
   - enabled: 1
+    path: Assets/Scenes/Title/HowTo.unity
+    guid: bd575d2b0779e00498d1d7b8f4ed215c
+  - enabled: 1
     path: Assets/Testing/Bounty Testing.unity
     guid: b7205b3c06b209d4ea418d66ccb0996d
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 66009dd316d943d4a8648564ad956785
+  - enabled: 1
+    path: Assets/Scenes/Floor2.unity
+    guid: 59177abfbb8d94e428ebe6e337aec4b0
+  - enabled: 1
+    path: Assets/Scenes/Floor3.unity
+    guid: c62cf865829539a49ad12880dc85d256
+  - enabled: 1
+    path: Assets/Scenes/Floor4.unity
+    guid: 731b9b7df90917348af9430819ca30dc
+  - enabled: 1
+    path: Assets/Scenes/Boss1.unity
+    guid: a4e4781fb3d467a499ba0a62263a6dc3
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

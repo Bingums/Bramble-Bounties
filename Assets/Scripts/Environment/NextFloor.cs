@@ -6,6 +6,7 @@ public class NextFloor : MonoBehaviour
     [SerializeField] private Room room;
 
     private bool active = false;
+    public string nextScene;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,7 +29,7 @@ public class NextFloor : MonoBehaviour
         if (!Application.isPlaying) return;
         if (other.CompareTag("Player") && active)
         {
-            GameManager.Instance.LoadScene("Floor2");
+            GameManager.Instance.LoadScene(nextScene);
         }
     }
 }
