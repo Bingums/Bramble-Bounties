@@ -199,8 +199,13 @@ public class GameManager : MonoBehaviour
     {
         return BountyRunState != null ? BountyRunState.OfferedBounties : Array.Empty<BountyData>();
     }
-
-
+    
+    public void AddScore(int points)
+    {
+        Score += points;
+        OnScoreChanged?.Invoke(Score);
+    }
+    
 
     public void AdvanceFloor()
     {

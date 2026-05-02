@@ -14,6 +14,7 @@ public class BountySelectionUI : MonoBehaviour
         [SerializeField] private TMP_Text descriptionText;
         [SerializeField] private Text legacyTitleText;
         [SerializeField] private Text legacyDescriptionText;
+        [SerializeField] private TMP_Text bountyAmount;
 
         public void Clear()
         {
@@ -27,6 +28,12 @@ public class BountySelectionUI : MonoBehaviour
             {
                 posterImage.sprite = null;
                 posterImage.enabled = false;
+            }
+
+            if (bountyAmount != null)
+            {
+                bountyAmount.text = string.Empty;
+                bountyAmount.gameObject.SetActive(false);
             }
 
             SetTitle(string.Empty);
@@ -51,6 +58,12 @@ public class BountySelectionUI : MonoBehaviour
                 posterImage.sprite = bounty != null ? bounty.PosterSprite : null;
                 posterImage.enabled = bounty != null && bounty.PosterSprite != null;
                 posterImage.preserveAspect = true;
+            }
+
+            if (bountyAmount != null)
+            {
+                bountyAmount.gameObject.SetActive(bounty != null);
+                SetBountyText(bounty != null ? bounty.Bounty.ToString() : string.Empty);
             }
 
             SetTitle(bounty != null ? bounty.DisplayName : string.Empty);
@@ -80,6 +93,14 @@ public class BountySelectionUI : MonoBehaviour
             if (legacyDescriptionText != null)
             {
                 legacyDescriptionText.text = value;
+            }
+        }
+
+        private void SetBountyText(string bountyVal)
+        {
+            if (bountyAmount != null)
+            {
+                bountyAmount.text = bountyVal + " Credits";
             }
         }
     }
