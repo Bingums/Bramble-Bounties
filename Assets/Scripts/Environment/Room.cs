@@ -18,6 +18,9 @@ public class Room : MonoBehaviour
     public int[] enemiesPerWave = { 4, 6, 8 };
     //private bool waveCleared = false;
     private int spawnedEnemyCount = 0;
+    private int baseNumWaves;
+    private int[] baseEnemiesPerWave;
+    private bool hasStartedSpawning;
     public int enemyCount = 0;
     public bool isCleared = false;
     
@@ -26,6 +29,12 @@ public class Room : MonoBehaviour
     public GameObject rightWall, leftWall, topWall, bottomWall;
 
     public enum Direction { Right, Left, Top, Bottom }
+
+    private void Awake()
+    {
+        baseNumWaves = numWaves;
+        baseEnemiesPerWave = (int[])enemiesPerWave.Clone();
+    }
 
     // -------------------------
     // Enemy / Room Methods
@@ -119,31 +128,33 @@ public class Room : MonoBehaviour
             }
         }
     }
-
     public void ScaleWaves(int extraWaves, int extraEnemiesPerWave)
     {
-        numWaves += extraWaves;
+        numWaves = baseNumWaves + extraWaves;
         
         int[] newEnemiesPerWave = new int[numWaves];
 
-        for (int i = 0; i < enemiesPerWave.Length; i++)
+        for (int i = 0; i < baseEnemiesPerWave.Length && i < newEnemiesPerWave.Length; i++)
         {
-            newEnemiesPerWave[i] = enemiesPerWave[i] + extraEnemiesPerWave;
+            newEnemiesPerWave[i] = baseEnemiesPerWave[i] + extraEnemiesPerWave;
         }
 
-        for (int i = enemiesPerWave.Length; i < numWaves; i++)
+        for (int i = baseEnemiesPerWave.Length; i < numWaves; i++)
         {
-            newEnemiesPerWave[i] = newEnemiesPerWave[i-1] + newEnemiesPerWave[i-3];
+            int fallbackWaveIndex = Mathf.Max(0, i - 3);
+            newEnemiesPerWave[i] = newEnemiesPerWave[i - 1] + newEnemiesPerWave[fallbackWaveIndex];
         }
         
         enemiesPerWave = newEnemiesPerWave;
     }
 
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (!Application.isPlaying) return;
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && !hasStartedSpawning && !isCleared)
         {
+            hasStartedSpawning = true;
             LockDoors(true);
             EnemySpawnManager.Instance.StartSpawning(this);
         }

@@ -34,15 +34,28 @@ public class EnemySpawnManager : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player").transform;
     }
-    
+
     private IEnumerator SpawnLoop()
     {
-        if(GameManager.Instance.GetSelectedBounty() != null)
+        if (GameManager.Instance.GetSelectedBounty() != null)
             currentBounty = GameManager.Instance.GetSelectedBounty();
-        currentRoom.ScaleWaves(currentBounty.ExtraWaves, currentBounty.ExtraEnemiesPerWave);
-        while(currentRoom.currentWave < currentRoom.numWaves)
+
+        if (currentRoom.isBossRoom)
         {
-            while(!currentRoom.AtCap())
+            yield return SpawnBossRoom();
+        }
+        else
+        {
+            yield return SpawnNormalRoom();
+        }
+    }
+    
+    
+    private IEnumerator SpawnNormalRoom(){
+        currentRoom.ScaleWaves(currentBounty.ExtraWaves, currentBounty.ExtraEnemiesPerWave);
+        while (currentRoom.currentWave < currentRoom.numWaves)
+        {
+            while (!currentRoom.AtCap())
             {
                 hc.ShowIncomingWave(spawnRate);
                 yield return new WaitForSeconds(spawnRate);
@@ -51,67 +64,101 @@ public class EnemySpawnManager : MonoBehaviour
                 
                 foreach (Transform spawnPoint in spawnPoints)
                 {
-                    if (!currentRoom.AtCap())
-                    {
-                        GameObject enemy = null;
-                        if (!currentRoom.isBossRoom) 
-                            enemy = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
-                        else
-                        {
-                            Debug.Log("Boss Spawn: " + currentBounty.MinibossId);
-                            if (currentBounty == null)
-                            {
-                                continue;
-                            }
+                    if (currentRoom.AtCap())
+                        break;
 
-                            switch (currentBounty.MinibossId)
-                            {
-                                case "0":
-                                    enemy = bossPrefabs[0];
-                                    break;
-                                case "1":
-                                    enemy = bossPrefabs[1];
-                                    break;
-                                case "2":
-                                    enemy = bossPrefabs[2];
-                                    break;
-                                case "3":
-                                    enemy = bossPrefabs[3];
-                                    break;
-                            }
-                        }
-                        Debug.Log("Enemy: " + enemy.name);
-                        GameObject spawnedEnemy = Instantiate(enemy, spawnPoint.position, Quaternion.identity);
-                        EnemyController ec = spawnedEnemy.GetComponent<EnemyController>();
-                        ec.ScaleStats(currentBounty.HealthMultiplier, 
-                                       currentBounty.AttackMultiplier,
-                                       currentBounty.MoveSpeedMultiplier);
-                        currentRoom.IncreaseEnemyCounts();
-                    }
+                    GameObject enemy = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
+                    GameObject spawnedEnemy = Instantiate(enemy, spawnPoint.position, Quaternion.identity);
+
+                    EnemyController ec = spawnedEnemy.GetComponent<EnemyController>();
+                    ec.ScaleStats(
+                        currentBounty.HealthMultiplier,
+                        currentBounty.AttackMultiplier,
+                        currentBounty.MoveSpeedMultiplier
+                    );
+
+                    currentRoom.IncreaseEnemyCounts();
                 }
             }
 
-            while(currentRoom.enemyCount != 0) 
+            while (currentRoom.enemyCount != 0)
                 yield return null;
             
             currentRoom.ResetEnemyCounts();
-            
             currentRoom.currentWave++;
         }
+
+        ClearCurrentRoom(spawnAugment: true);
+    }
+    
+    private IEnumerator SpawnBossRoom()
+    {
+        GameObject bossPrefab = GetBossPrefab();
+        if (bossPrefab == null)
+        {
+            Debug.LogWarning("Boss prefab not found for bounty: " + currentBounty.MinibossId);
+            ClearCurrentRoom(spawnAugment: false);
+            yield break;
+        }
         
+        Transform[] spawnPoints = currentRoom.GetEnemySpawns();
+        Transform spawnPoint = spawnPoints.Length > 0 ? spawnPoints[0] : currentRoom.transform;
+
+        GameObject spawnedBoss = Instantiate(bossPrefab, spawnPoint.position, Quaternion.identity);
+
+        EnemyController ec = spawnedBoss.GetComponent<EnemyController>();
+        ec.ScaleStats(
+            currentBounty.HealthMultiplier,
+            currentBounty.AttackMultiplier,
+            currentBounty.MoveSpeedMultiplier
+        );
+
+        currentRoom.IncreaseEnemyCounts();
+
+        while (currentRoom.enemyCount != 0)
+            yield return null;
+
+        ClearCurrentRoom(spawnAugment: false);
+    }
+
+    private GameObject GetBossPrefab()
+    {
+        if (currentBounty == null) return null;
+
+        switch (currentBounty.MinibossId)
+        {
+            case "0":
+                return bossPrefabs[0];
+            case "1":
+                return bossPrefabs[1];
+            case "2":
+                return bossPrefabs[2];
+            case "3":
+                return bossPrefabs[3];
+            default:
+                return null;
+        }
+    }
+
+    private void ClearCurrentRoom(bool spawnAugment)
+    {
         currentRoom.isCleared = true;
-        hc.ShowRoomCleared();
-        SpawnAugment();
+        
+        if(hc != null) hc.ShowRoomCleared();
+
+        if (spawnAugment) SpawnAugment();
+        
         currentRoom.LockDoors(false);
         currentRoom = null;
-        Debug.Log("All waves complete");
-        StopSpawning();
-        yield break; // gets rid of extra iteration
+        
+        Debug.Log("Room complete");
     }
 
     public void StartSpawning(Room room)
     {
         if (!Application.isPlaying) return;
+        if (currentRoom != null) return;
+
         currentRoom = room;
         StartCoroutine(SpawnLoop());
     }
@@ -119,6 +166,26 @@ public class EnemySpawnManager : MonoBehaviour
     public void StopSpawning()
     {
         StopAllCoroutines();
+    }
+
+    public int DebugClearCurrentRoom()
+    {
+        if (currentRoom == null)
+        {
+            return -1;
+        }
+
+        EnemyController[] enemies = FindObjectsByType<EnemyController>(FindObjectsSortMode.None);
+        foreach (EnemyController enemy in enemies)
+        {
+            Destroy(enemy.gameObject);
+        }
+
+        StopAllCoroutines();
+        currentRoom.ResetEnemyCounts();
+        ClearCurrentRoom(spawnAugment: false);
+
+        return enemies.Length;
     }
     
     private void SpawnAugment()

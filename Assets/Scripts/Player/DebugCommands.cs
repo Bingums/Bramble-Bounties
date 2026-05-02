@@ -50,32 +50,19 @@ public class DebugCommands : MonoBehaviour
     
     private void KillAllEnemiesAndClearRoom()
     {
-        EnemyController[] enemies = FindObjectsByType<EnemyController>(FindObjectsSortMode.None);
-
-        foreach (EnemyController enemy in enemies)
-        {
-            Destroy(enemy.gameObject);
-        }
-
         if (EnemySpawnManager.Instance == null)
         {
             Debug.Log("Cannot clear room: EnemySpawnManager not found.");
             return;
         }
 
-        Room currentRoom = EnemySpawnManager.Instance.GetCurrentRoom();
-        if (currentRoom == null)
+        int destroyedEnemyCount = EnemySpawnManager.Instance.DebugClearCurrentRoom();
+        if (destroyedEnemyCount < 0)
         {
             Debug.Log("Cannot clear room: no current room.");
             return;
         }
 
-        EnemySpawnManager.Instance.StopSpawning();
-
-        currentRoom.ResetEnemyCounts();
-        currentRoom.isCleared = true;
-        currentRoom.LockDoors(false);
-
-        Debug.Log($"Debug cleared room. Destroyed {enemies.Length} enemies.");
+        Debug.Log($"Debug cleared room. Destroyed {destroyedEnemyCount} enemies.");
     }
 }
