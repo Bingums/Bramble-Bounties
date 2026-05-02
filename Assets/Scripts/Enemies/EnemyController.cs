@@ -21,6 +21,8 @@ public class EnemyController : MonoBehaviour, IDamageable
     protected Transform target;
     protected Vector2 moveDirection;
 
+    public int scoreValue = 10;
+
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -77,7 +79,7 @@ public class EnemyController : MonoBehaviour, IDamageable
         {
             currentRoom.DecreaseEnemyCount();
         }
-        
+        ScoreManager.instance.AddScore(scoreValue);
         Destroy(gameObject);
     }
     

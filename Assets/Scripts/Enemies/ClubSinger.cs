@@ -7,6 +7,7 @@ public AudioClip aoeStartSFX;
 public AudioClip idleSFX;
 
 private AudioSource audioSource;
+public int scoreValue = 5000;
 
     float aoeWarningTime = 2;
     float aoeTimer = 2;
