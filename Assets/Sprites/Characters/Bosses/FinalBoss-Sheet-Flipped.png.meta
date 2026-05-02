@@ -1,0 +1,1075 @@
+fileFormatVersion: 2
+guid: 0944770e6c05d8b49a090c27208faee0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9064424847607507681
+    second: FinalBoss-Sheet-Flipped_0
+  - first:
+      213: -2263491831386809575
+    second: FinalBoss-Sheet-Flipped_1
+  - first:
+      213: -7913462444873468473
+    second: FinalBoss-Sheet-Flipped_2
+  - first:
+      213: 4471328439291961762
+    second: FinalBoss-Sheet-Flipped_3
+  - first:
+      213: 1453266455604454779
+    second: FinalBoss-Sheet-Flipped_4
+  - first:
+      213: -7205318579306681753
+    second: FinalBoss-Sheet-Flipped_5
+  - first:
+      213: 8239938644970855303
+    second: FinalBoss-Sheet-Flipped_6
+  - first:
+      213: 4331749979370915417
+    second: FinalBoss-Sheet-Flipped_7
+  - first:
+      213: 4424072344095451938
+    second: FinalBoss-Sheet-Flipped_8
+  - first:
+      213: -7753111250165388646
+    second: FinalBoss-Sheet-Flipped_9
+  - first:
+      213: -6459627313686103041
+    second: FinalBoss-Sheet-Flipped_10
+  - first:
+      213: -8447101651070857894
+    second: FinalBoss-Sheet-Flipped_11
+  - first:
+      213: -8964856974575809689
+    second: FinalBoss-Sheet-Flipped_12
+  - first:
+      213: 1568527089805558519
+    second: FinalBoss-Sheet-Flipped_13
+  - first:
+      213: 7481082838185428751
+    second: FinalBoss-Sheet-Flipped_14
+  - first:
+      213: -7030089804115130278
+    second: FinalBoss-Sheet-Flipped_15
+  - first:
+      213: -5459503152734725210
+    second: FinalBoss-Sheet-Flipped_16
+  - first:
+      213: 7913152111102634319
+    second: FinalBoss-Sheet-Flipped_17
+  - first:
+      213: -2728859522456615693
+    second: FinalBoss-Sheet-Flipped_18
+  - first:
+      213: -1732640811132701537
+    second: FinalBoss-Sheet-Flipped_19
+  - first:
+      213: 4115322872449163361
+    second: FinalBoss-Sheet-Flipped_20
+  - first:
+      213: 1666360004179024577
+    second: FinalBoss-Sheet-Flipped_21
+  - first:
+      213: -1830215275457554445
+    second: FinalBoss-Sheet-Flipped_22
+  - first:
+      213: 1914233336538590334
+    second: FinalBoss-Sheet-Flipped_23
+  - first:
+      213: -274730844556437654
+    second: FinalBoss-Sheet-Flipped_24
+  - first:
+      213: 1623293383060114897
+    second: FinalBoss-Sheet-Flipped_25
+  - first:
+      213: 1135884670327072720
+    second: FinalBoss-Sheet-Flipped_26
+  - first:
+      213: 1944067569993109289
+    second: FinalBoss-Sheet-Flipped_27
+  - first:
+      213: -5394494268708160075
+    second: FinalBoss-Sheet-Flipped_28
+  - first:
+      213: -5368044863280875564
+    second: FinalBoss-Sheet-Flipped_29
+  - first:
+      213: 7562554065514026951
+    second: FinalBoss-Sheet-Flipped_30
+  - first:
+      213: 404201277477325314
+    second: FinalBoss-Sheet-Flipped_31
+  - first:
+      213: 200818886721731039
+    second: FinalBoss-Sheet-Flipped_32
+  - first:
+      213: 8180744161347920721
+    second: FinalBoss-Sheet-Flipped_33
+  - first:
+      213: -7545071085942610591
+    second: FinalBoss-Sheet-Flipped_34
+  - first:
+      213: -798406566397146644
+    second: FinalBoss-Sheet-Flipped_35
+  - first:
+      213: 5692731722243963654
+    second: FinalBoss-Sheet-Flipped_36
+  - first:
+      213: 5360448655107343714
+    second: FinalBoss-Sheet-Flipped_37
+  - first:
+      213: -8480691222403804264
+    second: FinalBoss-Sheet-Flipped_38
+  - first:
+      213: 1061864489815691251
+    second: FinalBoss-Sheet-Flipped_39
+  - first:
+      213: -751509825555133691
+    second: FinalBoss-Sheet-Flipped_40
+  - first:
+      213: -5246650337850388793
+    second: FinalBoss-Sheet-Flipped_41
+  - first:
+      213: 4085359640106868179
+    second: FinalBoss-Sheet-Flipped_42
+  - first:
+      213: -3567846390905729177
+    second: FinalBoss-Sheet-Flipped_43
+  - first:
+      213: -2551434255420809875
+    second: FinalBoss-Sheet-Flipped_44
+  - first:
+      213: 4397607007466213004
+    second: FinalBoss-Sheet-Flipped_45
+  - first:
+      213: 4812708424808131907
+    second: FinalBoss-Sheet-Flipped_46
+  - first:
+      213: 7600735209037903413
+    second: FinalBoss-Sheet-Flipped_47
+  - first:
+      213: 8088787483191855642
+    second: FinalBoss-Sheet-Flipped_48
+  - first:
+      213: 1819182321380178913
+    second: FinalBoss-Sheet-Flipped_49
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1eaaede9f5e4bcd70800000000000000
+      internalID: 9064424847607507681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91bd03efb267690e0800000000000000
+      internalID: -2263491831386809575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c53ced65dbbd2290800000000000000
+      internalID: -7913462444873468473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_2
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a1691286895d0e30800000000000000
+      internalID: 4471328439291961762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_1
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b756b42442a0b2410800000000000000
+      internalID: 1453266455604454779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_0
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76a27e27de0910c90800000000000000
+      internalID: -7205318579306681753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78b50806a842a5270800000000000000
+      internalID: 8239938644970855303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_10
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9568538d7a77d1c30800000000000000
+      internalID: 4331749979370915417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_9
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22b60727b56756d30800000000000000
+      internalID: 4424072344095451938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_8
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9aaecd456a676490800000000000000
+      internalID: -7753111250165388646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_7
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 770
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffb345ace2bca56a0800000000000000
+      internalID: -6459627313686103041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_6
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5d4e429dcdd5ca80800000000000000
+      internalID: -8447101651070857894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 578
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76bc938541e669380800000000000000
+      internalID: -8964856974575809689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_16
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 578
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f20078e31784c510800000000000000
+      internalID: 1568527089805558519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_15
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 578
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f074051743522d760800000000000000
+      internalID: 7481082838185428751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_14
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a584f96f19a107e90800000000000000
+      internalID: -7030089804115130278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_13
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ab1f1beec2fb34b0800000000000000
+      internalID: -5459503152734725210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_12
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f49a7eb5be921dd60800000000000000
+      internalID: 7913152111102634319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f40802f8b4212ad0800000000000000
+      internalID: -2728859522456615693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_22
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 386
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f943719bc5c64f7e0800000000000000
+      internalID: -1732640811132701537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_21
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1606f5c39509c1930800000000000000
+      internalID: 4115322872449163361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_20
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 386
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ca52055899102710800000000000000
+      internalID: 1666360004179024577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_19
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f7dbd367e4c996e0800000000000000
+      internalID: -1830215275457554445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_18
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7ce799d319b09a10800000000000000
+      internalID: 1914233336538590334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a67de51a0c5ff2cf0800000000000000
+      internalID: -274730844556437654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_28
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 194
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dd4a873bb8178610800000000000000
+      internalID: 1623293383060114897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_27
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d728a8e61973cf00800000000000000
+      internalID: 1135884670327072720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_26
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92fcbc0a727bafa10800000000000000
+      internalID: 1944067569993109289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_25
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bdf4ca3b08e225b0800000000000000
+      internalID: -5394494268708160075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_24
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d778c153afd085b0800000000000000
+      internalID: -5368044863280875564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_34
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c756adbad693f860800000000000000
+      internalID: 7562554065514026951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_33
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20a8bc99be20c9500800000000000000
+      internalID: 404201277477325314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_32
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd9fc37a6b379c200800000000000000
+      internalID: 200818886721731039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_31
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1536e77a877d78170800000000000000
+      internalID: 8180744161347920721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinalBoss-Sheet-Flipped_30
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 165e155a2d58a4790800000000000000
+      internalID: -7545071085942610591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 16b56554b5bb4674eb801ce38884a2b6
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":192.0,"y":192.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      FinalBoss-Sheet-: 1914233336538590334
+      FinalBoss-Sheet-Flipped_0: -7205318579306681753
+      FinalBoss-Sheet-Flipped_1: 1453266455604454779
+      FinalBoss-Sheet-Flipped_10: 4331749979370915417
+      FinalBoss-Sheet-Flipped_11: 8239938644970855303
+      FinalBoss-Sheet-Flipped_12: 7913152111102634319
+      FinalBoss-Sheet-Flipped_13: -5459503152734725210
+      FinalBoss-Sheet-Flipped_14: -7030089804115130278
+      FinalBoss-Sheet-Flipped_15: 7481082838185428751
+      FinalBoss-Sheet-Flipped_16: 1568527089805558519
+      FinalBoss-Sheet-Flipped_17: -8964856974575809689
+      FinalBoss-Sheet-Flipped_18: 1914233336538590334
+      FinalBoss-Sheet-Flipped_19: -1830215275457554445
+      FinalBoss-Sheet-Flipped_2: 4471328439291961762
+      FinalBoss-Sheet-Flipped_20: 1666360004179024577
+      FinalBoss-Sheet-Flipped_21: 4115322872449163361
+      FinalBoss-Sheet-Flipped_22: -1732640811132701537
+      FinalBoss-Sheet-Flipped_23: -2728859522456615693
+      FinalBoss-Sheet-Flipped_24: -5368044863280875564
+      FinalBoss-Sheet-Flipped_25: -5394494268708160075
+      FinalBoss-Sheet-Flipped_26: 1944067569993109289
+      FinalBoss-Sheet-Flipped_27: 1135884670327072720
+      FinalBoss-Sheet-Flipped_28: 1623293383060114897
+      FinalBoss-Sheet-Flipped_29: -274730844556437654
+      FinalBoss-Sheet-Flipped_3: -7913462444873468473
+      FinalBoss-Sheet-Flipped_30: -7545071085942610591
+      FinalBoss-Sheet-Flipped_31: 8180744161347920721
+      FinalBoss-Sheet-Flipped_32: 200818886721731039
+      FinalBoss-Sheet-Flipped_33: 404201277477325314
+      FinalBoss-Sheet-Flipped_34: 7562554065514026951
+      FinalBoss-Sheet-Flipped_4: -2263491831386809575
+      FinalBoss-Sheet-Flipped_5: 9064424847607507681
+      FinalBoss-Sheet-Flipped_6: -8447101651070857894
+      FinalBoss-Sheet-Flipped_7: -6459627313686103041
+      FinalBoss-Sheet-Flipped_8: -7753111250165388646
+      FinalBoss-Sheet-Flipped_9: 4424072344095451938
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

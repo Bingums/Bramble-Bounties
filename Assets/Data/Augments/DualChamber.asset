@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da1e40cf7704b747ac84f3a32756a1a, type: 3}
   m_Name: DualChamber
   m_EditorClassIdentifier: Assembly-CSharp::AugmentData
-  augmentSprite: {fileID: 0}
+  augmentSprite: {fileID: -6191357566061464646, guid: 4ebba415b1eab8c4e804c168d0f43b5a, type: 3}
+  augmentColor: {r: 0, g: 0, b: 0, a: 0}
   augmentName: Dual Chamber
   description: Increase the amount of shots fired at once
   rarity: 1

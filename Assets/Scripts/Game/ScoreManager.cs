@@ -13,18 +13,6 @@ public class ScoreManager : MonoBehaviour
         instance = this;
         StartCoroutine(WaitForHUD());
     }
-
-    public void AddScore(int points)
-    {
-        Debug.Log("Method started");
-        score += points;
-
-        if (hc != null)
-        {
-            hc.ChangeScore(score);
-        }
-        Debug.Log("Score Changed");
-    }
     
     IEnumerator WaitForHUD()
     {

@@ -32,14 +32,12 @@ public class GameManager : MonoBehaviour
     private int currentFloor = 1;
 
     [SerializeField] private int minibossFloor = 6;
-
-
+    
     public BountyRunState BountyRunState { get; private set; }
     public PlayerState PlayerState { get; private set; }
     public int CurrentFloor => currentFloor;
     public int MinibossFloor => minibossFloor;
     public int Score { get; private set; }
-    
     
     public event Action<int> OnScoreChanged;
     public event Action OnBountyOfferChanged;
@@ -199,13 +197,6 @@ public class GameManager : MonoBehaviour
     {
         return BountyRunState != null ? BountyRunState.OfferedBounties : Array.Empty<BountyData>();
     }
-    
-    public void AddScore(int points)
-    {
-        Score += points;
-        OnScoreChanged?.Invoke(Score);
-    }
-    
 
     public void AdvanceFloor()
     {
@@ -225,5 +216,17 @@ public class GameManager : MonoBehaviour
     public void LoadScene(string scene)
     {
         SceneManager.LoadScene(scene);
+    }
+    
+    public void AddScore(int points)
+    {
+        Score += points;
+        OnScoreChanged?.Invoke(Score);
+    }
+
+    public void ResetScore()
+    {
+        Score = 0;
+        OnScoreChanged?.Invoke(Score);
     }
 }

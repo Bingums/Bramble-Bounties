@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da1e40cf7704b747ac84f3a32756a1a, type: 3}
   m_Name: Longshot
   m_EditorClassIdentifier: Assembly-CSharp::AugmentData
-  augmentSprite: {fileID: 0}
-  augmentName: Piercing
-  description: Bullets pierce through enemies
+  augmentSprite: {fileID: -9177867809839429394, guid: 4ebba415b1eab8c4e804c168d0f43b5a, type: 3}
+  augmentColor: {r: 0, g: 0, b: 0, a: 0}
+  augmentName: Longshot
+  description: Bullets travel further
   rarity: 2
   statModifiers:
   - statType: 7
-    changeType: 0
-    changeValue: 0
+    changeType: 1
+    changeValue: 1.5
   weaponType: 0
   pickupPrefab: {fileID: 4268073747003711746, guid: 0d082a2f31a4b3f438aec88c176027dd, type: 3}

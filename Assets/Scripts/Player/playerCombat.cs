@@ -138,6 +138,8 @@ public class playerCombat : MonoBehaviour
             {
                 if (ammoRoll <= ammoUsage)
                     weapon.currentAmmo--;
+                if (weapon.currentAmmo == 0)
+                    ammoUsage = 0f;
                 ammoUsage -= 1f;
             }
             
