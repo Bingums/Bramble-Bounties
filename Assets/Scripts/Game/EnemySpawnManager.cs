@@ -55,7 +55,35 @@ public class EnemySpawnManager : MonoBehaviour
                 {
                     if (!currentRoom.AtCap())
                     {
-                        GameObject enemy = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
+                        GameObject enemy = null;
+                        if (!currentRoom.isBossRoom) enemy = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
+                        else
+                        {
+                            BountyData bounty = GameManager.Instance.GetSelectedBounty();
+
+                            if (bounty == null)
+                            {
+                                continue;
+                            }
+
+                            switch (bounty.MinibossId)
+                            {
+                                case "Cyclops":
+                                    enemy = bossPrefabs[1];
+                                    break;
+
+                                case "Medusa":
+                                    enemy = bossPrefabs[2];
+                                    break;
+
+                                case "Wimp":
+                                    enemy = bossPrefabs[0];
+                                    break;
+                                case "Kingpin":
+                                    enemy = bossPrefabs[4];
+                                    break;
+                            }
+                        }
                         GameObject spawnedEnemy = Instantiate(enemy, spawnPoint.position, Quaternion.identity);
                         EnemyController ec = spawnedEnemy.GetComponent<EnemyController>();
                         ec.ScaleStats(currentBounty.HealthMultiplier, 

@@ -10,7 +10,7 @@ public class Room : MonoBehaviour
     [SerializeField] private BoxCollider2D[] doorColliders;
     [SerializeField] private CircleCollider2D[] doorOpen;
 
-    [SerializeField] private bool isBossRoom;
+    [SerializeField] public bool isBossRoom;
     [SerializeField] private BoxCollider2D teleporter;
     
     public int numWaves = 3;
