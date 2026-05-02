@@ -107,6 +107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasicBullet
   force: 7
+  speed: 8
+  damage: 12
   killBullet: 2
 --- !u!50 &2245272610539335549
 Rigidbody2D:
