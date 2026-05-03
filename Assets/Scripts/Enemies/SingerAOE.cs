@@ -11,7 +11,7 @@ public class SingerAOE : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision){
         if(collision.tag == "Player"){
-            collision.GetComponent<playerController>().TakeDamage(damage);
+            collision.GetComponentInParent<playerController>().TakeDamage(damage);
         }
          
     }
