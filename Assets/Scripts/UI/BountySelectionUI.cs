@@ -8,6 +8,7 @@ public class BountySelectionUI : MonoBehaviour
     [System.Serializable]
     private class BountySlotView
     {
+        [SerializeField] private GameObject slotRoot;
         [SerializeField] private Button posterButton;
         [SerializeField] private Image posterImage;
         [SerializeField] private TMP_Text titleText;
@@ -38,6 +39,27 @@ public class BountySelectionUI : MonoBehaviour
 
             SetTitle(string.Empty);
             SetDescription(string.Empty);
+        }
+
+        public void SetVisible(bool visible)
+        {
+            SetSlotActive(visible);
+            SetObjectVisible(posterButton != null ? posterButton.gameObject : null, visible);
+            SetObjectVisible(posterImage != null ? posterImage.gameObject : null, visible);
+            SetObjectVisible(titleText != null ? titleText.gameObject : null, visible);
+            SetObjectVisible(descriptionText != null ? descriptionText.gameObject : null, visible);
+            SetObjectVisible(legacyTitleText != null ? legacyTitleText.gameObject : null, visible);
+            SetObjectVisible(legacyDescriptionText != null ? legacyDescriptionText.gameObject : null, visible);
+            SetObjectVisible(bountyAmount != null ? bountyAmount.gameObject : null, visible);
+        }
+
+        public void SetSlotActive(bool active)
+        {
+            GameObject root = GetSlotRoot();
+            if (root != null)
+            {
+                root.SetActive(active);
+            }
         }
 
         public void Bind(BountyData bounty, UnityEngine.Events.UnityAction onSelected)
@@ -103,6 +125,48 @@ public class BountySelectionUI : MonoBehaviour
             {
                 bountyAmount.text = bountyVal + " Credits";
             }
+        }
+
+        private void SetObjectVisible(GameObject target, bool visible)
+        {
+            if (target != null)
+            {
+                target.SetActive(visible);
+            }
+        }
+
+        private GameObject GetSlotRoot()
+        {
+            if (slotRoot != null)
+            {
+                return slotRoot;
+            }
+
+            Transform current = GetAnySlotTransform();
+            while (current != null)
+            {
+                if (current.name.StartsWith("PosterSlot"))
+                {
+                    slotRoot = current.gameObject;
+                    return slotRoot;
+                }
+
+                current = current.parent;
+            }
+
+            return null;
+        }
+
+        private Transform GetAnySlotTransform()
+        {
+            if (posterButton != null) return posterButton.transform;
+            if (posterImage != null) return posterImage.transform;
+            if (titleText != null) return titleText.transform;
+            if (descriptionText != null) return descriptionText.transform;
+            if (legacyTitleText != null) return legacyTitleText.transform;
+            if (legacyDescriptionText != null) return legacyDescriptionText.transform;
+            if (bountyAmount != null) return bountyAmount.transform;
+            return null;
         }
     }
 
@@ -178,8 +242,15 @@ public class BountySelectionUI : MonoBehaviour
 
     private void RefreshOffers()
     {
-        SetHeader(openingHeader);
         SetPanelVisible(true);
+
+        if (GameManager.Instance != null && GameManager.Instance.IsFinalFloor())
+        {
+            RefreshFinalBossOffer();
+            return;
+        }
+
+        SetHeader(openingHeader);
 
         BountyData[] offeredBounties = GameManager.Instance != null
             ? GameManager.Instance.GetOfferedBounties()
@@ -194,8 +265,41 @@ public class BountySelectionUI : MonoBehaviour
 
             if (i < offeredBounties.Length && offeredBounties[i] != null)
             {
+                posterSlots[i].SetSlotActive(true);
+                posterSlots[i].SetVisible(true);
                 BountyData selectedBounty = offeredBounties[i];
                 posterSlots[i].Bind(selectedBounty, () => SelectBounty(selectedBounty));
+            }
+            else
+            {
+                posterSlots[i].SetSlotActive(true);
+                posterSlots[i].SetVisible(true);
+                posterSlots[i].Clear();
+            }
+        }
+    }
+
+    private void RefreshFinalBossOffer()
+    {
+        SetHeader("Choose Your Final Bounty");
+
+        int centerSlotIndex = posterSlots.Length / 2;
+        BountyData finalBossBounty = GameManager.Instance.GetFinalBossBounty();
+
+        for (int i = 0; i < posterSlots.Length; i++)
+        {
+            if (posterSlots[i] == null)
+            {
+                continue;
+            }
+
+            bool isCenterSlot = i == centerSlotIndex;
+            posterSlots[i].SetSlotActive(isCenterSlot);
+
+            if (isCenterSlot)
+            {
+                posterSlots[i].SetVisible(true);
+                posterSlots[i].Bind(finalBossBounty, () => SelectFinalBoss(finalBossBounty));
             }
             else
             {
@@ -219,6 +323,24 @@ public class BountySelectionUI : MonoBehaviour
 
         selectionInProgress = true;
         GameManager.Instance.SelectOpeningBounty(bounty);
+        StartCoroutine(LoadNextSceneAfterDelay());
+    }
+
+    private void SelectFinalBoss(BountyData bounty)
+    {
+        if (selectionInProgress)
+        {
+            return;
+        }
+
+        if (GameManager.Instance == null || bounty == null)
+        {
+            Debug.Log("No final boss bounty");
+            return;
+        }
+
+        selectionInProgress = true;
+        GameManager.Instance.SelectFinalBoss(bounty);
         StartCoroutine(LoadNextSceneAfterDelay());
     }
 

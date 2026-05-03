@@ -1360,12 +1360,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 08975fa7265a1a447a235b746d47460f, type: 2}
   - {fileID: 11400000, guid: 8243d8c848c0da94e96087896b93bc77, type: 2}
   offeredBountyCount: 3
+  finalBossBounty: {fileID: 11400000, guid: 2f0f4f3d72015a947a7d6e24f2b6b4fd, type: 2}
   startingMaxHealth: 100
   startingHealth: 100
   startingMaxStamina: 10
   startingStamina: 10
   startingDamageMultiplier: 1
   currentFloor: 1
+  finalFloor: 5
   minibossFloor: 6
 --- !u!114 &1673416315
 MonoBehaviour:

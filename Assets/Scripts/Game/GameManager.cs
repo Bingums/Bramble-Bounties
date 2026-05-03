@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Bounties")] [SerializeField] private BountyData[] availableBounties;
     [SerializeField] private int offeredBountyCount = 3;
+    [SerializeField] private BountyData finalBossBounty;
 
     [Header("Player Stats")] [SerializeField]
     private float startingMaxHealth = 100f;
@@ -31,13 +32,16 @@ public class GameManager : MonoBehaviour
     [Header("Run Progress")] [SerializeField]
     private int currentFloor = 1;
 
+    [SerializeField] private int finalFloor = 5;
     [SerializeField] private int minibossFloor = 6;
     
     public BountyRunState BountyRunState { get; private set; }
     public PlayerState PlayerState { get; private set; }
     public int CurrentFloor => currentFloor;
+    public int FinalFloor => finalFloor;
     public int MinibossFloor => minibossFloor;
     public int Score { get; private set; }
+    public int HighScore { get; private set; } = 0;
     
     public event Action<int> OnScoreChanged;
     public event Action OnBountyOfferChanged;
@@ -170,7 +174,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         
-        BountyRunState.SelectFinalBoss(bounty);
+        BountyRunState.SelectFinalBoss(bounty, IsFinalFloor());
         OnFinalBossSelected?.Invoke(bounty);
     }
 
@@ -184,6 +188,11 @@ public class GameManager : MonoBehaviour
         return currentFloor == minibossFloor;
     }
 
+    public bool IsFinalFloor()
+    {
+        return currentFloor == finalFloor;
+    }
+
     public bool IsFinalBossUnlocked()
     {
         return BountyRunState != null && BountyRunState.FinalBossUnlocked;
@@ -194,6 +203,49 @@ public class GameManager : MonoBehaviour
         return BountyRunState != null ? BountyRunState.SelectedBounty : null;
     }
 
+    public BountyData GetSelectedFinalBoss()
+    {
+        return BountyRunState != null ? BountyRunState.SelectedFinalBoss : null;
+    }
+
+    public BountyData GetActiveBounty()
+    {
+        if (BountyRunState == null)
+        {
+            return null;
+        }
+
+        if (IsFinalFloor() && BountyRunState.SelectedFinalBoss != null)
+        {
+            return BountyRunState.SelectedFinalBoss;
+        }
+
+        return BountyRunState.SelectedBounty;
+    }
+
+    public BountyData GetFinalBossBounty()
+    {
+        if (finalBossBounty != null)
+        {
+            return finalBossBounty;
+        }
+
+        if (availableBounties == null)
+        {
+            return null;
+        }
+
+        foreach (BountyData bounty in availableBounties)
+        {
+            if (bounty != null && bounty.BountyId == "final")
+            {
+                return bounty;
+            }
+        }
+
+        return null;
+    }
+
     public BountyData[] GetOfferedBounties()
     {
         return BountyRunState != null ? BountyRunState.OfferedBounties : Array.Empty<BountyData>();
@@ -202,6 +254,12 @@ public class GameManager : MonoBehaviour
     public void AdvanceFloor()
     {
         currentFloor++;
+    }
+
+    public void DebugSetCurrentFloor(int floor)
+    {
+        currentFloor = Mathf.Max(1, floor);
+        GenerateBountyOffers();
     }
 
     public void SetGameState(GameState newState)
@@ -222,6 +280,7 @@ public class GameManager : MonoBehaviour
     public void AddScore(int points)
     {
         Score += points;
+        HighScore = Math.Max(Score, HighScore);
         OnScoreChanged?.Invoke(Score);
     }
 
