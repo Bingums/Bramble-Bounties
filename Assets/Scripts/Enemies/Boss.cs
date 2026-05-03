@@ -12,8 +12,6 @@ public class Boss : EnemyController
     private bool playerContactFlag = false;
     
     private float timer = 0;
-    
-    Vector2 chargeVect;
 
     //Shooting Var
     public float firingDistance;
