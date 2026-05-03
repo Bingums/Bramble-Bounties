@@ -423,9 +423,30 @@ MonoBehaviour:
   scoreValue: 5000
   enemyType: 1
   firingDistance: 7
+  minimumDistance: 3.5
+  shotCooldown: 0.5
+  shootWhileRetreating: 1
   bullet: {fileID: 1826858624649344573, guid: ad5430a36f7353046b0b05cd8ef682ad, type: 3}
   bulletSpawnPoint: {fileID: 1092703052565599371}
   plasmaGunSFX: {fileID: 8300000, guid: 63afd0c5294c4a24ea8639e0e5402c5b, type: 3}
+  approachSpeed: 2
+  retreatSpeed: 2
+  wallCheckDistance: 0.75
+  wallCheckRadius: 0.25
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+  minionPrefabs:
+  - {fileID: 6561241342260376408, guid: 064b5e5ca62fa3b4d92866479bcda790, type: 3}
+  minionSpawnPoints:
+  - {fileID: 183589325381871372}
+  - {fileID: 7813327870363707171}
+  - {fileID: 5357119457463558292}
+  - {fileID: 7230520279399648700}
+  summonCooldown: 8
+  minionsPerSummon: 2
+  summonDuration: 0.75
+  canShootWhileSummoning: 0
 --- !u!50 &3029671176371166008
 Rigidbody2D:
   serializedVersion: 5
