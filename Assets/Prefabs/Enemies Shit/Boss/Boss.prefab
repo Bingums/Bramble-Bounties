@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3198600834382446584}
   - component: {fileID: -7233342197036320903}
   - component: {fileID: 1187135981727212068}
+  - component: {fileID: 5010925199621743688}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Enemy
@@ -110,12 +111,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dc23cf9dd69475469ebb21d8dd0c0e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss
-  baseMaxHealth: 150
+  baseMaxHealth: 2000
   baseAttack: 8
   baseMoveSpeed: 0
   baseBulletSpeed: 8
   baseRange: 10
-  scoreValue: 10
+  scoreValue: 8000
   enemyType: 1
   gunfireSFX: {fileID: 8300000, guid: 8d4e68f10416432408671d9884fe2488, type: 3}
   SlamSFX: {fileID: 8300000, guid: 7ba33b683c83bef499ea50f71bd1e0b0, type: 3}
@@ -134,12 +135,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c197aa958f1a248b5dbf873e56a4a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
-  baseMaxHealth: 150
+  baseMaxHealth: 2000
   baseAttack: 8
   baseMoveSpeed: 0
   baseBulletSpeed: 8
   baseRange: 15
-  scoreValue: 10000
+  scoreValue: 8000
   enemyType: 1
 --- !u!50 &4006940035938781656
 Rigidbody2D:
@@ -408,6 +409,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &5010925199621743688
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3602795139601454188}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 467eab3ee0ee1154bac45a60efa6d5c1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6894384850830206945
 GameObject:
   m_ObjectHideFlags: 0

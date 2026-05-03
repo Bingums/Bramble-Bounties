@@ -121,15 +121,7 @@ public class EnemyController : MonoBehaviour, IDamageable
         //Debug.Log($"{name} took {damage} damage. HP: {currentHealth}");
         if (currentHealth <= 0)
         {
-            if(this is Boss)
-            {
-                Defeat();
-                hc.Victory();
-            }
-            else
-            {
-                Defeat();
-            }
+            Defeat();
         }
     }
 

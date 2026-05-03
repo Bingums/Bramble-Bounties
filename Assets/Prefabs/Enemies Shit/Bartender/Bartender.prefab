@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5296877989780711091}
   - component: {fileID: 5969925574529226807}
   - component: {fileID: 7152724595991077749}
+  - component: {fileID: 8557263731754326368}
   m_Layer: 0
   m_Name: Bartender
   m_TagString: Bartender
@@ -108,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c202b4828c4de3f479f3099d8a29b01d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bartender
-  baseMaxHealth: 100
+  baseMaxHealth: 250
   baseAttack: 6
   baseMoveSpeed: 0
   baseBulletSpeed: 0
@@ -131,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c197aa958f1a248b5dbf873e56a4a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  baseMaxHealth: 100
+  baseMaxHealth: 250
   baseAttack: 6
   baseMoveSpeed: 0
   baseBulletSpeed: 0
@@ -211,6 +212,28 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &8557263731754326368
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461751865378642930}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6499b96059203a74aa04f7e96cfbdd37, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1432595443831598072
 GameObject:
   m_ObjectHideFlags: 0

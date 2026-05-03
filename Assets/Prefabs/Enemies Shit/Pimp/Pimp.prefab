@@ -396,12 +396,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c197aa958f1a248b5dbf873e56a4a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
-  baseMaxHealth: 80
+  baseMaxHealth: 150
   baseAttack: 6
   baseMoveSpeed: 3
   baseBulletSpeed: 5
   baseRange: 10
-  scoreValue: 5000
+  scoreValue: 1500
   enemyType: 1
 --- !u!114 &4372097746081816739
 MonoBehaviour:
@@ -415,12 +415,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ace7685c45f3843ad07646fce727f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pimp
-  baseMaxHealth: 80
+  baseMaxHealth: 150
   baseAttack: 6
   baseMoveSpeed: 3
   baseBulletSpeed: 5
   baseRange: 10
-  scoreValue: 5000
+  scoreValue: 1500
   enemyType: 1
   firingDistance: 7
   minimumDistance: 3.5

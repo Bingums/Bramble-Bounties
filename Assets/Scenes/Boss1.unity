@@ -420,7 +420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 735633528722614961, guid: a9273f75a7832c5488ec0f7aaad3dd04, type: 3}
       propertyPath: roomsToCreate
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 735633528722614961, guid: a9273f75a7832c5488ec0f7aaad3dd04, type: 3}
       propertyPath: bossRoom.prefab

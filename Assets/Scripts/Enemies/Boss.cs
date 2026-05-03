@@ -53,14 +53,14 @@ public class Boss : EnemyController
                 if(timer < .35f){
                     moveSpeed = 2;
                     moveDirection = (target.position - transform.position).normalized;
-                    rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
+                    rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
                 }else if(timer < 2){
                     moveSpeed = 10;
-                    rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed ;
+                    rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed ;
 
                 }else{
                     moveSpeed = 0;
-                    rb.velocity = new Vector3(moveDirection.x, moveDirection.y, 0) * moveSpeed ;
+                    rb.linearVelocity = new Vector3(moveDirection.x, moveDirection.y, 0) * moveSpeed ;
                     randAttack = -1;
                     timer = 0;
 
@@ -79,7 +79,7 @@ public class Boss : EnemyController
             }else{//Boss moves towards the player like a sort of cooldown I guess idk
                 moveSpeed = 2;
                 moveDirection = (target.position - transform.position).normalized;
-                rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed; 
+                rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed; 
                 timer += Time.deltaTime;
                 if(timer > 3) 
                 {

@@ -360,6 +360,10 @@ PrefabInstance:
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 735633528722614961, guid: a9273f75a7832c5488ec0f7aaad3dd04, type: 3}
+      propertyPath: roomsToCreate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 735633528722614961, guid: a9273f75a7832c5488ec0f7aaad3dd04, type: 3}
       propertyPath: bossRoom.prefab
       value: 
       objectReference: {fileID: 4729283960323317606, guid: e2c200f2f01d43f4ba9366ae5a873f64, type: 3}

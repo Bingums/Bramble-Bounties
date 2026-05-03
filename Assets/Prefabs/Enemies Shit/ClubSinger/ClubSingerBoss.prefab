@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e15c835b720d86b48b11d8e3aa98b683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClubSinger
-  baseMaxHealth: 100
+  baseMaxHealth: 500
   baseAttack: 10
   baseMoveSpeed: 3
   baseBulletSpeed: 0
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c197aa958f1a248b5dbf873e56a4a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  baseMaxHealth: 100
+  baseMaxHealth: 500
   baseAttack: 10
   baseMoveSpeed: 3
   baseBulletSpeed: 0
