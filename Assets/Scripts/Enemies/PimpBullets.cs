@@ -30,7 +30,7 @@ public class PimpBullet : MonoBehaviour
         else if(collision.CompareTag("Player")) //|| collision.CompareTag("Enemy"))
         {
             
-            collision.GetComponent<playerHealth>().playerDamage(10);
+            collision.GetComponent<PlayerState>().TakeDamage(6);
             Destroy(gameObject);
         }
     }

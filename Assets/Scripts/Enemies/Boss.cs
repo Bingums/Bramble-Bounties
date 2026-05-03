@@ -57,7 +57,6 @@ public class Boss : EnemyController
                     rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
                 }else if(timer > -2){
                     moveSpeed = 10;
-                    Debug.Log("CHARGE");
                     rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed ;
 
                 }else{
@@ -105,7 +104,7 @@ public class Boss : EnemyController
             
         GameObject player = GameObject.Find("player");
         if(collision.tag == "Player"){
-            collision.GetComponent<playerHealth>().playerDamage(attack);
+            collision.GetComponent<PlayerState>().TakeDamage(attack);
             audioSource.PlayOneShot(SlamSFX);
         }
     }

@@ -6,12 +6,10 @@ public class SingerAOE : MonoBehaviour
     
 
     void OnTriggerEnter2D(Collider2D collision){
-            
-        GameObject player = GameObject.Find("player");
         if(collision.tag == "Player"){
-            playerHealth other = GameObject.FindGameObjectWithTag("Player").GetComponent<playerHealth>();
-            other.playerDamage(10);
+            collision.GetComponent<PlayerState>().TakeDamage(12);
         }
+         
     }
     
 }

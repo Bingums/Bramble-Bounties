@@ -36,7 +36,7 @@ public class BartenderBullet : MonoBehaviour
         else if(collision.CompareTag("Player")) //|| collision.CompareTag("Enemy"))
         {
             
-            collision.GetComponent<playerHealth>().playerDamage(6);
+            collision.GetComponent<PlayerState>().TakeDamage(6);
             Destroy(gameObject);
         }
         else if(collision.CompareTag("Puddle")){
