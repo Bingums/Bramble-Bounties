@@ -86,7 +86,7 @@ public class EnemyController : MonoBehaviour, IDamageable
         if (isDefeated)
             return;
         
-        Debug.Log("START - Velocity: " + (moveDirection * moveSpeed) + " | MoveDir: " + moveDirection + " | Speed: " + moveSpeed);
+        //Debug.Log("START - Velocity: " + (moveDirection * moveSpeed) + " | MoveDir: " + moveDirection + " | Speed: " + moveSpeed);
         
         if(enemyType == 1){
             rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
@@ -96,7 +96,7 @@ public class EnemyController : MonoBehaviour, IDamageable
             rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
         }
         
-        Debug.Log("END - Velocity: " + (moveDirection * moveSpeed) + " | MoveDir: " + moveDirection + " | Speed: " + moveSpeed);
+        //Debug.Log("END - Velocity: " + (moveDirection * moveSpeed) + " | MoveDir: " + moveDirection + " | Speed: " + moveSpeed);
     }
     
     public void ScaleStats(float healthMultiplier, float attackMultiplier, float moveSpeedMultiplier)
