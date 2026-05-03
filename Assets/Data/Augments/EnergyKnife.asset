@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AugmentData
   augmentSprite: {fileID: 7936281995712390856, guid: 4ebba415b1eab8c4e804c168d0f43b5a, type: 3}
   augmentColor: {r: 0, g: 0, b: 0, a: 0}
-  augmentName: Energized Knife
-  description: DAGGER ONLY - Hit harder and faster!
+  augmentName: Energized Blade
+  description: Swing melee weapons harder and faster!
   rarity: 2
   statModifiers:
   - statType: 4
@@ -24,5 +24,5 @@ MonoBehaviour:
   - statType: 8
     changeType: 1
     changeValue: 0.5
-  weaponType: 7
+  weaponType: 2
   pickupPrefab: {fileID: 3453346437852174729, guid: 05a921865acb57146ae69b966b6a68db, type: 3}

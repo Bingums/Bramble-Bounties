@@ -22,7 +22,7 @@ MonoBehaviour:
     changeType: 1
     changeValue: 3
   - statType: 2
-    changeType: 1
-    changeValue: 2
+    changeType: 0
+    changeValue: 1
   weaponType: 1
   pickupPrefab: {fileID: 4934507992099786863, guid: 1f48aca22fec583448503a26ee251491, type: 3}

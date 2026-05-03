@@ -15,11 +15,11 @@ MonoBehaviour:
   augmentSprite: {fileID: -8358845763080026449, guid: 4ebba415b1eab8c4e804c168d0f43b5a, type: 3}
   augmentColor: {r: 0, g: 0, b: 0, a: 0}
   augmentName: Infinity
-  description: Ammo is no longer consumed
+  description: REVOLVER ONLY - Ammo is no longer consumed
   rarity: 4
   statModifiers:
   - statType: 2
     changeType: 1
     changeValue: 0
-  weaponType: 1
+  weaponType: 3
   pickupPrefab: {fileID: 3798962363573534520, guid: b5a3b83c1e0f5434285f1b7fa06b8888, type: 3}

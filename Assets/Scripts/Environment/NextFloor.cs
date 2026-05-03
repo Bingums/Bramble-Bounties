@@ -2,10 +2,8 @@ using UnityEngine;
 
 public class NextFloor : MonoBehaviour
 {
-
-    [SerializeField] private Room room;
-
-    public string nextScene;
+    [SerializeField]
+    private Room room;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,11 +19,19 @@ public class NextFloor : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("player touched");
+        Debug.Log("player touched goal");
         if (!Application.isPlaying) return;
         if (other.CompareTag("Player"))
         {
-            GameManager.Instance.LoadScene("Bounty Testing");
+            if (GameManager.Instance.CurrentFloor < 5)
+            {
+                GameManager.Instance.AdvanceFloor();
+                GameManager.Instance.LoadScene("Bounty Testing");
+            }
+            else
+            {
+                GameManager.Instance.LoadScene("VICTORY");
+            }
         }
     }
 }

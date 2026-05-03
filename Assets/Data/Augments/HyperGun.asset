@@ -15,7 +15,7 @@ MonoBehaviour:
   augmentSprite: {fileID: 772515850780348082, guid: 4ebba415b1eab8c4e804c168d0f43b5a, type: 3}
   augmentColor: {r: 0, g: 0, b: 0, a: 0}
   augmentName: Hypercharged Rifle
-  description: AR ONLY - Extremely powerful, but takes forever to reload
+  description: AR ONLY - Extremely powerful, but takes much longer to reload
   rarity: 4
   statModifiers:
   - statType: 4
@@ -23,7 +23,7 @@ MonoBehaviour:
     changeValue: 3
   - statType: 8
     changeType: 1
-    changeValue: 0.1
+    changeValue: 0.5
   - statType: 0
     changeType: 0
     changeValue: 50
@@ -32,6 +32,6 @@ MonoBehaviour:
     changeValue: 50
   - statType: 9
     changeType: 1
-    changeValue: 5
+    changeValue: 2
   weaponType: 6
   pickupPrefab: {fileID: 7114126928779656943, guid: b013061247cc123498b2d7fd3ff8f051, type: 3}
