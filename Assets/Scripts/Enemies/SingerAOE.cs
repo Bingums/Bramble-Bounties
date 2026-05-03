@@ -2,9 +2,12 @@ using UnityEngine;
 public class SingerAOE : MonoBehaviour
 {
     [SerializeField] private int damage = 12;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    //private int damage;
     
+    // public void InitializeDamage(int attack)
+    // {
+    //     damage = attack;
+    // }
 
     void OnTriggerEnter2D(Collider2D collision){
         if(collision.tag == "Player"){

@@ -113,13 +113,12 @@ MonoBehaviour:
   baseMoveSpeed: 0
   baseBulletSpeed: 0
   baseRange: 0
-  scoreValue: 50000
+  scoreValue: 2500
   enemyType: 1
   spawnPoint: {fileID: 5895591539706226537}
   bottle: {fileID: 479583595434965996, guid: 4e4ff88dd4a19ca42b8c22d0c2de0ba5, type: 3}
   maxShotBottleTimer: 0.75
   bullet: {fileID: 1307451219149183941, guid: b50e82ba3cab35f458d7dd7a60746190, type: 3}
-  scoreValue: 100
 --- !u!114 &5296877989780711091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,7 +136,7 @@ MonoBehaviour:
   baseMoveSpeed: 0
   baseBulletSpeed: 0
   baseRange: 0
-  scoreValue: 50000
+  scoreValue: 2500
   enemyType: 1
 --- !u!61 &5969925574529226807
 BoxCollider2D:

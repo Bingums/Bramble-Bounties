@@ -13,7 +13,6 @@ public class playerCombat : MonoBehaviour
 
     public WeaponData weapon;
     private playerController pc;
-    private playerStats stats;
     public GameObject bullet;
     private float lastAttackTime;
     private int attackLayerIndex = -1;
@@ -30,7 +29,6 @@ public class playerCombat : MonoBehaviour
 
     void Start()
     {
-        stats = GetComponent<playerStats>();
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         attackLayerIndex = animator.GetLayerIndex(AttackLayerName);
@@ -149,7 +147,7 @@ public class playerCombat : MonoBehaviour
     private int calculateDamage()
     {
         float damage = weapon.damage;
-        damage *= stats.damageMultiplier;
+        damage *= GameManager.Instance.PlayerState.DamageMultiplier;
         
         // grab augmented data to perform calcs & rng
 

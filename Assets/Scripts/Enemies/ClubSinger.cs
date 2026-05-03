@@ -9,26 +9,19 @@ public class ClubSinger : EnemyController
 
     float aoeWarningTime = 2;
     float aoeTimer = 2;
-
+    
     float attackTime = 1;
 
     bool aoeAttackFlag = false;
     int speed = 2;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    
+    protected override void Start()
     {
+        scoreValue = 5000;
         //audioSource = GetComponent<AudioSource>();
     }
-
-    void Awake()
-    {
-        base.Awake();
-        scoreValue = 5000;
-    }
-
-    // Update is called once per frame
-    void Update()
+    
+    protected override void Update()
     {
         GameObject aoeAttack = GameObject.Find("AOE Attack");
         GameObject warning = GameObject.Find("Warning");
@@ -72,9 +65,5 @@ public class ClubSinger : EnemyController
                 return;
             }
         }
-    }
-
-    public int getAttack(){
-        return attack;
     }
 }

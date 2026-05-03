@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2651594813180246463}
   - component: {fileID: 4173866292093454672}
-  - component: {fileID: 1649503950929758712}
   - component: {fileID: 5160748395871688568}
   - component: {fileID: 7240911187281872694}
   - component: {fileID: 644854115373824457}
   - component: {fileID: 912193859629348609}
+  - component: {fileID: -5230321668227269385}
   m_Layer: 0
   m_Name: ClubSingerBoss
   m_TagString: Enemy
@@ -98,20 +98,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &1649503950929758712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3891135691327597449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b73ba875bd673c248b7488bdd09b92d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
-  moveSpeed: 2
-  distance: 0
 --- !u!114 &5160748395871688568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,7 +120,6 @@ MonoBehaviour:
   warningSFX: {fileID: 8300000, guid: aa8aed665217d4b4a8416c0a4570c19f, type: 3}
   aoeStartSFX: {fileID: 8300000, guid: 3bd40b8ce980af142b1677734c5fa91b, type: 3}
   idleSFX: {fileID: 8300000, guid: 249fd1008d393eb45a6befa7eeeda3a9, type: 3}
-  scoreValue: 5000
 --- !u!114 &7240911187281872694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,6 +203,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-5230321668227269385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3891135691327597449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b73ba875bd673c248b7488bdd09b92d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
+  moveSpeed: 2
+  distance: 0
 --- !u!1 &5483643462190690554
 GameObject:
   m_ObjectHideFlags: 0

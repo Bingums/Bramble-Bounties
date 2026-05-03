@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Bartender : EnemyController
 {
-    Transform target;
     public Transform spawnPoint;
 
     private Vector3[] bottleLocations; 
@@ -22,20 +21,17 @@ public class Bartender : EnemyController
     private Vector2 playerLocation;
 
     private float attackCoolDown = 3;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    
+    protected override void Start()
     {
-        target = GameObject.Find("player").transform;
+        base.Start();
+        playerLocation = new Vector2(target.position.x, target.position.y);
         bottleLocations = new Vector3[6];
         shotBottleTimer = maxShotBottleTimer;
-        
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    protected override void Update()
     {
-        playerLocation = new Vector2(target.position.x, target.position.y);
         if(playerLocation.x < 25 && playerLocation.y < 25){
             throwBottleTime -= Time.deltaTime;
 
@@ -74,11 +70,12 @@ public class Bartender : EnemyController
 
     void ThrowBottle(){
         GameObject bottleObj = Instantiate(bottle, spawnPoint.transform.position, spawnPoint.transform.rotation) as GameObject;
-
+        
     }
 
     void ShootBottle(){
         GameObject bulletObj = Instantiate(bullet, spawnPoint.transform.position, spawnPoint.transform.rotation) as GameObject;
+        
     }
     
     public Vector3 getLocation(){

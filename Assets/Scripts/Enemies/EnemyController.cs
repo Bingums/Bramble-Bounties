@@ -20,17 +20,19 @@ public class EnemyController : MonoBehaviour, IDamageable
 
     protected float distance;
     protected Rigidbody2D rb;
+    protected Animator animator;
     protected Transform target;
     protected Vector2 moveDirection;
     private bool isDefeated;
 
     public int scoreValue = 10;
     public int enemyType;
-    
 
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator  = GetComponent<Animator>();
+        
         maxHealth = baseMaxHealth;
         currentHealth = maxHealth;
         attack = baseAttack;
@@ -64,8 +66,6 @@ public class EnemyController : MonoBehaviour, IDamageable
             rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
     }
     
-    //protected virtual void Attack() { }
-    
     public void ScaleStats(float healthMultiplier, float attackMultiplier, float moveSpeedMultiplier)
     {
         maxHealth = Mathf.RoundToInt(baseMaxHealth * healthMultiplier);
@@ -85,7 +85,7 @@ public class EnemyController : MonoBehaviour, IDamageable
         Debug.Log($"{name} took {damage} damage. HP: {currentHealth}");
         if (currentHealth <= 0)
         {
-              if(this is Boss)
+            if(this is Boss)
             {
                 Defeat();
                 FindFirstObjectByType<PauseMenu>().Victory();
@@ -94,9 +94,6 @@ public class EnemyController : MonoBehaviour, IDamageable
             {
                 Defeat();
             }
-
-          
-
         }
     }
 
