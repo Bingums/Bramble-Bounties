@@ -12,7 +12,6 @@ public class playerHealth : MonoBehaviour
         if(health <= 0){
             //To add a animation call a new method and call destroy there
             FindFirstObjectByType<PauseMenu>().GameOver();
-           Destroy(gameObject);
         }
     }
 }
