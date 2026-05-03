@@ -28,7 +28,7 @@ public class EnemyBullet : MonoBehaviour
         } // damages player and enemies (bullets spawns in shooter, need to change)
         else if(collision.CompareTag("Player")) //|| collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<playerController>().TakeDamage(attack);
+            collision.GetComponent<playerController>().TakeDamage(damage);
             Destroy(gameObject);
         }
     }
