@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using Combat;
+using Random = UnityEngine.Random;
 
 public class EnemyController : MonoBehaviour, IDamageable
 {
@@ -31,6 +33,13 @@ public class EnemyController : MonoBehaviour, IDamageable
     
     protected HUDController hc;
 
+    public event Action<EnemyController> OnHealthInitialized;
+    public event Action<EnemyController, int, int> OnHealthChanged;
+    public event Action<EnemyController> OnDefeated;
+    
+    public int CurrentHealth => currentHealth;
+    public int MaxHealth => maxHealth;
+
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -43,6 +52,9 @@ public class EnemyController : MonoBehaviour, IDamageable
         moveSpeed = baseMoveSpeed;
         bulletSpeed = baseBulletSpeed;
         range = baseRange;
+
+        OnHealthInitialized?.Invoke(this);
+        OnHealthChanged?.Invoke(this, currentHealth, maxHealth);
     }
     
     protected virtual void Start()
@@ -93,6 +105,8 @@ public class EnemyController : MonoBehaviour, IDamageable
         currentHealth = maxHealth;
         attack = Mathf.RoundToInt(baseAttack * attackMultiplier);
         moveSpeed = baseMoveSpeed * moveSpeedMultiplier;
+        
+        OnHealthChanged?.Invoke(this,  currentHealth, maxHealth);
     }
 
     public void TakeDamage(int damage)
@@ -103,6 +117,7 @@ public class EnemyController : MonoBehaviour, IDamageable
         }
 
         currentHealth -= damage;
+        OnHealthChanged?.Invoke(this, currentHealth, maxHealth);
         //Debug.Log($"{name} took {damage} damage. HP: {currentHealth}");
         if (currentHealth <= 0)
         {
@@ -126,6 +141,7 @@ public class EnemyController : MonoBehaviour, IDamageable
         }
 
         isDefeated = true;
+        OnDefeated?.Invoke(this);
 
         Room currentRoom = EnemySpawnManager.Instance != null ? EnemySpawnManager.Instance.GetCurrentRoom() : null;
         if (currentRoom != null)

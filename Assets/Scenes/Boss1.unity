@@ -3070,8 +3070,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 759893284}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+      - m_Target: {fileID: 1365404943}
+        m_TargetAssemblyTypeName: HUDController, Assembly-CSharp
         m_MethodName: QuitToTitle
         m_Mode: 1
         m_Arguments:
@@ -3665,8 +3665,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 759893284}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+      - m_Target: {fileID: 1365404943}
+        m_TargetAssemblyTypeName: HUDController, Assembly-CSharp
         m_MethodName: QuitToTitle
         m_Mode: 1
         m_Arguments:

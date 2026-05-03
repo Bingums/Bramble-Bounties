@@ -121,8 +121,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+      - m_Target: {fileID: 4809942133848711512}
+        m_TargetAssemblyTypeName: GameOverPanelController, Assembly-CSharp
         m_MethodName: QuitToTitle
         m_Mode: 1
         m_Arguments:
@@ -419,6 +419,7 @@ GameObject:
   - component: {fileID: 2780612550736764032}
   - component: {fileID: 1651952253375092238}
   - component: {fileID: 7139047454127481195}
+  - component: {fileID: 4809942133848711512}
   m_Layer: 0
   m_Name: GameOverPanel
   m_TagString: Untagged
@@ -510,3 +511,15 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4809942133848711512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3822870208371867819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a614f6f5ad84dc8a6fa0a2d3fa7f6f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameOverPanelController

@@ -57,21 +57,31 @@ public class SceneFade : MonoBehaviour
 
     public IEnumerator FadeInCoroutine(float duration)
     {
+        Debug.Log(sceneFadeImage.color.a);
         gameObject.SetActive(true);
+        sceneFadeImage.raycastTarget = false;
 
+        Debug.Log("Point 2");
         if (sceneFadeImage != null)
         {
             sceneFadeImage.raycastTarget = true;
         }
         
+        
+        Debug.Log("Point 3");
         Color startColor = new Color(sceneFadeImage.color.r, sceneFadeImage.color.g, sceneFadeImage.color.b, 1);
         Color targetColor = new Color(sceneFadeImage.color.r, sceneFadeImage.color.g, sceneFadeImage.color.b, 0);
         
+        
+        Debug.Log ("Point 4");
         yield return FadeCoroutine(startColor, targetColor, duration);
 
+        Debug.Log ("Point 5");
         sceneFadeImage.color = targetColor;
         sceneFadeImage.raycastTarget = false;
+        Debug.Log("Point 6");
         gameObject.SetActive(false);
+        Debug.Log("Point 7");
     }
 
     public IEnumerator FadeOutCoroutine(float duration)

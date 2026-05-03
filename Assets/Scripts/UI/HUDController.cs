@@ -11,6 +11,8 @@ public class HUDController : MonoBehaviour
     [Header("Bar Fills")]
     [SerializeField] private Image healthFill;
     [SerializeField] private Image staminaFill;
+    [SerializeField] private GameObject bossHealthRoot;
+    [SerializeField] private Image bossHealthFill;
 
     [Header("Weapon UI")]
     [SerializeField] private Image weaponIcon;
@@ -56,6 +58,8 @@ public class HUDController : MonoBehaviour
     private playerCombat combatScript;
     public EquipSlot[] equippedSlots;
     public AugmentSlot[] inventorySlots;
+    private EnemyController trackedBoss;
+    private Coroutine bossHealthIntroRoutine;
 
     private bool menuOpen = false;
     private bool isPaused = false;
@@ -69,6 +73,7 @@ public class HUDController : MonoBehaviour
     {
         UnbindState();
         UnbindPlayer();
+        HideBossHealth();
         displayedWeapon = null;
     }
     
@@ -79,6 +84,7 @@ public class HUDController : MonoBehaviour
         curAmmoText.gameObject.SetActive(false);
         ammoReservesText.gameObject.SetActive(false);
         noAmmoText.gameObject.SetActive(false);
+        bossHealthRoot.SetActive(false);
         
         fullInventoryText.gameObject.SetActive(false);
         augmentMenu.gameObject.SetActive(false);
@@ -344,6 +350,92 @@ public class HUDController : MonoBehaviour
 
         UpdateWeaponIcon(iconSource);
     }
+
+    public void ShowBossHealth(EnemyController boss)
+    {
+        if (trackedBoss != null)
+        {
+            trackedBoss.OnHealthChanged -= HandleBossHealthChanged;
+            trackedBoss.OnDefeated -= HandleBossDefeated;
+        }
+        
+        trackedBoss = boss;
+
+        bossHealthRoot.SetActive(true);
+
+        trackedBoss.OnHealthChanged += HandleBossHealthChanged;
+        trackedBoss.OnDefeated += HandleBossDefeated;
+
+        if (bossHealthIntroRoutine != null)
+        {
+            StopCoroutine(bossHealthIntroRoutine);
+        }
+
+        bossHealthIntroRoutine = StartCoroutine(FillBossHealthIntro(
+            trackedBoss.CurrentHealth,
+            trackedBoss.MaxHealth
+        ));
+    }
+
+    private void HandleBossHealthChanged(EnemyController boss, int currentHealth, int maxHealth)
+    {
+        if (bossHealthIntroRoutine != null)
+        {
+            StopCoroutine(bossHealthIntroRoutine);
+            bossHealthIntroRoutine = null;
+        }
+
+        bossHealthFill.fillAmount = maxHealth > 0
+            ? (float)currentHealth / maxHealth
+            : 0f;
+    }
+
+    private void HandleBossDefeated(EnemyController boss)
+    {
+        HideBossHealth();
+    }
+
+    private void HideBossHealth()
+    {
+        if (bossHealthIntroRoutine != null)
+        {
+            StopCoroutine(bossHealthIntroRoutine);
+            bossHealthIntroRoutine = null;
+        }
+
+        if (trackedBoss != null)
+        {
+            trackedBoss.OnHealthChanged -= HandleBossHealthChanged;
+            trackedBoss.OnDefeated -= HandleBossDefeated;
+            trackedBoss = null;
+        }
+        
+        bossHealthRoot.SetActive(false);
+    }
+
+    private IEnumerator FillBossHealthIntro(int currentHealth, int maxHealth)
+    {
+        float targetFill = maxHealth > 0
+            ? (float)currentHealth / maxHealth
+            : 0f;
+
+        float duration = 0.75f;
+        float elapsed = 0f;
+
+        bossHealthFill.fillAmount = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            bossHealthFill.fillAmount = Mathf.Lerp(0f, targetFill, elapsed / duration);
+            yield return null;
+        }
+
+        bossHealthFill.fillAmount = targetFill;
+        bossHealthIntroRoutine = null;
+    }
+    
+    
 
     private void UpdateWeaponIcon(WeaponData weapon)
     {

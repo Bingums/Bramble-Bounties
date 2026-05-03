@@ -51,6 +51,11 @@ public class DebugCommands : MonoBehaviour
         {
             LoadFloorFiveSelection();
         }
+
+        if (Input.GetKeyDown(KeyCode.F6))
+        {
+            KillPlayer();
+        }
     }
 
     private void LoadFloorFiveSelection()
@@ -82,5 +87,17 @@ public class DebugCommands : MonoBehaviour
         }
 
         Debug.Log($"Debug cleared room. Destroyed {destroyedEnemyCount} enemies.");
+    }
+
+    private void KillPlayer()
+    {
+        if (playerController.Instance == null)
+        {
+            Debug.Log("Cannot kill player: playerController not found.");
+            return;
+        }
+
+        playerController.Instance.TakeDamage(int.MaxValue);
+        Debug.Log("Debug killed player.");
     }
 }

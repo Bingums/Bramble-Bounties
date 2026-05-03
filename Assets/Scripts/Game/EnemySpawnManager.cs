@@ -113,6 +113,11 @@ public class EnemySpawnManager : MonoBehaviour
             currentBounty.MoveSpeedMultiplier
         );
 
+        if (hc != null)
+        {
+            hc.ShowBossHealth(ec);
+        }
+
         currentRoom.IncreaseEnemyCounts();
 
         while (currentRoom.enemyCount != 0)
