@@ -6,8 +6,6 @@ public class ClubSinger : EnemyController
     public AudioClip aoeStartSFX;
     public AudioClip idleSFX;
     private AudioSource audioSource;
-    
-    public int scoreValue = 5000;
 
     float aoeWarningTime = 2;
     float aoeTimer = 2;
@@ -21,6 +19,12 @@ public class ClubSinger : EnemyController
     void Start()
     {
         //audioSource = GetComponent<AudioSource>();
+    }
+
+    void Awake()
+    {
+        base.Awake();
+        scoreValue = 5000;
     }
 
     // Update is called once per frame
