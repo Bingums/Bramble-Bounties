@@ -17,7 +17,7 @@ public class EnemyController : MonoBehaviour, IDamageable
     protected float bulletSpeed;
     protected float range;
     //protected int scoreValue;
-
+    
     protected float distance;
     protected Rigidbody2D rb;
     protected Animator animator;
@@ -49,7 +49,8 @@ public class EnemyController : MonoBehaviour, IDamageable
     protected virtual void Update()
     {
         if(enemyType == 1){
-
+            distance = Vector2.Distance(transform.position, target.position);
+            moveDirection = (target.position - transform.position).normalized;
         }
         else if(target){
             distance = Vector2.Distance(transform.position, target.position);
@@ -60,7 +61,7 @@ public class EnemyController : MonoBehaviour, IDamageable
     protected virtual void FixedUpdate()
     {
         if(enemyType == 1){
-
+            rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
         }
         else if(target)
             rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;

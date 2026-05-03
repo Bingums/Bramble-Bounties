@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class ClubSinger : EnemyController
 {
+    [SerializeField] private GameObject aoeAttackPrefab;
+    [SerializeField] private GameObject aoeWarningPrefab;
+    private GameObject aoeAttack;
+    private GameObject aoeWarning;
+    
     public AudioClip warningSFX;
     public AudioClip aoeStartSFX;
     public AudioClip idleSFX;
@@ -9,43 +14,38 @@ public class ClubSinger : EnemyController
 
     float aoeWarningTime = 2;
     float aoeTimer = 2;
-    
     float attackTime = 1;
-
     bool aoeAttackFlag = false;
-    int speed = 2;
     
     protected override void Start()
     {
+        base.Start();
         scoreValue = 5000;
         //audioSource = GetComponent<AudioSource>();
     }
     
     protected override void Update()
     {
-        GameObject aoeAttack = GameObject.Find("AOE Attack");
-        GameObject warning = GameObject.Find("Warning");
-        GameObject Singer = GameObject.Find("ClubSingerBoss");
-        
-        if(speed == 0){
+        base.Update();
+        if(moveSpeed == 0){
             aoeWarningTime -= Time.deltaTime;
-            if(aoeWarningTime < 0){
-                transform.Find("AOE Attack").gameObject.SetActive(true);
+            if(aoeWarningTime < 0 && aoeAttack == null){
+                Destroy(aoeWarning);
+                aoeAttack = Instantiate(aoeAttackPrefab, transform.position, Quaternion.identity);
+                aoeAttack.GetComponent<SingerAOE>().InitializeDamage(attack);
                 //audioSource.PlayOneShot(aoeStartSFX);
-                transform.Find("Warning").gameObject.SetActive(false);
-                Debug.Log("Diabled");
+                Debug.Log("Disabled");
                 aoeAttackFlag = true;
             }
-            
             
             if(aoeAttackFlag){
                 attackTime -= Time.deltaTime;
             }
+            
             if(aoeAttackFlag && attackTime < 0){
-                transform.Find("AOE Attack").gameObject.SetActive(false);
+                Destroy(aoeAttack);
                 //audioSource.PlayOneShot(idleSFX);
-                Singer.GetComponent<EnemyMovement>().moveSpeed = 2;
-                speed = 2;
+                moveSpeed = 2;
                 aoeAttackFlag = false;
                 aoeWarningTime = aoeTimer;
                 attackTime = 1;
@@ -54,15 +54,11 @@ public class ClubSinger : EnemyController
     }
 
     void OnTriggerEnter2D(Collider2D collision){
-        GameObject Singer = GameObject.Find("ClubSingerBoss");
-        //GameObject warning = GameObject.Find("Warning");
-        if(collision.tag == "Player"){
-            if(Random.Range(0,3) < 1){
-                Singer.GetComponent<EnemyMovement>().moveSpeed = 0;
-                speed = 0;
-                transform.Find("Warning").gameObject.SetActive(true);
-                audioSource.PlayOneShot(warningSFX);
-                return;
+        if(collision.CompareTag("Player")){
+            if(aoeWarning == null){
+                moveSpeed = 0;
+                aoeWarning = Instantiate(aoeWarningPrefab, transform.position, Quaternion.identity);
+                //audioSource.PlayOneShot(warningSFX);
             }
         }
     }

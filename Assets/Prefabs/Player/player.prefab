@@ -82,8 +82,6 @@ GameObject:
   - component: {fileID: 2723421839756977093}
   - component: {fileID: 3825267960694175184}
   - component: {fileID: 1631481473021520283}
-  - component: {fileID: 8980190665566913765}
-  - component: {fileID: 8865582774007383684}
   - component: {fileID: 636095090653944532}
   - component: {fileID: 1839073854974380912}
   m_Layer: 0
@@ -159,7 +157,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 4518225611054890064, guid: cf8ab0a2b0c024848bd7e901f52c5a06, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -223,6 +221,7 @@ MonoBehaviour:
   lever: {fileID: 11400000, guid: dde52d77f35daad41baff5429fabac6c, type: 2}
   curSlot: 0
   displayedWeapon: {fileID: 8384075524707426629}
+  openEquipSlot: 0
   combatScript: {fileID: 0}
 --- !u!114 &1631481473021520283
 MonoBehaviour:
@@ -241,32 +240,6 @@ MonoBehaviour:
   isReloading: 0
   reloadProgress: 0
   shootSFX: {fileID: 0}
---- !u!114 &8980190665566913765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1615836025715716351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 816062b6e64499c47bc167976a16f97b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::playerStats
-  damageMultiplier: 1
---- !u!114 &8865582774007383684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1615836025715716351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b275250219b7fc49b7f1169ed6281df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::playerHealth
-  health: 100
 --- !u!95 &636095090653944532
 Animator:
   serializedVersion: 7
