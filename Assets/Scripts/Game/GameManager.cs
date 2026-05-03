@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     public int CurrentFloor => currentFloor;
     public int MinibossFloor => minibossFloor;
     public int Score { get; private set; }
+    public int HighScore { get; private set; } = 0;
     
     public event Action<int> OnScoreChanged;
     public event Action OnBountyOfferChanged;
@@ -222,6 +223,7 @@ public class GameManager : MonoBehaviour
     public void AddScore(int points)
     {
         Score += points;
+        HighScore = Math.Max(Score, HighScore);
         OnScoreChanged?.Invoke(Score);
     }
 
