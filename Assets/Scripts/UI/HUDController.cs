@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HUDController : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class HUDController : MonoBehaviour
     
     [Header("Augment UI")]
     [SerializeField] private GameObject augmentMenu;
+    [SerializeField] public Image blockerImage;
     [SerializeField] public Image infoImage;
     [SerializeField] public TMP_Text infoName;
     [SerializeField] public TMP_Text infoText;
@@ -37,6 +39,11 @@ public class HUDController : MonoBehaviour
     [SerializeField] private TMP_Text floorLabelText;
     [SerializeField] private int maxFloor = 5;
     
+    [Header("Game Menu UI")]
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject gameOverMenu;
+    [SerializeField] private GameObject victoryMenu; // doesnt exist rn
+    
     [Header("Alerts")]
     [SerializeField] public TMP_Text incomingWaveText;
     [SerializeField] public TMP_Text waveCountdownText;
@@ -51,6 +58,7 @@ public class HUDController : MonoBehaviour
     public AugmentSlot[] inventorySlots;
 
     private bool menuOpen = false;
+    private bool isPaused = false;
     
     private void OnEnable()
     {
@@ -71,14 +79,23 @@ public class HUDController : MonoBehaviour
         curAmmoText.gameObject.SetActive(false);
         ammoReservesText.gameObject.SetActive(false);
         noAmmoText.gameObject.SetActive(false);
+        
         fullInventoryText.gameObject.SetActive(false);
         augmentMenu.gameObject.SetActive(false);
+        blockerImage.gameObject.SetActive(false);
+        
         numWaveText.gameObject.SetActive(false);
         numEnemiesText.gameObject.SetActive(false);
         incomingWaveText.gameObject.SetActive(false);
         waveCountdownText.gameObject.SetActive(false);
         roomClearedText.gameObject.SetActive(false);
+        
         pickupPrompt.gameObject.SetActive(false);
+        
+        pauseMenu.SetActive(false);
+        gameOverMenu.SetActive(false);
+        if(victoryMenu != null) victoryMenu.SetActive(false); // doesnt exist rn
+        
         BindFloorLabel();
         RefreshFloorLabel();
 
@@ -109,17 +126,31 @@ public class HUDController : MonoBehaviour
 
         RefreshWeaponIcon();
         
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if ((gameOverMenu != null && gameOverMenu.activeSelf))
+                //|| (victoryMenu != null && victoryMenu.activeSelf))
+                return;
+
+            if (isPaused)
+                Resume();
+            else
+                Pause();
+        }
+        
         if (Input.GetKeyDown(KeyCode.Tab) && menuOpen)
         {
             menuOpen = !menuOpen;
             augmentMenu.SetActive(menuOpen);
+            blockerImage.enabled = !blockerImage.enabled;
             DeselectAllSlots();
             Time.timeScale = 1;
-        } else if (Input.GetKeyDown(KeyCode.Tab) && !menuOpen)
+        } else if (Input.GetKeyDown(KeyCode.Tab) && !menuOpen && !isPaused)
         {
             Time.timeScale = 0; // pauses game while in menu
             menuOpen = !menuOpen;
             augmentMenu.SetActive(menuOpen);
+            blockerImage.enabled = !blockerImage.enabled;
         }
         
         reloadBar.gameObject.SetActive(combatScript.isReloading);
@@ -465,6 +496,61 @@ public class HUDController : MonoBehaviour
     
         incomingWaveText.gameObject.SetActive(false);
         waveCountdownText.gameObject.SetActive(false);
+    }
+    
+    private void Pause()
+    {
+        if (menuOpen)
+        {
+            menuOpen = false;
+            augmentMenu.SetActive(false);
+            blockerImage.enabled = false;
+        }
+        
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+        isPaused = true;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void Resume()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+        isPaused = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void GameOver()
+    {
+        if (gameOverMenu != null)
+            gameOverMenu.SetActive(true);
+        Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void Victory()
+    {
+        if (victoryMenu != null)
+            victoryMenu.SetActive(true);
+        Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void QuitToTitle()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Title Screen");
+    }
+
+    public void Restart()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
 

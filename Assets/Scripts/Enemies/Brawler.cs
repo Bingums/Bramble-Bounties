@@ -18,7 +18,11 @@ public class Brawler : EnemyController
         scoreValue = 50;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision){
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (isDefeated)
+            return;
+        
         if(collision.CompareTag("Player") || collision.CompareTag("PlayerProjectile")
             || collision.CompareTag("Melee"))
         {
@@ -31,6 +35,7 @@ public class Brawler : EnemyController
             {
                 player.TakeDamage(attack);
             }
+            animator.SetTrigger("attacking");
         }
     }
 

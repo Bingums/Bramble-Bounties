@@ -7,7 +7,7 @@ public class BasicShooter : EnemyController
 {
     //Shooting Var
     public float firingDistance;
-    private float timer = 1;
+    private float timer = 1.5f;
     private float bulletTime;
     public GameObject bullet;
     public Transform spawnPoint;
@@ -42,9 +42,14 @@ public class BasicShooter : EnemyController
     
     private void ShootGun(){
         bulletTime -= Time.deltaTime;
-        if(bulletTime > 0) return;
+        if (bulletTime > 0)
+        {
+            animator.SetTrigger("waiting");
+            return;
+        }
         bulletTime = timer;
-
+        
+        animator.SetTrigger("attacking");
         GameObject shotBullet = Instantiate(bullet, spawnPoint.transform.position, spawnPoint.transform.rotation);
         shotBullet.GetComponent<EnemyBullet>().InitializeEnemyBullet(attack, bulletSpeed, range, moveDirection);
         audioSource.PlayOneShot(plasmaGunSFX);

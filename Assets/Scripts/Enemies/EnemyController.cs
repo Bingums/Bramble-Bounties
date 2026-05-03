@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using Combat;
 
@@ -23,14 +24,17 @@ public class EnemyController : MonoBehaviour, IDamageable
     protected Animator animator;
     protected Transform target;
     protected Vector2 moveDirection;
-    private bool isDefeated;
+    protected bool isDefeated;
 
     public int scoreValue = 10;
     public int enemyType;
+    
+    protected HUDController hc;
 
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.linearDamping = 0f;
         animator  = GetComponent<Animator>();
         
         maxHealth = baseMaxHealth;
@@ -43,11 +47,15 @@ public class EnemyController : MonoBehaviour, IDamageable
     
     protected virtual void Start()
     {
+        StartCoroutine(WaitForHUD());
         target = EnemySpawnManager.Instance.player;
     }
     
     protected virtual void Update()
     {
+        if (isDefeated)
+            return;
+        
         if(enemyType == 1){
             distance = Vector2.Distance(transform.position, target.position);
             moveDirection = (target.position - transform.position).normalized;
@@ -56,15 +64,27 @@ public class EnemyController : MonoBehaviour, IDamageable
             distance = Vector2.Distance(transform.position, target.position);
             moveDirection = (target.position - transform.position).normalized;
         }
+        
+        animator.SetFloat("TargetX", moveDirection.x);
+        animator.SetBool("isMoving", rb.linearVelocity.magnitude > 0.1f);
     }
     
     protected virtual void FixedUpdate()
     {
+        if (isDefeated)
+            return;
+        
+        Debug.Log("START - Velocity: " + (moveDirection * moveSpeed) + " | MoveDir: " + moveDirection + " | Speed: " + moveSpeed);
+        
         if(enemyType == 1){
             rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
         }
-        else if(target)
+        else if (target)
+        {
             rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
+        }
+        
+        Debug.Log("END - Velocity: " + (moveDirection * moveSpeed) + " | MoveDir: " + moveDirection + " | Speed: " + moveSpeed);
     }
     
     public void ScaleStats(float healthMultiplier, float attackMultiplier, float moveSpeedMultiplier)
@@ -83,13 +103,13 @@ public class EnemyController : MonoBehaviour, IDamageable
         }
 
         currentHealth -= damage;
-        Debug.Log($"{name} took {damage} damage. HP: {currentHealth}");
+        //Debug.Log($"{name} took {damage} damage. HP: {currentHealth}");
         if (currentHealth <= 0)
         {
             if(this is Boss)
             {
                 Defeat();
-                FindFirstObjectByType<PauseMenu>().Victory();
+                hc.Victory();
             }
             else
             {
@@ -127,7 +147,19 @@ public class EnemyController : MonoBehaviour, IDamageable
             if (healthSpawn <= 0.1f && EnemySpawnManager.Instance.healthPickup != null)
                 Instantiate(EnemySpawnManager.Instance.healthPickup, transform.position + new Vector3(0.15f, 0, 0), Quaternion.identity);
         }
-        Destroy(gameObject);
+        animator.SetTrigger("defeated");
+        moveSpeed = 0f;
+        rb.linearVelocity = Vector2.zero;
+        rb.linearDamping = 10000f;
+        Destroy(gameObject, 1f);
     }
     
+    IEnumerator WaitForHUD()
+    {
+        while (hc == null)
+        {
+            hc = GameObject.Find("HUD Container").GetComponentInChildren<HUDController>();
+            yield return null;
+        }
+    }
 }
