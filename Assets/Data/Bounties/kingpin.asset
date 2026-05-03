@@ -23,3 +23,4 @@ MonoBehaviour:
   moveSpeedMultiplier: 1
   extraEnemiesPerWave: 5
   extraWaves: 3
+  bountyValue: 8000

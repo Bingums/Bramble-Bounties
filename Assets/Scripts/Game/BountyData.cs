@@ -19,6 +19,7 @@ public class BountyData : ScriptableObject
     [SerializeField] private float moveSpeedMultiplier = 1f;
     [SerializeField] private int extraEnemiesPerWave = 0;
     [SerializeField] private int extraWaves = 0;
+    [SerializeField] private int bountyValue = 0;
 
     public string BountyId => bountyId;
     public string DisplayName => displayName;
@@ -33,6 +34,8 @@ public class BountyData : ScriptableObject
     public float MoveSpeedMultiplier => moveSpeedMultiplier;
     public int ExtraEnemiesPerWave => extraEnemiesPerWave;
     public int ExtraWaves => extraWaves;
+    public int Bounty => bountyValue;
+    
 
     private void OnValidate()
     {
@@ -41,5 +44,6 @@ public class BountyData : ScriptableObject
         moveSpeedMultiplier = Mathf.Max(0.1f, moveSpeedMultiplier);
         extraEnemiesPerWave = Mathf.Max(0, extraEnemiesPerWave);
         extraWaves = Mathf.Max(0, extraWaves);
+        bountyValue = Mathf.Max(0, Bounty);
     }
 }

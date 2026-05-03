@@ -11,7 +11,7 @@ public class playerHealth : MonoBehaviour
         Debug.Log("I AM HERE " + damage);
         if(health <= 0){
             //To add a animation call a new method and call destroy there
-           Destroy(gameObject);
+            FindFirstObjectByType<PauseMenu>().GameOver();
         }
     }
 }

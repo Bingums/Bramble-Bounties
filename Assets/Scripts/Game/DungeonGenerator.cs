@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 public class DungeonGenerator : MonoBehaviour
 {
     [Header("Dungeon Settings")]
-    public int roomsToCreate = 15;
+    public int roomsToCreate = 12;
     public int gridSize = 8;
 
     [Header("Room Pools")]

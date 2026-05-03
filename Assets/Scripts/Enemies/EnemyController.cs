@@ -85,7 +85,18 @@ public class EnemyController : MonoBehaviour, IDamageable
         Debug.Log($"{name} took {damage} damage. HP: {currentHealth}");
         if (currentHealth <= 0)
         {
-            Defeat();
+              if(this is Boss)
+            {
+                Defeat();
+                FindFirstObjectByType<PauseMenu>().Victory();
+            }
+            else
+            {
+                Defeat();
+            }
+
+          
+
         }
     }
 

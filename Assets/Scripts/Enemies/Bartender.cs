@@ -18,7 +18,6 @@ public class Bartender : EnemyController
     private int bottlesShot = 0;
 
     public GameObject bullet;
-    public int scoreValue = 100;
 
     private Vector2 playerLocation;
 
