@@ -16,7 +16,7 @@ public class Boss : EnemyController
     //Shooting Var
     public float firingDistance;
     private float timerbullets = .25f;
-    private float bulletTime;
+    private float bulletTime = 0f;
     public GameObject bullet;
     public Transform spawnPoint;
     private int bulletCount = 10;
@@ -37,9 +37,10 @@ public class Boss : EnemyController
         base.Update();
         playerLocation = new Vector2(target.position.x, target.position.y);
 
-        if(playerLocation.x < 25 && playerLocation.y < 25 && !playerContactFlag){
-            playerContactFlag = true;
-        }
+        if (Vector2.Distance(transform.position, playerLocation) < 25f && !playerContactFlag)
+    {
+        playerContactFlag = true;
+    }       
 
         if(playerContactFlag){//Player has reached the boss and the boss will not stop pursuit
 
@@ -48,18 +49,18 @@ public class Boss : EnemyController
                 timer = 0;
 
             }else if(randAttack == 1){//Charge Attack
-                timer -= Time.deltaTime;
-                if(timer > -.35f){
+                timer += Time.deltaTime;
+                if(timer < .35f){
                     moveSpeed = 2;
                     moveDirection = (target.position - transform.position).normalized;
-                    rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
-                }else if(timer > -2){
+                    rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
+                }else if(timer < 2){
                     moveSpeed = 10;
-                    rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed ;
+                    rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed ;
 
                 }else{
                     moveSpeed = 0;
-                    rb.linearVelocity = new Vector3(moveDirection.x, moveDirection.y, 0) * moveSpeed ;
+                    rb.velocity = new Vector3(moveDirection.x, moveDirection.y, 0) * moveSpeed ;
                     randAttack = -1;
                     timer = 0;
 
@@ -78,9 +79,13 @@ public class Boss : EnemyController
             }else{//Boss moves towards the player like a sort of cooldown I guess idk
                 moveSpeed = 2;
                 moveDirection = (target.position - transform.position).normalized;
-                rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed; 
-                timer -= Time.deltaTime;
-                if(timer < -3) randAttack = 0;
+                rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed; 
+                timer += Time.deltaTime;
+                if(timer > 3) 
+                {
+                    randAttack = 0;
+                    timer = 0;
+                }
             }
         }
         

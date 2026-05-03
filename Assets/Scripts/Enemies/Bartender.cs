@@ -32,7 +32,12 @@ public class Bartender : EnemyController
     
     protected override void Update()
     {
-        if(playerLocation.x < 25 && playerLocation.y < 25){
+        if (target == null) return;
+
+        playerLocation = target.position;
+        base.Update();
+        if (Vector2.Distance(transform.position, playerLocation) < 25f)
+        {
             throwBottleTime -= Time.deltaTime;
 
             if(throwBottleTime < 0 && bottleCount < maxBottles){
@@ -55,13 +60,13 @@ public class Bartender : EnemyController
                 }
             }else if(bottlesShot == maxBottles){
                 attackCoolDown -= Time.deltaTime;
-                //if(attackCoolDown < 0){
+                if(attackCoolDown < 0){
                     bottleCount = 0;
                     bottlesShot = 0;
                     bufferTimer = 2f;
                     throwBottleTime = 2;
                     attackCoolDown = 3;
-                //}
+                }
             }
         }
         
