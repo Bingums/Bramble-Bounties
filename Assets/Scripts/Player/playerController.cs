@@ -193,6 +193,7 @@ public class playerController : MonoBehaviour, IDamageable
 
         if (State.IsDead())
         {
+            FindObjectOfType<PauseMenu>().GameOver();
             Debug.Log("Player is dead");
         }
     }
