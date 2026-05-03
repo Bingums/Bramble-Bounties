@@ -8621,6 +8621,9 @@ MonoBehaviour:
   enemySpawnPoints: []
   playerSpawnPoint: {fileID: 6206718629594318514}
   doorColliders: []
+  doorOpen: []
+  isBossRoom: 0
+  teleporter: {fileID: 0}
   numWaves: 3
   currentWave: 0
   enemiesPerWave: 040000000600000008000000

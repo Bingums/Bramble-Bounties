@@ -1726,6 +1726,8 @@ MonoBehaviour:
   - {fileID: 5832069462297008516}
   - {fileID: 5295975416736459614}
   - {fileID: 1384411701695732848}
+  isBossRoom: 0
+  teleporter: {fileID: 0}
   numWaves: 3
   currentWave: 0
   enemiesPerWave: 040000000600000008000000
