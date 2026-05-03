@@ -385,11 +385,13 @@ public class BountySelectionUI : MonoBehaviour
 
         if (sceneController != null)
         {
-            sceneController.LoadScene(nextSceneName);
+            if (GameManager.Instance.CurrentFloor < 5) GameManager.Instance.LoadScene(nextSceneName);
+            else GameManager.Instance.LoadScene("Boss1");
         }
         else
         {
-            GameManager.Instance.LoadScene(nextSceneName);
+            if (GameManager.Instance.CurrentFloor < 5) GameManager.Instance.LoadScene(nextSceneName);
+            else GameManager.Instance.LoadScene("Boss1");
         }
 
         SetPanelVisible(false);

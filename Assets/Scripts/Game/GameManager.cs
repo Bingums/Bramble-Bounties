@@ -105,6 +105,8 @@ public class GameManager : MonoBehaviour
 
     public void StartNewRun()
     {
+        Debug.Log("Start a new run");
+
         currentFloor = 1;
         CurrentState = GameState.Playing;
 
@@ -269,6 +271,7 @@ public class GameManager : MonoBehaviour
 
     public void Quit()
     {
+        Debug.Log("Quitting Game");
         Application.Quit();
     }
 
@@ -286,6 +289,7 @@ public class GameManager : MonoBehaviour
 
     public void ResetScore()
     {
+        Debug.Log("Reset the Score");
         Score = 0;
         OnScoreChanged?.Invoke(Score);
     }

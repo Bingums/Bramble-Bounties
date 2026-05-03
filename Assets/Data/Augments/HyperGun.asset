@@ -23,7 +23,7 @@ MonoBehaviour:
     changeValue: 3
   - statType: 8
     changeType: 1
-    changeValue: 0.5
+    changeValue: 0.85
   - statType: 0
     changeType: 0
     changeValue: 50

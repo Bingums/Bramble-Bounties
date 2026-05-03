@@ -24,6 +24,13 @@ public class SceneController : MonoBehaviour
       StartCoroutine(LoadSceneCoroutine(sceneName));
    }
 
+    public void StartNewGame()
+    {
+        GameManager.Instance.StartNewRun();
+        GameManager.Instance.ResetScore();
+        LoadScene("Bounty Testing");
+    }
+
    private IEnumerator LoadSceneCoroutine(string sceneName)
    {
       yield return sceneFade.FadeOutCoroutine(sceneFadeDuration);
