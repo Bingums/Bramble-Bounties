@@ -11,6 +11,7 @@ public class ScoreManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+        score = 0;
         StartCoroutine(WaitForHUD());
     }
     
