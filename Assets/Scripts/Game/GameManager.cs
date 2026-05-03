@@ -95,6 +95,7 @@ public class GameManager : MonoBehaviour
         }
 
         BountyRunState = new BountyRunState();
+        ResetScore();
         GenerateBountyOffers();
     }
 
