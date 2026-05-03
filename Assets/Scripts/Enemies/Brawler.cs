@@ -26,7 +26,7 @@ public class Brawler : EnemyController
         }
         
         if(collision.CompareTag("Player")){
-            collision.GetComponentInParent<PlayerState>().TakeDamage(attack);
+            collision.GetComponent<playerController>().TakeDamage(attack);
         }
     }
 

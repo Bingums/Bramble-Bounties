@@ -37,7 +37,6 @@ public class PlayerState
         {
             return;
         }
-        
         CurrentHealth = Clamp(CurrentHealth - amount, 0f, MaxHealth);
         NotifyHealthChanged();
     }

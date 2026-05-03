@@ -93,7 +93,7 @@ public class Boss : EnemyController
         if(bulletTime > 0) return;
         bulletTime = timerbullets;
         moveDirection = (target.position - transform.position).normalized;
-        Debug.Log("LOG");
+        
         GameObject shotBullet = Instantiate(bullet, spawnPoint.transform.position, spawnPoint.transform.rotation);
         shotBullet.GetComponent<EnemyBullet>().InitializeEnemyBullet(attack, bulletSpeed, range, moveDirection);
         bulletCount --;
@@ -104,7 +104,7 @@ public class Boss : EnemyController
             
         GameObject player = GameObject.Find("player");
         if(collision.tag == "Player"){
-            collision.GetComponent<PlayerState>().TakeDamage(attack);
+            collision.GetComponent<playerController>().TakeDamage(attack);
             audioSource.PlayOneShot(SlamSFX);
         }
     }      

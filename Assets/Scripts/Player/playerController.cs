@@ -183,6 +183,7 @@ public class playerController : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damage)
     {
+        Debug.Log(damage);
         if (State == null)
         {
             return;
