@@ -33,14 +33,15 @@ public class BountyRunState
         FinalBossUnlocked = true;
     }
 
-    public void SelectFinalBoss(BountyData bounty)
+    public void SelectFinalBoss(BountyData bounty, bool forceSelection = false)
     {
-        if (!FinalBossUnlocked)
+        if (!FinalBossUnlocked && !forceSelection)
         {
             return;
         }
 
         SelectedFinalBoss = bounty;
+        FinalBossUnlocked = FinalBossUnlocked || forceSelection;
     }
 
     public void Reset()

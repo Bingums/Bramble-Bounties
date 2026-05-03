@@ -32,6 +32,10 @@ public class HUDController : MonoBehaviour
     
     [Header("Score UI")]
     [SerializeField] public TMP_Text scoreText;
+
+    [Header("Run UI")]
+    [SerializeField] private TMP_Text floorLabelText;
+    [SerializeField] private int maxFloor = 5;
     
     [Header("Alerts")]
     [SerializeField] public TMP_Text incomingWaveText;
@@ -75,6 +79,8 @@ public class HUDController : MonoBehaviour
         waveCountdownText.gameObject.SetActive(false);
         roomClearedText.gameObject.SetActive(false);
         pickupPrompt.gameObject.SetActive(false);
+        BindFloorLabel();
+        RefreshFloorLabel();
 
         for (int i = 0; i < equippedSlots.Length; i++)
         {
@@ -99,6 +105,7 @@ public class HUDController : MonoBehaviour
         }
         
         scoreText.text = "Score: " + GameManager.Instance.Score;
+        RefreshFloorLabel();
 
         RefreshWeaponIcon();
         
@@ -239,6 +246,35 @@ public class HUDController : MonoBehaviour
     {
         RefreshBars();
         RefreshWeaponIcon();
+        RefreshFloorLabel();
+    }
+
+    private void BindFloorLabel()
+    {
+        if (floorLabelText != null)
+        {
+            return;
+        }
+
+        TMP_Text[] labels = GetComponentsInChildren<TMP_Text>(true);
+        foreach (TMP_Text label in labels)
+        {
+            if (label.gameObject.name == "Floor Label")
+            {
+                floorLabelText = label;
+                return;
+            }
+        }
+    }
+
+    private void RefreshFloorLabel()
+    {
+        if (floorLabelText == null || GameManager.Instance == null)
+        {
+            return;
+        }
+
+        floorLabelText.text = "Floor " + GameManager.Instance.CurrentFloor + "/" + maxFloor;
     }
 
     private void RefreshBars()

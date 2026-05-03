@@ -46,6 +46,24 @@ public class DebugCommands : MonoBehaviour
             bountyBoard.SetActive(true);
             Debug.Log("Bounty board reopened.");
         }
+
+        if (Input.GetKeyDown(KeyCode.F5))
+        {
+            LoadFloorFiveSelection();
+        }
+    }
+
+    private void LoadFloorFiveSelection()
+    {
+        if (GameManager.Instance == null)
+        {
+            Debug.Log("Cannot load floor 5 selection: GameManager not found.");
+            return;
+        }
+
+        GameManager.Instance.DebugSetCurrentFloor(5);
+        GameManager.Instance.LoadScene("Bounty Testing");
+        Debug.Log("Debug loaded floor 5 bounty selection.");
     }
     
     private void KillAllEnemiesAndClearRoom()

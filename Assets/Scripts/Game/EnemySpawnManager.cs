@@ -37,8 +37,8 @@ public class EnemySpawnManager : MonoBehaviour
 
     private IEnumerator SpawnLoop()
     {
-        if (GameManager.Instance.GetSelectedBounty() != null)
-            currentBounty = GameManager.Instance.GetSelectedBounty();
+        if (GameManager.Instance.GetActiveBounty() != null)
+            currentBounty = GameManager.Instance.GetActiveBounty();
 
         if (currentRoom.isBossRoom)
         {

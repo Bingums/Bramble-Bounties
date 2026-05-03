@@ -5,6 +5,8 @@ public class NextFloor : MonoBehaviour
     [SerializeField]
     private Room room;
 
+    private bool hasTriggered;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,8 +23,11 @@ public class NextFloor : MonoBehaviour
     {
         Debug.Log("player touched goal");
         if (!Application.isPlaying) return;
+        if(hasTriggered) return;
         if (other.CompareTag("Player"))
         {
+            hasTriggered = true;
+            
             if (GameManager.Instance.CurrentFloor < 5)
             {
                 GameManager.Instance.AdvanceFloor();
