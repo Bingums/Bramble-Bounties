@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: AssaultRifle
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   weaponName: 6
-  damage: 5
+  damage: 4
   numBullets: 1
   bulletSpread: 0
-  attackCooldown: 0.12
+  attackCooldown: 0.2
   isMelee: 0
-  shotSpeed: 4
+  shotSpeed: 5
   range: 15
   currentAmmo: 30
   ammoCapacity: 30
