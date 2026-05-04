@@ -24,7 +24,7 @@ public class AugmentData : ScriptableObject
         copy.rarity = rarity;
         copy.weaponType = weaponType;
         copy.pickupPrefab = pickupPrefab;
-    
+        
         copy.statModifiers = new StatModifier[statModifiers.Length];
         for (int i = 0; i < statModifiers.Length; i++)
         {
@@ -35,7 +35,7 @@ public class AugmentData : ScriptableObject
                 changeValue = statModifiers[i].changeValue
             };
         }
-    
+        
         return copy;
     }
 }

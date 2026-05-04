@@ -54,9 +54,9 @@ public class playerController : MonoBehaviour, IDamageable
     private AugmentData[] equippedAugments = new AugmentData[8];
     public int openEquipSlot = 0;
     private AugmentData[] augmentInventory = new AugmentData[16];
-    private int openInventorySlot = 0;
+    public int openInventorySlot = 0;
     private AugmentPickup nearbyAugment;
-    private HUDController hc;
+    public HUDController hc;
 
     private PlayerState State => GameManager.Instance != null ? GameManager.Instance.PlayerState : null;
 
@@ -161,6 +161,9 @@ public class playerController : MonoBehaviour, IDamageable
         {
             EquipWeapon(SwordSlot);
         }
+
+        if (hc.menuOpen)
+            return;
 
         if (Input.GetKeyDown(KeyCode.E) && nearbyAugment != null)
         {
@@ -321,7 +324,7 @@ public class playerController : MonoBehaviour, IDamageable
 
     public void RemoveEquippedAugment(int slot)
     {
-        AugmentData augment = equippedAugments[slot];
+        AugmentData augment = equippedAugments[slot].GetCopy();
         equippedAugments[slot] = null;
         if (slot != openEquipSlot - 1)
         {
@@ -337,13 +340,32 @@ public class playerController : MonoBehaviour, IDamageable
 
         if (openInventorySlot < 16)
         {
-            augmentInventory[openInventorySlot] = augment;
+            augmentInventory[openInventorySlot] = augment.GetCopy();
             openInventorySlot++;
             hc.AddInventoryAugment(augment);
         }
         else
             Instantiate(augment.pickupPrefab, transform.position, Quaternion.identity);
 
+        hc.RefreshEquippedSlots(equippedAugments, openEquipSlot);
+        RecalculateStats();
+    }
+    
+    public void DropEquippedAugment(int slot)
+    {
+        AugmentData augment = equippedAugments[slot].GetCopy();
+        equippedAugments[slot] = null;
+        if (slot != openEquipSlot - 1)
+        {
+            for (int i = slot; i < openEquipSlot; i++)
+            {
+                if (equippedAugments[i + 1] == null)
+                    continue;
+                equippedAugments[i] = equippedAugments[i + 1];
+            }
+        }
+        openEquipSlot--;
+        Instantiate(augment.pickupPrefab, transform.position, Quaternion.identity);
         hc.RefreshEquippedSlots(equippedAugments, openEquipSlot);
         RecalculateStats();
     }
@@ -360,10 +382,34 @@ public class playerController : MonoBehaviour, IDamageable
         }
     }
 
-    public void RemoveAugment(int slot)
+    public void SwapAugment(int slot)
+    {
+        if (openEquipSlot < 8)
+        {
+            AugmentData augment = augmentInventory[slot].GetCopy();
+            EquipAugment(augment, slot);
+            augmentInventory[slot] = null;
+            openInventorySlot--;
+            hc.RefreshInventorySlots(augmentInventory, openInventorySlot);
+        }
+        else
+        {
+            AugmentData augment = augmentInventory[slot].GetCopy();
+            augmentInventory[slot] = null;
+            AugmentData swapped = equippedAugments[7].GetCopy();
+            equippedAugments[7] = null;
+        
+            equippedAugments[7] = augment;
+            augmentInventory[slot] = swapped;
+            hc.RefreshEquippedSlots(equippedAugments, openEquipSlot);
+            hc.RefreshInventorySlots(augmentInventory, openInventorySlot);
+            RecalculateStats();
+        }
+    }
+    
+    public void DropAugment(int slot)
     {
         AugmentData augment = augmentInventory[slot];
-
         augmentInventory[slot] = null;
         if (slot != openInventorySlot - 1)
         {
@@ -374,14 +420,9 @@ public class playerController : MonoBehaviour, IDamageable
                 augmentInventory[i] = augmentInventory[i + 1];
             }
         }
-
         openInventorySlot--;
         hc.RefreshInventorySlots(augmentInventory, openInventorySlot);
-
-        if (openEquipSlot < 8)
-            EquipAugment(augment, openEquipSlot);
-        else
-            Instantiate(augment.pickupPrefab, transform.position, Quaternion.identity);
+        Instantiate(augment.pickupPrefab, transform.position, Quaternion.identity);
     }
 
     private void RecalculateStats()

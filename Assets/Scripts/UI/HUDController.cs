@@ -24,7 +24,6 @@ public class HUDController : MonoBehaviour
     
     [Header("Augment UI")]
     [SerializeField] private GameObject augmentMenu;
-    [SerializeField] public Image blockerImage;
     [SerializeField] public Image infoImage;
     [SerializeField] public TMP_Text infoName;
     [SerializeField] public TMP_Text infoText;
@@ -61,7 +60,7 @@ public class HUDController : MonoBehaviour
     private EnemyController trackedBoss;
     private Coroutine bossHealthIntroRoutine;
 
-    private bool menuOpen = false;
+    public bool menuOpen = false;
     private bool isPaused = false;
     
     private void OnEnable()
@@ -86,9 +85,8 @@ public class HUDController : MonoBehaviour
         noAmmoText.gameObject.SetActive(false);
         bossHealthRoot.SetActive(false);
         
-        fullInventoryText.gameObject.SetActive(false);
         augmentMenu.gameObject.SetActive(false);
-        blockerImage.gameObject.SetActive(false);
+        fullInventoryText.gameObject.SetActive(false);
         
         numWaveText.gameObject.SetActive(false);
         numEnemiesText.gameObject.SetActive(false);
@@ -148,7 +146,6 @@ public class HUDController : MonoBehaviour
         {
             menuOpen = !menuOpen;
             augmentMenu.SetActive(menuOpen);
-            blockerImage.enabled = !blockerImage.enabled;
             DeselectAllSlots();
             Time.timeScale = 1;
         } else if (Input.GetKeyDown(KeyCode.Tab) && !menuOpen && !isPaused)
@@ -156,8 +153,26 @@ public class HUDController : MonoBehaviour
             Time.timeScale = 0; // pauses game while in menu
             menuOpen = !menuOpen;
             augmentMenu.SetActive(menuOpen);
-            blockerImage.enabled = !blockerImage.enabled;
         }
+        
+        if (menuOpen && !isPaused)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+                ShowWeaponInfo(player.weapons[0].augmentedData);
+            else if (Input.GetKeyDown(KeyCode.Alpha2))
+                ShowWeaponInfo(player.weapons[1].augmentedData);
+            else if (Input.GetKeyDown(KeyCode.Alpha3))
+                ShowWeaponInfo(player.weapons[2].augmentedData);
+            else if (Input.GetKeyDown(KeyCode.Alpha4))
+                ShowWeaponInfo(player.weapons[3].augmentedData);
+            else if (Input.GetKeyDown(KeyCode.Alpha5))
+                ShowWeaponInfo(player.weapons[4].augmentedData);
+            else if (Input.GetKeyDown(KeyCode.Alpha6))
+                ShowWeaponInfo(player.weapons[5].augmentedData);
+        }
+
+        if (menuOpen || isPaused)
+            return;
         
         reloadBar.gameObject.SetActive(combatScript.isReloading);
         reloadText.gameObject.SetActive(combatScript.isReloading);
@@ -277,6 +292,8 @@ public class HUDController : MonoBehaviour
     private void HandleWeaponChanged(WeaponData weapon)
     {
         UpdateWeaponIcon(weapon);
+        if (!menuOpen)
+            ShowWeaponInfo(weapon);
     }
 
     private void RefreshAll()
@@ -434,8 +451,6 @@ public class HUDController : MonoBehaviour
         bossHealthFill.fillAmount = targetFill;
         bossHealthIntroRoutine = null;
     }
-    
-    
 
     private void UpdateWeaponIcon(WeaponData weapon)
     {
@@ -473,18 +488,6 @@ public class HUDController : MonoBehaviour
         float fillAmount = maxValue <= 0f ? 0f : Mathf.Clamp01(currentValue / maxValue);
         fillImage.fillAmount = fillAmount;
     }
-
-    public void AddInventoryAugment(AugmentData augment)
-    {
-        for (int i = 0; i < inventorySlots.Length; i++)
-        {
-            if (inventorySlots[i].augment == null)
-            {
-                inventorySlots[i].AddItem(augment);
-                return;
-            }
-        }
-    }
     
     public void SetAugmentPromptVisible(bool visible)
     {
@@ -505,6 +508,18 @@ public class HUDController : MonoBehaviour
             }
         }
     }
+
+    public void AddInventoryAugment(AugmentData augment)
+    {
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            if (inventorySlots[i].augment == null)
+            {
+                inventorySlots[i].AddItem(augment);
+                return;
+            }
+        }
+    }
     
     public void DeselectAllSlots()
     {
@@ -519,7 +534,7 @@ public class HUDController : MonoBehaviour
             equippedSlots[i].selectedIndicator.SetActive(false);
             equippedSlots[i].selected = false;
         }
-
+        
         infoImage.enabled = false;
         infoName.text = "";
         infoText.text = "";
@@ -596,7 +611,6 @@ public class HUDController : MonoBehaviour
         {
             menuOpen = false;
             augmentMenu.SetActive(false);
-            blockerImage.enabled = false;
         }
         
         pauseMenu.SetActive(true);
@@ -643,6 +657,43 @@ public class HUDController : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    
+    private void ShowWeaponInfo(WeaponData weapon)
+    {
+        if (weapon == null) return;
+    
+        infoImage.sprite = weapon.weaponSprite;
+        infoImage.enabled = true;
+        infoImage.preserveAspect = true;
+        infoName.text = weapon.weaponName.ToString();
+        infoText.alignment = TextAlignmentOptions.Left;
+        infoText.text = BuildWeaponInfo(weapon);
+    }
+
+    private string BuildWeaponInfo(WeaponData weapon)
+    {
+        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+    
+        sb.AppendLine("Damage: " + weapon.damage);
+        if(weapon.isMelee)
+            sb.AppendLine("Attack Speed: " + weapon.attackCooldown);
+    
+        if (!weapon.isMelee)
+        {
+            sb.AppendLine("Rate of Fire: " + weapon.attackCooldown);
+            sb.AppendLine("Ammo: " + weapon.currentAmmo + " / " + weapon.ammoCapacity);
+            sb.AppendLine("Reserves: " + weapon.ammoReserves);
+            sb.AppendLine("Reload Time: " + weapon.reloadTime);
+            sb.AppendLine("Bullet Speed: " + weapon.shotSpeed);
+            sb.AppendLine("Range: " + weapon.range);
+            sb.AppendLine("Extra Bullets: " + (weapon.numBullets - 1));
+            
+            if (weapon.weaponName == WeaponType.Shotgun)
+                sb.AppendLine("Spread: " + weapon.bulletSpread);
+        }
+    
+        return sb.ToString();
     }
 }
 

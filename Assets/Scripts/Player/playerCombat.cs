@@ -32,12 +32,16 @@ public class playerCombat : MonoBehaviour
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         attackLayerIndex = animator.GetLayerIndex(AttackLayerName);
-        pc = GetComponent<playerController>();
+        pc = playerController.Instance;
     }
 
     void Update()
     {
         weapon = pc.weapons[pc.curSlot].augmentedData;
+
+        if (pc.hc.menuOpen)
+            return;
+        
         if (!isReloading && (((Input.GetKeyDown(KeyCode.R) && weapon.currentAmmo < weapon.ammoCapacity) || 
             (Input.GetMouseButtonDown(0) && weapon.currentAmmo == 0)) && 
             !weapon.isMelee && weapon.ammoReserves > 0))

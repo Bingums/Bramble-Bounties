@@ -54,6 +54,9 @@ public class WeaponData : ScriptableObject
         copy.reloadTime = this.reloadTime;
         copy.reloadUsage = this.reloadUsage;
         copy.attackSFX = this.attackSFX;
+        copy.weaponSprite = this.weaponSprite;
+        copy.weaponPrefab = this.weaponPrefab;
+        
         return copy;
     }
 }
