@@ -16,7 +16,7 @@ MonoBehaviour:
   augmentColor: {r: 0, g: 0, b: 0, a: 0}
   augmentName: Infinity
   description: REVOLVER ONLY - Ammo is no longer consumed
-  rarity: 4
+  rarity: 3
   statModifiers:
   - statType: 2
     changeType: 1

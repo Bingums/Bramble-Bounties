@@ -16,7 +16,7 @@ MonoBehaviour:
   augmentColor: {r: 0, g: 0, b: 0, a: 0}
   augmentName: Hypercharged Rifle
   description: AR ONLY - Extremely powerful, but takes much longer to reload
-  rarity: 4
+  rarity: 3
   statModifiers:
   - statType: 4
     changeType: 1
