@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9da1e40cf7704b747ac84f3a32756a1a, type: 3}
+  m_Name: ExtraPouch
+  m_EditorClassIdentifier: Assembly-CSharp::AugmentData
+  augmentSprite: {fileID: 6851247294367407245, guid: 4ebba415b1eab8c4e804c168d0f43b5a, type: 3}
+  augmentColor: {r: 0, g: 0, b: 0, a: 0}
+  augmentName: Extra Pouch
+  description: Increases Ammo Reserve
+  rarity: 0
+  statModifiers:
+  - statType: 1
+    changeType: 0
+    changeValue: 50
+  weaponType: 0
+  pickupPrefab: {fileID: 3582398815724647640, guid: 2c22c33e98818fc4cbd9abee09930e3e, type: 3}

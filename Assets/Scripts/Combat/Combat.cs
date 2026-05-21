@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Combat
 {
     public interface IDamageable

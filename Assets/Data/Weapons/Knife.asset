@@ -12,9 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bfe6cd4b8417224fafca602a7db158c, type: 3}
   m_Name: Knife
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
-  weaponName: Knife
-  baseDamage: 10
-  attackCooldown: 1.5
-  range: 2
+  weaponName: 7
+  damage: 10
+  numBullets: 0
+  bulletSpread: 0
+  attackCooldown: 0.35
   isMelee: 1
+  shotSpeed: 0
+  range: 2
+  currentAmmo: 0
+  ammoCapacity: 0
+  ammoReserves: 0
+  ammoUsage: 0
+  reloadTime: 0
+  reloadUsage: 0
+  attackSFX: {fileID: 8300000, guid: 6b4fdd2e8fd45074a9eb3aa961440454, type: 3}
+  rotation: {x: 0, y: 0, z: -55}
   weaponPrefab: {fileID: 4309655550504927745, guid: 2992f01da3e88c246830dfe6ea2830c4, type: 3}
+  weaponSprite: {fileID: -3656301783182984568, guid: 78f087ae54c509e499b02767c0a66381, type: 3}

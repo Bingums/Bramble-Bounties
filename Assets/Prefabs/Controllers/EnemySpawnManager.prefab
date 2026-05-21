@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4603152927024939307
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 878639623017018287}
+  - component: {fileID: 5019695346277797269}
+  - component: {fileID: 994421112448403061}
+  m_Layer: 0
+  m_Name: EnemySpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &878639623017018287
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4603152927024939307}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.82811, y: 1.79588, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5019695346277797269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4603152927024939307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c067aaedffc4534c87ace7f4e02da36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySpawnManager
+  enemyPrefabs:
+  - {fileID: 6561241342260376408, guid: 064b5e5ca62fa3b4d92866479bcda790, type: 3}
+  - {fileID: 4180373384447001821, guid: fbef9a0542c4dc24ca0c354ac0cdad01, type: 3}
+  augments:
+  - {fileID: 11400000, guid: 877956a34aee97c459ad5048790334cd, type: 2}
+  - {fileID: 11400000, guid: 8f8c5932d012a4842a6bd0aed8d7802a, type: 2}
+  - {fileID: 11400000, guid: 2b5a452decf0358448c388afdd36df3c, type: 2}
+  - {fileID: 11400000, guid: cf0e019782b0de5458fb282e961f40a6, type: 2}
+  - {fileID: 11400000, guid: 7e1dcc6f5196e2445b01f14119c31f78, type: 2}
+  - {fileID: 11400000, guid: d36d4a7e21f974640bfde816e3b45299, type: 2}
+  - {fileID: 11400000, guid: d0cd98cc571697f44a268782d57ff128, type: 2}
+  - {fileID: 11400000, guid: 4f02470a6323286499cea36667f9c4aa, type: 2}
+  - {fileID: 11400000, guid: ce68ec8efdfd16d448e06714b11085ec, type: 2}
+  - {fileID: 11400000, guid: dc8854acdf33eab4ab52f68d29d6bee1, type: 2}
+  - {fileID: 11400000, guid: ce5466763c992504b824019f6cb5ef09, type: 2}
+  - {fileID: 11400000, guid: c30577a184af29243a8012eb84b12470, type: 2}
+  - {fileID: 11400000, guid: ab629c48045bd58429bc79b7048a50f8, type: 2}
+  bossPrefabs: []
+  ammoPickup: {fileID: 5565153162892532106, guid: 07817ef1135e3a344ac977b22fd793ca, type: 3}
+  healthPickup: {fileID: 2667003354212447203, guid: d63a7c62eba65cd4cb9a9e7bdd6b23ac, type: 3}
+  player: {fileID: 0}
+  currentBounty: {fileID: 11400000, guid: 7f9555ef87e6bad4bb1e436b8266501f, type: 2}
+  hc: {fileID: 0}
+--- !u!114 &994421112448403061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4603152927024939307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28477bfc5d2a04d40b8a50cd9ad5a041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreManager
+  score: 0

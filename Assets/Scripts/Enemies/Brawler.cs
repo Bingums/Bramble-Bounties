@@ -1,34 +1,54 @@
+using System.Collections;
 using UnityEngine;
 
-public class Brawler : MonoBehaviour
+public class Brawler : EnemyController
 {
-    SpriteRenderer brownPants;
-    public int shitPantsChance;
-    Color shitBrown;
-    private float red = .4f, blue = .04f, green = .2f;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    SpriteRenderer brawlerRenderer;
+    Color brawlerColor;
+    Color damageColor = new Color(0.85f, 0.24f, 0.24f);
+    private AudioSource audioSource;
+    public AudioClip punchSFX;
+    
+    protected override void Awake()
     {
-        brownPants = GetComponent<SpriteRenderer>();
-        shitBrown = new Color(red, green, blue);
+        base.Awake();
+        brawlerRenderer = GetComponent<SpriteRenderer>();
+        brawlerColor = brawlerRenderer.color;
+        audioSource = GetComponent<AudioSource>();
+        scoreValue = 50;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-
-    }
-
-
-    public void OnTriggerEnter2D(Collider2D collision){
-        if(collision.CompareTag("Player"))
+        if (isDefeated)
+            return;
+        
+        if(collision.CompareTag("Player") || collision.CompareTag("PlayerProjectile")
+            || collision.CompareTag("Melee"))
         {
-            if(Random.Range(0, shitPantsChance) < 1){
-                brownPants.color = shitBrown;
-                Debug.Log("SHIT YOUR PaNTS");
-            }
-            
+            brawlerRenderer.color = damageColor;
         }
+        
+        if(collision.CompareTag("Player")){
+            playerController player = collision.GetComponentInParent<playerController>();
+            if (player != null)
+            {
+                player.TakeDamage(attack);
+            }
+            animator.SetTrigger("attacking");
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision){
+        if (collision.CompareTag("Player") || collision.CompareTag("PlayerProjectile")
+                                           || collision.CompareTag("Melee")) {
+            StartCoroutine(Recolor(0.2f));
+        }
+    }
+
+    IEnumerator Recolor(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        brawlerRenderer.color = brawlerColor;
     }
 }

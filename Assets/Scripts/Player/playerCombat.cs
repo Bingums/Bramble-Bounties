@@ -1,101 +1,224 @@
 using System;
+using System.Collections;
 using Combat;
 using UnityEngine;
-
-public enum WeaponType
-{
-    Revolver,
-    Shotgun,
-    Lever,
-    AssaultRifle,
-    Dagger,
-    Sword
-}
+using Random = UnityEngine.Random;
 
 public class playerCombat : MonoBehaviour
 {
-    //DEBUG LINE, REMOVE SERIALIZE FIELD
-    [SerializeField] public WeaponData currentWeapon;
-    [SerializeField] private GameObject currentWeaponInstance;
+    private static readonly int MouseDirHash = Animator.StringToHash("MouseDir");
+    private static readonly int MeleeStateHash = Animator.StringToHash("Melee");
+    private static readonly int ConditionStateHash = Animator.StringToHash("ConditionState");
+    private const string AttackLayerName = "Attack Layer";
 
-    private playerStats stats;
+    public WeaponData weapon;
+    private playerController pc;
+    public GameObject bullet;
     private float lastAttackTime;
+    private int attackLayerIndex = -1;
+    private Coroutine resetMeleeRoutine;
+    private Coroutine reloadRoutine;
+    
+    private Animator animator;
+    
+    public bool isReloading = false;
+    public float reloadProgress = 0f;
 
-    [SerializeField] private Transform weaponContainer;
-
-    private void Awake()
-    {
-        stats = GetComponent<playerStats>();
-    }
-
-    public void EquipWeapon(WeaponData newWeapon)
-    {
-        if(currentWeaponInstance != null)
-        {
-            Destroy(currentWeaponInstance);
-        }
-        
-        currentWeapon = newWeapon;
-
-        currentWeaponInstance = Instantiate(
-            newWeapon.weaponPrefab, 
-            weaponContainer);
-        
-        Debug.Log("Equipped: " + newWeapon.weaponName);
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private AudioSource audioSource;
+    public AudioClip shootSFX;
 
     void Start()
     {
-
+        animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+        attackLayerIndex = animator.GetLayerIndex(AttackLayerName);
+        pc = playerController.Instance;
     }
-
-    // Update is called once per frame
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
+        weapon = pc.weapons[pc.curSlot].augmentedData;
+
+        if (pc.hc.menuOpen)
+            return;
+        
+        if (!isReloading && (((Input.GetKeyDown(KeyCode.R) && weapon.currentAmmo < weapon.ammoCapacity) || 
+            (Input.GetMouseButtonDown(0) && weapon.currentAmmo == 0)) && 
+            !weapon.isMelee && weapon.ammoReserves > 0))
+            Reload();
+        else if(Input.GetMouseButtonDown(0) || Input.GetMouseButton(0))
             TryAttack();
-        }
     }
 
     void TryAttack()
     {
-        if (currentWeapon == null)
+        if (weapon == null || isReloading || Time.time < lastAttackTime + weapon.attackCooldown)
         {
             return;
         }
 
-        if (Time.time < lastAttackTime + currentWeapon.attackCooldown) return;
-
-        Debug.Log("Attacked");
-        lastAttackTime = Time.time; 
-        if(currentWeapon.isMelee && 
-           currentWeaponInstance.TryGetComponent<Melee>(out var meleeWeapon))
-        {
-            int damage = calculateDamage();
-            meleeWeapon.Initialize(damage);
-            meleeWeapon.Swing();
+        if (!weapon.isMelee && weapon.currentAmmo <= 0)
+        {           
+            return; 
         }
 
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 direction = (mousePos - (Vector2)transform.position).normalized;
+        lastAttackTime = Time.time; 
+        
+        if(weapon.isMelee)
+        {
+            audioSource.PlayOneShot(weapon.attackSFX); 
+            //Debug.Log("swinging");
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            if(45f <= angle && angle <= 135f) // up
+            {
+                animator.SetFloat(MouseDirHash, 0f);
+            }
+            else if(-45f <= angle && angle < 45f) //right
+            {
+                animator.SetFloat(MouseDirHash, 1f);
+            }
+            else if(-135f <= angle && angle <= -45f) // down
+            {
+                animator.SetFloat(MouseDirHash, 2f);
+            }
+            else //left
+            {
+                animator.SetFloat(MouseDirHash, 3f);
+            }
+
+            if (attackLayerIndex >= 0)
+            {
+                pc.SetEquippedWeaponVisible(true);
+                
+                animator.Play(MeleeStateHash, attackLayerIndex, 0f);
+                animator.Update(0f);
+                if (resetMeleeRoutine != null)
+                {
+                    StopCoroutine(resetMeleeRoutine);
+                }
+                resetMeleeRoutine = StartCoroutine(ResetMeleeState(weapon.attackCooldown));
+            }
+        } 
+        else
+        {
+          audioSource.PlayOneShot(weapon.attackSFX);
+            //Debug.Log("firing");
+            if (weapon.weaponName == WeaponType.Shotgun)
+            {
+                for (int i = 0; i < weapon.numBullets; i++)
+                {
+                    float bulletAngle = Random.Range(-weapon.bulletSpread/2f, weapon.bulletSpread/2f);
+                    float angleRadians = bulletAngle * Mathf.Deg2Rad;
+                    Vector2 bulletDirection = new Vector2(Mathf.Cos(angleRadians) * direction.x - Mathf.Sin(angleRadians) * direction.y, 
+                        Mathf.Sin(angleRadians) * direction.x + Mathf.Cos(angleRadians) * direction.y);
+                    
+                    GameObject newBullet = Instantiate(bullet, transform.position, Quaternion.identity);
+                    newBullet.GetComponent<PlayerBullet>().InitializePlayerBullet(weapon, bulletDirection);
+                }
+            }
+            else
+            {
+                Vector2 perpendicular = new Vector2(-direction.y, direction.x);
+                float spacing = 0.3f;
+                float bulletSpread = spacing * (weapon.numBullets - 1);
+                float initialOffset = -bulletSpread / 2f;
+
+                for (int i = 0; i < weapon.numBullets; i++)
+                {
+                    float curOffset = initialOffset + (i * spacing);
+                    Vector2 bulletPos = (Vector2)transform.position + perpendicular * curOffset;
+                    GameObject newBullet = Instantiate(bullet, bulletPos, Quaternion.identity);
+                    newBullet.GetComponent<PlayerBullet>().InitializePlayerBullet(weapon, direction);
+                }
+            }
+
+            float ammoUsage = weapon.ammoUsage;
+            float ammoRoll = Random.Range(0f, 1f);
+            while (ammoUsage > 0f)
+            {
+                if (ammoRoll <= ammoUsage)
+                    weapon.currentAmmo--;
+                if (weapon.currentAmmo == 0)
+                    ammoUsage = 0f;
+                ammoUsage -= 1f;
+            }
+            
+        }
     }
 
     private int calculateDamage()
     {
-        float damage = currentWeapon.baseDamage;
-        damage *= stats.damageMultiplier;
+        float damage = weapon.damage;
+        damage *= GameManager.Instance.PlayerState.DamageMultiplier;
+        
+        // grab augmented data to perform calcs & rng
 
         return Mathf.RoundToInt(damage);
     }
 
-    private void OnDrawGizmosSelected()
+    private IEnumerator ResetMeleeState(float waitTime)
     {
-        if (currentWeapon != null)
+        yield return new WaitForSeconds(waitTime);
+
+        if (attackLayerIndex >= 0)
         {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, currentWeapon.range);
+            animator.Play(ConditionStateHash, attackLayerIndex, 0f);
         }
+        
+        pc.SetEquippedWeaponVisible(false);
+
+        resetMeleeRoutine = null;
+    }
+
+    public void Reload()
+    {
+       if (isReloading)
+        return;
+
+       reloadRoutine = StartCoroutine(ReloadCoroutine());
+    }
+
+    public void CancelReload()
+    {
+        if (isReloading&& reloadRoutine != null)
+        {
+            StopCoroutine(ReloadCoroutine());
+            isReloading = false;
+            reloadProgress = 0f;
+        }
+    }
+
+    public void CancelMeleeReset()
+    {
+        if (resetMeleeRoutine != null)
+        {
+            StopCoroutine(resetMeleeRoutine);
+            resetMeleeRoutine = null;
+        }
+    }
+    
+    private IEnumerator ReloadCoroutine()
+    {
+        int usedAmmo = weapon.ammoCapacity - weapon.currentAmmo;
+        isReloading = true;
+        float elapsedTime = 0f;
+        float reloadTime = weapon.reloadTime;
+
+        while (elapsedTime < reloadTime)
+        {
+            elapsedTime += Time.deltaTime;
+            reloadProgress = elapsedTime / reloadTime;
+            yield return null;
+        }
+        
+        bool reduceAmmo = pc.weapons[pc.curSlot].Reload();
+        if (reduceAmmo)
+            weapon.ammoReserves -= usedAmmo;
+        weapon.ammoReserves = Mathf.Clamp(weapon.ammoReserves, 0, weapon.maxAmmoReserves);
+        
+        isReloading = false;
+        reloadProgress = 0f;
     }
 }

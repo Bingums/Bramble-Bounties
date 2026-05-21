@@ -1,0 +1,666 @@
+fileFormatVersion: 2
+guid: e8b680ae387f2b84f976af74cedd73aa
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4518225611054890064
+    second: Player-Sheet_0
+  - first:
+      213: 1871674578834246284
+    second: Player-Sheet_1
+  - first:
+      213: -8148742256322455360
+    second: Player-Sheet_2
+  - first:
+      213: 3489784368332026933
+    second: Player-Sheet_3
+  - first:
+      213: -3944583295012536477
+    second: Player-Sheet_4
+  - first:
+      213: 3090173003755996115
+    second: Player-Sheet_5
+  - first:
+      213: 8403341588387058359
+    second: Player-Sheet_6
+  - first:
+      213: 8222716190985997936
+    second: Player-Sheet_7
+  - first:
+      213: -3764308334532073066
+    second: Player-Sheet_8
+  - first:
+      213: -3961127741491812631
+    second: Player-Sheet_9
+  - first:
+      213: 2707164253404849536
+    second: Player-Sheet_10
+  - first:
+      213: 760240769326365700
+    second: Player-Sheet_11
+  - first:
+      213: 1723550264998150791
+    second: Player-Sheet_12
+  - first:
+      213: 3286906832049929247
+    second: Player-Sheet_13
+  - first:
+      213: 7634215581329522130
+    second: Player-Sheet_14
+  - first:
+      213: 5539777403619449140
+    second: Player-Sheet_15
+  - first:
+      213: -6321474878828185251
+    second: Player-Sheet_16
+  - first:
+      213: 2187288752748286106
+    second: Player-Sheet_17
+  - first:
+      213: -8430032442272652478
+    second: Player-Sheet_18
+  - first:
+      213: 6562097317275539161
+    second: Player-Sheet_19
+  - first:
+      213: 5492903409996221455
+    second: Player-Sheet_20
+  - first:
+      213: -5136658248656738812
+    second: Player-Sheet_21
+  - first:
+      213: 4115175211340068186
+    second: Player-Sheet_22
+  - first:
+      213: -7289432629376863316
+    second: Player-Sheet_23
+  - first:
+      213: -942514622319641326
+    second: Player-Sheet_24
+  - first:
+      213: -294642602615556148
+    second: Player-Sheet_25
+  - first:
+      213: 5880835566841204743
+    second: Player-Sheet_26
+  - first:
+      213: 4987427239981385008
+    second: Player-Sheet_27
+  - first:
+      213: -7982037637701653454
+    second: Player-Sheet_28
+  - first:
+      213: 279788311756991863
+    second: Player-Sheet_29
+  - first:
+      213: 9146317032455160448
+    second: Player-Sheet_30
+  - first:
+      213: 734970668744616759
+    second: Player-Sheet_31
+  - first:
+      213: 5537290091576006843
+    second: Player-Sheet_32
+  - first:
+      213: 683167888190345890
+    second: Player-Sheet_33
+  - first:
+      213: 8371124479561737453
+    second: Player-Sheet_34
+  - first:
+      213: -7146169704211471251
+    second: Player-Sheet_35
+  - first:
+      213: 4756445694378195312
+    second: Player-Sheet_36
+  - first:
+      213: -6661943786909208696
+    second: Player-Sheet_37
+  - first:
+      213: 6247541904362164926
+    second: Player-Sheet_38
+  - first:
+      213: -8832855272178935324
+    second: Player-Sheet_39
+  - first:
+      213: -2633081749001340994
+    second: Player-Sheet_40
+  - first:
+      213: -7026456048317513581
+    second: Player-Sheet_41
+  - first:
+      213: -7314879033136497074
+    second: Player-Sheet_42
+  - first:
+      213: 5313475678968076629
+    second: Player-Sheet_43
+  - first:
+      213: 4104606405068377637
+    second: Player-Sheet_44
+  - first:
+      213: 794970091359380848
+    second: Player-Sheet_45
+  - first:
+      213: 1055311230425530279
+    second: Player-Sheet_46
+  - first:
+      213: 3117039268344532003
+    second: Player-Sheet_47
+  - first:
+      213: -2993312313539927684
+    second: Player-Sheet_48
+  - first:
+      213: -1690472114469891183
+    second: Player-Sheet_49
+  - first:
+      213: -5480493649755755365
+    second: Player-Sheet_50
+  - first:
+      213: 87804086820901117
+    second: Player-Sheet_51
+  - first:
+      213: -2284820530962760786
+    second: Player-Sheet_52
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 96
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Player-Sheet-Flipped_4
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 836
+        width: 38
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9117520e31c6ade488e569d867316785
+      internalID: -1243019736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-Sheet-Flipped_3
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 832
+        width: 38
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54f0382e7ac562d4392a7e3f35f053b4
+      internalID: 710988298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-Sheet-Flipped_2
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 836
+        width: 50
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 469088cc41eb94643a9571e9d50cc35d
+      internalID: 1780350874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-Sheet-Flipped_1
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 842
+        width: 70
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10b6eace055d59147b1a8e95cd1eb1ea
+      internalID: -866004374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-Sheet-Flipped_11
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 650
+        width: 70
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d366b0fbde06e84ca589200a2b3e001
+      internalID: 1779646266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-Sheet-Flipped_10
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 652
+        width: 50
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45b4606928b4f15499ddfc2a22d81c33
+      internalID: -977506551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-Sheet-Flipped_9
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 646
+        width: 44
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b51e1fc981b94dd42aa314290c17a3e5
+      internalID: 1192220005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-Sheet-Flipped_8
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 642
+        width: 34
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a7c9d2181437dc4c86be03af41df37d
+      internalID: 445312960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-Sheet-Flipped_7
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 646
+        width: 46
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b55c9c9ecc4f424b9c7c846cec2b896
+      internalID: 337030339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-Sheet-Flipped_6
+      rect:
+        serializedVersion: 2
+        x: 1034
+        y: 654
+        width: 50
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5e333b253df7fc4ba6271c0346ccc58
+      internalID: 167766543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-Sheet-Flipped_5
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 653
+        width: 48
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b51b1448b13b0504baf3a69631b281fa
+      internalID: -1387949696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-Sheet-Flipped_15
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 460
+        width: 52
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdf3d4faa7c0e1c409058bfea942b0b1
+      internalID: -1560934181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-Sheet-Flipped_14
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 452
+        width: 38
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df8c3eab66022074bbe532625f731161
+      internalID: -997484387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-Sheet-Flipped_13
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 448
+        width: 42
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e21949860db84e478bdd831c2e518b2
+      internalID: -1699116143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-Sheet-Flipped_12
+      rect:
+        serializedVersion: 2
+        x: 1218
+        y: 452
+        width: 50
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 825d374681f827a499d3c62ba2b97fb9
+      internalID: 2091862303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5b0d53d869ae69b4aa5af5c1dd3b26ac
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Player-Sheet-: 1192220005
+      Player-Sheet-Flipped_0: -1838449812
+      Player-Sheet-Flipped_1: -866004374
+      Player-Sheet-Flipped_10: -977506551
+      Player-Sheet-Flipped_11: 1779646266
+      Player-Sheet-Flipped_12: 2091862303
+      Player-Sheet-Flipped_13: -1699116143
+      Player-Sheet-Flipped_14: -997484387
+      Player-Sheet-Flipped_15: -1560934181
+      Player-Sheet-Flipped_2: 1780350874
+      Player-Sheet-Flipped_21: 1189807947
+      Player-Sheet-Flipped_22: -1380547743
+      Player-Sheet-Flipped_23: 1743878255
+      Player-Sheet-Flipped_28: 973852192
+      Player-Sheet-Flipped_3: 710988298
+      Player-Sheet-Flipped_30: 75361292
+      Player-Sheet-Flipped_31: -196409853
+      Player-Sheet-Flipped_32: 1045744691
+      Player-Sheet-Flipped_33: -822065667
+      Player-Sheet-Flipped_34: -1997917105
+      Player-Sheet-Flipped_35: 1747062269
+      Player-Sheet-Flipped_36: -1435996591
+      Player-Sheet-Flipped_37: 30648455
+      Player-Sheet-Flipped_38: -1785380334
+      Player-Sheet-Flipped_39: 2098095989
+      Player-Sheet-Flipped_4: -1243019736
+      Player-Sheet-Flipped_40: 1169538645
+      Player-Sheet-Flipped_41: 853602938
+      Player-Sheet-Flipped_42: 1810762213
+      Player-Sheet-Flipped_43: -19798149
+      Player-Sheet-Flipped_44: 361471117
+      Player-Sheet-Flipped_45: -1892933056
+      Player-Sheet-Flipped_46: 2076714667
+      Player-Sheet-Flipped_47: -326607369
+      Player-Sheet-Flipped_48: 896907865
+      Player-Sheet-Flipped_49: 1252836332
+      Player-Sheet-Flipped_5: -1387949696
+      Player-Sheet-Flipped_50: 1811646931
+      Player-Sheet-Flipped_51: -216558400
+      Player-Sheet-Flipped_52: 2029731568
+      Player-Sheet-Flipped_53: -478693375
+      Player-Sheet-Flipped_6: 167766543
+      Player-Sheet-Flipped_7: 337030339
+      Player-Sheet-Flipped_8: 445312960
+      Player-Sheet-Flipped_9: 1192220005
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

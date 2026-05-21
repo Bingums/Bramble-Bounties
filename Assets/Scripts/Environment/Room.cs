@@ -3,47 +3,164 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-    [SerializeField] private Transform[] spawnPoints;
-    private int enemyCap = 16;
-    private int curEnemyCount = 0;
-    private bool isCleared = false;
+    [Header("Spawn Points")]
+    [SerializeField] private Transform[] enemySpawnPoints; // first 4 points for enemies
+    [SerializeField] private Transform playerSpawnPoint;   // dedicated player spawn
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private BoxCollider2D[] doorColliders;
+    [SerializeField] private CircleCollider2D[] doorOpen;
+
+    [SerializeField] public bool isBossRoom;
+    [SerializeField] private BoxCollider2D teleporter;
+    
+    public int numWaves = 3;
+    public int currentWave = 0;
+    public int[] enemiesPerWave = { 4, 6, 8 };
+    //private bool waveCleared = false;
+    private int spawnedEnemyCount = 0;
+    private int baseNumWaves;
+    private int[] baseEnemiesPerWave;
+    private bool hasStartedSpawning;
+    public int enemyCount = 0;
+    public bool isCleared = false;
+    
+    // Door & Wall references
+    public GameObject rightDoor, leftDoor, topDoor, bottomDoor;
+    public GameObject rightWall, leftWall, topWall, bottomWall;
+
+    public enum Direction { Right, Left, Top, Bottom }
+
+    private void Awake()
     {
+        baseNumWaves = numWaves;
+        baseEnemiesPerWave = (int[])enemiesPerWave.Clone();
+    }
+
+    // -------------------------
+    // Enemy / Room Methods
+    // -------------------------
+    public bool AtCap()
+    {
+        if (currentWave >= enemiesPerWave.Length) return true;
+        return spawnedEnemyCount >= enemiesPerWave[currentWave];
+    }
+    public void IncreaseEnemyCounts()
+    {
+        spawnedEnemyCount++;
+        enemyCount++;
+    }
+
+    public void ResetEnemyCounts()
+    {
+        spawnedEnemyCount = 0;
+        enemyCount = 0;
+    }
+    public void DecreaseEnemyCount() => enemyCount--;
+
+    public Transform[] GetEnemySpawns() => enemySpawnPoints;
+
+    // -------------------------
+    // Player Spawn Getter
+    // -------------------------
+    public Transform GetPlayerSpawn()
+    {
+        if (playerSpawnPoint != null)
+            return playerSpawnPoint;
+
+        // fallback: slightly above room center
+        Transform temp = new GameObject("AutoPlayerSpawn").transform;
+        temp.position = transform.position + Vector3.up * 1f;
+        temp.parent = transform;
+        return temp;
+    }
+
+    // -------------------------
+    // Door / Wall Methods
+    // -------------------------
+    public void EnableDoor(Direction dir)
+    {
+        switch (dir)
+        {
+            case Direction.Right: if (rightDoor) rightDoor.SetActive(true); if (rightWall) rightWall.SetActive(false); break;
+            case Direction.Left: if (leftDoor) leftDoor.SetActive(true); if (leftWall) leftWall.SetActive(false); break;
+            case Direction.Top: if (topDoor) topDoor.SetActive(true); if (topWall) topWall.SetActive(false); break;
+            case Direction.Bottom: if (bottomDoor) bottomDoor.SetActive(true); if (bottomWall) bottomWall.SetActive(false); break;
+        }
+    }
+
+    public void DisableDoor(Direction dir)
+    {
+        switch (dir)
+        {
+            case Direction.Right: if (rightDoor) rightDoor.SetActive(false); if (rightWall) rightWall.SetActive(true); break;
+            case Direction.Left: if (leftDoor) leftDoor.SetActive(false); if (leftWall) leftWall.SetActive(true); break;
+            case Direction.Top: if (topDoor) topDoor.SetActive(false); if (topWall) topWall.SetActive(true); break;
+            case Direction.Bottom: if (bottomDoor) bottomDoor.SetActive(false); if (bottomWall) bottomWall.SetActive(true); break;
+        }
+    }
+
+    public void DisableAllDoors()
+    {
+        DisableDoor(Direction.Right);
+        DisableDoor(Direction.Left);
+        DisableDoor(Direction.Top);
+        DisableDoor(Direction.Bottom);
+    }
+
+    public void SetDoors(bool up, bool down, bool left, bool right)
+    {
+        if (up) EnableDoor(Direction.Top); else DisableDoor(Direction.Top);
+        if (down) EnableDoor(Direction.Bottom); else DisableDoor(Direction.Bottom);
+        if (left) EnableDoor(Direction.Left); else DisableDoor(Direction.Left);
+        if (right) EnableDoor(Direction.Right); else DisableDoor(Direction.Right);
+    }
+    
+    public void LockDoors(bool locked)
+    {
+        for (int i = 0; i < doorColliders.Length; i++)
+        {
+            doorColliders[i].enabled = locked;
+            doorOpen[i].enabled = !locked;
+
+            if (isBossRoom && !locked)
+            {
+                teleporter.enabled = true;
+            }
+            else if(isBossRoom && locked)
+            {
+                teleporter.enabled = false;
+            }
+        }
+    }
+    public void ScaleWaves(int extraWaves, int extraEnemiesPerWave)
+    {
+        numWaves = baseNumWaves + extraWaves;
         
-    }
+        int[] newEnemiesPerWave = new int[numWaves];
 
-    // Update is called once per frame
-    void Update()
-    {
+        for (int i = 0; i < baseEnemiesPerWave.Length && i < newEnemiesPerWave.Length; i++)
+        {
+            newEnemiesPerWave[i] = baseEnemiesPerWave[i] + extraEnemiesPerWave;
+        }
+
+        for (int i = baseEnemiesPerWave.Length; i < numWaves; i++)
+        {
+            int fallbackWaveIndex = Mathf.Max(0, i - 3);
+            newEnemiesPerWave[i] = newEnemiesPerWave[i - 1] + newEnemiesPerWave[fallbackWaveIndex];
+        }
         
+        enemiesPerWave = newEnemiesPerWave;
     }
 
-    public bool atCap()
-    {
-        if(curEnemyCount >= enemyCap) return true;
-        return false;
-    }
 
-    public bool isRoomCleared()
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        return isCleared;
-    }
-
-    public void IncreaseEnemyCount()
-    {
-        Debug.Log(curEnemyCount);
-        curEnemyCount++;
-    }
-
-    public void DecreaseEnemyCount()
-    {
-        curEnemyCount--;
-    }
-
-    public Transform[] GetSpawnPoints()
-    {
-        return spawnPoints;
+        if (!Application.isPlaying) return;
+        if (collision.CompareTag("Player") && !hasStartedSpawning && !isCleared)
+        {
+            hasStartedSpawning = true;
+            LockDoors(true);
+            EnemySpawnManager.Instance.StartSpawning(this);
+        }
     }
 }
